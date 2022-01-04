@@ -73,64 +73,71 @@ const MyProducts = ({ id }) => {
         {/* <h2>Your Orders</h2> */}
         <div className="container">
           <ul class="list-group shadow">
-          {myproducts?.map((prod) => (
-            <li class="list-group-item">
-              <div class="card mb-3">
-                <div class="row no-gutters">
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">{prod.pName}</h5>
-                      <p class="card-text prodDesc">
-                        {prod.pDescription}
-                      </p>
-                      <p class="card-title"><b>Rs. {prod.price}</b></p>
-                      <p class="card-text">
-                      <ul class="list-group list-group-horizontal-xl center">
-                        <li class="list-group-item borderless">Brand: <b>{prod.brand}</b></li>
-                        <li class="list-group-item">In Stock: <b>{prod.stock}</b></li>
-                      
-                        <li class="list-group-item">
-                          <button
-                            className="btn btn-sm btn-outline-success m-1"
-                            onClick={() => {
-                              setModalShow(true);
-                            }}
-                          >
-                          Edit
-                          </button>
+            {myproducts?.map((prod) => (
+              <li class="list-group-item">
+                <div class="card mb-3">
+                  <div class="row no-gutters">
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">{prod.pName}</h5>
+                        <p class="card-text prodDesc">{prod.pDescription}</p>
+                        <p class="card-title">
+                          <b>Rs. {prod.price}</b>
+                        </p>
+                        <p class="card-text">
+                          <ul class="list-group list-group-horizontal-xl center">
+                            <li class="list-group-item borderless">
+                              Brand: <b>{prod.brand}</b>
+                            </li>
+                            <li class="list-group-item">
+                              In Stock: <b>{prod.stock}</b>
+                            </li>
 
-                          {modalShow && (
-                            <EditProduct
-                              product={prod}
-                              show={modalShow}
-                              onHide={() => setModalShow(false)}
-                            />
-                          )}
-                        </li>
-                        <li class="list-group-item">
-                          <button
-                            className="btn btn-sm btn-outline-success m-1"
-                            onClick={() => deleteHandler(prod._id)}
-                          >
-                            Delete
-                          </button>
-                        </li>
-                      </ul>
-                      </p>
+                            <li class="list-group-item">
+                              <button
+                                className="btn btn-sm btn-outline-success m-1"
+                                onClick={() => {
+                                  setModalShow(true);
+                                }}
+                              >
+                                Edit
+                              </button>
+
+                              {modalShow && (
+                                <EditProduct
+                                  product={prod}
+                                  show={modalShow}
+                                  onHide={() => setModalShow(false)}
+                                />
+                              )}
+                            </li>
+                            <li class="list-group-item">
+                              <button
+                                className="btn btn-sm btn-outline-success m-1"
+                                onClick={() => deleteHandler(prod._id)}
+                              >
+                                Delete
+                              </button>
+                            </li>
+                          </ul>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <img
+                        src={`/uploads/${prod.prodImage}`}
+                        className="login-logo"
+                        alt="product"
+                        width="300px"
+                        height="300px"
+                      />
                     </div>
                   </div>
-                  <div class="col-md-4">
-                  
-                        <img 
-                        src={product}
-                        className="login-logo" alt="product" />
-                  </div>
                 </div>
-              </div>
-            </li>
-             ))}
+              </li>
+            ))}
           </ul>
-        </div> 
+        </div>
       </div>
     </>
   );
