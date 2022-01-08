@@ -1,9 +1,10 @@
-import { React, useEffect, useState } from "react";
+import { React, useEffect, useState, useContext } from "react";
 import { useHistory, Link } from "react-router-dom";
 import logo from "../images/logo.png";
 import avatar from "../images/avatar.png";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import { UserContext } from "../App";
 
 //copied from LoginPage.js
 // ******************* - toggle password - ********************
@@ -17,6 +18,7 @@ function showPwd() {
 }
 
 function LoginPage() {
+  const { state, dispatch } = useContext(UserContext);
   const history = useHistory();
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -35,6 +37,7 @@ function LoginPage() {
         .post("/signinin", CR)
         .then((res) => {
           localStorage.setItem("id", res.data.id);
+          dispatch({ type: "USER", payload: true });
           window.alert("Login Successfully!");
           history.push(`/seller`);
         })

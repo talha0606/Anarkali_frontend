@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useParams, useHistory } from "react-router-dom";
 import avatar from "../images/avatar.png";
 import MyProducts from "./MyProducts";
 import {
-  FaFacebookF, FaTwitter, FaInstagram, FaGooglePlusG, FaEnvelope,
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaGooglePlusG,
+  FaEnvelope,
 } from "react-icons/fa";
 import Footer from "./Footer";
 
 const Seller = () => {
+  const history = useHistory();
   const [modalShow, setModalShow] = useState(false);
   const [id, setId] = useState("");
   const [shopaddress, setshopAddress] = useState("");
@@ -37,12 +42,17 @@ const Seller = () => {
       setshopEmail(data[0].email);
       setshopImage(data[0].shopImage);
 
-      if (!res.status === 200) {
-        const error = new Error(res.error);
-        throw error;
-      }
+      // if (!res.status === 200) {
+      //   const error = new Error(res.error);
+      //   throw error;
+      // }
+
+      // if (res.status === 401) {
+      //
+      // }
     } catch (err) {
-      console.log("home page error" + err);
+      history.push("/login");
+      // console.log("home page error: " + err);
     }
   };
 
@@ -70,45 +80,42 @@ const Seller = () => {
               <div class="image d-flex flex-column justify-content-center align-items-center">
                 <span class="name mt-3">{shopName}</span>
                 <span class="idd">{shopaddress}</span>
-                
-                <div className=" d-flex mt-2"> 
-                  <button class="btn btn-sm btn-outline-success m-1">Edit Profile</button> 
+
+                <div className=" d-flex mt-2">
+                  <button class="btn btn-sm btn-outline-success m-1">
+                    Edit Profile
+                  </button>
                 </div>
-                <div class="text mt-3"> 
-                  <span>
-                    {shopDescription}
-                  </span> 
+                <div class="text mt-3">
+                  <span>{shopDescription}</span>
                 </div>
-                <div class="text mt-3"> 
-                  <span>
-                  {shopemail}
-                  </span> 
+                <div class="text mt-3">
+                  <span>{shopemail}</span>
                 </div>
                 <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center">
-                  <span> 
+                  <span>
                     <Link className="s-link" aria-current="page" to="/">
                       <FaFacebookF />
                     </Link>
-                  </span> 
-                  <span> 
+                  </span>
+                  <span>
                     <Link className="s-link" aria-current="page" to="/">
                       <FaTwitter />
                     </Link>
-                  </span> 
-                  <span> 
+                  </span>
+                  <span>
                     <Link className="s-link" aria-current="page" to="/">
                       <FaGooglePlusG />
                     </Link>
-                  </span> 
-                  <span> 
+                  </span>
+                  <span>
                     <Link className="s-link" aria-current="page" to="/">
                       <FaEnvelope />
                     </Link>
-                  </span> 
-                 
+                  </span>
                 </div>
-                <div class=" px-2 rounded mt-4 date "> 
-                  <span class="join">Joined May,2021</span> 
+                <div class=" px-2 rounded mt-4 date ">
+                  <span class="join">Joined May,2021</span>
                 </div>
               </div>
             </div>
@@ -120,7 +127,6 @@ const Seller = () => {
             Add New Product
           </Link>
         </div>
-
 
         <div className="products">
           <h2>My Products</h2>

@@ -55,7 +55,7 @@ const EditProduct = (props) => {
 
   const onChangeClick = (e) => {
     // e.preventDefault();
-
+    console.log("EditProduct: ");
     const fd = new FormData();
     fd.append("id", id);
     fd.append("sellerId", sellerid);

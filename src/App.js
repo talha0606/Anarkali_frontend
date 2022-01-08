@@ -14,51 +14,65 @@ import ModalTesting from "./components/ModalTesting";
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import LoginPage from "./components/LoginPage";
+import LogoutPage from "./components/LogoutPage";
 import SignUpPage from "./components/SignUpPage";
 
+import { useReducer, createContext } from "react";
+import { initialState, reducer } from "./reducer/UseReducer";
+import Logout from "@mui/icons-material/Logout";
+
+// we create a contextAPI
+export const UserContext = createContext();
+
 function App() {
+  //* we use useReducer
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   return (
     <>
-      <Navbar />
-      <Sidebar />
-      {/* <div class="container-fluid box"> */}
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/login">
-          <LoginPage />
-        </Route>
-        <Route exact path="/admin">
-          <AdminPage />
-        </Route>
-        <Route exact path="/seller">
-          <Seller />
-        </Route>
-        <Route exact path="/addProduct">
-          <AddProduct />
-        </Route>
-        {/* <Route exact path="/myProducts">
+      <UserContext.Provider value={{ state, dispatch }}>
+        <Navbar />
+        <Sidebar />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/login">
+            <LoginPage />
+          </Route>
+          <Route exact path="/logout">
+            <LogoutPage />
+          </Route>
+          <Route exact path="/admin">
+            <AdminPage />
+          </Route>
+          <Route exact path="/seller">
+            <Seller />
+          </Route>
+          <Route exact path="/addProduct">
+            <AddProduct />
+          </Route>
+          {/* <Route exact path="/myProducts">
           <MyProducts />
         </Route> */}
-        <Route exact path="/cart">
-          <Cart />
-        </Route>
-        <Route exact path="/file">
-          <FileUpload />
-        </Route>
-        <Route exact path="/signup">
-          <SignUpPage />
-        </Route>
-        <Route exact path="/testing">
-          <ModalTesting />
-        </Route>
-        <Route>
-          <Error />
-        </Route>
-      </Switch>
-      {/* </div> */}
-      
+          <Route exact path="/cart">
+            <Cart />
+          </Route>
+          <Route exact path="/file">
+            <FileUpload />
+          </Route>
+          <Route exact path="/signup">
+            <SignUpPage />
+          </Route>
+          <Route exact path="/testing">
+            <ModalTesting />
+          </Route>
+          <Route>
+            <Error />
+          </Route>
+        </Switch>
+        {/* </div> */}
+      </UserContext.Provider>
     </>
   );
 }
