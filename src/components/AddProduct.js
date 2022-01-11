@@ -1,9 +1,10 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import logo from "../images/logo.png";
 import avatar from "../images/avatar.png";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import { storage } from "../firebase/firebase.js";
 import classNames from "classnames";
 
 // import User from "../../../server/model/userSchema";
@@ -15,10 +16,13 @@ const AddProduct = () => {
   const [pdescription, setpdescription] = useState("");
   const [price, setprice] = useState("");
   const [previewimage, setpreviewimage] = useState(avatar);
-  const [filename, setfilename] = useState("");
+  // const [filename, setfilename] = useState("");
   const [category, setcateory] = useState(1);
   const [brand, setbrand] = useState("");
   const [stock, setstock] = useState("");
+  const [image, setImage] = useState(null);
+  const [url, setUrl] = useState("");
+  const [progress, setProgress] = useState("");
 
   //categories
   const categories = [
@@ -34,17 +38,17 @@ const AddProduct = () => {
     { key: 10, value: "Cameras" },
   ];
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    mode: "onChange",
-  });
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   formState: { errors },
+  // } = useForm({
+  //   mode: "onChange",
+  // });
 
   //for image changing
   const previewImage = (event) => {
-    setfilename(event.target.files[0]);
+    // setfilename(event.target.files[0]);
     const reader = new FileReader();
     reader.onload = () => {
       if (reader.readyState === 2) {
@@ -57,32 +61,91 @@ const AddProduct = () => {
     console.log(event.target.files[0]);
   };
 
+  const handleChange = (e) => {
+    console.log("handlechange");
+    if (e.target.files[0]) {
+      setImage(e.target.files[0]);
+      console.log(e.target.files[0]);
+      console.log("cccimage name " + image);
+    }
+  };
+
+  const handleUpload = (e) => {
+    console.log("handleupload");
+    console.log("image name " + image);
+    // FireBase Code............................
+    const uploadTask = storage.ref(`images/${image.name}`).put(image);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        setProgress(progress);
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        storage
+          .ref("images")
+          .child(image.name)
+          .getDownloadURL()
+          .then((url) => {
+            console.log("URL: " + url);
+            setUrl(url);
+          });
+      }
+    );
+    // {
+    //   url && onChangeClick(e);
+    // }
+  };
+
+  // {
+  //   image && handleUpload();
+  // }
+  // useEffect(() => {
+  //   handleUpload();
+  // }, [image]);
+
   const onChangeClick = (event) => {
     // event.preventDefault();
-    console.log(event.pName);
-    // setsname(event.sName);
+    console.log("on change image name " + image.name);
+    console.log(`Url ${url}`);
 
-    const fd = new FormData();
-    fd.append("sellerId", sellerid);
-    fd.append("pName", event.pName);
-    fd.append("pDescription", pdescription);
-    fd.append("price", price);
-    fd.append("prodImage", filename);
-    fd.append("category", category);
-    fd.append("brand", brand);
-    fd.append("stock", stock);
+    // const fd = new FormData();
+    // fd.append("sellerId", sellerid);
+    // fd.append("pName", event.pName);
+    // fd.append("pDescription", pdescription);
+    // fd.append("price", price);
+    // // fd.append("prodImage", filename);
+    // fd.append("prodImage", url);
+    // fd.append("category", category);
+    // fd.append("brand", brand);
+    // fd.append("stock", stock);
+    const CR = {
+      sellerId: `${sellerid}`,
+      pName: `${pname}`,
+      pDescription: `${pdescription}`,
+      price: `${price}`,
+      prodImage: `${url}`,
+      category: `${category}`,
+      brand: `${brand}`,
+      stock: `${stock}`,
+    };
 
     setpname("");
     setpdescription("");
     setprice("");
     setpreviewimage(avatar);
-    setfilename(avatar);
+    // setfilename(avatar);
     setcateory(1);
     setbrand("");
     setstock("");
 
     axios
-      .post("/product", fd)
+      .post("/product", CR)
       .then((res) => console.log(res.data))
       .catch((err) => {
         console.log("ERror............................");
@@ -90,7 +153,7 @@ const AddProduct = () => {
       });
 
     // console.log("the name is: " + pname);
-    history.push(`/seller`);
+    // history.push(`/seller`);
     // history.push({
     //   pathname: "/seller",
     //   search: "?query=abc",
@@ -100,8 +163,9 @@ const AddProduct = () => {
 
   return (
     <>
+      <img src={url}></img>
       <form
-        onSubmit={handleSubmit(onChangeClick)}
+        // onSubmit={handleSubmit(onChangeClick)}
         className="login-form"
         encType="multipart/form-data"
       >
@@ -117,24 +181,24 @@ const AddProduct = () => {
 
         <label htmlFor="pName">Product Name</label>
         <input
-          className={classNames("", { "is-invalid": errors.pName })}
+          // className={classNames("", { "is-invalid": errors.pName })}
           type="text"
           id="pName"
           name="pName"
-          // value={}
-          // onChange={handleInput}
+          value={pname}
+          onChange={(e) => setpname(e.target.value)}
           placeholder="Product Name.."
-          {...register("pName", {
-            required: "This field is required*",
-            minLength: {
-              value: 4,
-              message: "Atlease 4 characters long*",
-            },
-          })}
+          // {...register("pName", {
+          //   required: "This field is required*",
+          //   minLength: {
+          //     value: 4,
+          //     message: "Atlease 4 characters long*",
+          //   },
+          // })}
         />
-        {errors.pName && (
+        {/* {errors.pName && (
           <div className="invalid-feedback">{errors.pName.message}</div>
-        )}
+        )} */}
 
         <label htmlFor="pDescription">Product Description</label>
         <input
@@ -162,7 +226,11 @@ const AddProduct = () => {
           id="image"
           name="productImage"
           filename="productImage"
-          onChange={previewImage}
+          // onChange={previewImage}
+          onChange={(e) => {
+            // handleChange(e);
+            // previewImage(e);
+          }}
         />
         <label htmlFor="category">Category</label>
         <select
@@ -187,7 +255,9 @@ const AddProduct = () => {
           name="brand"
           id="brand"
           value={brand}
-          onChange={(e) => setbrand(e.target.value.charAt(0).toUpperCase())}
+          onChange={(e) =>
+            setbrand(e.target.value /*.charAt(0).toUpperCase()*/)
+          }
           placeholder="Brand Name.."
         ></input>
         <label htmlFor="countInStock">Count In Stock</label>
@@ -199,7 +269,14 @@ const AddProduct = () => {
           onChange={(e) => setstock(e.target.value)}
           placeholder="Count in Stock.."
         ></input>
-        <input type="submit" value="Add Product" name="add" />
+        <input
+          type="button"
+          onClick={(e) => {
+            // handleUpload(e);
+          }}
+          value="Add Product"
+          name="add"
+        />
       </form>
       <div className="login-footer">
         <hr />

@@ -5,6 +5,7 @@ import avatar from "../images/avatar.png";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import classNames from "classnames";
+import { storage } from "../firebase/firebase.js";
 
 // ******************* - toggle password - ********************
 function showPwd() {
@@ -56,18 +57,25 @@ function SignUpPage() {
 
   const history = useHistory();
   // const [response, setresponse] = useState("");
+
   const [sname, setsname] = useState("kaskfj");
   const [sdescription, setsdescription] = useState("mmmmmmmmm");
   const [address, setaddress] = useState("dsfaf");
   const [email, setemail] = useState("asdf@gmail.com");
   const [password, setpassword] = useState("sadffa");
-  const [filename, setfilename] = useState("");
+  // const [filename, setfilename] = useState("");
   const [previewimage, setpreviewimage] = useState(avatar);
   const [category, setcateory] = useState(1);
+  const [image, setImage] = useState(null);
+  const [url, setUrl] = useState("");
   // const [response, setresponse] = useState("");
+  const [progress, setProgress] = useState("");
+  const [status, setStatus] = useState("");
+  const [credential, setcredential] = useState({});
 
+  //Preview Code
   const previewImage = (event) => {
-    setfilename(event.target.files[0]);
+    // setfilename(event.target.files[0]);
     const reader = new FileReader();
     reader.onload = () => {
       if (reader.readyState === 2) {
@@ -75,14 +83,84 @@ function SignUpPage() {
       }
     };
     reader.readAsDataURL(event.target.files[0]);
-
+    console.log(previewimage);
     setpreviewimage(event.target.files[0]);
-    console.log(event.target.files[0]);
+    console.log(previewimage);
   };
 
+  const handleChange = (e) => {
+    console.log("handlechange");
+    if (e.target.files[0]) {
+      setImage(e.target.files[0]);
+      console.log(e.target.files[0]);
+    }
+  };
+
+  const handleUpload = (e) => {
+    console.log("handleupload");
+
+    // FireBase Code............................
+    const uploadTask = storage.ref(`images/${image.name}`).put(image);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        setProgress(progress);
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        storage
+          .ref("images")
+          .child(image.name)
+          .getDownloadURL()
+          .then((url) => {
+            console.log("URL: " + typeof url);
+            setUrl(url);
+          });
+      }
+    );
+
+    // {
+    //   url && onChangeClick(e);
+    // }
+  };
+
+  //Click Oye
   const onChangeClick = (e) => {
     e.preventDefault();
     console.log("onChangeClick");
+
+    // // FireBase Code............................
+    // const uploadTask = storage
+    //   .ref(`images/${previewimage.name}`)
+    //   .put(previewimage);
+    // uploadTask.on(
+    //   "state_changed",
+    //   (snapshot) => {
+    //     const progress = Math.round(
+    //       (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+    //     );
+    //     setProgress(progress);
+    //   },
+    //   (error) => {
+    //     console.log(error);
+    //   },
+    //   () => {
+    //     storage
+    //       .ref("images")
+    //       .child(previewimage.name)
+    //       .getDownloadURL()
+    //       .then((url) => {
+    //         console.log("URL: " + url);
+    //         setUrl(url);
+    //       });
+    //   }
+    // );
+
     // const shopData = {
     //   sName: `${sname}`,
     //   sDescription: `${sdescription}`,
@@ -92,14 +170,15 @@ function SignUpPage() {
     //   shopImage: `${filename}`,
     //   category: `${category}`,
     // };
-    const fd = new FormData();
-    fd.append("sName", sname);
-    fd.append("sDescription", sdescription);
-    fd.append("address", address);
-    fd.append("email", email);
-    fd.append("password", password);
-    fd.append("shopImage", filename);
-    fd.append("category", category);
+    // const fd = new FormData();
+    // fd.append("sName", sname);
+    // fd.append("sDescription", sdescription);
+    // fd.append("address", address);
+    // fd.append("email", email);
+    // fd.append("password", password);
+    // // fd.append("shopImage", filename);
+    // fd.append("imageUrl", url);
+    // fd.append("category", category);
 
     // setsname("");
     // setsdescription("");
@@ -117,25 +196,44 @@ function SignUpPage() {
     // } else {
     //   window.alert("Shop registered Successfully.");
     // }
+    const CR = {
+      sName: `${sname}`,
+      sDescription: `${sdescription}`,
+      address: `${address}`,
+      email: `${email}`,
+      password: `${password}`,
+      imageUrl: `${url}`,
+      category: `${category}`,
+    };
+
+    setcredential(CR);
 
     try {
+      console.log("onChangeClick");
+
       axios
-        .post("/register", fd)
+        .post("/register", CR)
         .then((res) => {
           console.log(
             "kdasjfkjafjkkasfkjakjfkj........................................"
           );
-          localStorage.setItem("id", res.data.id);
-          window.alert("Shop registered Successfully.");
-          history.push(`/seller`);
+          setStatus(200);
+          nextaxioscall();
+          // localStorage.setItem("id", res.data.id);
+          // window.alert("Shop registered Successfully.");
+          // history.push(`/seller`);
         })
         .catch((err) => {
+          console.log("onChangeCcccclick");
+
           if (err.response.status === 422) {
             window.alert(err);
-            window.alert("Email already Exist");
+            window.alert("Please filled the empty field properly");
           }
         });
     } catch (err) {
+      console.log("onChangeClick");
+
       window.alert("Axios not working");
     }
 
@@ -154,6 +252,47 @@ function SignUpPage() {
     // });
     // return false;
   };
+  const nextaxioscall = () => {
+    console.log("NExtAxiosCall");
+    const CR = {
+      sName: `${sname}`,
+      sDescription: `${sdescription}`,
+      address: `${address}`,
+      email: `${email}`,
+      password: `${password}`,
+      imageUrl: `${url}`,
+      category: `${category}`,
+    };
+    if (true) {
+      try {
+        console.log("if click");
+
+        axios
+          .post("/registered", CR)
+          .then((res) => {
+            console.log(
+              "kdasjfkjafjkkasfkjakjfkj........................................"
+            );
+            // setStatus(200);
+            localStorage.setItem("id", res.data.id);
+            window.alert("Shop registered Successfully.");
+            history.push(`/seller`);
+          })
+          .catch((err) => {
+            console.log("onChangeCcccclick");
+
+            if (err.response.status === 422) {
+              window.alert(err);
+              window.alert("Email already Exist");
+            }
+          });
+      } catch (err) {
+        console.log("onChangeClick");
+
+        window.alert("Axios not working");
+      }
+    }
+  };
 
   // const handleInput = (e) => {
   //   console.log(e.target.value);
@@ -166,6 +305,7 @@ function SignUpPage() {
 
   return (
     <>
+      <img src={url}></img>
       <form
         // onSubmit={handleSubmit(onChangeClick)}
         className="login-form"
@@ -255,8 +395,12 @@ function SignUpPage() {
           id="image"
           name="shopImage"
           filename="shopImage"
-          onChange={previewImage}
+          onChange={(e) => {
+            handleChange(e);
+            previewImage(e);
+          }}
         />
+        <label htmlFor="category">Category</label>
         <select
           name="category"
           onChange={(e) => {
@@ -274,7 +418,10 @@ function SignUpPage() {
           type="button"
           value="REGISTER NOW"
           name="register"
-          onClick={onChangeClick}
+          onClick={(e) => {
+            handleUpload(e);
+            onChangeClick(e);
+          }}
         />
       </form>
       <div className="login-footer">

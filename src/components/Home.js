@@ -2,11 +2,10 @@ import Checkboxes from "./Checkboxes";
 import Checkbox2 from "./Checkbox2";
 import React, { useState, useEffect } from "react";
 import Allshops from "./Allshops";
-import Footer from "./Footer";
 
 function Home() {
   const [isPending, setIsPending] = useState(true);
-  const [shopData, setShopData] = useState([]);
+  const [userData, setUserData] = useState([]);
   const [Filters, setFilters] = useState({
     category: [],
     price: [],
@@ -14,7 +13,7 @@ function Home() {
 
   const callHomePage = async (filters) => {
     try {
-      const res = await fetch("/products", {
+      const res = await fetch("/home", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -25,8 +24,8 @@ function Home() {
       });
 
       const data = await res.json();
-
-      setShopData(data);
+      console.log(`in home data is ${data}`);
+      setUserData(data);
       setIsPending(false);
 
       if (!res.status === 200) {
@@ -47,19 +46,13 @@ function Home() {
   };
 
   const handleFilters = (filters, category) => {
+    console.log(filters);
     const newFilters = { ...Filters };
     newFilters[category] = filters;
 
     showFilteredResults(newFilters);
     setFilters(newFilters);
-    console.log("New Filters: " + newFilters);
   };
-
-  // const priceFilters = (e) => {
-  //   setPrice(e.target.value);
-  //   console.log("Price: " + price);
-  //   handleFilters();
-  // }
   // const handleFilters = (filters, category2) => {
   //   console.log(filters);
   //   const newFilters = { ...Filters };
@@ -86,7 +79,7 @@ function Home() {
           <div class="col-lg-10  p-0">
             <div className="container-fluid home-bg card-container m-0">
               <div className="row p-3 home">
-                <Allshops shopData={shopData} />
+                <Allshops shopData={userData} />
               </div>
             </div>
           </div>
@@ -155,8 +148,6 @@ function Home() {
           </div>
         ))
       } */}
-
-      <Footer />
     </>
   );
 }

@@ -19,6 +19,7 @@ function showLess() {
 }
 
 const Allshops = ({ shopData }) => {
+  console.log(`IN all shops data is ${shopData}`);
   const [id, setID] = useState(null);
   return (
     <>
@@ -34,7 +35,7 @@ const Allshops = ({ shopData }) => {
                   }}
                 >
                   <img
-                    src={`/uploads/${shop.prodImage}`}
+                    src={`/uploads/${shop.shopImage}`}
                     className="card-img-top card-img img-thumbnail"
                     alt="Card image cap"
                     //   onClick={() => {
@@ -44,8 +45,10 @@ const Allshops = ({ shopData }) => {
                 </a>
                 {console.log("id change" + id)}
                 <div class="card-body">
-                  <h6 class="card-title nopadding">{shop.pName}</h6>
-                  <p class="card-text ">{shop.pDescription.slice(0, 60)}...</p>
+                  <h6 class="card-title nopadding">{shop.sName}</h6>
+                  <p class="card-text ">
+                    {shop.sDescription /*.slice(0, 60)*/}...
+                  </p>
                   <a href="#" class="btn btn-success btn-sm">
                     Contact Us
                   </a>
