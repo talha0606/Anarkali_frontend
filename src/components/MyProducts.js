@@ -6,7 +6,7 @@ import product from "../images/product.png";
 const MyProducts = ({ id }) => {
   console.log("MyProducts/Sellerid" + id);
   const [modalShow, setModalShow] = useState(false);
-  const [myproducts, setMyProducts] = useState();
+  const [myproducts, setMyProducts] = useState([]);
   const [deleteProduct, setDeleteProduct] = useState(false);
   const [prodImage, setProductImage] = useState(product);
 
@@ -23,12 +23,15 @@ const MyProducts = ({ id }) => {
       });
 
       const data = await res.json();
-      console.log("MyProducts", data);
-      if (data.length == 1) {
-        setMyProducts(data[0]);
-      } else {
-        setMyProducts(data);
-      }
+      console.log("MyProducts: ", data);
+      setMyProducts(data);
+      // setMyProducts((oldArray) => [...oldArray, data]);
+
+      // if (data.length == 1) {
+      //   setMyProducts(data[0]);
+      // } else {
+      //   setMyProducts(data);
+      // }
       //product image
       setProductImage(data.prodImage);
 
@@ -125,7 +128,8 @@ const MyProducts = ({ id }) => {
                     </div>
                     <div class="col-md-4">
                       <img
-                        src={`/uploads/${prod.prodImage}`}
+                        // src={`/uploads/${prod.prodImage}`}
+                        src={prod.prodImage}
                         className="login-logo"
                         alt="product"
                         width="300px"

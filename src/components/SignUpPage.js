@@ -6,8 +6,11 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import classNames from "classnames";
 import { storage } from "../firebase/firebase.js";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { Audio } from "react-loader-spinner";
 
 // ******************* - toggle password - ********************
+
 function showPwd() {
   var x = document.getElementById("password");
   if (x.type === "password") {
@@ -96,7 +99,7 @@ function SignUpPage() {
     }
   };
 
-  const handleUpload = (e) => {
+  const handleUpload = (id) => {
     console.log("handleupload");
 
     // FireBase Code............................
@@ -120,46 +123,42 @@ function SignUpPage() {
           .then((url) => {
             console.log("URL: " + typeof url);
             setUrl(url);
+            const idd = { id: id, shopImage: `${url}` };
+            axios
+              .post("/registered", idd)
+              .then((res) => {
+                console.log(
+                  "kdasjfkjafjkkasfkjakjfkj........................................"
+                );
+                // setStatus(200);
+                // localStorage.setItem("id", res.data.id);
+                // window.alert("Shop registered Successfully.");
+                // history.push(`/seller`);
+              })
+              .catch((err) => {
+                console.log("onChangeCcccclick");
+
+                if (err.response.status === 422) {
+                  window.alert(err);
+                  window.alert("Email already Exist");
+                }
+              });
           });
       }
     );
 
-    // {
-    //   url && onChangeClick(e);
-    // }
+    // <Audio heigth="100" width="100" color="grey" arialLabel="loading" />;
   };
+
+  // {
+  //   url && onChangeClick(e);
+  // }
 
   //Click Oye
   const onChangeClick = (e) => {
     e.preventDefault();
     console.log("onChangeClick");
-
-    // // FireBase Code............................
-    // const uploadTask = storage
-    //   .ref(`images/${previewimage.name}`)
-    //   .put(previewimage);
-    // uploadTask.on(
-    //   "state_changed",
-    //   (snapshot) => {
-    //     const progress = Math.round(
-    //       (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-    //     );
-    //     setProgress(progress);
-    //   },
-    //   (error) => {
-    //     console.log(error);
-    //   },
-    //   () => {
-    //     storage
-    //       .ref("images")
-    //       .child(previewimage.name)
-    //       .getDownloadURL()
-    //       .then((url) => {
-    //         console.log("URL: " + url);
-    //         setUrl(url);
-    //       });
-    //   }
-    // );
+    // <Audio heigth="100" width="100" color="grey" arialLabel="loading" />;
 
     // const shopData = {
     //   sName: `${sname}`,
@@ -206,7 +205,7 @@ function SignUpPage() {
       category: `${category}`,
     };
 
-    setcredential(CR);
+    // setcredential(CR);
 
     try {
       console.log("onChangeClick");
@@ -214,20 +213,21 @@ function SignUpPage() {
       axios
         .post("/register", CR)
         .then((res) => {
-          console.log(
-            "kdasjfkjafjkkasfkjakjfkj........................................"
-          );
+          console.log("ID: " + res.data.id);
           setStatus(200);
-          nextaxioscall();
-          // localStorage.setItem("id", res.data.id);
-          // window.alert("Shop registered Successfully.");
-          // history.push(`/seller`);
+          // nextaxioscall();
+          handleUpload(res.data.id);
+          localStorage.setItem("id", res.data.id);
+          window.alert("Shop registered Successfully.");
+          history.push(`/seller`);
         })
         .catch((err) => {
           console.log("onChangeCcccclick");
 
           if (err.response.status === 422) {
             window.alert(err);
+            window.alert("Email already Exist");
+          } else if (err.response.status === 402) {
             window.alert("Please filled the empty field properly");
           }
         });
@@ -252,47 +252,48 @@ function SignUpPage() {
     // });
     // return false;
   };
-  const nextaxioscall = () => {
-    console.log("NExtAxiosCall");
-    const CR = {
-      sName: `${sname}`,
-      sDescription: `${sdescription}`,
-      address: `${address}`,
-      email: `${email}`,
-      password: `${password}`,
-      imageUrl: `${url}`,
-      category: `${category}`,
-    };
-    if (true) {
-      try {
-        console.log("if click");
 
-        axios
-          .post("/registered", CR)
-          .then((res) => {
-            console.log(
-              "kdasjfkjafjkkasfkjakjfkj........................................"
-            );
-            // setStatus(200);
-            localStorage.setItem("id", res.data.id);
-            window.alert("Shop registered Successfully.");
-            history.push(`/seller`);
-          })
-          .catch((err) => {
-            console.log("onChangeCcccclick");
+  // const nextaxioscall = () => {
+  //   console.log("NExtAxiosCall");
+  //   const CR = {
+  //     sName: `${sname}`,
+  //     sDescription: `${sdescription}`,
+  //     address: `${address}`,
+  //     email: `${email}`,
+  //     password: `${password}`,
+  //     imageUrl: `${url}`,
+  //     category: `${category}`,
+  //   };
+  //   if (true) {
+  //     try {
+  //       console.log("if click");
 
-            if (err.response.status === 422) {
-              window.alert(err);
-              window.alert("Email already Exist");
-            }
-          });
-      } catch (err) {
-        console.log("onChangeClick");
+  //       axios
+  //         .post("/registered", CR)
+  //         .then((res) => {
+  //           console.log(
+  //             "kdasjfkjafjkkasfkjakjfkj........................................"
+  //           );
+  //           // setStatus(200);
+  //           localStorage.setItem("id", res.data.id);
+  //           window.alert("Shop registered Successfully.");
+  //           history.push(`/seller`);
+  //         })
+  //         .catch((err) => {
+  //           console.log("onChangeCcccclick");
 
-        window.alert("Axios not working");
-      }
-    }
-  };
+  //           if (err.response.status === 422) {
+  //             window.alert(err);
+  //             window.alert("Email already Exist");
+  //           }
+  //         });
+  //     } catch (err) {
+  //       console.log("onChangeClick");
+
+  //       window.alert("Axios not working");
+  //     }
+  //   }
+  // };
 
   // const handleInput = (e) => {
   //   console.log(e.target.value);
@@ -305,7 +306,7 @@ function SignUpPage() {
 
   return (
     <>
-      <img src={url}></img>
+      {/* <img src={url}></img> */}
       <form
         // onSubmit={handleSubmit(onChangeClick)}
         className="login-form"
@@ -419,7 +420,7 @@ function SignUpPage() {
           value="REGISTER NOW"
           name="register"
           onClick={(e) => {
-            handleUpload(e);
+            // handleUpload(e);
             onChangeClick(e);
           }}
         />
