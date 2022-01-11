@@ -3,15 +3,15 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 const DetailproductPage = ({ id, setID }) => {
-  const { productId } = useParams();
+  // const { shopId } = useParams();
 
   //   const shopId = productId;
-  console.log("Detail product" + id);
+  console.log("Detail Shop" + id);
   const shopId = id;
   let data;
 
   const [shop, setshop] = useState([]);
-  console.log("product id" + id);
+  console.log("shop id" + id);
 
   useEffect(() => {
     axios.get(`/shop_by_id?id=${shopId}&type=single`).then((res) => {
@@ -32,7 +32,7 @@ const DetailproductPage = ({ id, setID }) => {
   return (
     <div class="fixcard ">
       <div class="cardHead">
-        <span class="heading">Product Detail Page</span>
+        <span class="heading">Shop Detail Page</span>
         <span
           // onClick={() => {
           //   hide("hideme");
@@ -46,13 +46,13 @@ const DetailproductPage = ({ id, setID }) => {
       <div className="card" class="detailed-card ">
         <img
           className="card-img-top "
-          src={`/uploads/${shop.prodImage}`}
+          src={`/uploads/${shop.shopImage}`}
           alt="Card image cap"
         />
         <div className="card-body">
-          <h5 className="card-title">{shop.pName}</h5>
+          <h5 className="card-title">{shop.sName}</h5>
           <p className="card-text" class="detailCardBody">
-            {shop.pDescription}
+            {shop.sDescription}
           </p>
           {/* <a href="/" className="btn btn-primary">
             Go back

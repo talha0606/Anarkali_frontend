@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import DetailproductPage from "../components/DetailproductPage";
+import { Link } from "react-router-dom";
+import ShopDetail from "../components/ShopDetail";
 
 // for less data in card
 function showLess() {
@@ -31,7 +33,7 @@ const Allshops = ({ shopData }) => {
                 <a
                   onClick={() => {
                     setID(shop._id);
-                    console.log(shop.prodImage);
+                    console.log(shop.shopImage);
                   }}
                 >
                   <img
@@ -49,9 +51,12 @@ const Allshops = ({ shopData }) => {
                   <p class="card-text ">
                     {shop.sDescription /*.slice(0, 60)*/}...
                   </p>
-                  <a href="#" class="btn btn-success btn-sm">
+                  <Link to="./ShopDetail"  class="btn btn-success btn-sm" 
+                  onClick={() => {
+                    setID(shop._id);}}
+                  >
                     Contact Us
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

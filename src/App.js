@@ -10,6 +10,7 @@ import Cart from "./components/Cart";
 import AddProduct from "./components/AddProduct";
 import MyProducts from "./components/AddProduct";
 import ModalTesting from "./components/ModalTesting";
+import ShopDetail from "./components/ShopDetail";
 
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
@@ -66,6 +67,9 @@ function App() {
           </Route>
           <Route exact path="/testing">
             <ModalTesting />
+          </Route>
+          <Route exact path="/shopDetail">
+            <ShopDetail />
           </Route>
           <Route>
             <Error />
