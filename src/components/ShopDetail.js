@@ -1,7 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import avatar from "../images/avatar.png";
-
+import {
+    FaFacebookF,
+    FaTwitter,
+    FaInstagram,
+    FaGooglePlusG,
+    FaEnvelope,
+    FaYoutube,
+    FaLinkedin
+} from "react-icons/fa";
+import { SiFacebook, SiGmail } from "react-icons/si";
+import MyProducts from './MyProducts';
+import ShopProduct from './ShopProduct';
 
 function ShopDetail() {
     const history = useHistory();
@@ -47,23 +58,61 @@ function ShopDetail() {
     const changeid = () => setId(localStorage.getItem("id"));
 
     return (
-        <div className="container shopDetailPage">
+        <>
+            <div className="container-fluid">
+                <div class="container d-flex justify-content-center">
+                    <div class="card cardShop p-3 py-4">
+                        <div class="text-center">
+                            <img src={`/uploads/${shopImage}`}
+                                width="250" class="rounded-circle" />
+                            <h3 class="mt-2">{shopName}</h3>
+                            <span class="mt-1 clearfix">{shopaddress}</span>
+                            {/* <div class="row mt-3 mb-3">
+                            <div class="col-md-4">
+                                <h5>Projects</h5> <span class="num">10</span>
+                            </div>
+                            <div class="col-md-4">
+                                <h5>Projects</h5> <span class="num">10</span>
+                            </div>
+                            <div class="col-md-4">
+                                <h5>Projects</h5> <span class="num">10</span>
+                            </div>
+                        </div> */}
+                            <hr class="line" /> <small class="mt-4">{shopDescription}</small>
+                            <div class="social-buttons mt-5">
 
-            <div className="card text-white shopImgDetailPage">
-                <img
-                    className="card-img"
-                    src={`/uploads/${shopImage}`}
-                    alt="Shop Image"
-                    height="1000px"
-                    // width="1000px"
-                />
-                <div class="card-img-overlay">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text">Last updated 3 mins ago</p>
+                                <button class="neo-button" >
+                                    <FaFacebookF />
+                                </button>
+                                <button class="neo-button">
+                                    <SiGmail />
+                                </button>
+                                <button class="neo-button">
+                                    <FaYoutube />
+                                </button>
+                                <button class="neo-button">
+                                    <FaLinkedin />
+                                </button>
+                                <button class="neo-button">
+                                    <FaTwitter />
+                                </button>
+                            </div>
+                            {/* <div class="profile mt-5">
+                            <button class="profile_button px-5">View profile</button>
+                        </div> */}
+                        </div>
+                    </div>
+                </div>
+                <div className="container products shopProd">
+                    <h2 className="shopH2">Our Products</h2>
+                    <div className="product-list">
+                        {<ShopProduct id={localStorage.getItem("id")} />}
+                    </div>
                 </div>
             </div>
-        </div>
+
+
+        </>
     )
 }
 
