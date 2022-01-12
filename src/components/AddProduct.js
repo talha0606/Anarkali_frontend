@@ -70,7 +70,7 @@ const AddProduct = () => {
     }
   };
 
-  const handleUpload = (e) => {
+  const handleUpload = (id) => {
     console.log("handleupload");
     console.log("image name " + image);
     // FireBase Code............................
@@ -94,6 +94,22 @@ const AddProduct = () => {
           .then((url) => {
             console.log("URL: " + url);
             setUrl(url);
+            const idd = { id: id, prodImage: `${url}` };
+            axios
+              .post("/productadded", idd)
+              .then((res) => {
+                console.log(
+                  "kdasjfkjafjkkasfkjakjfkj........................................"
+                );
+                history.push(`/seller`);
+                // setStatus(200);
+                // localStorage.setItem("id", res.data.id);
+                // window.alert("Shop registered Successfully.");
+                // history.push(`/seller`);
+              })
+              .catch((err) => {
+                console.log("onChangeCcccclick");
+              });
           });
       }
     );
@@ -111,8 +127,8 @@ const AddProduct = () => {
 
   const onChangeClick = (event) => {
     // event.preventDefault();
-    console.log("on change image name " + image.name);
-    console.log(`Url ${url}`);
+    // console.log("on change image name " + image.name);
+    // console.log(`Url ${url}`);
 
     // const fd = new FormData();
     // fd.append("sellerId", sellerid);
@@ -146,9 +162,17 @@ const AddProduct = () => {
 
     axios
       .post("/product", CR)
-      .then((res) => console.log(res.data))
+      .then((res) => {
+        console.log(res.data.id);
+        handleUpload(res.data.id);
+        window.alert("Product added successfully");
+        // history.push(`/seller`);
+      })
       .catch((err) => {
         console.log("ERror............................");
+        if (err.response.status === 402) {
+          window.alert("Please filled the empty field properly");
+        }
         console.log(err);
       });
 
@@ -163,7 +187,7 @@ const AddProduct = () => {
 
   return (
     <>
-      <img src={url}></img>
+      {/* <img src={url}></img> */}
       <form
         // onSubmit={handleSubmit(onChangeClick)}
         className="login-form"
@@ -228,8 +252,8 @@ const AddProduct = () => {
           filename="productImage"
           // onChange={previewImage}
           onChange={(e) => {
-            // handleChange(e);
-            // previewImage(e);
+            handleChange(e);
+            previewImage(e);
           }}
         />
         <label htmlFor="category">Category</label>
@@ -272,7 +296,7 @@ const AddProduct = () => {
         <input
           type="submit"
           onClick={(e) => {
-            // handleUpload(e);
+            onChangeClick(e);
           }}
           value="Add Product"
           name="add"

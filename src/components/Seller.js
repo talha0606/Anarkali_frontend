@@ -137,12 +137,12 @@ const Seller = () => {
           </div>
         </div>
 
-        <div className="orders">
+        {/* <div className="orders">
           <h2>Your Orders</h2>
           <div className="product-list">
             {<MyProducts id={localStorage.getItem("id")} />}
           </div>
-        </div>
+        </div> */}
       </div>
 
       <Footer />
