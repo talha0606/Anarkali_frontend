@@ -270,7 +270,7 @@ const AddProduct = () => {
           placeholder="Count in Stock.."
         ></input>
         <input
-          type="button"
+          type="submit"
           onClick={(e) => {
             // handleUpload(e);
           }}

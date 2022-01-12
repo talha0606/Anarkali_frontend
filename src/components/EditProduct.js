@@ -209,7 +209,7 @@ const EditProduct = (props) => {
               placeholder="Count in Stock.."
             ></input>
             <input
-              type="button"
+              type="submit"
               onClick={() => {
                 onChangeClick();
                 props.onHide();

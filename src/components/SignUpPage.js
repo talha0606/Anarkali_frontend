@@ -415,7 +415,7 @@ function SignUpPage() {
           ))}
         </select>
         <input
-          type="button"
+          type="submit"
           value="REGISTER NOW"
           name="register"
           onClick={(e) => {
