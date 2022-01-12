@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import DetailproductPage from "../components/DetailproductPage";
 import { Link } from "react-router-dom";
 import ShopDetail from "../components/ShopDetail";
+// import { Link, useLocation, useParams, useHistory } from "react-router-dom";
 
 // for less data in card
 function showLess() {
@@ -30,30 +31,36 @@ const Allshops = ({ shopData }) => {
           {shopData.map((shop) => (
             <div class="col-md-auto col-xs-12 col-sm-6 col-md-4 col-lg-3 pb-4">
               <div className="card">
-                <a
+                {/* <a
                   onClick={() => {
                     setID(shop._id);
                     console.log(shop.shopImage);
-                  }}
-                >
+                  }} */}
+                {/* > */}
+                <Link to={`./shopDetail/${shop._id}`}>
                   <img
-                    src={`/uploads/${shop.shopImage}`}
+                    // src={`/uploads/${shop.shopImage}`}
+                    src={shop.imageUrl}
                     className="card-img-top card-img img-thumbnail"
                     alt="Card image cap"
                     //   onClick={() => {
                     //     setID(user._id);
                     //   }}
                   />
-                </a>
+                </Link>
+                {/* </a> */}
                 {console.log("id change" + id)}
                 <div class="card-body">
                   <h6 class="card-title nopadding">{shop.sName}</h6>
                   <p class="card-text ">
                     {shop.sDescription /*.slice(0, 60)*/}...
                   </p>
-                  <Link to="./ShopDetail"  class="btn btn-success btn-sm" 
-                  onClick={() => {
-                    setID(shop._id);}}
+                  <Link
+                    to="./ShopDetail"
+                    class="btn btn-success btn-sm"
+                    onClick={() => {
+                      setID(shop._id);
+                    }}
                   >
                     Contact Us
                   </Link>
@@ -64,7 +71,7 @@ const Allshops = ({ shopData }) => {
         </div>
 
         <div class="col col-lg-2 detail" id="hideme">
-          {id && <DetailproductPage id={id} setID={setID} />}
+          {/* {id && <DetailproductPage id={id} setID={setID} />} */}
         </div>
       </div>
     </>

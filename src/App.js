@@ -68,7 +68,7 @@ function App() {
           <Route exact path="/testing">
             <ModalTesting />
           </Route>
-          <Route exact path="/shopDetail">
+          <Route exact path="/shopDetail/:shopId">
             <ShopDetail />
           </Route>
           <Route>

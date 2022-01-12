@@ -6,18 +6,18 @@ const DetailproductPage = ({ id, setID }) => {
   // const { shopId } = useParams();
 
   //   const shopId = productId;
-  console.log("Detail Shop" + id);
-  const shopId = id;
+  console.log("Detail Product" + id);
+  const prodId = id;
   let data;
 
-  const [shop, setshop] = useState([]);
+  const [product, setProduct] = useState([]);
   console.log("shop id" + id);
 
   useEffect(() => {
-    axios.get(`/shop_by_id?id=${shopId}&type=single`).then((res) => {
-      setshop(res.data[0]);
+    axios.get(`/prod_by_id?id=${prodId}&type=single`).then((res) => {
+      setProduct(res.data[0]);
       //   data = res.data[0];
-      //   console.log(`data received ${res.data[0]}`);
+      console.log(`data received ${res.data[0]}`);
     });
   }, [id]);
   function hide(obj) {
@@ -46,13 +46,14 @@ const DetailproductPage = ({ id, setID }) => {
       <div className="card" class="detailed-card ">
         <img
           className="card-img-top "
-          src={`/uploads/${shop.shopImage}`}
+          // src={`/uploads/${shop.shopImage}`}
+          // src={product.prodImage}
           alt="Card image cap"
         />
         <div className="card-body">
-          <h5 className="card-title">{shop.sName}</h5>
+          <h5 className="card-title">{product.pName}</h5>
           <p className="card-text" class="detailCardBody">
-            {shop.sDescription}
+            {product.pDescription}
           </p>
           {/* <a href="/" className="btn btn-primary">
             Go back
