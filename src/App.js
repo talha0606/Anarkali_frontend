@@ -17,7 +17,7 @@ import { Switch, Route } from "react-router-dom";
 import LoginPage from "./components/LoginPage";
 import LogoutPage from "./components/LogoutPage";
 import SignUpPage from "./components/SignUpPage";
-
+import ProductDetail from "./components/ProductDetail"
 import { useReducer, createContext } from "react";
 import { initialState, reducer } from "./reducer/UseReducer";
 import Logout from "@mui/icons-material/Logout";
@@ -70,6 +70,9 @@ function App() {
           </Route>
           <Route exact path="/shopDetail">
             <ShopDetail />
+          </Route>
+          <Route exact path="/productDetail">
+            <ProductDetail />
           </Route>
           <Route>
             <Error />
