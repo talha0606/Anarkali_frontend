@@ -872,6 +872,7 @@ input[type="file"] {
 
 .rowProduct{
   margin-top: 3% !important;
+  height: 250px !important;
 }
 .prodImg{
   height: 250px !important;
@@ -913,4 +914,10 @@ input[type="file"] {
 .rate > input:checked ~ label:hover ~ label,
 .rate > label:hover ~ input:checked ~ label {
   color: #c59b08;
+}
+.like {
+  font-size: 1.5rem;
+}
+.checked {
+  color: orange;
 }
