@@ -15,26 +15,6 @@ function ProductDetail() {
   const [prodBrand, setprodBrand] = useState("");
   const [prodStock, setprodStock] = useState("");
 
-<<<<<<< HEAD
-    return (
-        <div className="container">
-            <div className="row rowProduct h-25 ">
-                <div class="card">
-                    <div class="row no-gutters h-25">
-                        <div class="col-md-4">
-                            <img src={product} class="card-img prodImg" alt="Product Image" />
-                        </div>
-                        <div class="col-md-8 h-75">
-                            <div class="card-body">
-                                <div class="card-img-overlay d-flex justify-content-end">
-                                    <a href="#" class="card-link text-danger like">
-                                        <i class="fas fa-heart"></i>
-                                    </a>
-                                </div>
-                                <h3 class="card-title">Product Name</h3>
-                                <p class="card-text">Product Description</p>
-                                {/* <div>
-=======
   const getShopDetail = async () => {
     try {
       const res = await fetch(`/prodinfo?id=${prodId}`, {
@@ -87,7 +67,6 @@ function ProductDetail() {
                 <h3 class="card-title">{prodName}</h3>
                 <p class="card-text">{prodDescription}</p>
                 {/* <div>
->>>>>>> 7b758c4d639a2e4a1d4f3e1e2209f7c94b30ab02
                                     <p>Reviews</p> */}
 
                 {/* <div class="rate">
@@ -140,7 +119,7 @@ function ProductDetail() {
 
                 <div class="buy d-flex justify-content-between align-items-center">
                   <div class="price text-success">
-                    <h3 class="mt-4">{prodPrice}</h3>
+                    <h3 class="mt-4">Rs. {prodPrice}</h3>
                   </div>
                   <a href="#" class="btn btn-danger mt-3">
                     <i class="fas fa-shopping-cart"></i> Add to Cart
