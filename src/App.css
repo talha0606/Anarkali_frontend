@@ -862,7 +862,7 @@ input[type="file"] {
 }
 
 .card-img-top{
-  width: 250px !important;
+  width: 100% !important;
   height: 200px;
   object-fit: cover;
 }
