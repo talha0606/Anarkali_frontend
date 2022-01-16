@@ -94,7 +94,7 @@ function ProductDetail() {
                       href="#"
                       class="small text-muted text-uppercase aff-link"
                     >
-                      Reviews (# of reviews){" "}
+                      Reviews{" "}
                     </a>
                   </span>
                 </div>

@@ -73,13 +73,13 @@ const ShopProduct = ({ id }) => {
 
   return (
     <>
-      <div class="container-fluid bg-trasparent my-4 p-3">
+      <div class="container-fluid bg-trasparent my-4 p-3 containerProduct">
         <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
           <ul className="list-group list-group-horizontal unstyled">
             {myproducts?.map((prod) => (
               <li class="list-group-item shopProdd">
                 <div class="col hp">
-                  <div class="card h-100 shadow-sm">
+                  <div class="card shadow-sm">
                     {/* <a href="#"> */}
                     {/* <a
                       onClick={() => {
@@ -104,7 +104,7 @@ const ShopProduct = ({ id }) => {
                                         </div> */}
                     <div class="card-body">
                       <div class="clearfix mb-3">
-                        <span class="float-start badge rounded-pill bg-success">
+                        <span class="float-start badge rounded-pill bg-light text-dark">
                           Rs. {prod.price}
                         </span>
 
@@ -125,7 +125,7 @@ const ShopProduct = ({ id }) => {
                       <p class="card-text">{prod.pDescription}</p>
 
                       <div class="d-grid my-4">
-                        <a href="#" class="btn btn-warning bold-btn">
+                        <a href="#" class="btn btn-danger bold-btn">
                           Add to cart
                         </a>
                       </div>

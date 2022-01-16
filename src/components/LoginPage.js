@@ -116,7 +116,7 @@ function LoginPage() {
         </Link>
 
         <input
-          type="submit"
+          type="button"
           value="LOG IN"
           name="login"
           onClick={loginSeller}

@@ -322,7 +322,7 @@ function SignUpPage() {
           alt="Shop avatar"
         />
 
-        <label htmlFor="sName">Name</label>
+        <label htmlFor="sName">Shop Name</label>
         <input
           // className={classNames("", { "is-invalid": errors.sName })}
           autoComplete="off"
@@ -362,7 +362,7 @@ function SignUpPage() {
           onChange={(e) => setaddress(e.target.value)}
           placeholder="Address.."
         />
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">Shop Email</label>
         <input
           type="email"
           id="email"
@@ -390,7 +390,7 @@ function SignUpPage() {
           Show Password
         </label>
         <label htmlFor="shop-img" id="img-label">
-          Choose Image
+          Choose Shop Image
         </label>
         <input
           type="file"
@@ -417,7 +417,7 @@ function SignUpPage() {
           ))}
         </select>
         <input
-          type="submit"
+          type="button"
           value="REGISTER NOW"
           name="register"
           onClick={(e) => {

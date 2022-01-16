@@ -119,19 +119,19 @@ input[type="file"] {
   border: none;
 }
 
-.login-form input[type="submit"] {
+.login-form input[type="button"] {
   background-color: #179017;
   color: white;
   font-weight: 550;
   font-family: "Poppins", sans-serif;
   letter-spacing: 1px;
   padding: 8px;
-  margin-top: 2px;
+  margin-top: 8px;
   outline: none;
   border: none;
 }
 
-.login-form input[type="submit"]:hover {
+.login-form input[type="button"]:hover {
   background-color: #0f5e0f;
   border: none;
 }
@@ -251,7 +251,7 @@ input[type="file"] {
   background: #fff;
   font-size: 13px;
 }
-.category-checkbox input[type="submit"] {
+.category-checkbox input[type="button"] {
   background-color: #179017;
   border-radius: 4px;
   width: 100%;
@@ -265,7 +265,7 @@ input[type="file"] {
   border: none;
 }
 
-.category-checkbox input[type="submit"]:hover {
+.category-checkbox input[type="button"]:hover {
   background-color: #0f5e0f;
   border: none;
 }
@@ -646,8 +646,8 @@ input[type="file"] {
     margin-bottom: 5%;
     width: 40%;
     border-radius: 10px;
-    background: linear-gradient(145deg, #5EB668, #E2FAB5);
-    box-shadow: 20px 20px 60px #5EB668, -20px -20px 60px #E2FAB5;
+    background: linear-gradient(145deg, #F5907C, #FBD2B2);
+    box-shadow: 10px 10px 20px #FBD2B2, -10px -10px 20px #FBD2B2;
     border: none
 }
 
@@ -661,8 +661,8 @@ input[type="file"] {
     border: none;
     margin-right: 10px;
     border-radius: 50%;
-    background: linear-gradient(145deg, #519e5a, #5EB668);
-    box-shadow: inset 20px 20px 60px #519e5a, inset -20px -20px 60px #5EB668
+    background: linear-gradient(145deg, #f57e67, #FBD2B2);
+    box-shadow: inset 20px 20px 60px #F5907C, inset -20px -20px 60px #FBD2B2
 }
 
 .num {
@@ -675,8 +675,8 @@ input[type="file"] {
 
 .neo-button:active {
     border-radius: 50%;
-    background: #00C664;
-    box-shadow: 28px 28px 57px #519e5a, -28px -28px 57px #5EB668;
+    background: #f57e67;
+    box-shadow: 28px 28px 57px #f59582, -28px -28px 57px #FBD2B2;
 }
 
 .FaFacebookF {
@@ -920,4 +920,8 @@ input[type="file"] {
 }
 .checked {
   color: orange;
+}
+
+.containerProduct{
+  margin-left: 2% !important;
 }
