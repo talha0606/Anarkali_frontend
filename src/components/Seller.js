@@ -40,7 +40,7 @@ const Seller = () => {
       setshopDescription(data[0].sDescription);
       setshopAddress(data[0].address);
       setshopEmail(data[0].email);
-      setshopImage(data[0].shopImage);
+      setshopImage(data[0].imageUrl);
       // setshopImage(data[0].imageUrl);
 
       // if (!res.status === 200) {
@@ -68,8 +68,8 @@ const Seller = () => {
       <div class="container seller-container">
         <div className="shopImg">
           <img
-            src={`/uploads/${shopImage}`}
-            // src={shopImage}
+            // src={`/uploads/${shopImage}`}
+            src={shopImage}
             alt="profileImg"
             height="200px"
             width="200px"

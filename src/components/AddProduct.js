@@ -97,10 +97,15 @@ const AddProduct = () => {
             const idd = { id: id, prodImage: `${url}` };
             axios
               .post("/productadded", idd)
+              // console.log("Status: " + res.status);
+              // if (res.status === 200) {
+              //   window.alert("Product added successfully");
+              //   history.push(`/seller`);
+              // }
               .then((res) => {
-                console.log(
-                  "kdasjfkjafjkkasfkjakjfkj........................................"
-                );
+                console.log("Status: " + res.status);
+
+                window.alert("Product added successfully");
                 history.push(`/seller`);
                 // setStatus(200);
                 // localStorage.setItem("id", res.data.id);
@@ -165,7 +170,8 @@ const AddProduct = () => {
       .then((res) => {
         console.log(res.data.id);
         handleUpload(res.data.id);
-        window.alert("Product added successfully");
+        window.alert("Product Image uploading. Plz wait 3 to 5 sec...");
+
         // history.push(`/seller`);
       })
       .catch((err) => {
@@ -294,7 +300,7 @@ const AddProduct = () => {
           placeholder="Count in Stock.."
         ></input>
         <input
-          type="submit"
+          type="button"
           onClick={(e) => {
             onChangeClick(e);
           }}

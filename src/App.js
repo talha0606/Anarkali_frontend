@@ -17,10 +17,11 @@ import { Switch, Route } from "react-router-dom";
 import LoginPage from "./components/LoginPage";
 import LogoutPage from "./components/LogoutPage";
 import SignUpPage from "./components/SignUpPage";
-import ProductDetail from "./components/ProductDetail"
+import ProductDetail from "./components/ProductDetail";
 import { useReducer, createContext } from "react";
 import { initialState, reducer } from "./reducer/UseReducer";
 import Logout from "@mui/icons-material/Logout";
+import EditProduct from "./components/EditProduct";
 
 // we create a contextAPI
 export const UserContext = createContext();
@@ -71,7 +72,10 @@ function App() {
           <Route exact path="/shopDetail/:shopId">
             <ShopDetail />
           </Route>
-          <Route exact path="/productDetail">
+          <Route exact path="/editProduct/:product">
+            <EditProduct />
+          </Route>
+          <Route exact path="/productDetail/:prodId">
             <ProductDetail />
           </Route>
           <Route>

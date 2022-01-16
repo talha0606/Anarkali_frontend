@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Modal, Button } from "react-bootstrap";
 import EditProduct from "./EditProduct";
 import product from "../images/product.png";
+import { Link } from "react-router-dom";
 
 const MyProducts = ({ id }) => {
   console.log("MyProducts/Sellerid" + id);
@@ -33,7 +34,7 @@ const MyProducts = ({ id }) => {
       //   setMyProducts(data);
       // }
       //product image
-      setProductImage(data.prodImage);
+      // setProductImage(data.prodImage);
 
       //console.log("MyProducts", myproducts);
 
@@ -51,7 +52,7 @@ const MyProducts = ({ id }) => {
 
   const deleteHandler = async (id) => {
     try {
-      setDeleteProduct(true);
+      console.log("In Delete Handler");
       const res = await fetch(`/deleteproduct?id=${id}`, {
         method: "GET",
         headers: {
@@ -62,10 +63,15 @@ const MyProducts = ({ id }) => {
         //credentials: "include",
       });
 
+      if (res.status === 200) {
+        window.alert("Product Deleted Sucessfully");
+        Myprod();
+      }
+
       const data = await res.json();
       console.log("DeleteProductMessage: " + data[0]);
     } catch (err) {
-      console.log("home page error" + err);
+      console.log("Not Deleted: " + err);
     }
   };
 
@@ -95,25 +101,27 @@ const MyProducts = ({ id }) => {
                             <li class="list-group-item">
                               In Stock: <b>{prod.stock}</b>
                             </li>
+                            <Link to={`/editProduct/${prod._id}`}>
+                              <li class="list-group-item">
+                                <button
+                                  className="btn btn-sm btn-outline-success m-1"
+                                  // onClick={() => {
+                                  //   setModalShow(true);
+                                  // }}
+                                >
+                                  Edit
+                                </button>
+                              </li>
+                            </Link>
 
-                            <li class="list-group-item">
-                              <button
-                                className="btn btn-sm btn-outline-success m-1"
-                                onClick={() => {
-                                  setModalShow(true);
-                                }}
-                              >
-                                Edit
-                              </button>
+                            {/* {modalShow && (
+                                  <EditProduct
+                                    product={prod}
+                                    show={modalShow}
+                                    onHide={() => setModalShow(false)}
+                                  />
+                                )} */}
 
-                              {modalShow && (
-                                <EditProduct
-                                  product={prod}
-                                  show={modalShow}
-                                  onHide={() => setModalShow(false)}
-                                />
-                              )}
-                            </li>
                             <li class="list-group-item">
                               <button
                                 className="btn btn-sm btn-outline-success m-1"

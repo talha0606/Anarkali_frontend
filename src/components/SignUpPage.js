@@ -61,11 +61,11 @@ function SignUpPage() {
   const history = useHistory();
   // const [response, setresponse] = useState("");
 
-  const [sname, setsname] = useState("kaskfj");
-  const [sdescription, setsdescription] = useState("mmmmmmmmm");
-  const [address, setaddress] = useState("dsfaf");
-  const [email, setemail] = useState("asdf@gmail.com");
-  const [password, setpassword] = useState("sadffa");
+  const [sname, setsname] = useState("");
+  const [sdescription, setsdescription] = useState("");
+  const [address, setaddress] = useState("");
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
   // const [filename, setfilename] = useState("");
   const [previewimage, setpreviewimage] = useState(avatar);
   const [category, setcateory] = useState(1);
@@ -219,7 +219,7 @@ function SignUpPage() {
           handleUpload(res.data.id);
           localStorage.setItem("id", res.data.id);
           window.alert("Shop registered Successfully.");
-          history.push(`/seller`);
+          history.push(`/login`);
         })
         .catch((err) => {
           console.log("onChangeCcccclick");
@@ -325,6 +325,7 @@ function SignUpPage() {
         <label htmlFor="sName">Name</label>
         <input
           // className={classNames("", { "is-invalid": errors.sName })}
+          autoComplete="off"
           type="text"
           id="sName"
           name="sName"
