@@ -67,7 +67,7 @@ function Home() {
       <div class="container-fluid home-container">
         <div class="row ">
           <div class="col-lg-2 p-0">
-            {isPending && <div> Loading... </div>}
+            {/* {isPending && <div> Loading... </div>} */}
             <Checkboxes
               handleFilters={(filters) => handleFilters(filters, "category")}
             />

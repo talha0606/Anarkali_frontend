@@ -4,6 +4,7 @@
     transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
     border: 0;
     border-radius: 1rem;
+
 }
 
 .card-img,
@@ -11,13 +12,16 @@
     border-top-left-radius: calc(1rem - 1px);
     border-top-right-radius: calc(1rem - 1px);
 }
-
+.img-thumbnail{
+    width: 100% !important;
+}
 
 .card h5 {
     overflow: hidden;
     height: 55px;
     font-weight: 300;
     font-size: 1rem;
+    
 }
 
 .card h5 a {
@@ -26,11 +30,11 @@
 } 
 
 .card-img-top {
-    width: 100%;
-    min-height: 250px;
-    max-height: 250px;
-    object-fit: contain;
+    /* min-height: 250px;
+    max-height: 250px; */
+    /* object-fit: cover; */
     padding: 30px;
+    width: 100% !important;
 }
 
 .card h2 {
@@ -103,16 +107,6 @@
     font-size: 1.5rem;
 }
 
-@media (max-width: 1025px) {
-    .btn {
-        padding: 5px 40px 5px 40px;
-    }
-}
-@media (max-width: 250px) {
-    .btn {
-        padding: 5px 30px 5px 30px;
-    }
-}
 
 /* START BUTTON */
 .btn-warning {
@@ -178,4 +172,15 @@
 }
 .fa-chevron-circle-right:before {
     color: darkgray;
+}
+
+@media (max-width: 1025px) {
+    .btn {
+        padding: 5px 40px 5px 40px;
+    }
+}
+@media (max-width: 250px) {
+    .btn {
+        padding: 5px 30px 5px 30px;
+    }
 }
