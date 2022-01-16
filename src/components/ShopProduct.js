@@ -4,6 +4,7 @@ import EditProduct from "./EditProduct";
 import DetailproductPage from "../components/DetailproductPage";
 import product from "../images/product.png";
 import "../style/ShopProduct.css";
+import { Link } from "react-router-dom";
 
 const ShopProduct = ({ id }) => {
   console.log("ShopProduct/Sellerid" + id);
@@ -27,11 +28,12 @@ const ShopProduct = ({ id }) => {
 
       const data = await res.json();
       console.log("MyProducts", data);
-      if (data.length == 1) {
-        setMyProducts(data[0]);
-      } else {
-        setMyProducts(data);
-      }
+      setMyProducts(data);
+      //   if (data.length == 1) {
+      //     setMyProducts(data[0]);
+      //   } else {
+      //     setMyProducts(data);
+      //   }
       //product image
       setProductImage(data.prodImage);
 
@@ -79,12 +81,13 @@ const ShopProduct = ({ id }) => {
                 <div class="col hp">
                   <div class="card h-100 shadow-sm">
                     {/* <a href="#"> */}
-                    <a
+                    {/* <a
                       onClick={() => {
                         setID(prod._id);
                         console.log(prod.prodImage);
                       }}
-                    >
+                    > */}
+                    <Link to={`/productDetail/${prod._id}`}>
                       <img
                         // src={`/uploads/${prod.prodImage}`}
                         src={prod.prodImage}
@@ -93,7 +96,8 @@ const ShopProduct = ({ id }) => {
                         width="250px"
                         height="200px"
                       />
-                    </a>
+                    </Link>
+                    {/* </a> */}
 
                     {/* <div class="label-top shadow-sm">
                                             <a class="text-white" href="#">{prod.brand}</a>

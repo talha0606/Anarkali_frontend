@@ -37,7 +37,7 @@ const Allshops = ({ shopData }) => {
                     console.log(shop.shopImage);
                   }} */}
                 {/* > */}
-                <Link to={`./shopDetail/${shop._id}`}>
+                <Link to={`/shopDetail/${shop._id}`}>
                   <img
                     // src={`/uploads/${shop.shopImage}`}
                     src={shop.imageUrl}

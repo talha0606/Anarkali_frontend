@@ -6,10 +6,6 @@ function FileUpload() {
   const [filename, setfilename] = useState("");
 
   const onChangeFile = (event) => {
-    // console.log(event);
-    // console.log(event.target);
-    // console.log(event.target.files[0]);
-
     const reader = new FileReader();
     reader.onload = () => {
       if (reader.readyState === 2) {
@@ -17,7 +13,7 @@ function FileUpload() {
       }
     };
     reader.readAsDataURL(event.target.files[0]);
-
+    console.log(event.target.files[0]);
     setfilename(event.target.files[0]);
   };
 
@@ -29,9 +25,9 @@ function FileUpload() {
 
     axios
       .post("/postImage", fd)
-      .then((res) => console.log(res.data))
+      .then((res) => console.log("Data: " + res.files))
       .catch((err) => {
-        console.log(err);
+        console.log("Error a gaya: " + err);
       });
   };
 

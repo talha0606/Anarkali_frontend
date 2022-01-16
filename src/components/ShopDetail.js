@@ -20,7 +20,7 @@ function ShopDetail() {
   console.log("Shop Id in Shop Detail: " + shopId);
   const history = useHistory();
   const [modalShow, setModalShow] = useState(false);
-  const [id, setId] = useState("");
+  const [idd, setId] = useState(shopId);
   const [shopaddress, setshopAddress] = useState("");
   const [shopemail, setshopEmail] = useState("");
   const [shopName, setshopName] = useState("");
@@ -58,7 +58,7 @@ function ShopDetail() {
     callSellerPage();
   }, []);
 
-  const changeid = () => setId(localStorage.getItem("id"));
+  //   const changeid = () => setId(localStorage.getItem("id"));
 
   return (
     <>
@@ -111,9 +111,7 @@ function ShopDetail() {
         </div>
         <div className="container products shopProd">
           <h2 className="shopH2">Our Products</h2>
-          <div className="product-list">
-            {<ShopProduct id={localStorage.getItem("id")} />}
-          </div>
+          <div className="product-list">{<ShopProduct id={idd} />}</div>
         </div>
       </div>
     </>
