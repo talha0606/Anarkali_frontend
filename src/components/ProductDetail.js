@@ -11,7 +11,7 @@ function ProductDetail() {
                         <div class="col-md-4">
                             <img src={product} class="card-img prodImg" alt="Product Image" />
                         </div>
-                        <div class="col-md-8 h-25">
+                        <div class="col-md-8 h-75">
                             <div class="card-body">
                                 <div class="card-img-overlay d-flex justify-content-end">
                                     <a href="#" class="card-link text-danger like">
