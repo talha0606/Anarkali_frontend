@@ -2,6 +2,10 @@ import Checkboxes from "./Checkboxes";
 import Checkbox2 from "./Checkbox2";
 import React, { useState, useEffect } from "react";
 import Allshops from "./Allshops";
+import "../style/Home.css";
+import { AiOutlineSearch } from "react-icons/ai";
+
+
 
 function Home() {
   const [isPending, setIsPending] = useState(true);
@@ -77,7 +81,37 @@ function Home() {
           </div>
 
           <div class="col-lg-10  p-0">
-            <div className="container-fluid home-bg card-container m-0">
+
+
+            <div className="container-fluid card-container m-0">
+
+              <div className="grid-container">
+                <div className="input-group searchToggleInput">
+                  <form>
+                  
+                    <input
+                      className="form-control me-2 home-bg ms-3"
+                      type="search"
+                      placeholder="Search"
+                      aria-label="Search"
+                    />
+                    {/* <button type="button" class="btn btn-primary" value="Search" name="Search">
+                      <AiOutlineSearch />
+                    </button> */}
+                  </form>
+                </div>
+                <div className="toogleDiv">
+                  <label class="toggleSwitch nolabel" onclick="">
+                    <input type="checkbox" checked />
+                    <a></a>
+                    <span>
+                      <span class="left-span">Shops</span>
+                      <span class="right-span">Products</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+
               <div className="row p-3 home">
                 <Allshops shopData={userData} />
               </div>

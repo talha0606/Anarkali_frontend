@@ -711,7 +711,7 @@ input[type="file"] {
 
 .shopProd{
   text-align: center !important;
-  margin-top: 5%;
+  /* margin-top: 5%; */
 }
 
 .shopProd.h2{
