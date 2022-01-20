@@ -69,7 +69,7 @@ const Checkboxes = (props) => {
       class="rounded container shadow p-3 mb-5"
       className="category-checkbox"
     >
-      <div class="input-group">
+      {/* <div class="input-group">
         <form>
           <input
               className="form-control me-2 home-bg ms-3"
@@ -79,10 +79,10 @@ const Checkboxes = (props) => {
             />
           {/* <button type="button" class="btn btn-primary" value="Search" name="Search"> */}
             {/* <AiOutlineSearch/> */}
-          {/* </button> */}
+          {/* </button> 
         </form>
       </div>
-     
+      */}
       <div>
         <h4>Categories</h4>
         {category.map((value, index) => (
