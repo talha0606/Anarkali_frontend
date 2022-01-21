@@ -53,7 +53,7 @@ const Allshops = ({ shopData }) => {
                 <div class="card-body">
                   <h6 class="card-title nopadding">{shop.sName}</h6>
                   <p class="card-text ">
-                    {shop.sDescription /*.slice(0, 60)*/}...
+                    {shop.cate}...
                   </p>
                   <Link
                     to="./ShopDetail"
