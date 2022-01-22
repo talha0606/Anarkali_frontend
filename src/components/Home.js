@@ -4,8 +4,7 @@ import React, { useState, useEffect } from "react";
 import Allshops from "./Allshops";
 import "../style/Home.css";
 import { AiOutlineSearch } from "react-icons/ai";
-
-
+import axios from "axios";
 
 function Home() {
   const [isPending, setIsPending] = useState(true);
@@ -14,6 +13,9 @@ function Home() {
     category: [],
     price: [],
   });
+
+  const [searchedData, setsearchedData] = useState("");
+  const [searchString, setsearchString] = useState("");
 
   const callHomePage = async (filters) => {
     try {
@@ -65,6 +67,27 @@ function Home() {
   //   showFilteredResults(newFilters);
   //   setFilters(newFilters);
   // };
+  const findShops = async () => {
+    console.log(searchString.replace(/\s/g, "").length);
+    // if (searchString.replace(/\s/g, "").length) {
+    try {
+      axios.get(`/searchShop?name=${searchString}`).then((res) => {
+        setsearchedData(res.data);
+        //   data = res.data[0];
+        console.log(`Searched Data: ${res.data}`);
+      });
+    } catch (err) {
+      console.log("catch: " + err);
+    }
+    // } else {
+    //   console.log("else executed");
+    //   await setsearchedData("");
+    // }
+  };
+
+  useEffect(() => {
+    findShops();
+  }, [searchString]);
 
   return (
     <>
@@ -81,24 +104,61 @@ function Home() {
           </div>
 
           <div class="col-lg-10  p-0">
-
-
             <div className="container-fluid card-container m-0">
-
               <div className="grid-container">
                 <div className="input-group searchToggleInput">
-                  <form>
-                  
-                    <input
-                      className="form-control me-2 home-bg ms-3"
-                      type="search"
-                      placeholder="Search"
-                      aria-label="Search"
-                    />
-                    {/* <button type="button" class="btn btn-primary" value="Search" name="Search">
+                  <input
+                    className="form-control me-2 home-bg ms-3"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                    value={searchString}
+                    onChange={(e) => setsearchString(e.target.value)}
+                  />
+                  {searchedData.length != 0 && (
+                    <div className="dataResult">
+                      {searchedData?.map((value, key) => {
+                        if (
+                          value.sName
+                            .toLowerCase()
+                            .includes(searchString.toLowerCase())
+                        ) {
+                          return (
+                            <p>
+                              <button
+                                onClick={() => {
+                                  setsearchString(value.sName);
+                                  setsearchedData("");
+                                }}
+                              >
+                                {value.sName}{" "}
+                              </button>
+                            </p>
+                          );
+                        } else if (
+                          value.sDescription
+                            .toLowerCase()
+                            .includes(searchString.toLowerCase())
+                        ) {
+                          return (
+                            <p>
+                              <button
+                                onClick={() => {
+                                  setsearchString(value.sDescription);
+                                  setsearchedData("");
+                                }}
+                              >
+                                {value.sDescription}
+                              </button>{" "}
+                            </p>
+                          );
+                        }
+                      })}
+                    </div>
+                  )}
+                  {/* <button type="button" class="btn btn-primary" value="Search" name="Search">
                       <AiOutlineSearch />
                     </button> */}
-                  </form>
                 </div>
                 <div className="toogleDiv">
                   <label class="toggleSwitch nolabel" onclick="">
