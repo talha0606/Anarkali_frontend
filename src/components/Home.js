@@ -17,7 +17,7 @@ function Home() {
   const [searchedData, setsearchedData] = useState("");
   const [searchString, setsearchString] = useState("");
   const [novalue, setnovalue] = useState("");
-  // const [suggestString, setsuggestString] = useState("");
+  const [suggestString, setsuggestString] = useState("");
 
   const callHomePage = async (filters) => {
     try {
@@ -110,7 +110,7 @@ function Home() {
 
   useEffect(() => {
     findShops();
-  }, [searchString]);
+  }, [searchString && suggestString]);
 
   const handleKeyPress = (e) => {
     console.log("Enter Clicked");
@@ -144,7 +144,10 @@ function Home() {
                     placeholder="Search"
                     aria-label="Search"
                     value={searchString}
-                    onChange={(e) => setsearchString(e.target.value)}
+                    onChange={(e) => {
+                      setsearchString(e.target.value);
+                      setsuggestString(e.target.value);
+                    }}
                     onKeyUp={(e) => handleKeyPress(e)}
                   />
                   {searchString.length != 0 && searchedData.length != 0 && (
