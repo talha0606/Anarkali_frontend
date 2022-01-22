@@ -28,7 +28,7 @@ const Allshops = ({ shopData }) => {
     <>
       <div class="container homecon">
         <div class="row">
-          {shopData.map((shop) => (
+          {shopData?.map((shop) => (
             <div class="col-md-auto col-xs-12 col-sm-6 col-md-4 col-lg-3 pb-4">
               <div className="card">
                 {/* <a
@@ -52,9 +52,7 @@ const Allshops = ({ shopData }) => {
                 {console.log("id change" + id)}
                 <div class="card-body">
                   <h6 class="card-title nopadding">{shop.sName}</h6>
-                  <p class="card-text ">
-                    {shop.cate}...
-                  </p>
+                  <p class="card-text ">{shop.cate}...</p>
                   <Link
                     to="./ShopDetail"
                     class="btn btn-success btn-sm"

@@ -16,6 +16,8 @@ function Home() {
 
   const [searchedData, setsearchedData] = useState("");
   const [searchString, setsearchString] = useState("");
+  const [novalue, setnovalue] = useState("");
+  // const [suggestString, setsuggestString] = useState("");
 
   const callHomePage = async (filters) => {
     try {
@@ -68,26 +70,55 @@ function Home() {
   //   setFilters(newFilters);
   // };
   const findShops = async () => {
-    console.log(searchString.replace(/\s/g, "").length);
-    // if (searchString.replace(/\s/g, "").length) {
-    try {
-      axios.get(`/searchShop?name=${searchString}`).then((res) => {
-        setsearchedData(res.data);
-        //   data = res.data[0];
-        console.log(`Searched Data: ${res.data}`);
-      });
-    } catch (err) {
-      console.log("catch: " + err);
+    console.log("SearchStirng: " + searchString.replace(/\s/g, "").length);
+    if (searchString.replace(/\s/g, "").length != 0) {
+      try {
+        axios.get(`/searchShop?name=${searchString}`).then((res) => {
+          setsearchedData(res.data);
+          //   data = res.data[0];
+          console.log(`Searched Data: ${res.data}`);
+        });
+      } catch (err) {
+        console.log("catch: " + err);
+      }
+    } else {
+      setsearchedData("");
+      callHomePage();
     }
-    // } else {
-    //   console.log("else executed");
-    //   await setsearchedData("");
-    // }
   };
+
+  const filteredShops = () => {
+    console.log("Filtered Shops yr");
+    setsearchedData("");
+    if (searchString.replace(/\s/g, "").length != 0) {
+      try {
+        axios.get(`/searchShop?name=${searchString}`).then((res) => {
+          console.log(`Searched Data: ${res.data}`);
+          setUserData(res.data);
+        });
+      } catch (err) {
+        console.log("catch: " + err);
+      }
+    } else {
+      setsearchedData("");
+    }
+  };
+
+  useEffect(() => {
+    filteredShops();
+  }, [novalue]);
 
   useEffect(() => {
     findShops();
   }, [searchString]);
+
+  const handleKeyPress = (e) => {
+    console.log("Enter Clicked");
+    if (e.key === "Enter") {
+      if (novalue === "yes") setnovalue("no");
+      else setnovalue("yes");
+    }
+  };
 
   return (
     <>
@@ -114,8 +145,9 @@ function Home() {
                     aria-label="Search"
                     value={searchString}
                     onChange={(e) => setsearchString(e.target.value)}
+                    onKeyUp={(e) => handleKeyPress(e)}
                   />
-                  {searchedData.length != 0 && (
+                  {searchString.length != 0 && searchedData.length != 0 && (
                     <div className="dataResult">
                       {searchedData?.map((value, key) => {
                         if (
@@ -124,16 +156,17 @@ function Home() {
                             .includes(searchString.toLowerCase())
                         ) {
                           return (
-                            <p>
+                            <div>
                               <button
                                 onClick={() => {
                                   setsearchString(value.sName);
                                   setsearchedData("");
+                                  setnovalue(value.sName);
                                 }}
                               >
-                                {value.sName}{" "}
+                                {value.sName}
                               </button>
-                            </p>
+                            </div>
                           );
                         } else if (
                           value.sDescription
@@ -146,10 +179,15 @@ function Home() {
                                 onClick={() => {
                                   setsearchString(value.sDescription);
                                   setsearchedData("");
+                                  setnovalue(value.sDescription);
+                                  // console.log("Search String: " + searchString);
+                                  // console.log(
+                                  //   "searchedData: " + searchedData.length
+                                  // );
                                 }}
                               >
                                 {value.sDescription}
-                              </button>{" "}
+                              </button>
                             </p>
                           );
                         }
