@@ -24,6 +24,7 @@ function showLess() {
 const Allshops = ({ shopData }) => {
   console.log(`IN all shops data is ${shopData}`);
   const [id, setID] = useState(null);
+
   return (
     <>
       <div class="container homecon">
@@ -54,11 +55,11 @@ const Allshops = ({ shopData }) => {
                   <h6 class="card-title nopadding">{shop.sName}</h6>
                   <p class="card-text ">{shop.cate}...</p>
                   <Link
-                    to="./ShopDetail"
-                    class="btn btn-success btn-sm"
-                    onClick={() => {
-                      setID(shop._id);
-                    }}
+                    to={`/map/${shop._id}`}
+                    // class="btn btn-success btn-sm"
+                    // onClick={() => {
+                    //   handlelocation(shop._id);
+                    // }}
                   >
                     Contact Us
                   </Link>

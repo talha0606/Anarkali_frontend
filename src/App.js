@@ -11,6 +11,7 @@ import AddProduct from "./components/AddProduct";
 import MyProducts from "./components/AddProduct";
 import ModalTesting from "./components/ModalTesting";
 import ShopDetail from "./components/ShopDetail";
+import Map from "./components/Map";
 
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
@@ -77,6 +78,9 @@ function App() {
           </Route>
           <Route exact path="/productDetail/:prodId">
             <ProductDetail />
+          </Route>
+          <Route exact path="/map/:shopId">
+            <Map />
           </Route>
           <Route>
             <Error />
