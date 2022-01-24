@@ -133,12 +133,9 @@ function Home() {
               handleFilters={(filters) => handleFilters(filters, "brand")}
             />
           </div>
-
           <div class="col-10 p-0 ps-3 ">
             <div className="container-fluid card-container m-0">
               {/* <div className="grid-container"> */}
-
-
               <div className="search-portion">
                 <div className="a1">
                   <input
@@ -168,17 +165,8 @@ function Home() {
 
 
 
-              <div className="toggle-btn">
-
-
-
-              </div>
-
-
-
-
-              <div className="grid-container">
-                <div className="input-group searchToggleInput">
+              {/* <div className="grid-container">
+                <div className="input-group searchToggleInput"> */}
                   {/* <input
                     className="form-control me-2 home-bg ms-3"
                     type="search"
@@ -241,7 +229,7 @@ function Home() {
                   {/* <button type="button" class="btn btn-primary" value="Search" name="Search">
                       <AiOutlineSearch />
                     </button> */}
-                </div>
+                {/* </div> */}
                 {/* <div className="toogleDiv">
                   <label class="toggleSwitch nolabel" onclick="">
                     <input type="checkbox" checked />
@@ -261,7 +249,7 @@ function Home() {
             </div>
           </div>
         </div>
-      </div>
+      {/* </div> */}
 
       {/* by ali */}
       {/* Search Button  */}

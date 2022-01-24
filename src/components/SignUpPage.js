@@ -68,7 +68,7 @@ function SignUpPage() {
   const [password, setpassword] = useState("");
   // const [filename, setfilename] = useState("");
   const [previewimage, setpreviewimage] = useState(avatar);
-  const [category, setcateory] = useState(1);
+  const [category, setcateory] = useState("Bags");
   const [image, setImage] = useState(null);
   const [url, setUrl] = useState("");
   // const [response, setresponse] = useState("");
@@ -428,7 +428,7 @@ function SignUpPage() {
       </form>
       <div className="login-footer">
         <hr />
-        <p> @ 2021, Anarkali Bazar, Lhr. </p>
+        <p> @ 2022, Anarkali Bazar, Lhr. </p>
       </div>
     </>
 
