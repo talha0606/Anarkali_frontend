@@ -45,7 +45,7 @@ const Map = () => {
   return (
     <div>
       <MapContainer
-        center={[location.longitude, location.latitude]}
+        center={[31.568849050440363, 74.31040197543261]}
         zoom={13}
         scrollWheelZoom={false}
       >

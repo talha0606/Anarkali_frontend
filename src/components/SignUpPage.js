@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react";
+import { React, useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import logo from "../images/logo.png";
 import avatar from "../images/avatar.png";
@@ -214,7 +214,7 @@ function SignUpPage() {
         .post("/register", CR)
         .then((res) => {
           console.log("ID: " + res.data.id);
-          setStatus(200);
+          // setStatus(200);
           // nextaxioscall();
           handleUpload(res.data.id);
           localStorage.setItem("id", res.data.id);
@@ -428,7 +428,7 @@ function SignUpPage() {
       </form>
       <div className="login-footer">
         <hr />
-        <p> @ 2021, Anarkali Bazar, Lhr. </p>
+        <p> @ 2022, Anarkali Bazar, Lhr. </p>
       </div>
     </>
 

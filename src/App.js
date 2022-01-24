@@ -14,13 +14,16 @@ import ShopDetail from "./components/ShopDetail";
 import Map from "./components/Map";
 
 import "./App.css";
+
 import { Switch, Route } from "react-router-dom";
 import LoginPage from "./components/LoginPage";
 import LogoutPage from "./components/LogoutPage";
 import SignUpPage from "./components/SignUpPage";
 import ProductDetail from "./components/ProductDetail";
-import { useReducer, createContext } from "react";
+
 import { initialState, reducer } from "./reducer/UseReducer";
+import { useReducer, createContext } from "react";
+
 import Logout from "@mui/icons-material/Logout";
 import EditProduct from "./components/EditProduct";
 

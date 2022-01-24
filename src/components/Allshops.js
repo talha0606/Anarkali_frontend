@@ -56,12 +56,11 @@ const Allshops = ({ shopData }) => {
                   <p class="card-text ">{shop.cate}...</p>
                   <Link
                     to={`/map/${shop._id}`}
-                    // class="btn btn-success btn-sm"
                     // onClick={() => {
                     //   handlelocation(shop._id);
                     // }}
                   >
-                    Contact Us
+                    <div class="btn btn-success btn-sm">Contact Us</div>
                   </Link>
                 </div>
               </div>
