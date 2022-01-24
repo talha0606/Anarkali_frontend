@@ -92,7 +92,7 @@ const Allshops = ({ shopData }) => {
 
   return (
     <>
-      <div class="container homecon">
+      <div class="container">
         <div class="row">
           {shopData?.map((shop) => (
             <div class="col-md-auto col-xs-12 col-sm-6 col-md-4 col-lg-3 pb-4">

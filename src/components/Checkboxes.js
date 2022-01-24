@@ -89,11 +89,11 @@ const Checkboxes = (props) => {
           <React.Fragment key={index}>
             <div class="form-check">
               <Checkbox
-                onChange={() => handleToggle(value._id)}
+                onChange={() => handleToggle(value.name)}
                 type="checkbox"
                 id="checkedBox"
                 // className="checkedBox"
-                checked={Checked.indexOf(value._id) === -1 ? false : true}
+                checked={Checked.indexOf(value.name) === -1 ? false : true}
               />
               <label htmlFor="checkedBox" className="showCheck">
                 {value.name}
