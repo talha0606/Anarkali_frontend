@@ -14,6 +14,7 @@ import {
   BiLogOut,
 } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import "../style/sidebar.css";
 
 const Sidebar = () => {
   return (
@@ -120,7 +121,7 @@ const Sidebar = () => {
             <Link to="/" class="link-light">
               <BiLogOut id="log_out" />
             </Link>
-            <span className="tooltip">Logout</span>
+            <span className="tooltip ">Logout</span>
           </li>
         </ul>
       </div>

@@ -411,7 +411,7 @@ function SignUpPage() {
           }}
         >
           {categories.map((item) => (
-            <option key={item.key} value={item.key}>
+            <option key={item.key} value={item.value}>
               {item.value}
             </option>
           ))}
