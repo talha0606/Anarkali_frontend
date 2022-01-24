@@ -77,13 +77,15 @@ const Map = () => {
         </Marker>
       </MapContainer>
 
-      <button
-        className="btn btn-primary mx-1 ms-5 copy-btn"
-        // style={{ marginLeft: "50px", align: "center" }}
-        onClick={handleCopy}
-      >
-        Copy Address
-      </button>
+      <div className="copy-btn">
+        <button
+          className="btn btn-primary mx-1 ms-5"
+          // style={{ marginLeft: "50px", align: "center" }}
+          onClick={handleCopy}
+        >
+          Copy Address
+        </button>
+      </div>
     </div>
   );
 };

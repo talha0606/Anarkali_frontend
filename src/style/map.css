@@ -7,6 +7,7 @@
 
 .copy-btn {
   position: fixed;
-  right: 80px;
+  right: 166px;
   margin-top: 5px;
+  /* text-align: center; */
 }
