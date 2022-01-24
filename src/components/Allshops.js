@@ -5,60 +5,63 @@ import ShopDetail from "../components/ShopDetail";
 // import { Link, useLocation, useParams, useHistory } from "react-router-dom";
 import "../style/allshops.css";
 import { Button } from "react-bootstrap";
-import Modal from "react-bootstrap/Modal";
+// import Modal from "react-bootstrap/Modal";
 import Map from "./Map";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaGooglePlusG,
-  FaEnvelope,
-  FaYoutube,
-  FaLinkedin,
-} from "react-icons/fa";
-import { SiFacebook, SiGmail } from "react-icons/si";
+// import {
+//   FaFacebookF,
+//   FaTwitter,
+//   FaInstagram,
+//   FaGooglePlusG,
+//   FaEnvelope,
+//   FaYoutube,
+//   FaLinkedin,
+// } from "react-icons/fa";
+// import { SiFacebook, SiGmail } from "react-icons/si";
 
-function MyVerticallyCenteredModal(props) {
-  return (
-    <Modal
-      {...props}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Address of 'Shop Name'
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <h4>Email</h4>
-        <div className="MapDiv">{<Map></Map>}</div>
+// function MyVerticallyCenteredModal(props) {
+// return (
+// <Modal
+//   {...props}
+//   size="lg"
+//   aria-labelledby="contained-modal-title-vcenter"
+//   centered
+// >
+//   <Modal.Header closeButton>
+//     <Modal.Title id="contained-modal-title-vcenter">
+//       Address of 'Shop Name'
+//     </Modal.Title>
+//   </Modal.Header>
+//   <Modal.Body>
+//   <h4>Email</h4>
+//   <div className="MapDiv">
+//     {/* <Map ></Map> */}
+//   </div>
 
-        <div class="social-buttons mt-5">
-          <button class="neo-button">
-            <FaFacebookF />
-          </button>
-          <button class="neo-button">
-            <SiGmail />
-          </button>
-          <button class="neo-button">
-            <FaYoutube />
-          </button>
-          <button class="neo-button">
-            <FaLinkedin />
-          </button>
-          <button class="neo-button">
-            <FaTwitter />
-          </button>
-        </div>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
-    </Modal>
-  );
-}
+//     <div class="social-buttons mt-5">
+//             <button class="neo-button">
+//               <FaFacebookF />
+//             </button>
+//             <button class="neo-button">
+//               <SiGmail />
+//             </button>
+//             <button class="neo-button">
+//               <FaYoutube />
+//             </button>
+//             <button class="neo-button">
+//               <FaLinkedin />
+//             </button>
+//             <button class="neo-button">
+//               <FaTwitter />
+//             </button>
+//           </div>
+
+//   </Modal.Body>
+//   <Modal.Footer>
+//     <Button onClick={props.onHide}>Close</Button>
+//   </Modal.Footer>
+// </Modal>
+// );
+// }
 
 // for less data in card
 function showLess() {
@@ -132,24 +135,28 @@ const Allshops = ({ shopData }) => {
                       </a>
                     </span> */}
                   </div>
-                  <p class="card-text shop-email">{shop.email}</p>
-                  <div class="phone-number">0323-2323454</div>
-                  <Button
-                    // to={`/map/${shop._id}`}
-                    // to={`/`}
-                    // to={{
-                    //   pathname: "{`/map/${shop._id}`}",
+                  <p class="card-text shop-email fw-bold">{shop.email}</p>
+                  <div class="phone-number lead">0323-2323454</div>
+                  {/* <Button */}
+                  <Link to={`/map/${shop._id}`}>
+                    {/* // to={`/`} */}
+
+                    {/* // to={{ */}
+                    {/* //   pathname: "{`/map/${shop._id}`}",
                     //   state: { modal: true },
-                    // }}
-                    className="btn btn-success btn-sm"
-                    onClick={() => setModalShow(true)}
-                  >
-                    Shop Address
-                  </Button>
-                  <MyVerticallyCenteredModal
+                    // }} */}
+                    {/* < */}
+                    <div className="btn btn-success btn-sm">
+                      {/* // onClick={() => setModalShow(true)} */}
+                      {/* > */}
+                      Shop Address
+                    </div>
+                  </Link>
+                  {/* </Button> */}
+                  {/* <MyVerticallyCenteredModal
                     show={modalShow}
                     onHide={() => setModalShow(false)}
-                  />
+                  /> */}
                 </div>
               </div>
             </div>
