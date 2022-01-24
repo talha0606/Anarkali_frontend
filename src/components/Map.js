@@ -9,13 +9,17 @@ import axios from "axios";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
-
-
 const Map = () => {
   const { shopId } = useParams();
   console.log("In map: " + shopId);
   //   const [longitude, setlongitude] = useState("");
   const [location, setlocation] = useState({ longitude: 0.0, latitude: 0.0 });
+
+  const handleCopy = () => {
+    // var text = document.getElementById("copyaddress");
+    // text.select();
+    navigator.clipboard.writeText([location.longitude, location.latitude]);
+  };
 
   const handlelocation = () => {
     try {
@@ -72,6 +76,14 @@ const Map = () => {
           </Popup>
         </Marker>
       </MapContainer>
+
+      <button
+        className="btn btn-primary mx-1 ms-5 copy-btn"
+        // style={{ marginLeft: "50px", align: "center" }}
+        onClick={handleCopy}
+      >
+        Copy Address
+      </button>
     </div>
   );
 };
