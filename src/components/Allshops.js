@@ -33,7 +33,7 @@ function MyVerticallyCenteredModal(props) {
       </Modal.Header>
       <Modal.Body>
       <h4>Email</h4>
-      <div>
+      <div className="MapDiv">
         {/* <Map ></Map> */}
       </div>
         
@@ -140,7 +140,7 @@ const Allshops = ({ shopData }) => {
                     </span>
                   </div>
                   <p class="card-text">{shop.email}</p>
-                  <Link
+                  <Button
                     // to={`/map/${shop._id}`}
                     to={`/`}
                     
@@ -148,11 +148,11 @@ const Allshops = ({ shopData }) => {
                     //   pathname: "{`/map/${shop._id}`}",
                     //   state: { modal: true },
                     // }}
-                    class="btn btn-success btn-sm"
+                    className="btn btn-success btn-sm"
                     onClick={() => setModalShow(true)}
                   >
                     Shop Address
-                  </Link>
+                  </Button>
                   <MyVerticallyCenteredModal
                     show={modalShow}
                     onHide={() => setModalShow(false)}
