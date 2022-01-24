@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Collapse, Checkbox } from "antd";
 import Slider from "@material-ui/core/Slider";
 import Typography from "@material-ui/core/Typography";
+import "../style/brands-checkbox.css";
 // import { createMuiTheme } from '@material-ui/core/styles';
 // import { ThemeProvider } from '@material-ui/styles';
 
@@ -120,9 +121,9 @@ const Checkbox2 = (props) => {
         </div> */}
 
       <div>
-        <Typography>
-          <b>Price</b>
-        </Typography>
+        <h5 className="checkbox-heading">Price</h5>
+        {/* <Typography>
+        </Typography> */}
         {/* <ThemeProvider theme={muiTheme}> */}
         <Slider
           className="priceFilter"
@@ -135,7 +136,7 @@ const Checkbox2 = (props) => {
         />
         {/* </ThemeProvider> */}
 
-        <h4>Brands</h4>
+        <h5 className="checkbox-heading">Brands</h5>
 
         {Brands.map((value, index) => (
           <React.Fragment key={index}>

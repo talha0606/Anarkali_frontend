@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Collapse, Checkbox } from "antd";
-
+import "../style/categories-checkbox.css"
 import { AiOutlineSearch } from "react-icons/ai";
 
 const { Panel } = Collapse;
@@ -84,7 +84,7 @@ const Checkboxes = (props) => {
       </div>
       */}
       <div>
-        <h4>Categories</h4>
+        <h5 className="checkbox-heading">Categories</h5>
         {category.map((value, index) => (
           <React.Fragment key={index}>
             <div class="form-check">
