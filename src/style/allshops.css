@@ -1,0 +1,39 @@
+.card-category{
+    width: 100px !important;
+    height: 100px;
+
+}
+.MapDiv{
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* .item1 { grid-area: name; }
+.item2 { grid-area: category; }
+.item3 { grid-area: email; }
+.item4 { grid-area: rating; }
+
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'name name . .'
+    'category category rating rating'
+    'email email . .'
+    'button button . .';
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+} */

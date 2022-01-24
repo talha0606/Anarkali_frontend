@@ -3,6 +3,68 @@ import DetailproductPage from "../components/DetailproductPage";
 import { Link } from "react-router-dom";
 import ShopDetail from "../components/ShopDetail";
 // import { Link, useLocation, useParams, useHistory } from "react-router-dom";
+import "../style/allshops.css";
+import { Button } from "react-bootstrap";
+import Modal from "react-bootstrap/Modal";
+import Map from "./Map";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaGooglePlusG,
+  FaEnvelope,
+  FaYoutube,
+  FaLinkedin,
+} from "react-icons/fa";
+import { SiFacebook, SiGmail } from "react-icons/si";
+
+function MyVerticallyCenteredModal(props) {
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Address of 'Shop Name'
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+      <h4>Email</h4>
+      <div className="MapDiv">
+        {/* <Map ></Map> */}
+      </div>
+        
+
+        <div class="social-buttons mt-5">
+                <button class="neo-button">
+                  <FaFacebookF />
+                </button>
+                <button class="neo-button">
+                  <SiGmail />
+                </button>
+                <button class="neo-button">
+                  <FaYoutube />
+                </button>
+                <button class="neo-button">
+                  <FaLinkedin />
+                </button>
+                <button class="neo-button">
+                  <FaTwitter />
+                </button>
+              </div>
+              
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+}
+
+
 
 // for less data in card
 function showLess() {
@@ -25,6 +87,9 @@ const Allshops = ({ shopData }) => {
   console.log(`IN all shops data is ${shopData}`);
   const [id, setID] = useState(null);
 
+  const [modalShow, setModalShow] = React.useState(false);
+
+
   return (
     <>
       <div class="container homecon">
@@ -44,25 +109,54 @@ const Allshops = ({ shopData }) => {
                     src={shop.imageUrl}
                     className="home-card-img-top card-img img-thumbnail"
                     alt="Card image cap"
-                    //   onClick={() => {
-                    //     setID(user._id);
-                    //   }}
+                  //   onClick={() => {
+                  //     setID(user._id);
+                  //   }}
                   />
                 </Link>
                 {/* </a> */}
                 {console.log("id change" + id)}
                 <div class="card-body">
+                  {/* <div class="grid-container">
+                    <div class="item1"><h6 class="card-title nopadding">{shop.sName}</h6></div>
+                    <div class="item2 .bg-success.bg-gradient"><p class="card-text bg-success">category {shop.category}</p></div>
+                    <div class="item3">Email</div>
+                    <div class="item4">Rating</div>
+                    <div class="item5">Button</div>
+                  </div> */}
                   <h6 class="card-title nopadding">{shop.sName}</h6>
-                  <p class="card-text ">{shop.cate}...</p>
-                  <Link
-                    to={`/map/${shop._id}`}
-                    // class="btn btn-success btn-sm"
-                    // onClick={() => {
-                    //   handlelocation(shop._id);
+                  <div class="clearfix mb-3">
+                    <span class="float-start badge rounded-pill bg-success bg-gradient text-dark">
+                      Category {shop.category}
+                    </span>
+
+                    <span class="float-end">
+                      <a
+                        href="#"
+                        class="small text-muted text-uppercase aff-link"
+                      >
+                        rating
+                      </a>
+                    </span>
+                  </div>
+                  <p class="card-text">{shop.email}</p>
+                  <Button
+                    // to={`/map/${shop._id}`}
+                    to={`/`}
+                    
+                    // to={{
+                    //   pathname: "{`/map/${shop._id}`}",
+                    //   state: { modal: true },
                     // }}
+                    className="btn btn-success btn-sm"
+                    onClick={() => setModalShow(true)}
                   >
-                    Contact Us
-                  </Link>
+                    Shop Address
+                  </Button>
+                  <MyVerticallyCenteredModal
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                  />
                 </div>
               </div>
             </div>
