@@ -1,3 +1,8 @@
+.globall{
+  width: 100%;
+  height: 10vh;
+}
+/* 
 .searchToggleInput {
   grid-area: search;
   width: 100px;
@@ -10,28 +15,28 @@
 
 .grid-container {
   /* position: fixed; */
-  right: 0;
+  /* right: 0;
   display: grid;
   margin-bottom: 20px;
-  margin-left: 500px;
-  grid-template-areas: "search search toggle toggle";
-  grid-gap: 10px;
+  margin-left: 500px; */
+  /* grid-template-areas: "search search toggle toggle"; */
+  /* grid-gap: 10px; */
   /* background-color: #dae9f8; */
   /* padding: 10px; */
-  width: 45%;
-  margin: 15px 10px 0px 20px;
-}
-
-.grid-container > div {
+  /* width: 45%;
+  margin: 15px 10px 0px 20px; */
+/* } */
+/* 
+.grid-container > div { */
   /* background-color: rgba(255, 255, 255, 0.8); */
-  text-align: right;
+  /* text-align: right; */
   /* padding: 20px 0; */
-  font-size: 20px;
-  height: 30px;
-}
+  /* font-size: 20px; */
+  /* height: 30px; */
+/* } */
 
 /*  Toggle Switch  */
-
+/* 
 .toggleSwitch span span {
   display: none;
 }
@@ -142,7 +147,7 @@
   left: 0;
   top: -2px;
   /* background-color: #fafafa;
-	border: 1px solid #ccc; */
+	border: 1px solid #ccc; 
   border-radius: 30px;
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
@@ -157,6 +162,7 @@
 	box-shadow: inset 0 0 0 30px #0097D1; 
 } 
 */
+/* 
 .toggleSwitch input:checked ~ span span:first-of-type {
   left: 0;
   color: #999;
@@ -164,9 +170,12 @@
 .toggleSwitch input:checked ~ span span:last-of-type {
   /* opacity: 1;
 	color: #fff;	 */
-  color: #fff;
-}
+  /* color: #fff; */
+/* }  */
+*/
 /* Switch Sizes */
+
+/* 
 .toggleSwitch.large {
   width: 60px;
   height: 27px;
@@ -207,7 +216,7 @@
 .toggleSwitch.xlarge > span span:first-of-type {
   left: 50%;
 }
-
+ */
 /*  End Toggle Switch  */
 
 /* for suggestion window below search bar */

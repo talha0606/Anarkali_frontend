@@ -6,7 +6,7 @@ import "../style/Home.css";
 import { AiOutlineSearch } from "react-icons/ai";
 import axios from "axios";
 
-function Home() {
+function HomePage() {
   const [isPending, setIsPending] = useState(true);
   const [userData, setUserData] = useState([]);
   const [Filters, setFilters] = useState({
@@ -124,7 +124,7 @@ function Home() {
     <>
       <div class="container-fluid home-container">
         <div class="row ">
-          <div class="col-lg-2 p-0">
+          <div class="col-lg-3 p-0">
             {/* {isPending && <div> Loading... </div>} */}
             <Checkboxes
               handleFilters={(filters) => handleFilters(filters, "category")}
@@ -134,7 +134,7 @@ function Home() {
             />
           </div>
 
-          <div class="col-lg-10  p-0">
+          <div class="col-lg-9  p-0">
             <div className="container-fluid card-container m-0">
               <div className="grid-container">
                 <div className="input-group searchToggleInput">
@@ -150,6 +150,7 @@ function Home() {
                     }}
                     onKeyUp={(e) => handleKeyPress(e)}
                   />
+
                   {searchString.length != 0 && searchedData.length != 0 && (
                     <div className="dataResult">
                       {searchedData?.map((value, key) => {

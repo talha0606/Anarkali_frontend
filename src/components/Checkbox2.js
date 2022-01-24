@@ -121,11 +121,11 @@ const Checkbox2 = (props) => {
         </div> */}
 
       <div>
-        <h5 className="checkbox-heading">Price</h5>
+          {/* <h5 className="checkbox-heading">Price</h5> */}
         {/* <Typography>
         </Typography> */}
         {/* <ThemeProvider theme={muiTheme}> */}
-        <Slider
+        {/* <Slider
           className="priceFilter"
           value={price}
           onChange={handlePrice}
@@ -133,7 +133,7 @@ const Checkbox2 = (props) => {
           aria-labelledby="range-slider"
           min={0}
           max={25000}
-        />
+        /> */}
         {/* </ThemeProvider> */}
 
         <h5 className="checkbox-heading">Brands</h5>

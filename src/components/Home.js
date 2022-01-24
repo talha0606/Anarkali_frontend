@@ -124,7 +124,7 @@ function Home() {
     <>
       <div class="container-fluid home-container">
         <div class="row ">
-          <div class="col-lg-2 p-0">
+          <div class="col-2 p-0">
             {/* {isPending && <div> Loading... </div>} */}
             <Checkboxes
               handleFilters={(filters) => handleFilters(filters, "category")}
@@ -134,12 +134,15 @@ function Home() {
             />
           </div>
 
-          <div class="col-lg-10  p-0">
+          <div class="col-10 p-0 ps-3 ">
             <div className="container-fluid card-container m-0">
-              <div className="grid-container">
-                <div className="input-group searchToggleInput">
+              {/* <div className="grid-container"> */}
+
+
+              <div className="search-portion">
+                <div className="a1">
                   <input
-                    className="form-control me-2 home-bg ms-3"
+                    className="search-box ms-3"
                     type="search"
                     placeholder="Search"
                     aria-label="Search"
@@ -150,8 +153,46 @@ function Home() {
                     }}
                     onKeyUp={(e) => handleKeyPress(e)}
                   />
-                  {searchString.length != 0 && searchedData.length != 0 && (
-                    <div className="dataResult">
+                </div>
+                <spam className="search-shops">shops</spam>
+                <div className="a2">
+                  <div class="form-check form-switch ms-2 mt-2 ">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Products</label>
+                
+                    <input class="form-check-input shops-switch " type="checkbox" id="flexSwitchCheckDefault" />
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+              <div className="toggle-btn">
+
+
+
+              </div>
+
+
+
+
+              <div className="grid-container">
+                <div className="input-group searchToggleInput">
+                  {/* <input
+                    className="form-control me-2 home-bg ms-3"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                    value={searchString}
+                    onChange={(e) => {
+                      setsearchString(e.target.value);
+                      setsuggestString(e.target.value);
+                    }}
+                    onKeyUp={(e) => handleKeyPress(e)}
+                  /> */}
+                  {/* {searchString.length != 0 && searchedData.length != 0 && ( */}
+                  {/* <div className="dataResult">
                       {searchedData?.map((value, key) => {
                         if (
                           value.sName
@@ -195,13 +236,13 @@ function Home() {
                           );
                         }
                       })}
-                    </div>
-                  )}
+                    </div> */}
+                  {/* )} */}
                   {/* <button type="button" class="btn btn-primary" value="Search" name="Search">
                       <AiOutlineSearch />
                     </button> */}
                 </div>
-                <div className="toogleDiv">
+                {/* <div className="toogleDiv">
                   <label class="toggleSwitch nolabel" onclick="">
                     <input type="checkbox" checked />
                     <a></a>
@@ -210,7 +251,8 @@ function Home() {
                       <span class="right-span">Products</span>
                     </span>
                   </label>
-                </div>
+                </div> */}
+
               </div>
 
               <div className="row p-3 home">
