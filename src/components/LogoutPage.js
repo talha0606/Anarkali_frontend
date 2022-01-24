@@ -30,11 +30,7 @@ const LogoutPage = () => {
       });
   });
 
-  return (
-    <>
-      <h1>Logout ka page</h1>
-    </>
-  );
+  return <>{/* <h1>Logout ka page</h1> */}</>;
 };
 
 export default LogoutPage;
