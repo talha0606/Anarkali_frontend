@@ -6,6 +6,10 @@ import markerIconPng from "leaflet/dist/images/marker-icon.png";
 import { Icon } from "leaflet";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+
+
 
 const Map = () => {
   const { shopId } = useParams();
