@@ -88,7 +88,7 @@ function Home() {
                <p>sxds</p>
             </div>  */}
             <div className="container-fluid home-bg card-container m-0"> 
-              <div className="row p-3 home">
+              <div className="home ">
                 <Allshops shopData={shopData} />
               </div>
             </div>
