@@ -151,7 +151,7 @@ function Home() {
                     onKeyUp={(e) => handleKeyPress(e)}
                   />
                 </div>
-                <spam className="search-shops">shops</spam>
+                <spam className="search-shops">Shops</spam>
                 <div className="a2">
                   <div class="form-check form-switch ms-2 mt-2 ">
                     <label class="form-check-label" for="flexSwitchCheckDefault">Products</label>
@@ -243,7 +243,7 @@ function Home() {
 
               </div>
 
-              <div className="row p-3 home">
+              <div className="p-3">
                 <Allshops shopData={userData} />
               </div>
             </div>

@@ -214,7 +214,7 @@ function HomePage() {
                 </div>
               </div>
 
-              <div className="row p-3 home">
+              <div className="row home">
                 <Allshops shopData={userData} />
               </div>
             </div>
