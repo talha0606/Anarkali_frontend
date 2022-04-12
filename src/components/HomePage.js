@@ -203,8 +203,8 @@ function HomePage() {
                     </button> */}
                 </div>
                 <div className="toogleDiv">
-                  <label class="toggleSwitch nolabel" onclick="">
-                    <input type="checkbox" checked />
+                  <label class="toggleSwitch nolabel">
+                    <input type="checkbox" onClick={handleToggle} checked />
                     <a></a>
                     <span>
                       <span class="left-span">Shops</span>
