@@ -80,12 +80,13 @@ function showLess() {
   }
 }
 
-const Allproducts = () => {
+const Allproducts = ({ filteredProducts }) => {
+  console.log(`in all products ${filteredProducts}`);
   //   const [id, setID] = useState(null);
   //   const [modalShow, setModalShow] = React.useState(false);
   const [myproducts, setMyProducts] = useState();
 
-  const Myprod = async (filters) => {
+  const Myprod = async () => {
     try {
       const res = await fetch(`/allproducts`, {
         method: "GET",
@@ -98,8 +99,10 @@ const Allproducts = () => {
       });
 
       const data = await res.json();
-      console.log("MyProducts: ", data);
+      console.log("All Products: ", data);
       setMyProducts(data);
+
+      console.log(`length: ${myproducts.length}`);
       // setMyProducts((oldArray) => [...oldArray, data]);
 
       // if (data.length == 1) {
@@ -125,46 +128,47 @@ const Allproducts = () => {
     Myprod();
   }, []);
 
-  return (
-    <>
-      <div class="container">
-        <div class="row no-gutters">
-          {myproducts?.map((prod) => (
-            <div class="col-3 col-* ">
-              <div className="card">
-                {/* <a
+  if (filteredProducts == null) {
+    return (
+      <>
+        <div class="container">
+          <div class="row no-gutters">
+            {myproducts?.map((prod) => (
+              <div class="col-3 col-* ">
+                <div className="card">
+                  {/* <a
                   onClick={() => {
                     setID(shop._id);
                     console.log(shop.shopImage);
                   }} */}
-                {/* > */}
-                {/* <Link to={`/shopDetail/${shop._id}`}> ......*/}
-                <img
-                  // src={`/uploads/${shop.shopImage}`}
-                  src={prod.prodImage}
-                  className="home-card-img-top card-img img-thumbnail"
-                  alt="Card image cap"
-                  //   onClick={() => {
-                  //     setID(user._id);
-                  //   }}
-                />
-                {/* </Link>..... */}
-                {/* </a> */}
-                {/* {console.log("id change" + id)}.... */}
-                <div class="card-body">
-                  {/* <div class="grid-container">
+                  {/* > */}
+                  {/* <Link to={`/shopDetail/${shop._id}`}> ......*/}
+                  <img
+                    // src={`/uploads/${shop.shopImage}`}
+                    src={prod.prodImage}
+                    className="home-card-img-top card-img img-thumbnail"
+                    alt="Card image cap"
+                    //   onClick={() => {
+                    //     setID(user._id);
+                    //   }}
+                  />
+                  {/* </Link>..... */}
+                  {/* </a> */}
+                  {/* {console.log("id change" + id)}.... */}
+                  <div class="card-body">
+                    {/* <div class="grid-container">
                     <div class="item1"><h6 class="card-title nopadding">{shop.sName}</h6></div>
                     <div class="item2 .bg-success.bg-gradient"><p class="card-text bg-success">category {shop.category}</p></div>
                     <div class="item3">Email</div>
                     <div class="item4">Rating</div>
                     <div class="item5">Button</div>
                   </div> */}
-                  <h6 class="card-title nopadding">{prod.pName}</h6>
-                  <div class="clearfix mb-3">
-                    <span class="float-start badge rounded  text-success p-0">
-                      Price {prod.price}
-                    </span>
-                    {/* 
+                    <h6 class="card-title nopadding">{prod.pName}</h6>
+                    <div class="clearfix mb-3">
+                      <span class="float-start badge rounded  text-success p-0">
+                        Price {prod.price}
+                      </span>
+                      {/* 
                     <span class="float-end">
                       <a
                         href="#"
@@ -173,40 +177,124 @@ const Allproducts = () => {
                         rating
                       </a>
                     </span> */}
-                  </div>
-                  {/* <p class="card-text shop-email fw-bold">{shop.email}</p> ....*/}
-                  {/* <div class="phone-number lead">0323-2323454</div>...... */}
-                  {/* <Button */}
-                  {/* <Link to={`/map/${shop._id}`}>...... */}
-                  {/* // to={`/`} */}
-                  {/* // to={{ */}
-                  {/* //   pathname: "{`/map/${shop._id}`}",
+                    </div>
+                    {/* <p class="card-text shop-email fw-bold">{shop.email}</p> ....*/}
+                    {/* <div class="phone-number lead">0323-2323454</div>...... */}
+                    {/* <Button */}
+                    {/* <Link to={`/map/${shop._id}`}>...... */}
+                    {/* // to={`/`} */}
+                    {/* // to={{ */}
+                    {/* //   pathname: "{`/map/${shop._id}`}",
                     //   state: { modal: true },
                     // }} */}
-                  {/* < */}
-                  {/* <div className="btn btn-success btn-sm">....... */}
-                  {/* // onClick={() => setModalShow(true)} */}
-                  {/* > */}
-                  Shop Address
-                  {/* </div>..... */}
-                  {/* </Link>..... */}
-                  {/* </Button> */}
-                  {/* <MyVerticallyCenteredModal
+                    {/* < */}
+                    {/* <div className="btn btn-success btn-sm">....... */}
+                    {/* // onClick={() => setModalShow(true)} */}
+                    {/* > */}
+                    Shop Address
+                    {/* </div>..... */}
+                    {/* </Link>..... */}
+                    {/* </Button> */}
+                    {/* <MyVerticallyCenteredModal
                     show={modalShow}
                     onHide={() => setModalShow(false)}
                   /> */}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        <div class="col col-lg-2 detail" id="hideme">
-          {/* {id && <DetailproductPage id={id} setID={setID} />} */}
+          <div class="col col-lg-2 detail" id="hideme">
+            {/* {id && <DetailproductPage id={id} setID={setID} />} */}
+          </div>
         </div>
-      </div>
-    </>
-  );
+      </>
+    );
+  } else {
+    return (
+      <>
+        <div class="container">
+          <div class="row no-gutters">
+            {filteredProducts?.map((prod) => (
+              <div class="col-3 col-* ">
+                <div className="card">
+                  {/* <a
+                  onClick={() => {
+                    setID(shop._id);
+                    console.log(shop.shopImage);
+                  }} */}
+                  {/* > */}
+                  {/* <Link to={`/shopDetail/${shop._id}`}> ......*/}
+                  <img
+                    // src={`/uploads/${shop.shopImage}`}
+                    src={prod.prodImage}
+                    className="home-card-img-top card-img img-thumbnail"
+                    alt="Card image cap"
+                    //   onClick={() => {
+                    //     setID(user._id);
+                    //   }}
+                  />
+                  {/* </Link>..... */}
+                  {/* </a> */}
+                  {/* {console.log("id change" + id)}.... */}
+                  <div class="card-body">
+                    {/* <div class="grid-container">
+                    <div class="item1"><h6 class="card-title nopadding">{shop.sName}</h6></div>
+                    <div class="item2 .bg-success.bg-gradient"><p class="card-text bg-success">category {shop.category}</p></div>
+                    <div class="item3">Email</div>
+                    <div class="item4">Rating</div>
+                    <div class="item5">Button</div>
+                  </div> */}
+                    <h6 class="card-title nopadding">{prod.pName}</h6>
+                    <div class="clearfix mb-3">
+                      <span class="float-start badge rounded  text-success p-0">
+                        Price {prod.price}
+                      </span>
+                      {/* 
+                    <span class="float-end">
+                      <a
+                        href="#"
+                        class="small text-muted text-uppercase aff-link"
+                      >
+                        rating
+                      </a>
+                    </span> */}
+                    </div>
+                    {/* <p class="card-text shop-email fw-bold">{shop.email}</p> ....*/}
+                    {/* <div class="phone-number lead">0323-2323454</div>...... */}
+                    {/* <Button */}
+                    {/* <Link to={`/map/${shop._id}`}>...... */}
+                    {/* // to={`/`} */}
+                    {/* // to={{ */}
+                    {/* //   pathname: "{`/map/${shop._id}`}",
+                    //   state: { modal: true },
+                    // }} */}
+                    {/* < */}
+                    {/* <div className="btn btn-success btn-sm">....... */}
+                    {/* // onClick={() => setModalShow(true)} */}
+                    {/* > */}
+                    Shop Address
+                    {/* </div>..... */}
+                    {/* </Link>..... */}
+                    {/* </Button> */}
+                    {/* <MyVerticallyCenteredModal
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                  /> */}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div class="col col-lg-2 detail" id="hideme">
+            {/* {id && <DetailproductPage id={id} setID={setID} />} */}
+          </div>
+        </div>
+      </>
+    );
+  }
 };
 
 export default Allproducts;

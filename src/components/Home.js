@@ -25,10 +25,12 @@ function Home() {
   const [toggleValue, setToggleValue] = useState("Shops");
   console.log("adfkakfkjakfk" + toggleValue);
 
-  const [price, setPrice] = useState([0, 25000]);
+  const [price, setPrice] = useState([0, 25000000]);
   const priceHandler = (event, newPrice) => {
     setPrice(newPrice);
   };
+
+  const [FilteredProducts, setFilteredProducts] = useState(null);
 
   const callHomePage = async (filters) => {
     try {
@@ -156,9 +158,14 @@ function Home() {
       );
 
       const data = await res.json();
-      console.log(data);
+      console.log("FilteredProducts: " + data);
+      setFilteredProducts(data);
     } catch (err) {}
   };
+
+  useEffect(() => {
+    getFilteredProducts();
+  }, [price]);
 
   if (toggleValue == "Shops") {
     return (
@@ -505,7 +512,7 @@ function Home() {
               </div>
 
               <div className="p-3">
-                <Allproducts />
+                <Allproducts filteredProducts={FilteredProducts} />
               </div>
             </div>
           </div>

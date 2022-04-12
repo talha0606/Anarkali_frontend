@@ -241,7 +241,7 @@ const AddProduct = () => {
         />
         <label htmlFor="price">Price</label>
         <input
-          type="text"
+          type="number"
           id="price"
           name="price"
           value={price}
