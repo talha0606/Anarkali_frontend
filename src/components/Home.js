@@ -4,10 +4,13 @@ import React, { useState, useEffect } from "react";
 import Allshops from "./Allshops";
 import Allproducts from "./Allproducts";
 import "../style/Home.css";
+import "../style/pagination.css";
+
 import { AiOutlineSearch } from "react-icons/ai";
 import axios from "axios";
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
+import Pagination from "react-js-pagination";
 
 function Home() {
   const [isPending, setIsPending] = useState(true);
@@ -25,12 +28,17 @@ function Home() {
   const [toggleValue, setToggleValue] = useState("Shops");
   console.log("adfkakfkjakfk" + toggleValue);
 
-  const [price, setPrice] = useState([0, 25000000]);
+  const [price, setPrice] = useState([0, 25000000000000]);
   const priceHandler = (event, newPrice) => {
     setPrice(newPrice);
   };
 
   const [FilteredProducts, setFilteredProducts] = useState(null);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [resultPerPage, setResultPerPage] = useState();
+  const [productsCount, setProductsCount] = useState();
+  const [filteredProductsCount, setFilteredProductsCount] = useState();
 
   const callHomePage = async (filters) => {
     try {
@@ -84,13 +92,11 @@ function Home() {
   //   setFilters(newFilters);
   // };
   const findShops = async () => {
-    console.log("SearchStirng: " + searchString.replace(/\s/g, "").length);
     if (searchString.replace(/\s/g, "").length != 0) {
       try {
         axios.get(`/searchShop?name=${searchString}`).then((res) => {
           setsearchedData(res.data);
           //   data = res.data[0];
-          console.log(`Searched Data: ${res.data}`);
         });
       } catch (err) {
         console.log("catch: " + err);
@@ -102,12 +108,10 @@ function Home() {
   };
 
   const filteredShops = () => {
-    console.log("Filtered Shops yr");
     setsearchedData("");
     if (searchString.replace(/\s/g, "").length != 0) {
       try {
         axios.get(`/searchShop?name=${searchString}`).then((res) => {
-          console.log(`Searched Data: ${res.data}`);
           setUserData(res.data);
         });
       } catch (err) {
@@ -127,7 +131,6 @@ function Home() {
   }, [searchString && suggestString]);
 
   const handleKeyPress = (e) => {
-    console.log("Enter Clicked");
     if (e.key === "Enter") {
       if (novalue === "yes") setnovalue("no");
       else setnovalue("yes");
@@ -147,7 +150,7 @@ function Home() {
   const getFilteredProducts = async () => {
     try {
       const res = await fetch(
-        `/allproducts?price[gte]=${price[0]}&price[lte]=${price[1]}`,
+        `/allproducts?keyword=${searchString}&price[gte]=${price[0]}&price[lte]=${price[1]}&page=${currentPage}`,
         {
           method: "GET",
           headers: {
@@ -157,15 +160,28 @@ function Home() {
         }
       );
 
+      //console.log("FilteredProducts: " + res);
+
       const data = await res.json();
       console.log("FilteredProducts: " + data);
-      setFilteredProducts(data);
+      setFilteredProducts(data.myproducts);
+      setResultPerPage(data.resultPerPage);
+      setProductsCount(data.productsCount);
+      setFilteredProductsCount(data.filteredProductsCount);
     } catch (err) {}
   };
 
   useEffect(() => {
     getFilteredProducts();
-  }, [price]);
+  }, [price, searchString, currentPage]);
+
+  const setCurrentPageNo = (e) => {
+    setCurrentPage(e);
+  };
+
+  useEffect(() => {
+    console.log("Current page nO: " + currentPage);
+  }, [currentPage]);
 
   if (toggleValue == "Shops") {
     return (
@@ -409,7 +425,6 @@ function Home() {
                       value={searchString}
                       onChange={(e) => {
                         setsearchString(e.target.value);
-                        setsuggestString(e.target.value);
                       }}
                       onKeyUp={(e) => handleKeyPress(e)}
                     />
@@ -513,6 +528,24 @@ function Home() {
 
               <div className="p-3">
                 <Allproducts filteredProducts={FilteredProducts} />
+              </div>
+              <div className="paginationBox">
+                {resultPerPage < filteredProductsCount && (
+                  <Pagination
+                    activePage={currentPage}
+                    itemsCountPerPage={resultPerPage}
+                    totalItemsCount={productsCount}
+                    onChange={setCurrentPageNo}
+                    nextPageText="Next"
+                    prevPageText="Prev"
+                    firstPageText="1st"
+                    lastPageText="Last"
+                    itemClass="page-item"
+                    linkClass="page-link"
+                    activeClass="pageItemActive"
+                    activeLinkClass="pageLinkActive"
+                  />
+                )}
               </div>
             </div>
           </div>
