@@ -57,5 +57,7 @@
     "not dead",
     "not op_mini all"
   ],
-  "devDependencies": {}
+  "devDependencies": {
+    "css-loader": "^6.7.1"
+  }
 }

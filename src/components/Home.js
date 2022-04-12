@@ -8,6 +8,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import axios from "axios";
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
+import "../style/Home.css";
 
 function Home() {
   const [isPending, setIsPending] = useState(true);
@@ -157,7 +158,7 @@ function Home() {
 
       const data = await res.json();
       console.log(data);
-    } catch (err) {}
+    } catch (err) { }
   };
 
   if (toggleValue == "Shops") {
@@ -177,7 +178,9 @@ function Home() {
             <div class="col-10 p-0 ps-3 ">
               <div className="container-fluid card-container m-0">
                 {/* <div className="grid-container"> */}
+
                 <div className="search-portion">
+
                   <div className="a1">
                     <input
                       className="search-box ms-3"
@@ -192,22 +195,41 @@ function Home() {
                       onKeyUp={(e) => handleKeyPress(e)}
                     />
                   </div>
-                  <spam className="search-shops">Shops</spam>
+
+                  {/* <div class="toggle-button-cover">
+                    <div className="button-cover">
+                      <div className="buttonToggle b2" id="button-11">
+                        <input type="checkbox" className="checkboxToggle" />
+                        <div className="knobs">
+                          <span></span>
+                        </div>
+                        <div className="layer"></div>
+                      </div>
+                    </div>
+                  </div> */}
+
+                  <label className="toggle">
+                    <input type="checkbox" />
+                    <span className="labels" data-on="SHOPS" data-off="PRODUCTS"></span>
+                  </label>
+
+
+                  {/* <spam className="search-shops">Shops</spam> */}
                   <div className="a2">
                     <div class="form-check form-switch ms-2 mt-2 ">
-                      <label
+                      {/* <label
                         class="form-check-label"
                         for="flexSwitchCheckDefault"
                       >
                         Products
-                      </label>
+                      </label> */}
 
-                      <input
+                      {/* <input
                         class="form-check-input shops-switch "
                         type="checkbox"
                         id="flexSwitchCheckDefault"
                         onClick={handleToggle}
-                      />
+                      /> */}
                     </div>
                   </div>
                 </div>
