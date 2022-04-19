@@ -175,6 +175,10 @@ function Home() {
     getFilteredProducts();
   }, [price, searchString, currentPage]);
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [price, searchString]);
+
   const setCurrentPageNo = (e) => {
     setCurrentPage(e);
   };
@@ -217,11 +221,18 @@ function Home() {
                   </div>
                   {/* <spam className="search-shops">Shops</spam> */}
                   <div className="a2">
-                  <label className="toggle">
-                    <input className="toggleINPUT" type="checkbox" />
-                    <span className="labels" data-on="SHOPS" data-off="PRODUCTS"></span>
-                  </label>
-                    
+                    <label className="toggle">
+                      <input
+                        className="toggleINPUT"
+                        type="checkbox"
+                        onClick={handleToggle}
+                      />
+                      <span
+                        className="labels"
+                        data-on="PRODUCTS"
+                        data-off="SHOPS"
+                      ></span>
+                    </label>
                   </div>
                 </div>
 
@@ -418,7 +429,21 @@ function Home() {
                       onKeyUp={(e) => handleKeyPress(e)}
                     />
                   </div>
-                  <spam className="search-shops">Shops</spam>
+                  <div className="a2">
+                    <label className="toggle">
+                      <input
+                        className="toggleINPUT"
+                        type="checkbox"
+                        onClick={handleToggle}
+                      />
+                      <span
+                        className="labels"
+                        data-on="PRODUCTS"
+                        data-off="SHOPS"
+                      ></span>
+                    </label>
+                  </div>
+                  {/* <spam className="search-shops">Shops</spam>
                   <div className="a2">
                     <div class="form-check form-switch ms-2 mt-2 ">
                       <label
@@ -435,7 +460,7 @@ function Home() {
                         onClick={handleToggle}
                       />
                     </div>
-                  </div>
+                  </div> */}
                 </div>
 
                 {/* <div className="grid-container">
