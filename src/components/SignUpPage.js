@@ -125,7 +125,7 @@ function SignUpPage() {
             setUrl(url);
             const idd = { id: id, shopImage: `${url}` };
             axios
-              .post("/registered", idd)
+              .post("/shop/registered", idd)
               .then((res) => {
                 console.log(
                   "kdasjfkjafjkkasfkjakjfkj........................................"

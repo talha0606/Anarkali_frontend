@@ -96,7 +96,7 @@ const AddProduct = () => {
             setUrl(url);
             const idd = { id: id, prodImage: `${url}` };
             axios
-              .post("/productadded", idd)
+              .post("/product/productadded", idd)
               // console.log("Status: " + res.status);
               // if (res.status === 200) {
               //   window.alert("Product added successfully");

@@ -24,7 +24,7 @@ const Seller = () => {
   const callSellerPage = async () => {
     try {
       const res = await fetch(
-        `/shopinfo?sellerid=${localStorage.getItem("id")}`,
+        `/shop/shopinfo?sellerid=${localStorage.getItem("id")}`,
         {
           method: "GET",
           headers: {

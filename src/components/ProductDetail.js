@@ -17,7 +17,7 @@ function ProductDetail() {
 
   const getShopDetail = async () => {
     try {
-      const res = await fetch(`/prodinfo?id=${prodId}`, {
+      const res = await fetch(`/product/prodinfo?id=${prodId}`, {
         method: "GET",
         headers: {
           Accept: "application/json",
