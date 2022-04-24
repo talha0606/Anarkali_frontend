@@ -89,6 +89,7 @@ function Home() {
             </div>  */}
             <div className="container-fluid home-bg card-container m-0"> 
               <div className="home ">
+              
                 <Allshops shopData={shopData} />
               </div>
             </div>

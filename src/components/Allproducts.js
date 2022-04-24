@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import ShopDetail from "../components/ShopDetail";
 // import { Link, useLocation, useParams, useHistory } from "react-router-dom";
 import "../style/allshops.css";
+import "../style/shopCards.css";
+
 import { Button } from "react-bootstrap";
 // import Modal from "react-bootstrap/Modal";
 import Map from "./Map";
@@ -135,6 +137,8 @@ const Allproducts = ({ filteredProducts }) => {
           <div class="row no-gutters">
             {myproducts?.map((prod) => (
               <div class="col-3 col-* ">
+
+
                 <div className="card">
                   {/* <a
                   onClick={() => {
@@ -148,22 +152,22 @@ const Allproducts = ({ filteredProducts }) => {
                     src={prod.prodImage}
                     className="home-card-img-top card-img img-thumbnail"
                     alt="Card image cap"
-                    //   onClick={() => {
-                    //     setID(user._id);
-                    //   }}
+                  //   onClick={() => {
+                  //     setID(user._id);
+                  //   }}
                   />
                   {/* </Link>..... */}
                   {/* </a> */}
                   {/* {console.log("id change" + id)}.... */}
                   <div class="card-body">
-                    {/* <div class="grid-container">
-                    <div class="item1"><h6 class="card-title nopadding">{shop.sName}</h6></div>
-                    <div class="item2 .bg-success.bg-gradient"><p class="card-text bg-success">category {shop.category}</p></div>
-                    <div class="item3">Email</div>
-                    <div class="item4">Rating</div>
-                    <div class="item5">Button</div>
-                  </div> */}
-                    <h6 class="card-title nopadding">{prod.pName}</h6>
+                    <div class="grid-container">
+                      <div class="item1"><h6 class="card-title nopadding">sName</h6></div>
+                      <div class="item2 .bg-success.bg-gradient"><p class="card-text bg-success">category</p></div>
+                      <div class="item3">Email</div>
+                      <div class="item4">Rating</div>
+                      <div class="item5">Button</div>
+                    </div>
+                    <h6 class="card-title nopadding">{prod.pName} 12</h6>
                     <div class="clearfix mb-3">
                       <span class="float-start badge rounded  text-success p-0">
                         Price {prod.price}
@@ -173,7 +177,7 @@ const Allproducts = ({ filteredProducts }) => {
                       <a
                         href="#"
                         class="small text-muted text-uppercase aff-link"
-                      >
+                      > 
                         rating
                       </a>
                     </span> */}
@@ -219,78 +223,54 @@ const Allproducts = ({ filteredProducts }) => {
             {filteredProducts?.map((prod) => (
               <div class="col-3 col-* ">
                 <div className="card">
-                  {/* <a
-                  onClick={() => {
-                    setID(shop._id);
-                    console.log(shop.shopImage);
-                  }} */}
-                  {/* > */}
-                  {/* <Link to={`/shopDetail/${shop._id}`}> ......*/}
-                  <img
-                    // src={`/uploads/${shop.shopImage}`}
-                    src={prod.prodImage}
-                    className="home-card-img-top card-img img-thumbnail"
-                    alt="Card image cap"
+                  <div class="imgBx">
+                    <img
+                      // src={`/uploads/${shop.shopImage}`}
+                      src={prod.prodImage}
+                      
+                      alt="Card image cap"
                     //   onClick={() => {
                     //     setID(user._id);
                     //   }}
-                  />
-                  {/* </Link>..... */}
-                  {/* </a> */}
-                  {/* {console.log("id change" + id)}.... */}
-                  <div class="card-body">
-                    {/* <div class="grid-container">
-                    <div class="item1"><h6 class="card-title nopadding">{shop.sName}</h6></div>
-                    <div class="item2 .bg-success.bg-gradient"><p class="card-text bg-success">category {shop.category}</p></div>
-                    <div class="item3">Email</div>
-                    <div class="item4">Rating</div>
-                    <div class="item5">Button</div>
-                  </div> */}
-                    <h6 class="card-title nopadding">{prod.pName}</h6>
-                    <div class="clearfix mb-3">
-                      <span class="float-start badge rounded  text-success p-0">
-                        Price {prod.price}
-                      </span>
-                      {/* 
-                    <span class="float-end">
-                      <a
-                        href="#"
-                        class="small text-muted text-uppercase aff-link"
-                      >
-                        rating
-                      </a>
-                    </span> */}
+                    />
+
+                    <ul class="action">
+                      <li>
+                        <i class="fa fa-heart" aria-hidden="true"> </i>
+                        <span>Add to Wishlist</span>
+                      </li>
+                      <li>
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <span>Add to Cart</span>
+                      </li>
+                      <li>
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                        <span>View Details</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="content">
+                    <div class="productName">
+                      <h3>{prod.pName}</h3>
                     </div>
-                    {/* <p class="card-text shop-email fw-bold">{shop.email}</p> ....*/}
-                    {/* <div class="phone-number lead">0323-2323454</div>...... */}
-                    {/* <Button */}
-                    {/* <Link to={`/map/${shop._id}`}>...... */}
-                    {/* // to={`/`} */}
-                    {/* // to={{ */}
-                    {/* //   pathname: "{`/map/${shop._id}`}",
-                    //   state: { modal: true },
-                    // }} */}
-                    {/* < */}
-                    {/* <div className="btn btn-success btn-sm">....... */}
-                    {/* // onClick={() => setModalShow(true)} */}
-                    {/* > */}
-                    Shop Address
-                    {/* </div>..... */}
-                    {/* </Link>..... */}
-                    {/* </Button> */}
-                    {/* <MyVerticallyCenteredModal
-                    show={modalShow}
-                    onHide={() => setModalShow(false)}
-                  /> */}
+                    <div class="price_rating">
+                      <h3>$ {prod.price}</h3>
+                      <div class="rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star grey" aria-hidden="true"></i>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+
+
+              </div>))}
           </div>
 
-          <div class="col col-lg-2 detail" id="hideme">
-            {/* {id && <DetailproductPage id={id} setID={setID} />} */}
-          </div>
+
         </div>
       </>
     );

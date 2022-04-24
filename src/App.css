@@ -233,7 +233,7 @@ input[type="file"] {
 }
 
 .card {
-  padding: 5px 5px 0 5px;
+  padding: 5px 5px 5px 5px;
 }
 .card-img {
   height: 200px !important;
@@ -1185,8 +1185,8 @@ input[type="file"] {
   left: 0;
   height: 100%;
   width: 100%;
-  color: #4d4d4d;
-  background-color: #f58282;
+  color: #ffffff;
+  background-color: #4fe132;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
   transition: all 0.4s ease-in-out;
 }
@@ -1201,8 +1201,8 @@ input[type="file"] {
   left: calc(var(--width) * -1);
   height: 100%;
   width: 100%;
-  color: #ffffff;
-  background-color: #4fe132;
+  color: #4d4d4d;
+  background-color: #f58282;
   text-align: center;
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
   transition: all 0.4s ease-in-out;
