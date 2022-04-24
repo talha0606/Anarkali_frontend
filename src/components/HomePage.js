@@ -21,7 +21,7 @@ function HomePage() {
 
   const callHomePage = async (filters) => {
     try {
-      const res = await fetch("/home", {
+      const res = await fetch("/shop/home", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -73,7 +73,7 @@ function HomePage() {
     console.log("SearchStirng: " + searchString.replace(/\s/g, "").length);
     if (searchString.replace(/\s/g, "").length != 0) {
       try {
-        axios.get(`/searchShop?name=${searchString}`).then((res) => {
+        axios.get(`/shop/searchShop?name=${searchString}`).then((res) => {
           setsearchedData(res.data);
           //   data = res.data[0];
           console.log(`Searched Data: ${res.data}`);
@@ -92,7 +92,7 @@ function HomePage() {
     setsearchedData("");
     if (searchString.replace(/\s/g, "").length != 0) {
       try {
-        axios.get(`/searchShop?name=${searchString}`).then((res) => {
+        axios.get(`/shop/searchShop?name=${searchString}`).then((res) => {
           console.log(`Searched Data: ${res.data}`);
           setUserData(res.data);
         });

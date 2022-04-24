@@ -63,7 +63,7 @@ const Brands = [
 const Checkbox2 = (props) => {
   const [Checked, setchecked] = useState([]);
 
-  const [price, setPrice] = useState([0, 25000]);
+  // const [price, setPrice] = useState([0, 25000]);
 
   const handleToggle = (value) => {
     const currentIndex = Checked.indexOf(value);
@@ -79,9 +79,9 @@ const Checkbox2 = (props) => {
     props.handleFilters(newChecked);
   };
 
-  const handlePrice = (e, newPrice) => {
-    setPrice(newPrice);
-  };
+  // const handlePrice = (e, newPrice) => {
+  //   setPrice(newPrice);
+  // };
 
   //for changing color of slider
 
@@ -121,7 +121,7 @@ const Checkbox2 = (props) => {
         </div> */}
 
       <div>
-          {/* <h5 className="checkbox-heading">Price</h5> */}
+        {/* <h5 className="checkbox-heading">Price</h5> */}
         {/* <Typography>
         </Typography> */}
         {/* <ThemeProvider theme={muiTheme}> */}

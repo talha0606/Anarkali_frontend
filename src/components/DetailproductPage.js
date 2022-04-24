@@ -14,7 +14,7 @@ const DetailproductPage = ({ id, setID }) => {
   console.log("shop id" + id);
 
   useEffect(() => {
-    axios.get(`/prod_by_id?id=${prodId}&type=single`).then((res) => {
+    axios.get(`/product/prod_by_id?id=${prodId}&type=single`).then((res) => {
       setProduct(res.data[0]);
       //   data = res.data[0];
       console.log(`data received ${res.data[0]}`);

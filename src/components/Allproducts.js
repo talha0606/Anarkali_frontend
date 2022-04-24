@@ -90,7 +90,7 @@ const Allproducts = ({ filteredProducts }) => {
 
   const Myprod = async () => {
     try {
-      const res = await fetch(`/allproducts`, {
+      const res = await fetch(`/product/allproducts`, {
         method: "GET",
         headers: {
           Accept: "application/json",

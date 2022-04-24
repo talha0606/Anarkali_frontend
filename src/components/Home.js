@@ -42,7 +42,7 @@ function Home() {
 
   const callHomePage = async (filters) => {
     try {
-      const res = await fetch("/home", {
+      const res = await fetch("/shop/home", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -94,7 +94,7 @@ function Home() {
   const findShops = async () => {
     if (searchString.replace(/\s/g, "").length != 0) {
       try {
-        axios.get(`/searchShop?name=${searchString}`).then((res) => {
+        axios.get(`/shop/searchShop?name=${searchString}`).then((res) => {
           setsearchedData(res.data);
           //   data = res.data[0];
         });
@@ -111,7 +111,7 @@ function Home() {
     setsearchedData("");
     if (searchString.replace(/\s/g, "").length != 0) {
       try {
-        axios.get(`/searchShop?name=${searchString}`).then((res) => {
+        axios.get(`/shop/searchShop?name=${searchString}`).then((res) => {
           setUserData(res.data);
         });
       } catch (err) {

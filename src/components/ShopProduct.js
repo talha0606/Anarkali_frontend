@@ -16,7 +16,7 @@ const ShopProduct = ({ id }) => {
 
   const Myprod = async (filters) => {
     try {
-      const res = await fetch(`/myproducts?id=${id}`, {
+      const res = await fetch(`/product/myproducts?id=${id}`, {
         method: "GET",
         headers: {
           Accept: "application/json",
