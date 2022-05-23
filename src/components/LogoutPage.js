@@ -8,7 +8,7 @@ const LogoutPage = () => {
   const history = useHistory();
 
   useEffect(() => {
-    fetch("/logout", {
+    fetch("/shop/logout", {
       method: "GET",
       headers: {
         Accept: "appllication/json",

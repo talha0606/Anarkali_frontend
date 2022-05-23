@@ -24,7 +24,7 @@ function FileUpload() {
     fd.append("shopImage", filename);
 
     axios
-      .post("/postImage", fd)
+      .post("/shop/postImage", fd)
       .then((res) => console.log("Data: " + res.files))
       .catch((err) => {
         console.log("Error a gaya: " + err);

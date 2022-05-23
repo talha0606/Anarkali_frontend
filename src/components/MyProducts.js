@@ -13,7 +13,7 @@ const MyProducts = ({ id }) => {
 
   const Myprod = async (filters) => {
     try {
-      const res = await fetch(`/myproducts?id=${id}`, {
+      const res = await fetch(`/product/myproducts?id=${id}`, {
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -53,7 +53,7 @@ const MyProducts = ({ id }) => {
   const deleteHandler = async (id) => {
     try {
       console.log("In Delete Handler");
-      const res = await fetch(`/deleteproduct?id=${id}`, {
+      const res = await fetch(`/product/deleteproduct?id=${id}`, {
         method: "GET",
         headers: {
           Accept: "application/json",

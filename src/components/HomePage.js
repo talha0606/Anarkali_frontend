@@ -21,7 +21,7 @@ function HomePage() {
 
   const callHomePage = async (filters) => {
     try {
-      const res = await fetch("/home", {
+      const res = await fetch("/shop/home", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -73,7 +73,7 @@ function HomePage() {
     console.log("SearchStirng: " + searchString.replace(/\s/g, "").length);
     if (searchString.replace(/\s/g, "").length != 0) {
       try {
-        axios.get(`/searchShop?name=${searchString}`).then((res) => {
+        axios.get(`/shop/searchShop?name=${searchString}`).then((res) => {
           setsearchedData(res.data);
           //   data = res.data[0];
           console.log(`Searched Data: ${res.data}`);
@@ -92,7 +92,7 @@ function HomePage() {
     setsearchedData("");
     if (searchString.replace(/\s/g, "").length != 0) {
       try {
-        axios.get(`/searchShop?name=${searchString}`).then((res) => {
+        axios.get(`/shop/searchShop?name=${searchString}`).then((res) => {
           console.log(`Searched Data: ${res.data}`);
           setUserData(res.data);
         });
@@ -202,7 +202,7 @@ function HomePage() {
                       <AiOutlineSearch />
                     </button> */}
                 </div>
-                <div className="toogleDiv">
+                {/* <div className="toogleDiv">
                   <label class="toggleSwitch nolabel">
                     <input type="checkbox" onClick={handleToggle} checked />
                     <a></a>
@@ -211,7 +211,26 @@ function HomePage() {
                       <span class="right-span">Products</span>
                     </span>
                   </label>
-                </div>
+                </div> */}
+                <div className="a2">
+                    <label className="toggle">
+                      <input className="toggleINPUT" 
+                          id="flexSwitchCheckDefault"
+                          onClick={handleToggle}
+                          type="checkbox" />
+                      <span className="labels" data-off="SHOPS" data-on="PRODUCTS"></span>
+                    </label>
+                  </div>
+
+                {/* toggle switch */}
+                {/* <div className="toogleDiv a2">
+                  <label className="toggle">
+                    <input className="toggleINPUT" 
+                        onClick={handleToggle}
+                        type="checkbox" />
+                    <span className="labels" data-on="SHOPS" data-off="PRODUCTS"></span>
+                  </label>
+                  </div> */}
               </div>
 
               <div className="row home">

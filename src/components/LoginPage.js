@@ -34,7 +34,7 @@ function LoginPage() {
 
     try {
       axios
-        .post("/signinin", CR)
+        .post("/shop/signinin", CR)
         .then((res) => {
           localStorage.setItem("id", res.data.id);
           dispatch({ type: "USER", payload: true });

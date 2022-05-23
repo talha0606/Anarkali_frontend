@@ -42,7 +42,7 @@ function Home() {
 
   const callHomePage = async (filters) => {
     try {
-      const res = await fetch("/home", {
+      const res = await fetch("/shop/home", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -94,7 +94,7 @@ function Home() {
   const findShops = async () => {
     if (searchString.replace(/\s/g, "").length != 0) {
       try {
-        axios.get(`/searchShop?name=${searchString}`).then((res) => {
+        axios.get(`/shop/searchShop?name=${searchString}`).then((res) => {
           setsearchedData(res.data);
           //   data = res.data[0];
         });
@@ -111,7 +111,7 @@ function Home() {
     setsearchedData("");
     if (searchString.replace(/\s/g, "").length != 0) {
       try {
-        axios.get(`/searchShop?name=${searchString}`).then((res) => {
+        axios.get(`/shop/searchShop?name=${searchString}`).then((res) => {
           setUserData(res.data);
         });
       } catch (err) {
@@ -175,6 +175,10 @@ function Home() {
     getFilteredProducts();
   }, [price, searchString, currentPage]);
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [price, searchString]);
+
   const setCurrentPageNo = (e) => {
     setCurrentPage(e);
   };
@@ -215,23 +219,20 @@ function Home() {
                       onKeyUp={(e) => handleKeyPress(e)}
                     />
                   </div>
-                  <spam className="search-shops">Shops</spam>
+                  {/* <spam className="search-shops">Shops</spam> */}
                   <div className="a2">
-                    <div class="form-check form-switch ms-2 mt-2 ">
-                      <label
-                        class="form-check-label"
-                        for="flexSwitchCheckDefault"
-                      >
-                        Products
-                      </label>
-
+                    <label className="toggle">
                       <input
-                        class="form-check-input shops-switch "
+                        className="toggleINPUT"
                         type="checkbox"
-                        id="flexSwitchCheckDefault"
                         onClick={handleToggle}
                       />
-                    </div>
+                      <span
+                        className="labels"
+                        data-on="PRODUCTS"
+                        data-off="SHOPS"
+                      ></span>
+                    </label>
                   </div>
                 </div>
 
@@ -335,7 +336,6 @@ function Home() {
           <div className="card-body">
             <p>{user._id}</p>
             <p>{toString(user._id)}</p>
-
             <h5 className="card-title">{user.sName}</h5>
             <p className="card-text">{user.sDescription}</p>
             <a href="#" className="btn btn-primary">
@@ -429,7 +429,21 @@ function Home() {
                       onKeyUp={(e) => handleKeyPress(e)}
                     />
                   </div>
-                  <spam className="search-shops">Shops</spam>
+                  <div className="a2">
+                    <label className="toggle">
+                      <input
+                        className="toggleINPUT"
+                        type="checkbox"
+                        onClick={handleToggle}
+                      />
+                      <span
+                        className="labels"
+                        data-on="PRODUCTS"
+                        data-off="SHOPS"
+                      ></span>
+                    </label>
+                  </div>
+                  {/* <spam className="search-shops">Shops</spam>
                   <div className="a2">
                     <div class="form-check form-switch ms-2 mt-2 ">
                       <label
@@ -446,7 +460,7 @@ function Home() {
                         onClick={handleToggle}
                       />
                     </div>
-                  </div>
+                  </div> */}
                 </div>
 
                 {/* <div className="grid-container">
@@ -567,7 +581,6 @@ function Home() {
           <div className="card-body">
             <p>{user._id}</p>
             <p>{toString(user._id)}</p>
-
             <h5 className="card-title">{user.sName}</h5>
             <p className="card-text">{user.sDescription}</p>
             <a href="#" className="btn btn-primary">

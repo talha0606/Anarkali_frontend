@@ -23,7 +23,7 @@ const Map = () => {
 
   const handlelocation = () => {
     try {
-      axios.get(`/getlocation?shopId=${shopId}`).then((res) => {
+      axios.get(`/shop/getlocation?shopId=${shopId}`).then((res) => {
         console.log(
           `locationed Data: ${res.data[0].longitude} ${res.data[0].latitude}`
         );

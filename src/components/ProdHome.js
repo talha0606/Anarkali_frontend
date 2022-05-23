@@ -14,7 +14,7 @@ function Home() {
 
   const callHomePage = async (filters) => {
     try {
-      const res = await fetch("/products", {
+      const res = await fetch("/product/products", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -87,8 +87,9 @@ function Home() {
             {/* <div className="row bg-success">
                <p>sxds</p>
             </div>  */}
-            <div className="container-fluid home-bg card-container m-0"> 
+            <div className="container-fluid home-bg card-container m-0">
               <div className="home ">
+              
                 <Allshops shopData={shopData} />
               </div>
             </div>

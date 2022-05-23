@@ -41,7 +41,7 @@ const EditProduct = (/*props*/) => {
 
   const getShopDetail = async () => {
     try {
-      const res = await fetch(`/prodinfo?id=${prodId}`, {
+      const res = await fetch(`/product/prodinfo?id=${prodId}`, {
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -127,7 +127,7 @@ const EditProduct = (/*props*/) => {
     setstock("");
 
     axios
-      .post("/updateProduct", fd)
+      .post("/product/updateProduct", fd)
       .then((res) => {
         window.alert("Product Updated Successfully");
         history.push("/seller");
