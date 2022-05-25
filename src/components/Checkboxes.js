@@ -66,7 +66,7 @@ const Checkboxes = (props) => {
 
   return (
     <div
-      class="rounded container shadow p-3 mb-5"
+      class="rounded container p-3 mb-5"
       className="category-checkbox"
     >
       {/* <div class="input-group">
@@ -84,7 +84,7 @@ const Checkboxes = (props) => {
       </div>
       */}
       <div>
-        <h5 className="checkbox-heading">Categories</h5>
+        <h6 className="checkbox-heading">Product Categories</h6>
         {category.map((value, index) => (
           <React.Fragment key={index}>
             <div class="form-check">
@@ -94,6 +94,7 @@ const Checkboxes = (props) => {
                 id="checkedBox"
                 // className="checkedBox"
                 checked={Checked.indexOf(value.name) === -1 ? false : true}
+                className="Check"
               />
               <label htmlFor="checkedBox" className="showCheck">
                 {value.name}
@@ -102,8 +103,6 @@ const Checkboxes = (props) => {
           </React.Fragment>
         ))}
       </div>
-
-      
     </div>
   );
 };
