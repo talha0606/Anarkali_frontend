@@ -207,12 +207,14 @@ function Home() {
             <div class="col-10 p-0 ps-3 ">
               <div className="container-fluid card-container m-0">
                 {/* <div className="grid-container"> */}
-                <div className="container filter-products">
-                  <Link to="/" class="link-dark">
+
+                <div className="container filter-products text-center">
+                  <Link to="/catSide" class="link-dark text-decoration-none">
                     < FaFilter/>
+                    <strong className="checkbox-heading ">Filter Products </strong>
                   </Link>
-                  <strong className="checkbox-heading">Filter Products </strong>  
                 </div>
+
                 <div className="search-portion">
                   <div className="a1">
                     <input
