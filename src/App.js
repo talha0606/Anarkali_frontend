@@ -20,6 +20,8 @@ import LoginPage from "./components/LoginPage";
 import LogoutPage from "./components/LogoutPage";
 import SignUpPage from "./components/SignUpPage";
 import ProductDetail from "./components/ProductDetail";
+import CategorySideBar from "./components/CategorySideBar";
+
 
 import { initialState, reducer } from "./reducer/UseReducer";
 import { useReducer, createContext } from "react";
@@ -42,7 +44,6 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Home />
-    
           </Route>
           <Route exact path="/login">
             <LoginPage />
@@ -70,6 +71,9 @@ function App() {
           </Route>
           <Route exact path="/signup">
             <SignUpPage />
+          </Route>
+          <Route exact path="/catSide">
+            <CategorySideBar />
           </Route>
           <Route exact path="/testing">
             <ModalTesting />

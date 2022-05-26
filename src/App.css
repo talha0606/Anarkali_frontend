@@ -228,12 +228,13 @@ input[type="file"] {
 
 /* *************** - home - ****************** */
 
+
 #more {
   display: none;
 }
 
 .card {
-  padding: 5px 5px 0 5px;
+  padding: 5px 5px 5px 5px;
 }
 .card-img {
   height: 200px !important;
@@ -289,9 +290,15 @@ input[type="file"] {
   box-shadow: 0 0 3px rgba(0, 0, 255, 0.3), 0 0 5px rgba(0, 0, 255, 0.2),
     0 0 7px rgba(0, 0, 255, 0.1), 0 2px 0 white; */
 }
+input.check {
+  width : 10px;
+  height : 10px;
+}
 .category-checkbox label.showCheck {
   display: inline-block;
   padding-left: 10px;
+  font-size : 5px;
+  /* font-weight:bold; */
 }
 
 .category-checkbox #checkedBox {
@@ -326,6 +333,21 @@ input[type="file"] {
 .category-checkbox input[type="button"]:hover {
   background-color: #0f5e0f;
   border: none;
+}
+
+.checkbox-heading {
+  text-decoration: none !important;
+}
+.filter-products{
+  position: relative;
+  display: inline-block !important;
+  text-align: center!important;
+  /* float: right; */
+  width: 100% !important;
+  padding: 10px 10px 20px 5px;
+  margin: 10px 0px 10px 270px;
+  /* background-color: #fafafa; */
+  border-radius: 4px;
 }
 
 /* ********** - on click detailed card - ********** */
@@ -1185,8 +1207,8 @@ input[type="file"] {
   left: 0;
   height: 100%;
   width: 100%;
-  color: #4d4d4d;
-  background-color: #f58282;
+  color: #ffffff;
+  background-color: #4fe132;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
   transition: all 0.4s ease-in-out;
 }
@@ -1201,8 +1223,8 @@ input[type="file"] {
   left: calc(var(--width) * -1);
   height: 100%;
   width: 100%;
-  color: #ffffff;
-  background-color: #4fe132;
+  color: #4d4d4d;
+  background-color: #f58282;
   text-align: center;
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
   transition: all 0.4s ease-in-out;
@@ -1217,4 +1239,33 @@ input[type="file"] {
 }
 
 
+/* media queries */
+
+@media screen and (max-width: 870px) {
+  div.checkbox-hide-for-medium {
+    display: none;
+  }
+  
+}
+
+@media screen and (max-width: 1090px) {
+  div.category-checkbox{
+    width:90%;
+  }
+}
+@media screen and (max-width: 1090px) {
+  div.category-checkbox{
+    width:100%;
+  }
+}
+@media screen and (min-width: 871px) {
+  div.filter-products{
+    display:  none !important;
+  }
+}
+@media screen and (max-width: 871px) {
+  div.filter-products{
+    width: 100% !important;
+  }
+}
 

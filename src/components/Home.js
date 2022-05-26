@@ -5,12 +5,13 @@ import Allshops from "./Allshops";
 import Allproducts from "./Allproducts";
 import "../style/Home.css";
 import "../style/pagination.css";
-
-import { AiOutlineSearch } from "react-icons/ai";
+import { FaFilter } from "react-icons/fa";
 import axios from "axios";
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
 import Pagination from "react-js-pagination";
+import { Link } from "react-router-dom";
+
 
 function Home() {
   const [isPending, setIsPending] = useState(true);
@@ -192,7 +193,7 @@ function Home() {
       <>
         <div class="container-fluid home-container">
           <div class="row ">
-            <div class="col-2 p-0">
+            <div class="col-2 p-0 checkbox-hide-for-medium">
               {/* {isPending && <div> Loading... </div>} */}
               <Checkboxes
                 handleFilters={(filters) => handleFilters(filters, "category")}
@@ -200,10 +201,20 @@ function Home() {
               <Checkbox2
                 handleFilters={(filters) => handleFilters(filters, "brand")}
               />
+              
             </div>
+            
             <div class="col-10 p-0 ps-3 ">
               <div className="container-fluid card-container m-0">
                 {/* <div className="grid-container"> */}
+
+                <div className="container filter-products text-center">
+                  <Link to="/catSide" class="link-dark text-decoration-none">
+                    < FaFilter/>
+                    <strong className="checkbox-heading ">Filter Products </strong>
+                  </Link>
+                </div>
+
                 <div className="search-portion">
                   <div className="a1">
                     <input
@@ -389,7 +400,7 @@ function Home() {
       <>
         <div class="container-fluid home-container">
           <div class="row ">
-            <div class="col-2 p-0">
+            <div class="col-2 p-0 checkbox-hide-for-medium">
               <div
                 class="rounded container shadow p-3 mb-5"
                 className="category-checkbox"

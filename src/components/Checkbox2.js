@@ -136,7 +136,7 @@ const Checkbox2 = (props) => {
         /> */}
         {/* </ThemeProvider> */}
 
-        <h5 className="checkbox-heading">Brands</h5>
+        <h6 className="checkbox-heading">Brands</h6>
 
         {Brands.map((value, index) => (
           <React.Fragment key={index}>
