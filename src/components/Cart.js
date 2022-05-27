@@ -42,7 +42,7 @@ import image from "../images/avatar.png"
 
 const Cart = () => {
 
-    
+
 
 
     return (
@@ -77,26 +77,29 @@ const Cart = () => {
 
                                                 </div>
                                                 <div class="col-5">
-                                                <ul class="list-group list-group-vertical">
-                                                <li class="list-group-item border-0">
-         <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity"/>
-         <input type="number" step="1" max="10" value="1" name="quantity" class="quantity-field border-0 text-center w-25"/>
-         <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm lh-0" data-field="quantity"/>
-                                                </li>
-                                                <li class="list-group-item border-0">
-                                                    <button
-                                                        className="btn btn-sm btn-danger m-1"
-                                                    // onClick={() => deleteHandler(prod._id)}
-                                                    >
-                                                        Remove
-                                                    </button>
-                                                </li>
-                                            </ul>
+                                                    <ul class="list-group list-group-vertical">
+                                                        <li class="list-group-item border-0">
+                                                            Quantity:
+                                                        </li>
+                                                        <li class="list-group-item border-0">
+                                                            <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 " data-field="quantity" />
+                                                            <input type="number" step="1" max="10" value="1" name="quantity" class="quantity-field border-0 text-center w-25" />
+                                                            <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm lh-0" data-field="quantity" />
+                                                        </li>
+                                                        <li class="list-group-item border-0">
+                                                            <button
+                                                                className="btn btn-sm btn-danger m-1"
+                                                            // onClick={() => deleteHandler(prod._id)}
+                                                            >
+                                                                Remove
+                                                            </button>
+                                                        </li>
+                                                    </ul>
 
                                                 </div>
                                             </div>
-                                            
-                                            
+
+
                                         </div>
                                     </div>
 
