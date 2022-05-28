@@ -12,7 +12,11 @@
 }
 
 .cart-row{
-    margin-top: 5%;
+    margin-top: 15%;
+
+}
+.cart-list{
+    margin-top: 4%!important;
 
 }
 
@@ -79,6 +83,24 @@
     height: 1.5rem;
     
 }
+
+.order-summary input[type="button"] {
+    width:90% !important;
+    background-color: #179017;
+    color: white;
+    font-weight: 550;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 1px;
+    padding: 8px;
+    margin-top: 8px;
+    outline: none;
+    border: none;
+    border-radius:8px;
+  }
+  .order-summary input[type="button"]:hover {
+    background-color: #0f5e0f;
+    border: none;
+  }
 
 @media screen and (max-width: 871px) {
     /* div.{

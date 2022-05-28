@@ -41,10 +41,6 @@ import image from "../images/avatar.png"
 
 
 const Cart = () => {
-
-
-
-
     return (
         <>
             <div className="container cart-container">
@@ -74,7 +70,6 @@ const Cart = () => {
                                                     <h4 className="cName">Name</h4>
                                                     <p className="cartCost"><b>Rs. 10000</b></p>
                                                     <p className="cartCost">Size: <b>L</b></p>
-
                                                 </div>
                                                 <div class="col-5">
                                                     <ul class="list-group list-group-vertical">
@@ -95,23 +90,13 @@ const Cart = () => {
                                                             </button>
                                                         </li>
                                                     </ul>
-
                                                 </div>
                                             </div>
-
-
                                         </div>
                                     </div>
-
                                 </div>
-
                             </li>
-
-
-
-
-
-
+                            
                             {/* ))} */}
                         </ul>
                     </div>
@@ -124,6 +109,14 @@ const Cart = () => {
                                     <div class="col-sm-8 text-left">Subtotal:</div>
                                     <div class="col-sm-4 text-right">Rs. 1000</div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-sm-8 text-left"></div>
+                                    <div class="col-sm-4 text-right">Rs. 1500</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-8 text-left"></div>
+                                    <div class="col-sm-4 text-right">Rs. 1500</div>
+                                </div>
                             </li>
                             <li class="list-group-item border-0">
                                 <div class="row">
@@ -133,18 +126,24 @@ const Cart = () => {
                                 <div class="row">
                                     <div class="col-sm-12">Shipping options will be updated during checkout.</div>
                                 </div>
-
                             </li>
                             <hr />
                             <li class="list-group-item border-0">
-                            <div class="row">
+                                <div class="row">
                                     <div class="col-sm-8 text-left">Total:</div>
                                     <div class="col-sm-4 text-right">Rs. 12000</div>
                                 </div>
                             </li>
+                            <li class="list-group-item border-0">
+                                <input
+                                    type="button"
+                                    value="Continue to Checkout"
+                                    name="login"
+                                // onClick={}
+                                />
+                            </li>
                             <hr />
                         </ul>
-
                     </div>
                 </div>
             </div>
