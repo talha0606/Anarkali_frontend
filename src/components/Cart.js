@@ -109,14 +109,14 @@ const Cart = () => {
                                     <div class="col-sm-8 text-left">Subtotal:</div>
                                     <div class="col-sm-4 text-right">Rs. 1000</div>
                                 </div>
-                                <div class="row">
+                                {/* <div class="row">
                                     <div class="col-sm-8 text-left"></div>
                                     <div class="col-sm-4 text-right">Rs. 1500</div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-8 text-left"></div>
                                     <div class="col-sm-4 text-right">Rs. 1500</div>
-                                </div>
+                                </div> */}
                             </li>
                             <li class="list-group-item border-0">
                                 <div class="row">
