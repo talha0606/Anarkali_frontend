@@ -56,3 +56,17 @@
     width:130px;
     align:right;
 }
+
+.icon-shape {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.icon-sm {
+    width: 1.5rem;
+    height: 1.5rem;
+    
+}
