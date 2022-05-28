@@ -19,7 +19,7 @@
 .cart-list-group-item{
     height: 180px !important;
 }
-.cartRow{height: 150px !important}
+.cartRow{height: 140px !important}
 .cart-image{
     width:150px;
     height:140px;
@@ -56,7 +56,16 @@
     width:130px;
     align:right;
 }
-
+.list-group-vertical-md{
+    align-text:left !important;
+}
+.text-left{
+    text-align:left !important;
+}
+.text-right{
+    text-align:right !important;
+    font-weight:bold !important;
+}
 .icon-shape {
     display: inline-flex;
     align-items: center;
@@ -69,4 +78,10 @@
     width: 1.5rem;
     height: 1.5rem;
     
+}
+
+@media screen and (max-width: 871px) {
+    /* div.{
+      width: 100% !important;
+    } */
 }

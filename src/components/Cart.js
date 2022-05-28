@@ -117,6 +117,34 @@ const Cart = () => {
                     </div>
                     <div className="col order-summary text-center">
                         <h4>Order Summary</h4>
+                        <hr />
+                        <ul class="list-group list-group-vertical-md ">
+                            <li class="list-group-item border-0">
+                                <div class="row">
+                                    <div class="col-sm-8 text-left">Subtotal:</div>
+                                    <div class="col-sm-4 text-right">Rs. 1000</div>
+                                </div>
+                            </li>
+                            <li class="list-group-item border-0">
+                                <div class="row">
+                                    <div class="col-sm-8 text-left">Shipping:</div>
+                                    <div class="col-sm-4 text-right">Rs. 150</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">Shipping options will be updated during checkout.</div>
+                                </div>
+
+                            </li>
+                            <hr />
+                            <li class="list-group-item border-0">
+                            <div class="row">
+                                    <div class="col-sm-8 text-left">Total:</div>
+                                    <div class="col-sm-4 text-right">Rs. 12000</div>
+                                </div>
+                            </li>
+                            <hr />
+                        </ul>
+
                     </div>
                 </div>
             </div>
