@@ -10,7 +10,7 @@
   padding: 0;
 }
 
-/* .page-item {
+.page-item {
   background-color: rgb(255, 255, 255);
   list-style: none;
   border: 1px solid rgba(0, 0, 0, 0.178);
@@ -53,4 +53,4 @@
   position: absolute;
   top: 10vmax;
   left: 4vmax;
-} */
+}

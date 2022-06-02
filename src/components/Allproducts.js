@@ -102,7 +102,7 @@ const Allproducts = ({ filteredProducts }) => {
 
       const data = await res.json();
       console.log("All Products: ", data);
-      setMyProducts(data);
+      setMyProducts(data.myproducts);
 
       console.log(`length: ${myproducts.length}`);
       // setMyProducts((oldArray) => [...oldArray, data]);
@@ -137,8 +137,6 @@ const Allproducts = ({ filteredProducts }) => {
           <div class="row no-gutters">
             {myproducts?.map((prod) => (
               <div class="col-3 col-* ">
-
-
                 <div className="card">
                   {/* <a
                   onClick={() => {
@@ -152,17 +150,21 @@ const Allproducts = ({ filteredProducts }) => {
                     src={prod.prodImage}
                     className="home-card-img-top card-img img-thumbnail"
                     alt="Card image cap"
-                  //   onClick={() => {
-                  //     setID(user._id);
-                  //   }}
+                    //   onClick={() => {
+                    //     setID(user._id);
+                    //   }}
                   />
                   {/* </Link>..... */}
                   {/* </a> */}
                   {/* {console.log("id change" + id)}.... */}
                   <div class="card-body">
                     <div class="grid-container">
-                      <div class="item1"><h6 class="card-title nopadding">sName</h6></div>
-                      <div class="item2 .bg-success.bg-gradient"><p class="card-text bg-success">category</p></div>
+                      <div class="item1">
+                        <h6 class="card-title nopadding">sName</h6>
+                      </div>
+                      <div class="item2 .bg-success.bg-gradient">
+                        <p class="card-text bg-success">category</p>
+                      </div>
                       <div class="item3">Email</div>
                       <div class="item4">Rating</div>
                       <div class="item5">Button</div>
@@ -227,16 +229,17 @@ const Allproducts = ({ filteredProducts }) => {
                     <img
                       // src={`/uploads/${shop.shopImage}`}
                       src={prod.prodImage}
-                      
                       alt="Card image cap"
-                    //   onClick={() => {
-                    //     setID(user._id);
-                    //   }}
+                      //   onClick={() => {
+                      //     setID(user._id);
+                      //   }}
                     />
 
                     <ul class="action">
                       <li>
-                        <i class="fa fa-heart" aria-hidden="true"> </i>
+                        <i class="fa fa-heart" aria-hidden="true">
+                          {" "}
+                        </i>
                         <span>Add to Wishlist</span>
                       </li>
                       <li>
@@ -265,12 +268,9 @@ const Allproducts = ({ filteredProducts }) => {
                     </div>
                   </div>
                 </div>
-
-
-              </div>))}
+              </div>
+            ))}
           </div>
-
-
         </div>
       </>
     );

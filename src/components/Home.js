@@ -12,7 +12,6 @@ import Slider from "@material-ui/core/Slider";
 import Pagination from "react-js-pagination";
 import { Link } from "react-router-dom";
 
-
 function Home() {
   const [isPending, setIsPending] = useState(true);
   const [userData, setUserData] = useState([]);
@@ -151,7 +150,7 @@ function Home() {
   const getFilteredProducts = async () => {
     try {
       const res = await fetch(
-        `/allproducts?keyword=${searchString}&price[gte]=${price[0]}&price[lte]=${price[1]}&page=${currentPage}`,
+        `/product/allproducts?keyword=${searchString}&price[gte]=${price[0]}&price[lte]=${price[1]}&page=${currentPage}`,
         {
           method: "GET",
           headers: {
@@ -201,17 +200,16 @@ function Home() {
               <Checkbox2
                 handleFilters={(filters) => handleFilters(filters, "brand")}
               />
-              
             </div>
-            
+
             <div class="col-10 p-0 ps-3 ">
               <div className="container-fluid card-container m-0">
                 {/* <div className="grid-container"> */}
 
                 <div className="container filter-products text-center">
                   <Link to="/catSide" class="link-dark text-decoration-none">
-                    < FaFilter/>
-                    <strong className="checkbox-heading ">Filter Products </strong>
+                    <FaFilter />
+                    <strong className="checkbox-heading ">Filter Shops </strong>
                   </Link>
                 </div>
 
