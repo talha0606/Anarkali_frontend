@@ -4,7 +4,7 @@ import logo from "../images/logo.png";
 import avatar from "../images/avatar.png";
 import axios from "axios";
 import { useForm } from "react-hook-form";
-import { UserContext } from "../App";
+// import { UserContext } from "../App";
 
 //copied from LoginPage.js
 // ******************* - toggle password - ********************
@@ -18,7 +18,7 @@ function showPwd() {
 }
 
 function LoginPage() {
-  const { state, dispatch } = useContext(UserContext);
+  // const { state, dispatch } = useContext(UserContext);
   const history = useHistory();
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -37,7 +37,7 @@ function LoginPage() {
         .post("/shop/signinin", CR)
         .then((res) => {
           localStorage.setItem("id", res.data.id);
-          dispatch({ type: "USER", payload: true });
+          // dispatch({ type: "USER", payload: true });
           window.alert("Login Successfully!");
           history.push(`/seller`);
         })
