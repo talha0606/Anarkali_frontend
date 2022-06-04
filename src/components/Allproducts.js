@@ -144,17 +144,17 @@ const Allproducts = ({ filteredProducts }) => {
                     console.log(shop.shopImage);
                   }} */}
                   {/* > */}
-                  {/* <Link to={`/shopDetail/${shop._id}`}> ......*/}
-                  <img
-                    // src={`/uploads/${shop.shopImage}`}
-                    src={prod.prodImage}
-                    className="home-card-img-top card-img img-thumbnail"
-                    alt="Card image cap"
-                    //   onClick={() => {
-                    //     setID(user._id);
-                    //   }}
-                  />
-                  {/* </Link>..... */}
+                  <Link to={`/productDetail/${prod._id}`}>
+                    <img
+                      // src={`/uploads/${shop.shopImage}`}
+                      src={prod.prodImage}
+                      className="home-card-img-top card-img img-thumbnail"
+                      alt="Card image cap"
+                      //   onClick={() => {
+                      //     setID(user._id);
+                      //   }}
+                    />
+                  </Link>
                   {/* </a> */}
                   {/* {console.log("id change" + id)}.... */}
                   <div class="card-body">
@@ -226,15 +226,16 @@ const Allproducts = ({ filteredProducts }) => {
               <div class="col-3 col-* ">
                 <div className="card">
                   <div class="imgBx">
-                    <img
-                      // src={`/uploads/${shop.shopImage}`}
-                      src={prod.prodImage}
-                      alt="Card image cap"
-                      //   onClick={() => {
-                      //     setID(user._id);
-                      //   }}
-                    />
-
+                    <Link to={`/productDetail/${prod._id}`}>
+                      <img
+                        // src={`/uploads/${shop.shopImage}`}
+                        src={prod.prodImage}
+                        alt="Card image cap"
+                        //   onClick={() => {
+                        //     setID(user._id);
+                        //   }}
+                      />
+                    </Link>
                     <ul class="action">
                       <li>
                         <i class="fa fa-heart" aria-hidden="true">
