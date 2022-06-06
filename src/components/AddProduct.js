@@ -20,7 +20,7 @@ const AddProduct = () => {
   const [category, setcateory] = useState(1);
   const [brand, setbrand] = useState("");
   const [stock, setstock] = useState("");
-  const [image, setImage] = useState(null);
+  const [prodImage, setImage] = useState(null);
   const [url, setUrl] = useState("");
   const [progress, setProgress] = useState("");
 
@@ -53,75 +53,76 @@ const AddProduct = () => {
     reader.onload = () => {
       if (reader.readyState === 2) {
         setpreviewimage(reader.result);
+        setImage(reader.result);
       }
     };
     reader.readAsDataURL(event.target.files[0]);
-
+    // setImage(event.target.files[0]);
     setpreviewimage(event.target.files[0]);
     console.log(event.target.files[0]);
   };
 
   const handleChange = (e) => {
     console.log("handlechange");
-    if (e.target.files[0]) {
-      setImage(e.target.files[0]);
-      console.log(e.target.files[0]);
-      console.log("cccimage name " + image);
-    }
-  };
-
-  const handleUpload = (id) => {
-    console.log("handleupload");
-    console.log("image name " + image);
-    // FireBase Code............................
-    const uploadTask = storage.ref(`images/${image.name}`).put(image);
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        const progress = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
-        setProgress(progress);
-      },
-      (error) => {
-        console.log(error);
-      },
-      () => {
-        storage
-          .ref("images")
-          .child(image.name)
-          .getDownloadURL()
-          .then((url) => {
-            console.log("URL: " + url);
-            setUrl(url);
-            const idd = { id: id, prodImage: `${url}` };
-            axios
-              .post("/product/productadded", idd)
-              // console.log("Status: " + res.status);
-              // if (res.status === 200) {
-              //   window.alert("Product added successfully");
-              //   history.push(`/seller`);
-              // }
-              .then((res) => {
-                console.log("Status: " + res.status);
-
-                window.alert("Product added successfully");
-                history.push(`/seller`);
-                // setStatus(200);
-                // localStorage.setItem("id", res.data.id);
-                // window.alert("Shop registered Successfully.");
-                // history.push(`/seller`);
-              })
-              .catch((err) => {
-                console.log("onChangeCcccclick");
-              });
-          });
-      }
-    );
-    // {
-    //   url && onChangeClick(e);
+    // if (e.target.files[0]) {
+    //   setImage(e.target.files[0]);
+    //   console.log(e.target.files[0]);
+    //   console.log("cccimage name " + image);
     // }
   };
+
+  // const handleUpload = (id) => {
+  //   console.log("handleupload");
+  //   console.log("image name " + image);
+  //   // FireBase Code............................
+  //   const uploadTask = storage.ref(`images/${image.name}`).put(image);
+  //   uploadTask.on(
+  //     "state_changed",
+  //     (snapshot) => {
+  //       const progress = Math.round(
+  //         (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+  //       );
+  //       setProgress(progress);
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     },
+  //     () => {
+  //       storage
+  //         .ref("images")
+  //         .child(image.name)
+  //         .getDownloadURL()
+  //         .then((url) => {
+  //           console.log("URL: " + url);
+  //           setUrl(url);
+  //           const idd = { id: id, prodImage: `${url}` };
+  //           axios
+  //             .post("/product/productadded", idd)
+  //             // console.log("Status: " + res.status);
+  //             // if (res.status === 200) {
+  //             //   window.alert("Product added successfully");
+  //             //   history.push(`/seller`);
+  //             // }
+  //             .then((res) => {
+  //               console.log("Status: " + res.status);
+
+  //               window.alert("Product added successfully");
+  //               history.push(`/seller`);
+  //               // setStatus(200);
+  //               // localStorage.setItem("id", res.data.id);
+  //               // window.alert("Shop registered Successfully.");
+  //               // history.push(`/seller`);
+  //             })
+  //             .catch((err) => {
+  //               console.log("onChangeCcccclick");
+  //             });
+  //         });
+  //     }
+  //   );
+  //   // {
+  //   //   url && onChangeClick(e);
+  //   // }
+  // };
 
   // {
   //   image && handleUpload();
@@ -133,46 +134,51 @@ const AddProduct = () => {
   const onChangeClick = (event) => {
     // event.preventDefault();
     // console.log("on change image name " + image.name);
-    // console.log(`Url ${url}`);
+    console.log("sellerId: " + sellerid);
+    console.log("pName: " + pname);
 
-    // const fd = new FormData();
-    // fd.append("sellerId", sellerid);
-    // fd.append("pName", event.pName);
-    // fd.append("pDescription", pdescription);
-    // fd.append("price", price);
-    // // fd.append("prodImage", filename);
-    // fd.append("prodImage", url);
-    // fd.append("category", category);
-    // fd.append("brand", brand);
-    // fd.append("stock", stock);
-    const CR = {
-      sellerId: `${sellerid}`,
-      pName: `${pname}`,
-      pDescription: `${pdescription}`,
-      price: `${price}`,
-      prodImage: `${url}`,
-      category: `${category}`,
-      brand: `${brand}`,
-      stock: `${stock}`,
-    };
+    const myForm = new FormData();
+    myForm.append("sellerId", sellerid);
+    myForm.append("pName", pname);
+    myForm.append("pDescription", pdescription);
+    myForm.append("price", price);
+    myForm.append("prodImage", prodImage);
+    // myForm.append("prodImage", url);
+    myForm.append("category", category);
+    myForm.append("brand", brand);
+    myForm.append("stock", stock);
+    // const CR = {
+    //   sellerId: `${sellerid}`,
+    //   pName: `${pname}`,
+    //   pDescription: `${pdescription}`,
+    //   price: `${price}`,
+    //   prodImage: `${url}`,
+    //   category: `${category}`,
+    //   brand: `${brand}`,
+    //   stock: `${stock}`,
+    // };
 
-    setpname("");
-    setpdescription("");
-    setprice("");
-    setpreviewimage(avatar);
+    // setpname("");
+    // setpdescription("");
+    // setprice("");
+    // setpreviewimage(avatar);
     // setfilename(avatar);
-    setcateory(1);
-    setbrand("");
-    setstock("");
+    // setcateory(1);
+    // setbrand("");
+    // setstock("");
 
-    axios
-      .post("/product", CR)
+    axios({
+      method: "post",
+      url: "/product/product",
+      data: myForm,
+      headers: { "Content-Type": "multipart/form-data" },
+    })
       .then((res) => {
         console.log(res.data.id);
-        handleUpload(res.data.id);
+        // handleUpload(res.data.id);
         window.alert("Product Image uploading. Plz wait 3 to 5 sec...");
 
-        // history.push(`/seller`);
+        history.push(`/seller`);
       })
       .catch((err) => {
         console.log("ERror............................");
@@ -254,7 +260,8 @@ const AddProduct = () => {
         <input
           type="file"
           id="image"
-          name="productImage"
+          name="prodImage"
+          accept="image/*"
           filename="productImage"
           // onChange={previewImage}
           onChange={(e) => {

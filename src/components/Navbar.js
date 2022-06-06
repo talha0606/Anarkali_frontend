@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { UserContext } from "../App";
+// import { UserContext } from "../App";
 
 function Navbar() {
-  const { state, dispatch } = useContext(UserContext);
-  if (state) {
+  // const { state, dispatch } = useContext(UserContext);
+  if (true) {
     return (
       <>
         <nav className="navbar navbar-expand-md navbar-light bg-white bg-body shadow-sm m-0 p-1 sticky-top">

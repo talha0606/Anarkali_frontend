@@ -4,7 +4,7 @@ import { UserContext } from "../App";
 
 const LogoutPage = () => {
   // promises
-  const { state, dispatch } = useContext(UserContext);
+  // const { state, dispatch } = useContext(UserContext);
   const history = useHistory();
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const LogoutPage = () => {
       credentials: "include",
     })
       .then((res) => {
-        dispatch({ type: "USER", payload: false });
+        // dispatch({ type: "USER", payload: false });
         localStorage.clear();
         history.push("/login", { replace: true });
         if (res.status !== 200) {
