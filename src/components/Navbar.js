@@ -6,7 +6,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 
 function Navbar() {
   // const { state, dispatch } = useContext(UserContext);
-  if (true) {
+  if (false) {
     return (
       <>
         <nav className="navbar navbar-expand-md navbar-light bg-white bg-body shadow-sm m-0 p-1 sticky-top">

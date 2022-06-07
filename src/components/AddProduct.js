@@ -20,7 +20,7 @@ const AddProduct = () => {
   const [category, setcateory] = useState(1);
   const [brand, setbrand] = useState("");
   const [stock, setstock] = useState("");
-  const [prodImage, setImage] = useState(null);
+  const [prodImage, setImage] = useState("");
   const [url, setUrl] = useState("");
   const [progress, setProgress] = useState("");
 
@@ -48,7 +48,7 @@ const AddProduct = () => {
 
   //for image changing
   const previewImage = (event) => {
-    // setfilename(event.target.files[0]);
+    // setImage(event.target.files[0]);
     const reader = new FileReader();
     reader.onload = () => {
       if (reader.readyState === 2) {
@@ -58,18 +58,18 @@ const AddProduct = () => {
     };
     reader.readAsDataURL(event.target.files[0]);
     // setImage(event.target.files[0]);
-    setpreviewimage(event.target.files[0]);
+    // setpreviewimage(event.target.files[0]);
     console.log(event.target.files[0]);
   };
 
-  const handleChange = (e) => {
-    console.log("handlechange");
-    // if (e.target.files[0]) {
-    //   setImage(e.target.files[0]);
-    //   console.log(e.target.files[0]);
-    //   console.log("cccimage name " + image);
-    // }
-  };
+  // const handleChange = (e) => {
+  //   console.log("handlechange");
+  // if (e.target.files[0]) {
+  //   setImage(e.target.files[0]);
+  //   console.log(e.target.files[0]);
+  //   console.log("cccimage name " + image);
+  // }
+  // };
 
   // const handleUpload = (id) => {
   //   console.log("handleupload");
@@ -131,22 +131,22 @@ const AddProduct = () => {
   //   handleUpload();
   // }, [image]);
 
-  const onChangeClick = (event) => {
+  const onChangeClick = async (event) => {
     // event.preventDefault();
-    // console.log("on change image name " + image.name);
+    console.log("Image of Product " + prodImage);
     console.log("sellerId: " + sellerid);
     console.log("pName: " + pname);
 
     const myForm = new FormData();
-    myForm.append("sellerId", sellerid);
-    myForm.append("pName", pname);
-    myForm.append("pDescription", pdescription);
-    myForm.append("price", price);
-    myForm.append("prodImage", prodImage);
+    myForm.set("sellerId", sellerid);
+    myForm.set("pName", pname);
+    myForm.set("pDescription", pdescription);
+    myForm.set("price", price);
+    myForm.set("image", prodImage);
     // myForm.append("prodImage", url);
-    myForm.append("category", category);
-    myForm.append("brand", brand);
-    myForm.append("stock", stock);
+    myForm.set("category", category);
+    myForm.set("brand", brand);
+    myForm.set("stock", stock);
     // const CR = {
     //   sellerId: `${sellerid}`,
     //   pName: `${pname}`,
@@ -166,27 +166,30 @@ const AddProduct = () => {
     // setcateory(1);
     // setbrand("");
     // setstock("");
+    const config = { headers: { "Content-Type": "multipart/form-data" } };
 
-    axios({
-      method: "post",
-      url: "/product/product",
-      data: myForm,
-      headers: { "Content-Type": "multipart/form-data" },
-    })
-      .then((res) => {
-        console.log(res.data.id);
-        // handleUpload(res.data.id);
-        window.alert("Product Image uploading. Plz wait 3 to 5 sec...");
+    const { data } = await axios.post("/product/product", myForm, config);
+    console.log("Add Product Data: " + data);
+    // axios({
+    //   method: "post",
+    //   url: "/product/product",
+    //   data: myForm,
+    //   headers: { "Content-Type": "multipart/form-data" },
+    // })
+    // .then((res) => {
+    //   console.log(res.data.id);
+    //   // handleUpload(res.data.id);
+    //   window.alert("Product Image uploading. Plz wait 3 to 5 sec...");
 
-        history.push(`/seller`);
-      })
-      .catch((err) => {
-        console.log("ERror............................");
-        if (err.response.status === 402) {
-          window.alert("Please filled the empty field properly");
-        }
-        console.log(err);
-      });
+    //   history.push(`/seller`);
+    // })
+    // .catch((err) => {
+    //   console.log("ERror............................");
+    //   if (err.response.status === 402) {
+    //     window.alert("Please filled the empty field properly");
+    //   }
+    //   console.log(err);
+    // });
 
     // console.log("the name is: " + pname);
     // history.push(`/seller`);
@@ -260,14 +263,11 @@ const AddProduct = () => {
         <input
           type="file"
           id="image"
-          name="prodImage"
+          name="image"
           accept="image/*"
-          filename="productImage"
+          // filename="productImage"
           // onChange={previewImage}
-          onChange={(e) => {
-            handleChange(e);
-            previewImage(e);
-          }}
+          onChange={previewImage}
         />
         <label htmlFor="category">Category</label>
         <select
