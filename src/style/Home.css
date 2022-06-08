@@ -1,7 +1,75 @@
-.globall{
+.globall {
   width: 100%;
   height: 10vh;
 }
+
+.slideThree {
+  display: inline-block;
+  width: 143px;
+  height: 26px;
+  background: rgb(237, 237, 237);
+  margin: 10px 0 0 30px;
+  position: relative;
+  border-radius: 50px;
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5),
+    0px 1px 0px rgba(255, 255, 255, 0.2);
+}
+.slideThree:after {
+  content: "Products";
+  color: rgb(44, 44, 44);
+  position: absolute;
+  right: 10px;
+  z-index: 0;
+  font: 13px/26px Arial, sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.15);
+}
+.slideThree:before {
+  content: "Shops";
+  /* color: #27ae60; */
+  color: rgb(44, 44, 44);
+  position: absolute;
+  left: 10px;
+  z-index: 0;
+  font-size: 13px;
+  font: 13px/26px Arial, sans-serif;
+  font-weight: bold;
+}
+.slideThree label {
+  display: block;
+  width: 70px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  z-index: 1;
+  background: #fcfff4;
+  /* /* background: linear-gradient(to bottom, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%); */
+  background: linear-gradient(to bottom, #04ff0e 0%, #4ec850 50%, #18c025 100%);
+  border-radius: 50px;
+  transition: all 0.4s ease;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+}
+.slideThree input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.slideThree input[type="checkbox"]:checked + label {
+  left: 70px;
+}
+
+.logout-style {
+  position: absolute !important ;
+  bottom: 50px;
+}
+
+/* .slideThree:focus {
+  border: 1.5px solid #339933;
+  box-shadow: 0 0 3px rgba(0, 255, 0, 0.3), 0 0 5px rgba(0, 255, 0, 0.2),
+    0 0 7px rgba(0, 255, 0, 0.1), 0 2px 0 white;
+} */
 /* 
 .searchToggleInput {
   grid-area: search;
@@ -15,24 +83,24 @@
 
 .grid-container {
   /* position: fixed; */
-  /* right: 0;
+/* right: 0;
   display: grid;
   margin-bottom: 20px;
   margin-left: 500px; */
-  /* grid-template-areas: "search search toggle toggle"; */
-  /* grid-gap: 10px; */
-  /* background-color: #dae9f8; */
-  /* padding: 10px; */
-  /* width: 45%;
+/* grid-template-areas: "search search toggle toggle"; */
+/* grid-gap: 10px; */
+/* background-color: #dae9f8; */
+/* padding: 10px; */
+/* width: 45%;
   margin: 15px 10px 0px 20px; */
 /* } */
 /* 
 .grid-container > div { */
-  /* background-color: rgba(255, 255, 255, 0.8); */
-  /* text-align: right; */
-  /* padding: 20px 0; */
-  /* font-size: 20px; */
-  /* height: 30px; */
+/* background-color: rgba(255, 255, 255, 0.8); */
+/* text-align: right; */
+/* padding: 20px 0; */
+/* font-size: 20px; */
+/* height: 30px; */
 /* } */
 
 /*  Toggle Switch  */
@@ -170,7 +238,7 @@
 .toggleSwitch input:checked ~ span span:last-of-type {
   /* opacity: 1;
 	color: #fff;	 */
-  /* color: #fff; */
+/* color: #fff; */
 /* }  */
 */
 /* Switch Sizes */
@@ -245,10 +313,20 @@
   color: black;
 }
 
+.price-range-heading {
+  /* font-weight: 450; */
+}
+.price-range {
+  padding-left: 10px;
+  padding-right: 5px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
 .dataItem p {
   margin-left: 10px;
 }
-
 
 /* Toogle button (shops/products) */
 .toggle-button-cover {
@@ -388,4 +466,6 @@
   background-color: #fcebeb;
 }
 
-
+.MuiSlider-root{
+  color: #4ec850 !important;
+}

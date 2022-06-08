@@ -139,10 +139,10 @@ function Home() {
 
   const handleToggle = () => {
     if (toggleValue == "Shops") {
-      alert("Products Displayed");
+      // alert("Products Displayed");
       setToggleValue("Products");
     } else {
-      alert("Shops Displayed");
+      // alert("Shops Displayed");
       setToggleValue("Shops");
     }
   };
@@ -228,8 +228,20 @@ function Home() {
                       onKeyUp={(e) => handleKeyPress(e)}
                     />
                   </div>
+                  <div className="slideThree">
+                    <input
+                      type="checkbox"
+                      value="None"
+                      id="slideThree"
+                      name="check"
+                      onClick={handleToggle}
+
+                      // checked
+                    />
+                    <label for="slideThree"></label>
+                  </div>
                   {/* <spam className="search-shops">Shops</spam> */}
-                  <div className="a2">
+                  {/* <div className="a2">
                     <label className="toggle">
                       <input
                         className="toggleINPUT"
@@ -242,7 +254,18 @@ function Home() {
                         data-off="SHOPS"
                       ></span>
                     </label>
-                  </div>
+                  </div> */}
+
+                  {/* <div class="slideThree">
+                    <input
+                      type="checkbox"
+                      value="None"
+                      id="slideThree"
+                      name="check"
+                      checked
+                    />
+                    <label for="slideThree"></label>
+                  </div> */}
                 </div>
 
                 {/* <div className="grid-container">
@@ -403,15 +426,17 @@ function Home() {
                 class="rounded container shadow p-3 mb-5"
                 className="category-checkbox"
               >
-                <Typography>Price</Typography>
-                <Slider
-                  value={price}
-                  onChange={priceHandler}
-                  valueLabelDisplay="auto"
-                  aria-labelledby="range-slider"
-                  min={0}
-                  max={25000}
-                />
+                <h6 className="checkbox-heading price-range-heading">Price</h6>
+                <div className="price-range">
+                  <Slider
+                    value={price}
+                    onChange={priceHandler}
+                    valueLabelDisplay="auto"
+                    aria-labelledby="range-slider"
+                    min={0}
+                    max={25000}
+                  />
+                </div>
               </div>
               {/* {isPending && <div> Loading... </div>} */}
               <Checkboxes
@@ -438,7 +463,29 @@ function Home() {
                       onKeyUp={(e) => handleKeyPress(e)}
                     />
                   </div>
-                  <div className="a2">
+
+                  {/* <div class="button-cover">
+                    <div className="button b2" id="button-10">
+                      <input type="checkbox" className="checkbox" />
+                      <div class="knobs">
+                        <span>YES</span>
+                      </div>
+                      <div className="layer"></div>
+                    </div>
+                  </div> */}
+                  <div className="slideThree">
+                    <input
+                      type="checkbox"
+                      value="None"
+                      id="slideThree"
+                      name="check"
+                      onClick={handleToggle}
+
+                      checked
+                    />
+                    <label for="slideThree"></label>
+                  </div>
+                  {/* <div className="a2">
                     <label className="toggle">
                       <input
                         className="toggleINPUT"
@@ -451,7 +498,7 @@ function Home() {
                         data-off="SHOPS"
                       ></span>
                     </label>
-                  </div>
+                  </div> */}
                   {/* <spam className="search-shops">Shops</spam>
                   <div className="a2">
                     <div class="form-check form-switch ms-2 mt-2 ">

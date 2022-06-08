@@ -117,7 +117,7 @@ const Sidebar = () => {
             {/* <span className="tooltip">Help</span> */}
           </li>
 
-          <li class="profile">
+          <li class="profile logout-style">
             <Link to="/" class="link-light">
               <BiLogOut id="log_out" />
             </Link>
