@@ -3,11 +3,11 @@ import { useHistory, Link } from "react-router-dom";
 import logo from "../images/logo.png";
 import avatar from "../images/avatar.png";
 import axios from "axios";
-import { useForm } from "react-hook-form";
-import classNames from "classnames";
+// import { useForm } from "react-hook-form";
+// import classNames from "classnames";
 import { storage } from "../firebase/firebase.js";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import { Audio } from "react-loader-spinner";
+// import { Audio } from "react-loader-spinner";
 
 // ******************* - toggle password - ********************
 
@@ -72,9 +72,9 @@ function SignUpPage() {
   const [image, setImage] = useState(null);
   const [url, setUrl] = useState("");
   // const [response, setresponse] = useState("");
-  const [progress, setProgress] = useState("");
-  const [status, setStatus] = useState("");
-  const [credential, setcredential] = useState({});
+  // const [progress, setProgress] = useState("");
+  // const [status, setStatus] = useState("");
+  // const [credential, setcredential] = useState({});
 
   //Preview Code
   const previewImage = (event) => {
@@ -110,7 +110,7 @@ function SignUpPage() {
         const progress = Math.round(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
-        setProgress(progress);
+        // setProgress(progress);
       },
       (error) => {
         console.log(error);

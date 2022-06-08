@@ -2,13 +2,13 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import AdminPage from "./components/AdminPage";
 import FileUpload from "./components/FileUpload";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 import Sidebar from "./components/Sidebar";
 import Error from "./components/Error";
 import Seller from "./components/Seller";
 import Cart from "./components/Cart";
 import AddProduct from "./components/AddProduct";
-import MyProducts from "./components/AddProduct";
+// import MyProducts from "./components/AddProduct";
 import ModalTesting from "./components/ModalTesting";
 import ShopDetail from "./components/ShopDetail";
 import Map from "./components/Map";
@@ -22,10 +22,10 @@ import SignUpPage from "./components/SignUpPage";
 import ProductDetail from "./components/ProductDetail";
 import CategorySideBar from "./components/CategorySideBar";
 
-import { initialState, reducer } from "./reducer/UseReducer";
+// import { initialState, reducer } from "./reducer/UseReducer";
 // import { useReducer, createContext } from "react";
 
-import Logout from "@mui/icons-material/Logout";
+// import Logout from "@mui/icons-material/Logout";
 import EditProduct from "./components/EditProduct";
 import LoginSignUp from "./components/User/LoginSignUp";
 

@@ -14,7 +14,7 @@ const EditProduct = (/*props*/) => {
   const history = useHistory();
   const { product } = useParams();
   const prodId = product;
-  console.log("EditProduct: " + prodId);
+  // console.log("EditProduct: " + prodId);
   // console.log("EditProduct/Props: " + /*props*/ product.pName);
   // console.log("EditProduct/Props: " + /*props*/ product.prodImage);
 
@@ -86,52 +86,59 @@ const EditProduct = (/*props*/) => {
 
   //for image changing
   const previewImage = (event) => {
-    setfilename(event.target.files[0]);
+    // setfilename(event.target.files[0]);
     const reader = new FileReader();
     reader.onload = () => {
       if (reader.readyState === 2) {
         setpreviewimage(reader.result);
+        setfilename(reader.result);
       } else {
         setpreviewimage(avatar);
       }
     };
     reader.readAsDataURL(event.target.files[0]);
 
-    setpreviewimage(event.target.files[0]);
+    // setpreviewimage(event.target.files[0]);
     console.log(event.target.files[0]);
   };
 
   const onChangeClick = (e) => {
     // e.preventDefault();
-    console.log("EditProduct: ");
-    const fd = new FormData();
-    fd.append("sellerId", sellerid);
-    fd.append("id", id);
-    fd.append("pName", pname);
-    fd.append("pDescription", pdescription);
-    fd.append("price", price);
-    fd.append("prodImage", url);
-    fd.append("category", category);
-    fd.append("brand", brand);
-    fd.append("stock", stock);
-    fd.append("image", filename);
+    console.log("Image of Updated Product " + filename);
+    console.log("sellerId: " + sellerid);
+    console.log("pName: " + pname);
 
-    setpname("");
-    setpdescription("");
-    setprice("");
-    // setpreviewimage(avatar);
-    setfilename(avatar);
-    setUrl(avatar);
-    setcateory(1);
-    setbrand("");
-    setstock("");
+    const fd = new FormData();
+    fd.set("sellerId", sellerid);
+    fd.set("id", id);
+    fd.set("pName", pname);
+    fd.set("pDescription", pdescription);
+    fd.set("price", price);
+    fd.set("prodImage", url);
+    fd.set("category", category);
+    fd.set("brand", brand);
+    fd.set("stock", stock);
+    fd.set("image", filename);
+
+    // setpname("");
+    // setpdescription("");
+    // setprice("");
+    // // setpreviewimage(avatar);
+    // setfilename(avatar);
+    // setUrl(avatar);
+    // setcateory(1);
+    // setbrand("");
+    // setstock("");
+    const config = { headers: { "Content-Type": "multipart/form-data" } };
 
     axios
-      .post("/product/updateProduct", fd)
+      .post("/product/updateProduct", fd, config)
       .then((res) => {
-        window.alert("Product Updated Successfully");
-        history.push("/seller");
-        console.log(res.data);
+        console.log("Updated Product Response: " + res);
+        console.log("Updated Product Data: " + res.data);
+
+        // window.alert("Product Updated Successfully");
+        // history.push("/seller");
       })
       .catch((err) => {
         console.log("ERror............................");
@@ -225,7 +232,8 @@ const EditProduct = (/*props*/) => {
             type="file"
             id="image"
             name="image"
-            filename="productImage"
+            // filename="image"
+            accept="image/*"
             onChange={previewImage}
           />
           <label htmlFor="category">Category</label>
