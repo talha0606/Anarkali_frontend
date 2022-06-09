@@ -140,6 +140,7 @@ function Home() {
   const handleToggle = () => {
     if (toggleValue == "Shops") {
       // alert("Products Displayed");
+      setCurrentPage(1);
       setToggleValue("Products");
     } else {
       // alert("Shops Displayed");
@@ -480,7 +481,6 @@ function Home() {
                       id="slideThree"
                       name="check"
                       onClick={handleToggle}
-
                       checked
                     />
                     <label for="slideThree"></label>

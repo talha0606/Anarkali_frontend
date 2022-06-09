@@ -65,6 +65,7 @@ const LoginSignUp = ({ history, location }) => {
       };
 
       reader.readAsDataURL(e.target.files[0]);
+      console.log(e.target.files[0]);
     } else {
       setUser({ ...user, [e.target.name]: e.target.value });
     }
