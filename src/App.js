@@ -12,6 +12,8 @@ import AddProduct from "./components/AddProduct";
 import ModalTesting from "./components/ModalTesting";
 import ShopDetail from "./components/ShopDetail";
 import Map from "./components/Map";
+import FilterNavbar from "./components/FilterNavbar";
+
 
 import "./App.css";
 
@@ -40,6 +42,7 @@ function App() {
     <>
       {/* <UserContext.Provider value={{ state, dispatch }}> */}
       <Navbar />
+      {/* <FilterNavbar/> */}
       <Sidebar />
       <Switch>
         <Route exact path="/">
@@ -74,6 +77,9 @@ function App() {
         </Route>
         <Route exact path="/catSide">
           <CategorySideBar />
+        </Route>
+        <Route exact path="/filter">
+          <FilterNavbar />
         </Route>
         <Route exact path="/testing">
           <ModalTesting />

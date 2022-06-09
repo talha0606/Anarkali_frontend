@@ -10,6 +10,7 @@ import axios from "axios";
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
 import Pagination from "react-js-pagination";
+import FilterNavbar from "./FilterNavbar";
 import { Link } from "react-router-dom";
 
 function Home() {
