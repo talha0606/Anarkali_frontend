@@ -17,7 +17,7 @@ const AddProduct = () => {
   const [price, setprice] = useState("");
   const [previewimage, setpreviewimage] = useState(avatar);
   // const [filename, setfilename] = useState("");
-  const [category, setcateory] = useState(1);
+  const [category, setcateory] = useState("Bags");
   const [brand, setbrand] = useState("");
   const [stock, setstock] = useState("");
   const [prodImage, setImage] = useState("");
@@ -127,9 +127,9 @@ const AddProduct = () => {
   // {
   //   image && handleUpload();
   // }
-  // useEffect(() => {
-  //   handleUpload();
-  // }, [image]);
+  useEffect(() => {
+    console.log("Category: " + category);
+  }, [category]);
 
   const onChangeClick = async (event) => {
     // event.preventDefault();
@@ -274,11 +274,10 @@ const AddProduct = () => {
           name="category"
           onChange={(e) => {
             setcateory(e.target.value);
-            console.log(e.target.value);
           }}
         >
           {categories.map((item) => (
-            <option key={item.key} value={item.key}>
+            <option key={item.key} value={item.value}>
               {item.value}
             </option>
           ))}

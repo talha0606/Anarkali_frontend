@@ -247,8 +247,8 @@ const EditProduct = (/*props*/) => {
             {categories.map((item) => (
               <option
                 key={item.key}
-                selected={item.key === category ? "selected" : false}
-                value={item.key}
+                selected={item.value === category ? "selected" : false}
+                value={item.value}
               >
                 {item.value}
               </option>

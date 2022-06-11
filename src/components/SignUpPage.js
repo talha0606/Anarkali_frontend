@@ -65,6 +65,8 @@ function SignUpPage() {
   const [sdescription, setsdescription] = useState("");
   const [address, setaddress] = useState("");
   const [email, setemail] = useState("");
+  const [phoneNo, setphoneNo] = useState("");
+
   const [password, setpassword] = useState("");
   // const [filename, setfilename] = useState("");
   const [previewimage, setpreviewimage] = useState(avatar);
@@ -200,6 +202,7 @@ function SignUpPage() {
       sDescription: `${sdescription}`,
       address: `${address}`,
       email: `${email}`,
+      phoneNo: `${phoneNo}`,
       password: `${password}`,
       imageUrl: `${url}`,
       category: `${category}`,
@@ -211,7 +214,7 @@ function SignUpPage() {
       console.log("onChangeClick");
 
       axios
-        .post("/register", CR)
+        .post("/shop/register", CR)
         .then((res) => {
           console.log("ID: " + res.data.id);
           // setStatus(200);
@@ -361,6 +364,15 @@ function SignUpPage() {
           value={address}
           onChange={(e) => setaddress(e.target.value)}
           placeholder="Address.."
+        />
+        <label htmlFor="phoneNo">Phone:</label>
+        <input
+          type="number"
+          id="phoneNo"
+          name="phoneNo"
+          value={phoneNo}
+          onChange={(e) => setphoneNo(e.target.value)}
+          placeholder="Enter your phone number"
         />
         <label htmlFor="email">Shop Email</label>
         <input
