@@ -1,39 +1,59 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../style/filter-navbar.css";
+import womenShirt from '../images/women-shirts.jpg'
+import womenPants from '../images/women-pants.jpg'
+import menShirts from "../images/men-shirt.jpg"
+import menPants from "../images/men-pants.jpg"
+import menWatchs from "../images/men-watch.jpg"
+import womenWatchs from "../images/women-watch.jpg"
+import remoteCar from "../images/remote-car.jpg"
+import rubikCube from "../images/rubiks-cube.jpg"
+import cricket from "../images/cricket.jpg"
+import hockey from "../images/hockey.jpg"
+import menShoes from "../images/men-shoes.jpg"
+import ladiesShoes from "../images/ladies-shoes.jpg"
+import menBags from "../images/men-bag.jpg"
+import womenBags from "../images/women-bags.jpg"
+import jewelry1 from "../images/jewelry1.jpg"
+import jewelry2 from "../images/jewelry2.jpg"
+import law from "../images/law.jpg"
+import novel from "../images/novel.jpg"
+
+
 
 const FilterNavbar = () => {
   return (
     <>
       <nav>
-        <div class="wrapper">
-          <div class="logo">
+        <div className="wrapper">
+          {/* <div className="logo">
             <Link to="#">Anarkali-Bazar</Link>
-          </div>
+          </div> */}
           <input type="radio" name="slide" id="menu-btn" />
           <input type="radio" name="slide" id="cancel-btn" />
-          <ul class="nav-links">
-            <label for="cancel-btn" class="btn cancel-btn">
-              <i class="fas fa-times"></i>
+          <ul className="nav-links">
+            <label for="cancel-btn" className="btn cancel-btn">
+              <i className="fas fa-times"></i>
             </label>
 
             {/* <!-- Women Garments --> */}
             <li>
-              <Link to="#" class="desktop-item">
-                Women Garments <i class="arrow down"></i>
+              <Link to="#" className="desktop-item">
+                Women Garments <i className="arrow down"></i>
               </Link>
               <input type="checkbox" id="showMega" />
-              <label for="showMega" class="mobile-item">
-                Women Garments <i class="arrow down"></i>
+              <label for="showMega" className="mobile-item">
+                Women Garments <i className="arrow down"></i>
               </label>
-              <div class="mega-box">
-                <div class="content">
-                  <div class="row">
-                    <img src="../images/women-shirts.jpg" alt="" />
+              <div className="mega-box">
+                <div className="content">
+                  <div className="row">
+                    <img src={womenShirt} alt="" />
                   </div>
-                  <div class="row">
+                  <div className="row">
                     <header>Shirts</header>
-                    <ul class="mega-links">
+                    <ul className="mega-links">
                       <li>
                         <Link to="#">Dress Shirts</Link>
                       </li>
@@ -48,12 +68,12 @@ const FilterNavbar = () => {
                       </li>
                     </ul>
                   </div>
-                  <div class="row">
-                    <img src="../images/women-pants.jpg" alt="" />
+                  <div className="row">
+                    <img src={womenPants} alt="" />
                   </div>
-                  <div class="row">
+                  <div className="row">
                     <header>Pants</header>
-                    <ul class="mega-links">
+                    <ul className="mega-links">
                       <li>
                         <Link to="#">Jeans</Link>
                       </li>
@@ -74,21 +94,21 @@ const FilterNavbar = () => {
 
             {/* <!-- Men Garments --> */}
             <li>
-              <Link to="#" class="desktop-item">
-                Men Garments <i class="arrow down"></i>
+              <Link to="#" className="desktop-item">
+                Men Garments <i className="arrow down"></i>
               </Link>
               <input type="checkbox" id="showMega" />
-              <label for="showMega" class="mobile-item">
-                Men Garments <i class="arrow down"></i>
+              <label for="showMega" className="mobile-item">
+                Men Garments <i className="arrow down"></i>
               </label>
-              <div class="mega-box">
-                <div class="content">
-                  <div class="row">
-                    <img src="../images/men-shirt.jpg" alt="" />
+              <div className="mega-box">
+                <div className="content">
+                  <div className="row">
+                    <img src={menShirts} alt="" />
                   </div>
-                  <div class="row">
+                  <div className="row">
                     <header>Shirts</header>
-                    <ul class="mega-links">
+                    <ul className="mega-links">
                       <li>
                         <Link to="#">Dress Shirts</Link>
                       </li>
@@ -103,12 +123,12 @@ const FilterNavbar = () => {
                       </li>
                     </ul>
                   </div>
-                  <div class="row">
-                    <img src="../images/men-pants.jpg" alt="" />
+                  <div className="row">
+                    <img src={menPants} alt="" />
                   </div>
-                  <div class="row">
+                  <div className="row">
                     <header>Pants</header>
-                    <ul class="mega-links">
+                    <ul className="mega-links">
                       <li>
                         <Link to="#">Jeans</Link>
                       </li>
@@ -129,21 +149,21 @@ const FilterNavbar = () => {
 
             {/* <!-- Watches --> */}
             <li>
-              <Link to="#" class="desktop-item">
-                Watches <i class="arrow down"></i>
+              <Link to="#" className="desktop-item">
+                Watches <i className="arrow down"></i>
               </Link>
               <input type="checkbox" id="showMega" />
-              <label for="showMega" class="mobile-item">
-                Watches <i class="arrow down"></i>
+              <label for="showMega" className="mobile-item">
+                Watches <i className="arrow down"></i>
               </label>
-              <div class="mega-box">
-                <div class="content">
-                  <div class="row">
-                    <img src="../images/men-watch.jpg" alt="" />
+              <div className="mega-box">
+                <div className="content">
+                  <div className="row">
+                    <img src={menWatchs} alt="" />
                   </div>
-                  <div class="row">
+                  <div className="row">
                     <header>Men</header>
-                    <ul class="mega-links">
+                    <ul className="mega-links">
                       <li>
                         <Link to="#">Digital Watch</Link>
                       </li>
@@ -158,12 +178,12 @@ const FilterNavbar = () => {
                       </li>
                     </ul>
                   </div>
-                  <div class="row">
-                    <img src="../images/women-watch.jpg" alt="" />
+                  <div className="row">
+                    <img src={womenWatchs} alt="" />
                   </div>
-                  <div class="row">
+                  <div className="row">
                     <header>Women</header>
-                    <ul class="mega-links">
+                    <ul className="mega-links">
                       <li>
                         <Link to="#">Casual Watch</Link>
                       </li>
@@ -184,21 +204,21 @@ const FilterNavbar = () => {
 
             {/* <!-- Toys --> */}
             <li>
-              <Link to="#" class="desktop-item">
-                Toys <i class="arrow down"></i>
+              <Link to="#" className="desktop-item">
+                Toys <i className="arrow down"></i>
               </Link>
               <input type="checkbox" id="showMega" />
-              <label for="showMega" class="mobile-item">
-                Toys <i class="arrow down"></i>
+              <label for="showMega" className="mobile-item">
+                Toys <i className="arrow down"></i>
               </label>
-              <div class="mega-box">
-                <div class="content">
-                  <div class="row">
-                    <img src="../images/remote-car.jpg" alt="" />
+              <div className="mega-box">
+                <div className="content">
+                  <div className="row">
+                    <img src={remoteCar} alt="" />
                   </div>
-                  <div class="row">
+                  <div className="row">
                     <header>Electronic</header>
-                    <ul class="mega-links">
+                    <ul className="mega-links">
                       <li>
                         <Link to="#">Remote Car</Link>
                       </li>
@@ -213,12 +233,12 @@ const FilterNavbar = () => {
                       </li>
                     </ul>
                   </div>
-                  <div class="row">
-                    <img src="../images/rubiks-cube.jpg" alt="" />
+                  <div className="row">
+                    <img src={rubikCube} alt="" />
                   </div>
-                  <div class="row">
+                  <div className="row">
                     <header>Non-Electric</header>
-                    <ul class="mega-links">
+                    <ul className="mega-links">
                       <li>
                         <Link to="#">Teddy Bear</Link>
                       </li>
@@ -239,21 +259,21 @@ const FilterNavbar = () => {
 
             {/* <!-- Sports --> */}
             <li>
-              <Link to="#" class="desktop-item">
-                Sports <i class="arrow down"></i>
+              <Link to="#" className="desktop-item">
+                Sports <i className="arrow down"></i>
               </Link>
               <input type="checkbox" id="showMega" />
-              <label for="showMega" class="mobile-item">
-                Sports <i class="arrow down"></i>
+              <label for="showMega" className="mobile-item">
+                Sports <i className="arrow down"></i>
               </label>
-              <div class="mega-box">
-                <div class="content">
-                  <div class="row">
-                    <img src="../images/cricket.jpg" alt="" />
+              <div className="mega-box">
+                <div className="content">
+                  <div className="row">
+                    <img src={cricket} alt="" />
                   </div>
-                  <div class="row">
+                  <div className="row">
                     <header>Cricket</header>
-                    <ul class="mega-links">
+                    <ul className="mega-links">
                       <li>
                         <Link to="#">Bat</Link>
                       </li>
@@ -268,12 +288,12 @@ const FilterNavbar = () => {
                       </li>
                     </ul>
                   </div>
-                  <div class="row">
-                    <img src="../images/hockey.jpg" alt="" />
+                  <div className="row">
+                    <img src={hockey} alt="" />
                   </div>
-                  <div class="row">
+                  <div className="row">
                     <header>Hockey</header>
-                    <ul class="mega-links">
+                    <ul className="mega-links">
                       <li>
                         <Link to="#">Helmet</Link>
                       </li>
@@ -294,21 +314,21 @@ const FilterNavbar = () => {
 
             {/* <!-- Shoes --> */}
             <li>
-              <Link to="#" class="desktop-item">
-                Shoes <i class="arrow down"></i>
+              <Link to="#" className="desktop-item">
+                Shoes <i className="arrow down"></i>
               </Link>
               <input type="checkbox" id="showMega" />
-              <label for="showMega" class="mobile-item">
-                Shoes <i class="arrow down"></i>
+              <label for="showMega" className="mobile-item">
+                Shoes <i className="arrow down"></i>
               </label>
-              <div class="mega-box">
-                <div class="content">
-                  <div class="row">
-                    <img src="../images/men-shoes.jpg" alt="" />
+              <div className="mega-box">
+                <div className="content">
+                  <div className="row">
+                    <img src={menShoes} alt="" />
                   </div>
-                  <div class="row">
+                  <div className="row">
                     <header>Men Shoes</header>
-                    <ul class="mega-links">
+                    <ul className="mega-links">
                       <li>
                         <Link to="#">Running Shoes</Link>
                       </li>
@@ -323,12 +343,12 @@ const FilterNavbar = () => {
                       </li>
                     </ul>
                   </div>
-                  <div class="row">
-                    <img src="../images/ladies-shoes.jpg" alt="" />
+                  <div className="row">
+                    <img src={ladiesShoes} alt="" />
                   </div>
-                  <div class="row">
+                  <div className="row">
                     <header>Ladies Shoes</header>
-                    <ul class="mega-links">
+                    <ul className="mega-links">
                       <li>
                         <Link to="#">Running Shoes</Link>
                       </li>
@@ -349,21 +369,21 @@ const FilterNavbar = () => {
 
             {/* <!-- Bags --> */}
             <li>
-              <Link to="#" class="desktop-item">
-                Bags <i class="arrow down"></i>
+              <Link to="#" className="desktop-item">
+                Bags <i className="arrow down"></i>
               </Link>
               <input type="checkbox" id="showMega" />
-              <label for="showMega" class="mobile-item">
-                Bags <i class="arrow down"></i>
+              <label for="showMega" className="mobile-item">
+                Bags <i className="arrow down"></i>
               </label>
-              <div class="mega-box">
-                <div class="content">
-                  <div class="row">
-                    <img src="../images/men-bag.jpg" alt="" />
+              <div className="mega-box">
+                <div className="content">
+                  <div className="row">
+                    <img src={menBags} alt="" />
                   </div>
-                  <div class="row">
+                  <div className="row">
                     <header>Male</header>
-                    <ul class="mega-links">
+                    <ul className="mega-links">
                       <li>
                         <Link to="#">School Bags</Link>
                       </li>
@@ -375,12 +395,12 @@ const FilterNavbar = () => {
                       </li>
                     </ul>
                   </div>
-                  <div class="row">
-                    <img src="../images/bags.jpg" alt="" />
+                  <div className="row">
+                    <img src={womenBags} alt="" />
                   </div>
-                  <div class="row">
+                  <div className="row">
                     <header>Female</header>
-                    <ul class="mega-links">
+                    <ul className="mega-links">
                       <li>
                         <Link to="#">School Bags</Link>
                       </li>
@@ -401,21 +421,21 @@ const FilterNavbar = () => {
 
             {/* <!-- Jewelry --> */}
             <li>
-              <Link to="#" class="desktop-item">
-                Jewellery <i class="arrow down"></i>
+              <Link to="#" className="desktop-item">
+                Jewelry <i className="arrow down"></i>
               </Link>
               <input type="checkbox" id="showMega" />
-              <label for="showMega" class="mobile-item">
-                Jewellery <i class="arrow down"></i>
+              <label for="showMega" className="mobile-item">
+                Jewelry <i className="arrow down"></i>
               </label>
-              <div class="mega-box">
-                <div class="content">
-                  <div class="row">
-                    <img src="../images/jewelry1.jpg" alt="" />
+              <div className="mega-box">
+                <div className="content">
+                  <div className="row">
+                    <img src={jewelry1} alt="" />
                   </div>
-                  <div class="row">
-                    <header>Hand Jewellery</header>
-                    <ul class="mega-links">
+                  <div className="row">
+                    <header>Hand Jewelry</header>
+                    <ul className="mega-links">
                       <li>
                         <Link to="#">Bangles</Link>
                       </li>
@@ -427,12 +447,12 @@ const FilterNavbar = () => {
                       </li>
                     </ul>
                   </div>
-                  <div class="row">
-                    <img src="../images/jewelry2.jpg" alt="" />
+                  <div className="row">
+                    <img src={jewelry2} alt="" />
                   </div>
-                  <div class="row">
-                    <header>Neck Jewellery</header>
-                    <ul class="mega-links">
+                  <div className="row">
+                    <header>Neck Jewelry</header>
+                    <ul className="mega-links">
                       <li>
                         <Link to="#">Lockets</Link>
                       </li>
@@ -450,21 +470,21 @@ const FilterNavbar = () => {
 
             {/* <!-- Books --> */}
             <li>
-              <Link to="#" class="desktop-item">
-                Books <i class="arrow down"></i>
+              <Link to="#" className="desktop-item">
+                Books <i className="arrow down"></i>
               </Link>
               <input type="checkbox" id="showMega" />
-              <label for="showMega" class="mobile-item">
-                Books <i class="arrow down"></i>
+              <label for="showMega" className="mobile-item">
+                Books <i className="arrow down"></i>
               </label>
-              <div class="mega-box">
-                <div class="content">
-                  <div class="row">
-                    <img src="../images/law.jpg" alt="" />
+              <div className="mega-box">
+                <div className="content">
+                  <div className="row">
+                    <img src={law} alt="" />
                   </div>
-                  <div class="row">
+                  <div className="row">
                     <header>Law</header>
-                    <ul class="mega-links">
+                    <ul className="mega-links">
                       <li>
                         <Link to="#">Human Rights</Link>
                       </li>
@@ -479,12 +499,12 @@ const FilterNavbar = () => {
                       </li>
                     </ul>
                   </div>
-                  <div class="row">
-                    <img src="../images/novel.jpg" alt="" />
+                  <div className="row">
+                    <img src={novel} alt="" />
                   </div>
-                  <div class="row">
+                  <div className="row">
                     <header>Novels</header>
-                    <ul class="mega-links">
+                    <ul className="mega-links">
                       <li>
                         <Link to="#">Classic</Link>
                       </li>
@@ -503,8 +523,8 @@ const FilterNavbar = () => {
               </div>
             </li>
           </ul>
-          <label for="menu-btn" class="btn menu-btn">
-            <i class="fas fa-bars"></i>
+          <label for="menu-btn" className="btn menu-btn">
+            <i className="fas fa-bars"></i>
           </label>
         </div>
       </nav>

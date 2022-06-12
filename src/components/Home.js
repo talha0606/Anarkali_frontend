@@ -193,7 +193,7 @@ function Home() {
     return (
       <>
         <div class="container-fluid home-container">
-          <div class="row ">
+          <div class="row home-top-margin">
             <div class="col-2 p-0 checkbox-hide-for-medium">
               {/* {isPending && <div> Loading... </div>} */}
               <Checkboxes

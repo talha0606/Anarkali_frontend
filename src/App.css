@@ -441,7 +441,7 @@ input.check {
 .sidebar {
   position: fixed;
   left: 0;
-  top: 50px;
+  top: 100px;
   height: 100%;
   width: 50px;
   background: #11101d;
@@ -1240,6 +1240,10 @@ input.check {
   transform: translateX(var(--width));
 }
 
+
+.home-top-margin{
+  margin-top: 50px !important;
+}
 
 /* media queries */
 
