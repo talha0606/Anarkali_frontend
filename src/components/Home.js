@@ -18,7 +18,12 @@ function Home() {
   const [userData, setUserData] = useState([]);
   const [Filters, setFilters] = useState({
     category: [],
-    price: [],
+    brand: [],
+  });
+
+  const [prodFilters, setProdFilters] = useState({
+    category: [],
+    brand: [],
   });
 
   const [searchedData, setsearchedData] = useState("");
@@ -40,6 +45,9 @@ function Home() {
   const [resultPerPage, setResultPerPage] = useState();
   const [productsCount, setProductsCount] = useState();
   const [filteredProductsCount, setFilteredProductsCount] = useState();
+
+  const [prodCategories, setProdCategories] = useState([]);
+  const [prodBrands, setProdBrands] = useState([]);
 
   const callHomePage = async (filters) => {
     try {
@@ -103,6 +111,7 @@ function Home() {
         console.log("catch: " + err);
       }
     } else {
+      console.log("In find Shops else portion....");
       setsearchedData("");
       callHomePage();
     }
@@ -113,12 +122,14 @@ function Home() {
     if (searchString.replace(/\s/g, "").length != 0) {
       try {
         axios.get(`/shop/searchShop?name=${searchString}`).then((res) => {
+          console.log("Shop objects after search: " + res.data);
           setUserData(res.data);
         });
       } catch (err) {
         console.log("catch: " + err);
       }
     } else {
+      console.log("In filteredShops else portion....");
       setsearchedData("");
     }
   };
@@ -138,14 +149,27 @@ function Home() {
     }
   };
 
+  const handleProductFilters = (prodfilters, searchType) => {
+    const newFilters = { ...prodFilters };
+    newFilters[searchType] = prodfilters;
+    setProdFilters(newFilters);
+  };
+
+  // useEffect(() => {
+  //   console.log("Product filters: " + prodCategories);
+  // }, [prodCategories]);
+
   const handleToggle = () => {
     if (toggleValue == "Shops") {
       // alert("Products Displayed");
       setCurrentPage(1);
+      setsearchString("");
+      setPrice([0, 25000000000000]);
       setToggleValue("Products");
     } else {
       // alert("Shops Displayed");
       setToggleValue("Shops");
+      setsearchString("");
     }
   };
 
@@ -170,12 +194,14 @@ function Home() {
       setResultPerPage(data.resultPerPage);
       setProductsCount(data.productsCount);
       setFilteredProductsCount(data.filteredProductsCount);
-    } catch (err) {}
+    } catch (err) {
+      console.log("Error Message: " + err.message);
+    }
   };
 
   useEffect(() => {
     getFilteredProducts();
-  }, [price, searchString, currentPage]);
+  }, [price, searchString, currentPage, prodFilters]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -442,10 +468,14 @@ function Home() {
               </div>
               {/* {isPending && <div> Loading... </div>} */}
               <Checkboxes
-                handleFilters={(filters) => handleFilters(filters, "category")}
+                handleFilters={(filters) =>
+                  handleProductFilters(filters, "category")
+                }
               />
               <Checkbox2
-                handleFilters={(filters) => handleFilters(filters, "brand")}
+                handleFilters={(filters) =>
+                  handleProductFilters(filters, "brand")
+                }
               />
             </div>
             <div class="col-10 p-0 ps-3 ">

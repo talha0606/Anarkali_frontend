@@ -104,7 +104,7 @@ const Allproducts = ({ filteredProducts }) => {
       console.log("All Products: ", data);
       setMyProducts(data.myproducts);
 
-      console.log(`length: ${myproducts.length}`);
+      console.log(`myproducts: ${data.myproducts}}`);
       // setMyProducts((oldArray) => [...oldArray, data]);
 
       // if (data.length == 1) {
