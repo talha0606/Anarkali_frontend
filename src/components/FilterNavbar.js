@@ -1,354 +1,533 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../style/filter-navbar.css";
+import womenShirt from '../images/women-shirts.jpg'
+import womenPants from '../images/women-pants.jpg'
+import menShirts from "../images/men-shirt.jpg"
+import menPants from "../images/men-pants.jpg"
+import menWatchs from "../images/men-watch.jpg"
+import womenWatchs from "../images/women-watch.jpg"
+import remoteCar from "../images/remote-car.jpg"
+import rubikCube from "../images/rubiks-cube.jpg"
+import cricket from "../images/cricket.jpg"
+import hockey from "../images/hockey.jpg"
+import menShoes from "../images/men-shoes.jpg"
+import ladiesShoes from "../images/ladies-shoes.jpg"
+import menBags from "../images/men-bag.jpg"
+import womenBags from "../images/women-bags.jpg"
+import jewelry1 from "../images/jewelry1.jpg"
+import jewelry2 from "../images/jewelry2.jpg"
+import law from "../images/law.jpg"
+import novel from "../images/novel.jpg"
+
+
 
 const FilterNavbar = () => {
   return (
     <>
-      {/* body */}
       <nav>
-        <div class="wrapper">
-          {/* <!-- <div class="logo"><a href="#">Anarkali</a></div> --> */}
-          <ul class="nav-links">
-            <li>
-              <a href="#">Beauty & Personal Care </a>
-              <ul class="drop-menu">
-                <li>
-                  <a href="#">Personal Care</a>
-                </li>
-                <li>
-                  <a href="#">Foot & Hand Care</a>
-                </li>
-                <li>
-                  <a href="#">Shampoos</a>
-                </li>
-                <li>
-                  <a href="#">Styling Products</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">Baby & Kids</a>
-              <div class="mega-box">
-                <div class="content">
-                  <div class="row">
-                    <img src="img.jpg" alt="" />
-                  </div>
-                  <div class="row">
-                    <header>Design Services</header>
-                    <ul class="mega-links">
-                      <a class="dropdown-item" href="#">
-                        Baby Pools
-                      </a>
-                      <a class="dropdown-item" href="#">
-                        Kids Clothings
-                      </a>
-                      <a class="dropdown-item" href="#">
-                        Kids Costumes
-                      </a>
-                      <a class="dropdown-item" href="#">
-                        Toys & Games
-                      </a>
-                      <a class="dropdown-item" href="#">
-                        Toys for Girls
-                      </a>
+        <div className="wrapper">
+          <div className="logo">
+            <Link to="#">Filters</Link>
+          </div>
+          <input type="radio" name="slide" id="menu-btn" />
+          <input type="radio" name="slide" id="cancel-btn" />
+          <ul className="nav-links">
+            <label for="cancel-btn" className="btn cancel-btn">
+              <i className="fas fa-times"></i>
+            </label>
 
-                      {/* <!-- <li><a href="#">Graphics</a></li>
-                    <li><a href="#">Vectors</a></li>
-                    <li><a href="#">Business cards</a></li>
-                    <li><a href="#">Custom Logo</a></li> --> */}
+            {/* <!-- Women Garments --> */}
+            <li>
+              <Link to="#" className="desktop-item">
+                Women Garments <i className="arrow down"></i>
+              </Link>
+              <input type="checkbox" id="showMega" />
+              <label for="showMega" className="mobile-item">
+                Women Garments <i className="arrow down"></i>
+              </label>
+              <div className="mega-box">
+                <div className="content">
+                  <div className="row">
+                    <img src={womenShirt} alt="" />
+                  </div>
+                  <div className="row">
+                    <header>Shirts</header>
+                    <ul className="mega-links">
+                      <li>
+                        <Link to="#">Dress Shirts</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Office Shirts</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Chambray Shirts</Link>
+                      </li>
+                      <li>
+                        <Link to="#">T Shirts</Link>
+                      </li>
                     </ul>
                   </div>
-                  <div class="row">
-                    <header>Email Services</header>
-                    <ul class="mega-links">
-                      <li>
-                        <a href="#">Personal Email</a>
-                      </li>
-                      <li>
-                        <a href="#">Business Email</a>
-                      </li>
-                      <li>
-                        <a href="#">Mobile</a>
-                      </li>
-                      <li>
-                        <a href="#">Web Marketing</a>
-                      </li>
-                    </ul>
+                  <div className="row">
+                    <img src={womenPants} alt="" />
                   </div>
-                  <div class="row">
-                    <header>Security Services</header>
-                    <ul class="mega-links">
+                  <div className="row">
+                    <header>Pants</header>
+                    <ul className="mega-links">
                       <li>
-                        <a href="#">Site Seal</a>
+                        <Link to="#">Jeans</Link>
                       </li>
                       <li>
-                        <a href="#">VPS Hosting</a>
+                        <Link to="#">Loose Fit</Link>
                       </li>
                       <li>
-                        <a href="#">Privacy Seal</a>
+                        <Link to="#">Regular Fit</Link>
                       </li>
                       <li>
-                        <a href="#">Website design</a>
+                        <Link to="#">Trousers</Link>
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
             </li>
+
+            {/* <!-- Men Garments --> */}
             <li>
-              <a href="#">Men's Section</a>
-              <ul class="drop-menu">
-                <li>
-                  <a href="#">Drop Menu 1</a>
-                </li>
-                <li>
-                  <a href="#">Drop Menu 2</a>
-                </li>
-                <li>
-                  <a href="#">Drop Menu 1</a>
-                </li>
-                <li>
-                  <a href="#">Drop Menu 4</a>
-                </li>
-              </ul>
+              <Link to="#" className="desktop-item">
+                Men Garments <i className="arrow down"></i>
+              </Link>
+              <input type="checkbox" id="showMega" />
+              <label for="showMega" className="mobile-item">
+                Men Garments <i className="arrow down"></i>
+              </label>
+              <div className="mega-box">
+                <div className="content">
+                  <div className="row">
+                    <img src={menShirts} alt="" />
+                  </div>
+                  <div className="row">
+                    <header>Shirts</header>
+                    <ul className="mega-links">
+                      <li>
+                        <Link to="#">Dress Shirts</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Office Shirts</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Chambray Shirts</Link>
+                      </li>
+                      <li>
+                        <Link to="#">T Shirts</Link>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="row">
+                    <img src={menPants} alt="" />
+                  </div>
+                  <div className="row">
+                    <header>Pants</header>
+                    <ul className="mega-links">
+                      <li>
+                        <Link to="#">Jeans</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Dress Pants</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Trousers</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Slim Fit</Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </li>
+
+            {/* <!-- Watches --> */}
             <li>
-              <a href="#">Women's Section</a>
-              <ul class="drop-menu">
-                <li>
-                  <a href="#">Drop Menu 1</a>
-                </li>
-                <li>
-                  <a href="#">Drop Menu 2</a>
-                </li>
-                <li>
-                  <a href="#">Drop Menu 1</a>
-                </li>
-                <li>
-                  <a href="#">Drop Menu 4</a>
-                </li>
-              </ul>
+              <Link to="#" className="desktop-item">
+                Watches <i className="arrow down"></i>
+              </Link>
+              <input type="checkbox" id="showMega" />
+              <label for="showMega" className="mobile-item">
+                Watches <i className="arrow down"></i>
+              </label>
+              <div className="mega-box">
+                <div className="content">
+                  <div className="row">
+                    <img src={menWatchs} alt="" />
+                  </div>
+                  <div className="row">
+                    <header>Men</header>
+                    <ul className="mega-links">
+                      <li>
+                        <Link to="#">Digital Watch</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Analog Watch</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Smart Watch</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Dress Watch</Link>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="row">
+                    <img src={womenWatchs} alt="" />
+                  </div>
+                  <div className="row">
+                    <header>Women</header>
+                    <ul className="mega-links">
+                      <li>
+                        <Link to="#">Casual Watch</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Sport Watch</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Work Watch</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Luxury Watch</Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </li>
+
+            {/* <!-- Toys --> */}
             <li>
-              <a href="#">Sports</a>
-              <ul class="drop-menu">
-                <li>
-                  <a href="#">Drop Menu 1</a>
-                </li>
-                <li>
-                  <a href="#">Drop Menu 2</a>
-                </li>
-                <li>
-                  <a href="#">Drop Menu 1</a>
-                </li>
-                <li>
-                  <a href="#">Drop Menu 4</a>
-                </li>
-              </ul>
+              <Link to="#" className="desktop-item">
+                Toys <i className="arrow down"></i>
+              </Link>
+              <input type="checkbox" id="showMega" />
+              <label for="showMega" className="mobile-item">
+                Toys <i className="arrow down"></i>
+              </label>
+              <div className="mega-box">
+                <div className="content">
+                  <div className="row">
+                    <img src={remoteCar} alt="" />
+                  </div>
+                  <div className="row">
+                    <header>Electronic</header>
+                    <ul className="mega-links">
+                      <li>
+                        <Link to="#">Remote Car</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Drone</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Plane</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Dancing Doll</Link>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="row">
+                    <img src={rubikCube} alt="" />
+                  </div>
+                  <div className="row">
+                    <header>Non-Electric</header>
+                    <ul className="mega-links">
+                      <li>
+                        <Link to="#">Teddy Bear</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Barbie Doll</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Rubik Cube</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Spinner</Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </li>
+
+            {/* <!-- Sports --> */}
             <li>
-              <a href="#">Islamic Products</a>
-              <ul class="drop-menu">
-                <li>
-                  <a href="#">Drop Menu 1</a>
-                </li>
-                <li>
-                  <a href="#">Drop Menu 2</a>
-                </li>
-                <li>
-                  <a href="#">Drop Menu 1</a>
-                </li>
-                <li>
-                  <a href="#">Drop Menu 4</a>
-                </li>
-              </ul>
+              <Link to="#" className="desktop-item">
+                Sports <i className="arrow down"></i>
+              </Link>
+              <input type="checkbox" id="showMega" />
+              <label for="showMega" className="mobile-item">
+                Sports <i className="arrow down"></i>
+              </label>
+              <div className="mega-box">
+                <div className="content">
+                  <div className="row">
+                    <img src={cricket} alt="" />
+                  </div>
+                  <div className="row">
+                    <header>Cricket</header>
+                    <ul className="mega-links">
+                      <li>
+                        <Link to="#">Bat</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Ball</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Helmet</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Gloves</Link>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="row">
+                    <img src={hockey} alt="" />
+                  </div>
+                  <div className="row">
+                    <header>Hockey</header>
+                    <ul className="mega-links">
+                      <li>
+                        <Link to="#">Helmet</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Skates</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Neck Protector</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Leg Pads</Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </li>
+
+            {/* <!-- Shoes --> */}
             <li>
-              <a href="#">Stationary Items</a>
-              <ul class="drop-menu">
-                <li>
-                  <a href="#">Drop Menu 1</a>
-                </li>
-                <li>
-                  <a href="#">Drop Menu 2</a>
-                </li>
-                <li>
-                  <a href="#">Drop Menu 1</a>
-                </li>
-                <li>
-                  <a href="#">Drop Menu 4</a>
-                </li>
-              </ul>
+              <Link to="#" className="desktop-item">
+                Shoes <i className="arrow down"></i>
+              </Link>
+              <input type="checkbox" id="showMega" />
+              <label for="showMega" className="mobile-item">
+                Shoes <i className="arrow down"></i>
+              </label>
+              <div className="mega-box">
+                <div className="content">
+                  <div className="row">
+                    <img src={menShoes} alt="" />
+                  </div>
+                  <div className="row">
+                    <header>Men Shoes</header>
+                    <ul className="mega-links">
+                      <li>
+                        <Link to="#">Running Shoes</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Formals</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Sneakers</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Army Boots</Link>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="row">
+                    <img src={ladiesShoes} alt="" />
+                  </div>
+                  <div className="row">
+                    <header>Ladies Shoes</header>
+                    <ul className="mega-links">
+                      <li>
+                        <Link to="#">Running Shoes</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Formals</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Sneakers</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Cone Heel</Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </li>
+
+            {/* <!-- Bags --> */}
             <li>
-              <a href="#">Electronic Accessories</a>
-              <ul class="drop-menu">
-                <li>
-                  <a href="#">Drop Menu 1</a>
-                </li>
-                <li>
-                  <a href="#">Drop Menu 2</a>
-                </li>
-                <li>
-                  <a href="#">Drop Menu 1</a>
-                </li>
-                <li>
-                  <a href="#">Drop Menu 4</a>
-                </li>
-              </ul>
+              <Link to="#" className="desktop-item">
+                Bags <i className="arrow down"></i>
+              </Link>
+              <input type="checkbox" id="showMega" />
+              <label for="showMega" className="mobile-item">
+                Bags <i className="arrow down"></i>
+              </label>
+              <div className="mega-box">
+                <div className="content">
+                  <div className="row">
+                    <img src={menBags} alt="" />
+                  </div>
+                  <div className="row">
+                    <header>Male</header>
+                    <ul className="mega-links">
+                      <li>
+                        <Link to="#">School Bags</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Suitcase</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Bag pack</Link>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="row">
+                    <img src={womenBags} alt="" />
+                  </div>
+                  <div className="row">
+                    <header>Female</header>
+                    <ul className="mega-links">
+                      <li>
+                        <Link to="#">School Bags</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Suitcase</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Bag Pack</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Hand Bags</Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </li>
+
+            {/* <!-- Jewelry --> */}
             <li>
-              <a href="#">Home Appliances</a>
-              <ul class="drop-menu">
-                <li>
-                  <a href="#">Drop Menu 1</a>
-                </li>
-                <li>
-                  <a href="#">Drop Menu 2</a>
-                </li>
-                <li>
-                  <a href="#">Drop Menu 1</a>
-                </li>
-                <li>
-                  <a href="#">Drop Menu 4</a>
-                </li>
-              </ul>
+              <Link to="#" className="desktop-item">
+                Jewelry <i className="arrow down"></i>
+              </Link>
+              <input type="checkbox" id="showMega" />
+              <label for="showMega" className="mobile-item">
+                Jewelry <i className="arrow down"></i>
+              </label>
+              <div className="mega-box">
+                <div className="content">
+                  <div className="row">
+                    <img src={jewelry1} alt="" />
+                  </div>
+                  <div className="row">
+                    <header>Hand Jewelry</header>
+                    <ul className="mega-links">
+                      <li>
+                        <Link to="#">Bangles</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Rings</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Bracelets</Link>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="row">
+                    <img src={jewelry2} alt="" />
+                  </div>
+                  <div className="row">
+                    <header>Neck Jewelry</header>
+                    <ul className="mega-links">
+                      <li>
+                        <Link to="#">Lockets</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Necklaces</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Traditional</Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            {/* <!-- Books --> */}
+            <li>
+              <Link to="#" className="desktop-item">
+                Books <i className="arrow down"></i>
+              </Link>
+              <input type="checkbox" id="showMega" />
+              <label for="showMega" className="mobile-item">
+                Books <i className="arrow down"></i>
+              </label>
+              <div className="mega-box">
+                <div className="content">
+                  <div className="row">
+                    <img src={law} alt="" />
+                  </div>
+                  <div className="row">
+                    <header>Law</header>
+                    <ul className="mega-links">
+                      <li>
+                        <Link to="#">Human Rights</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Labour</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Philosophy</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Criminal Procedure</Link>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="row">
+                    <img src={novel} alt="" />
+                  </div>
+                  <div className="row">
+                    <header>Novels</header>
+                    <ul className="mega-links">
+                      <li>
+                        <Link to="#">Classic</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Horror</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Kidnapping</Link>
+                      </li>
+                      <li>
+                        <Link to="#">Romantic</Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </li>
           </ul>
+          <label for="menu-btn" className="btn menu-btn">
+            <i className="fas fa-bars"></i>
+          </label>
         </div>
       </nav>
-
-      {/* <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                AUTOMOBILE
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Car Polsih & Sprays</a>
-                <a class="dropdown-item" href="#">Engine Oils</a>
-                <a class="dropdown-item" href="#">Keychains</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  BEAUTY & PERSONAL CARE
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Personal Care</a>
-                  <a class="dropdown-item" href="#">Foot & Hand Care</a>
-                  <a class="dropdown-item" href="#">Shampoos</a>
-                  <a class="dropdown-item" href="#">Styling Products</a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  BABY & KIDS
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Baby Pools</a>
-                  <a class="dropdown-item" href="#">Kids Clothings</a>
-                  <a class="dropdown-item" href="#">Kids Costumes</a>
-                  <a class="dropdown-item" href="#">Toys & Games</a>
-                  <a class="dropdown-item" href="#">Toys for Girls</a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  MEN's SECTION
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Jackets & Coats For Men</a>
-                  <a class="dropdown-item" href="#">Men's Garments</a>
-                  <a class="dropdown-item" href="#">Men's Grooming</a>
-                  <a class="dropdown-item" href="#">Traditional Wear</a>
-                  <a class="dropdown-item" href="#">Wallets & Cards Holders</a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  WOMEN's SECTION
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Ladies Bags</a>
-                  <a class="dropdown-item" href="#">Ladies Purse</a>
-                  <a class="dropdown-item" href="#">Ladies Purse</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Muslim Wear</a>
-                  <a class="dropdown-item" href="#">Women's Fashion Clothes</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Women Jackets & Coats</a>
-                  <a class="dropdown-item" href="#">Shapewear</a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  SPORTS
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Cricket</a>
-                  <a class="dropdown-item" href="#">Football</a>
-                  <a class="dropdown-item" href="#">Badminton</a>
-                  <a class="dropdown-item" href="#">Exercise & Fitness</a>
-                  <a class="dropdown-item" href="#">Outdoor Games</a>
-                  <a class="dropdown-item" href="#">SportsWear</a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  ISLAMIC PRODUCTS
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Islamic Books</a>
-                  <a class="dropdown-item" href="#">Islamic Digital Devices</a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  STATIONARY ITEMS
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Art Supplies</a>
-                  <a class="dropdown-item" href="#">Paper & Notebooks</a>
-                  <a class="dropdown-item" href="#">School Supplies</a>
-                  <a class="dropdown-item" href="#">Writing Tools</a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  ELECTRONICS ACCESSORIES
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Computer Components</a>
-                  <a class="dropdown-item" href="#">Mobile Accessories</a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  HOME ACCESSORIES
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Cooling & Heating</a>
-                  <a class="dropdown-item" href="#">Appliances</a>
-                  <a class="dropdown-item" href="#">Parts & Accessories</a>
-                  <a class="dropdown-item" href="#">Small Kitchen Appliances</a>
-                </div>
-              </li>
-            
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-          </ul>
-        </div>
-      </nav> */}
     </>
   );
 };

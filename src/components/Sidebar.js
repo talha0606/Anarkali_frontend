@@ -14,7 +14,6 @@ import {
   BiLogOut,
 } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import "../style/sidebar.css";
 
 const Sidebar = () => {
   return (
