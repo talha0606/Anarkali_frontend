@@ -26,8 +26,11 @@ nav .wrapper {
   justify-content: center;
 }
 
+.wrapper .logo{
+  margin-bottom: 12px !important;
+}
 .wrapper .logo a {
-  color: #19de23;
+  color: #ff0000;
   text-decoration: none;
   font-size: 27px;
   font-weight: 600;

@@ -27,9 +27,9 @@ const FilterNavbar = () => {
     <>
       <nav>
         <div className="wrapper">
-          {/* <div className="logo">
-            <Link to="#">Anarkali-Bazar</Link>
-          </div> */}
+          <div className="logo">
+            <Link to="#">Filters</Link>
+          </div>
           <input type="radio" name="slide" id="menu-btn" />
           <input type="radio" name="slide" id="cancel-btn" />
           <ul className="nav-links">
