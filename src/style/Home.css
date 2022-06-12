@@ -469,3 +469,8 @@
 .MuiSlider-root{
   color: #4ec850 !important;
 }
+
+.shop-category{
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
