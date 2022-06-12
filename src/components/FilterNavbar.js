@@ -8,7 +8,7 @@ const FilterNavbar = () => {
       <nav>
         <div class="wrapper">
           <div class="logo">
-            <a href="#">Anarkali-Bazar</a>
+            <Link to="#">Anarkali-Bazar</Link>
           </div>
           <input type="radio" name="slide" id="menu-btn" />
           <input type="radio" name="slide" id="cancel-btn" />
@@ -19,9 +19,9 @@ const FilterNavbar = () => {
 
             {/* <!-- Women Garments --> */}
             <li>
-              <a href="#" class="desktop-item">
+              <Link to="#" class="desktop-item">
                 Women Garments <i class="arrow down"></i>
-              </a>
+              </Link>
               <input type="checkbox" id="showMega" />
               <label for="showMega" class="mobile-item">
                 Women Garments <i class="arrow down"></i>
@@ -29,42 +29,42 @@ const FilterNavbar = () => {
               <div class="mega-box">
                 <div class="content">
                   <div class="row">
-                    <img src="women-shirts.jpg" alt="" />
+                    <img src="../images/women-shirts.jpg" alt="" />
                   </div>
                   <div class="row">
                     <header>Shirts</header>
                     <ul class="mega-links">
                       <li>
-                        <a href="#">Dress Shirts</a>
+                        <Link to="#">Dress Shirts</Link>
                       </li>
                       <li>
-                        <a href="#">Office Shirts</a>
+                        <Link to="#">Office Shirts</Link>
                       </li>
                       <li>
-                        <a href="#">Chambray Shirts</a>
+                        <Link to="#">Chambray Shirts</Link>
                       </li>
                       <li>
-                        <a href="#">T Shirts</a>
+                        <Link to="#">T Shirts</Link>
                       </li>
                     </ul>
                   </div>
                   <div class="row">
-                    <img src="women-pants.jpg" alt="" />
+                    <img src="../images/women-pants.jpg" alt="" />
                   </div>
                   <div class="row">
                     <header>Pants</header>
                     <ul class="mega-links">
                       <li>
-                        <a href="#">Jeans</a>
+                        <Link to="#">Jeans</Link>
                       </li>
                       <li>
-                        <a href="#">Loose Fit</a>
+                        <Link to="#">Loose Fit</Link>
                       </li>
                       <li>
-                        <a href="#">Regular Fit</a>
+                        <Link to="#">Regular Fit</Link>
                       </li>
                       <li>
-                        <a href="#">Trousers</a>
+                        <Link to="#">Trousers</Link>
                       </li>
                     </ul>
                   </div>
@@ -74,9 +74,9 @@ const FilterNavbar = () => {
 
             {/* <!-- Men Garments --> */}
             <li>
-              <a href="#" class="desktop-item">
+              <Link to="#" class="desktop-item">
                 Men Garments <i class="arrow down"></i>
-              </a>
+              </Link>
               <input type="checkbox" id="showMega" />
               <label for="showMega" class="mobile-item">
                 Men Garments <i class="arrow down"></i>
@@ -84,42 +84,42 @@ const FilterNavbar = () => {
               <div class="mega-box">
                 <div class="content">
                   <div class="row">
-                    <img src="men-shirt.jpg" alt="" />
+                    <img src="../images/men-shirt.jpg" alt="" />
                   </div>
                   <div class="row">
                     <header>Shirts</header>
                     <ul class="mega-links">
                       <li>
-                        <a href="#">Dress Shirts</a>
+                        <Link to="#">Dress Shirts</Link>
                       </li>
                       <li>
-                        <a href="#">Office Shirts</a>
+                        <Link to="#">Office Shirts</Link>
                       </li>
                       <li>
-                        <a href="#">Chambray Shirts</a>
+                        <Link to="#">Chambray Shirts</Link>
                       </li>
                       <li>
-                        <a href="#">T Shirts</a>
+                        <Link to="#">T Shirts</Link>
                       </li>
                     </ul>
                   </div>
                   <div class="row">
-                    <img src="men-pants.jpg" alt="" />
+                    <img src="../images/men-pants.jpg" alt="" />
                   </div>
                   <div class="row">
                     <header>Pants</header>
                     <ul class="mega-links">
                       <li>
-                        <a href="#">Jeans</a>
+                        <Link to="#">Jeans</Link>
                       </li>
                       <li>
-                        <a href="#">Dress Pants</a>
+                        <Link to="#">Dress Pants</Link>
                       </li>
                       <li>
-                        <a href="#">Trousers</a>
+                        <Link to="#">Trousers</Link>
                       </li>
                       <li>
-                        <a href="#">Slim Fit</a>
+                        <Link to="#">Slim Fit</Link>
                       </li>
                     </ul>
                   </div>
@@ -129,9 +129,9 @@ const FilterNavbar = () => {
 
             {/* <!-- Watches --> */}
             <li>
-              <a href="#" class="desktop-item">
+              <Link to="#" class="desktop-item">
                 Watches <i class="arrow down"></i>
-              </a>
+              </Link>
               <input type="checkbox" id="showMega" />
               <label for="showMega" class="mobile-item">
                 Watches <i class="arrow down"></i>
@@ -139,42 +139,42 @@ const FilterNavbar = () => {
               <div class="mega-box">
                 <div class="content">
                   <div class="row">
-                    <img src="men-watch.jpg" alt="" />
+                    <img src="../images/men-watch.jpg" alt="" />
                   </div>
                   <div class="row">
                     <header>Men</header>
                     <ul class="mega-links">
                       <li>
-                        <a href="#">Digital Watch</a>
+                        <Link to="#">Digital Watch</Link>
                       </li>
                       <li>
-                        <a href="#">Analog Watch</a>
+                        <Link to="#">Analog Watch</Link>
                       </li>
                       <li>
-                        <a href="#">Smart Watch</a>
+                        <Link to="#">Smart Watch</Link>
                       </li>
                       <li>
-                        <a href="#">Dress Watch</a>
+                        <Link to="#">Dress Watch</Link>
                       </li>
                     </ul>
                   </div>
                   <div class="row">
-                    <img src="women-watch.jpg" alt="" />
+                    <img src="../images/women-watch.jpg" alt="" />
                   </div>
                   <div class="row">
                     <header>Women</header>
                     <ul class="mega-links">
                       <li>
-                        <a href="#">Casual Watch</a>
+                        <Link to="#">Casual Watch</Link>
                       </li>
                       <li>
-                        <a href="#">Sport Watch</a>
+                        <Link to="#">Sport Watch</Link>
                       </li>
                       <li>
-                        <a href="#">Work Watch</a>
+                        <Link to="#">Work Watch</Link>
                       </li>
                       <li>
-                        <a href="#">Luxury Watch</a>
+                        <Link to="#">Luxury Watch</Link>
                       </li>
                     </ul>
                   </div>
@@ -184,9 +184,9 @@ const FilterNavbar = () => {
 
             {/* <!-- Toys --> */}
             <li>
-              <a href="#" class="desktop-item">
+              <Link to="#" class="desktop-item">
                 Toys <i class="arrow down"></i>
-              </a>
+              </Link>
               <input type="checkbox" id="showMega" />
               <label for="showMega" class="mobile-item">
                 Toys <i class="arrow down"></i>
@@ -194,42 +194,42 @@ const FilterNavbar = () => {
               <div class="mega-box">
                 <div class="content">
                   <div class="row">
-                    <img src="remote-car.jpg" alt="" />
+                    <img src="../images/remote-car.jpg" alt="" />
                   </div>
                   <div class="row">
                     <header>Electronic</header>
                     <ul class="mega-links">
                       <li>
-                        <a href="#">Remote Car</a>
+                        <Link to="#">Remote Car</Link>
                       </li>
                       <li>
-                        <a href="#">Drone</a>
+                        <Link to="#">Drone</Link>
                       </li>
                       <li>
-                        <a href="#">Plane</a>
+                        <Link to="#">Plane</Link>
                       </li>
                       <li>
-                        <a href="#">Dancing Doll</a>
+                        <Link to="#">Dancing Doll</Link>
                       </li>
                     </ul>
                   </div>
                   <div class="row">
-                    <img src="rubiks-cube.jpg" alt="" />
+                    <img src="../images/rubiks-cube.jpg" alt="" />
                   </div>
                   <div class="row">
                     <header>Non-Electric</header>
                     <ul class="mega-links">
                       <li>
-                        <a href="#">Teddy Bear</a>
+                        <Link to="#">Teddy Bear</Link>
                       </li>
                       <li>
-                        <a href="#">Barbie Doll</a>
+                        <Link to="#">Barbie Doll</Link>
                       </li>
                       <li>
-                        <a href="#">Rubik Cube</a>
+                        <Link to="#">Rubik Cube</Link>
                       </li>
                       <li>
-                        <a href="#">Spinner</a>
+                        <Link to="#">Spinner</Link>
                       </li>
                     </ul>
                   </div>
@@ -239,9 +239,9 @@ const FilterNavbar = () => {
 
             {/* <!-- Sports --> */}
             <li>
-              <a href="#" class="desktop-item">
+              <Link to="#" class="desktop-item">
                 Sports <i class="arrow down"></i>
-              </a>
+              </Link>
               <input type="checkbox" id="showMega" />
               <label for="showMega" class="mobile-item">
                 Sports <i class="arrow down"></i>
@@ -249,42 +249,42 @@ const FilterNavbar = () => {
               <div class="mega-box">
                 <div class="content">
                   <div class="row">
-                    <img src="cricket.jpg" alt="" />
+                    <img src="../images/cricket.jpg" alt="" />
                   </div>
                   <div class="row">
                     <header>Cricket</header>
                     <ul class="mega-links">
                       <li>
-                        <a href="#">Bat</a>
+                        <Link to="#">Bat</Link>
                       </li>
                       <li>
-                        <a href="#">Ball</a>
+                        <Link to="#">Ball</Link>
                       </li>
                       <li>
-                        <a href="#">Helmet</a>
+                        <Link to="#">Helmet</Link>
                       </li>
                       <li>
-                        <a href="#">Gloves</a>
+                        <Link to="#">Gloves</Link>
                       </li>
                     </ul>
                   </div>
                   <div class="row">
-                    <img src="hockey.jpg" alt="" />
+                    <img src="../images/hockey.jpg" alt="" />
                   </div>
                   <div class="row">
                     <header>Hockey</header>
                     <ul class="mega-links">
                       <li>
-                        <a href="#">Helmet</a>
+                        <Link to="#">Helmet</Link>
                       </li>
                       <li>
-                        <a href="#">Skates</a>
+                        <Link to="#">Skates</Link>
                       </li>
                       <li>
-                        <a href="#">Neck Protector</a>
+                        <Link to="#">Neck Protector</Link>
                       </li>
                       <li>
-                        <a href="#">Leg Pads</a>
+                        <Link to="#">Leg Pads</Link>
                       </li>
                     </ul>
                   </div>
@@ -294,9 +294,9 @@ const FilterNavbar = () => {
 
             {/* <!-- Shoes --> */}
             <li>
-              <a href="#" class="desktop-item">
+              <Link to="#" class="desktop-item">
                 Shoes <i class="arrow down"></i>
-              </a>
+              </Link>
               <input type="checkbox" id="showMega" />
               <label for="showMega" class="mobile-item">
                 Shoes <i class="arrow down"></i>
@@ -304,42 +304,42 @@ const FilterNavbar = () => {
               <div class="mega-box">
                 <div class="content">
                   <div class="row">
-                    <img src="men-shoes.jpg" alt="" />
+                    <img src="../images/men-shoes.jpg" alt="" />
                   </div>
                   <div class="row">
                     <header>Men Shoes</header>
                     <ul class="mega-links">
                       <li>
-                        <a href="#">Running Shoes</a>
+                        <Link to="#">Running Shoes</Link>
                       </li>
                       <li>
-                        <a href="#">Formals</a>
+                        <Link to="#">Formals</Link>
                       </li>
                       <li>
-                        <a href="#">Sneakers</a>
+                        <Link to="#">Sneakers</Link>
                       </li>
                       <li>
-                        <a href="#">Army Boots</a>
+                        <Link to="#">Army Boots</Link>
                       </li>
                     </ul>
                   </div>
                   <div class="row">
-                    <img src="ladies-shoes.jpg" alt="" />
+                    <img src="../images/ladies-shoes.jpg" alt="" />
                   </div>
                   <div class="row">
                     <header>Ladies Shoes</header>
                     <ul class="mega-links">
                       <li>
-                        <a href="#">Running Shoes</a>
+                        <Link to="#">Running Shoes</Link>
                       </li>
                       <li>
-                        <a href="#">Formals</a>
+                        <Link to="#">Formals</Link>
                       </li>
                       <li>
-                        <a href="#">Sneakers</a>
+                        <Link to="#">Sneakers</Link>
                       </li>
                       <li>
-                        <a href="#">Cone Heel</a>
+                        <Link to="#">Cone Heel</Link>
                       </li>
                     </ul>
                   </div>
@@ -349,9 +349,9 @@ const FilterNavbar = () => {
 
             {/* <!-- Bags --> */}
             <li>
-              <a href="#" class="desktop-item">
+              <Link to="#" class="desktop-item">
                 Bags <i class="arrow down"></i>
-              </a>
+              </Link>
               <input type="checkbox" id="showMega" />
               <label for="showMega" class="mobile-item">
                 Bags <i class="arrow down"></i>
@@ -359,39 +359,39 @@ const FilterNavbar = () => {
               <div class="mega-box">
                 <div class="content">
                   <div class="row">
-                    <img src="men-bag.jpg" alt="" />
+                    <img src="../images/men-bag.jpg" alt="" />
                   </div>
                   <div class="row">
                     <header>Male</header>
                     <ul class="mega-links">
                       <li>
-                        <a href="#">School Bags</a>
+                        <Link to="#">School Bags</Link>
                       </li>
                       <li>
-                        <a href="#">Suitcase</a>
+                        <Link to="#">Suitcase</Link>
                       </li>
                       <li>
-                        <a href="#">Bag pack</a>
+                        <Link to="#">Bag pack</Link>
                       </li>
                     </ul>
                   </div>
                   <div class="row">
-                    <img src="bags.jpg" alt="" />
+                    <img src="../images/bags.jpg" alt="" />
                   </div>
                   <div class="row">
                     <header>Female</header>
                     <ul class="mega-links">
                       <li>
-                        <a href="#">School Bags</a>
+                        <Link to="#">School Bags</Link>
                       </li>
                       <li>
-                        <a href="#">Suitcase</a>
+                        <Link to="#">Suitcase</Link>
                       </li>
                       <li>
-                        <a href="#">Bag Pack</a>
+                        <Link to="#">Bag Pack</Link>
                       </li>
                       <li>
-                        <a href="#">Hand Bags</a>
+                        <Link to="#">Hand Bags</Link>
                       </li>
                     </ul>
                   </div>
@@ -401,9 +401,9 @@ const FilterNavbar = () => {
 
             {/* <!-- Jewelry --> */}
             <li>
-              <a href="#" class="desktop-item">
+              <Link to="#" class="desktop-item">
                 Jewellery <i class="arrow down"></i>
-              </a>
+              </Link>
               <input type="checkbox" id="showMega" />
               <label for="showMega" class="mobile-item">
                 Jewellery <i class="arrow down"></i>
@@ -411,36 +411,36 @@ const FilterNavbar = () => {
               <div class="mega-box">
                 <div class="content">
                   <div class="row">
-                    <img src="jewelry1.jpg" alt="" />
+                    <img src="../images/jewelry1.jpg" alt="" />
                   </div>
                   <div class="row">
                     <header>Hand Jewellery</header>
                     <ul class="mega-links">
                       <li>
-                        <a href="#">Bangles</a>
+                        <Link to="#">Bangles</Link>
                       </li>
                       <li>
-                        <a href="#">Rings</a>
+                        <Link to="#">Rings</Link>
                       </li>
                       <li>
-                        <a href="#">Bracelets</a>
+                        <Link to="#">Bracelets</Link>
                       </li>
                     </ul>
                   </div>
                   <div class="row">
-                    <img src="jewelry2.jpg" alt="" />
+                    <img src="../images/jewelry2.jpg" alt="" />
                   </div>
                   <div class="row">
                     <header>Neck Jewellery</header>
                     <ul class="mega-links">
                       <li>
-                        <a href="#">Lockets</a>
+                        <Link to="#">Lockets</Link>
                       </li>
                       <li>
-                        <a href="#">Necklaces</a>
+                        <Link to="#">Necklaces</Link>
                       </li>
                       <li>
-                        <a href="#">Traditional</a>
+                        <Link to="#">Traditional</Link>
                       </li>
                     </ul>
                   </div>
@@ -450,9 +450,9 @@ const FilterNavbar = () => {
 
             {/* <!-- Books --> */}
             <li>
-              <a href="#" class="desktop-item">
+              <Link to="#" class="desktop-item">
                 Books <i class="arrow down"></i>
-              </a>
+              </Link>
               <input type="checkbox" id="showMega" />
               <label for="showMega" class="mobile-item">
                 Books <i class="arrow down"></i>
@@ -460,42 +460,42 @@ const FilterNavbar = () => {
               <div class="mega-box">
                 <div class="content">
                   <div class="row">
-                    <img src="law.jpg" alt="" />
+                    <img src="../images/law.jpg" alt="" />
                   </div>
                   <div class="row">
                     <header>Law</header>
                     <ul class="mega-links">
                       <li>
-                        <a href="#">Human Rights</a>
+                        <Link to="#">Human Rights</Link>
                       </li>
                       <li>
-                        <a href="#">Labour</a>
+                        <Link to="#">Labour</Link>
                       </li>
                       <li>
-                        <a href="#">Philosophy</a>
+                        <Link to="#">Philosophy</Link>
                       </li>
                       <li>
-                        <a href="#">Criminal Procedure</a>
+                        <Link to="#">Criminal Procedure</Link>
                       </li>
                     </ul>
                   </div>
                   <div class="row">
-                    <img src="novel.jpg" alt="" />
+                    <img src="../images/novel.jpg" alt="" />
                   </div>
                   <div class="row">
                     <header>Novels</header>
                     <ul class="mega-links">
                       <li>
-                        <a href="#">Classic</a>
+                        <Link to="#">Classic</Link>
                       </li>
                       <li>
-                        <a href="#">Horror</a>
+                        <Link to="#">Horror</Link>
                       </li>
                       <li>
-                        <a href="#">Kidnapping</a>
+                        <Link to="#">Kidnapping</Link>
                       </li>
                       <li>
-                        <a href="#">Romantic</a>
+                        <Link to="#">Romantic</Link>
                       </li>
                     </ul>
                   </div>

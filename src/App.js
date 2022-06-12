@@ -42,7 +42,7 @@ function App() {
     <>
       {/* <UserContext.Provider value={{ state, dispatch }}> */}
       <Navbar />
-      {/* <FilterNavbar/> */}
+      <FilterNavbar/>
       <Sidebar />
       <Switch>
         <Route exact path="/">
