@@ -104,7 +104,7 @@ const Allshops = ({ shopData }) => {
                     // src={`/uploads/${shop.shopImage}`}
                     src={shop.imageUrl}
                     className="home-card-img-top card-img img-thumbnail"
-                    alt="Card image cap"
+                    alt="Card cap"
                     //   onClick={() => {
                     //     setID(user._id);
                     //   }}
@@ -122,8 +122,9 @@ const Allshops = ({ shopData }) => {
                   </div> */}
                   <h6 class="card-title nopadding">{shop.sName}</h6>
                   <div class="clearfix mb-3">
-                    <span class="float-start badge rounded  text-success p-0">
-                      Category {shop.category}
+                    <span class="float-start badge rounded  text-success p-0 shop-category">
+                      {/* Category */}
+                      {shop.category}
                     </span>
                     {/* 
                     <span class="float-end">
@@ -135,7 +136,7 @@ const Allshops = ({ shopData }) => {
                       </a>
                     </span> */}
                   </div>
-                  <p class="card-text shop-email fw-bold">{shop.email}</p>
+                  <p class="card-text fw-bold shop-email">{shop.email}</p>
                   <div class="phone-number lead">0323-2323454</div>
                   {/* <Button */}
                   <Link to={`/map/${shop._id}`}>
