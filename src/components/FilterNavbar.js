@@ -1,26 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../style/filter-navbar.css";
-import womenShirt from '../images/women-shirts.jpg'
-import womenPants from '../images/women-pants.jpg'
-import menShirts from "../images/men-shirt.jpg"
-import menPants from "../images/men-pants.jpg"
-import menWatchs from "../images/men-watch.jpg"
-import womenWatchs from "../images/women-watch.jpg"
-import remoteCar from "../images/remote-car.jpg"
-import rubikCube from "../images/rubiks-cube.jpg"
-import cricket from "../images/cricket.jpg"
-import hockey from "../images/hockey.jpg"
-import menShoes from "../images/men-shoes.jpg"
-import ladiesShoes from "../images/ladies-shoes.jpg"
-import menBags from "../images/men-bag.jpg"
-import womenBags from "../images/women-bags.jpg"
-import jewelry1 from "../images/jewelry1.jpg"
-import jewelry2 from "../images/jewelry2.jpg"
-import law from "../images/law.jpg"
-import novel from "../images/novel.jpg"
-
-
+import womenShirt from "../images/women-shirts.jpg";
+import womenPants from "../images/women-pants.jpg";
+import menShirts from "../images/men-shirt.jpg";
+import menPants from "../images/men-pants.jpg";
+import menWatchs from "../images/men-watch.jpg";
+import womenWatchs from "../images/women-watch.jpg";
+import remoteCar from "../images/remote-car.jpg";
+import rubikCube from "../images/rubiks-cube.jpg";
+import cricket from "../images/cricket.jpg";
+import hockey from "../images/hockey.jpg";
+import menShoes from "../images/men-shoes.jpg";
+import ladiesShoes from "../images/ladies-shoes.jpg";
+import menBags from "../images/men-bag.jpg";
+import womenBags from "../images/women-bags.jpg";
+import jewelry1 from "../images/jewelry1.jpg";
+import jewelry2 from "../images/jewelry2.jpg";
+import law from "../images/law.jpg";
+import novel from "../images/novel.jpg";
 
 const FilterNavbar = () => {
   return (

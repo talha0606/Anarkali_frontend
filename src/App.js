@@ -14,7 +14,6 @@ import ShopDetail from "./components/ShopDetail";
 import Map from "./components/Map";
 import FilterNavbar from "./components/FilterNavbar";
 
-
 import "./App.css";
 
 import { Switch, Route } from "react-router-dom";
@@ -42,7 +41,7 @@ function App() {
     <>
       {/* <UserContext.Provider value={{ state, dispatch }}> */}
       <Navbar />
-      <FilterNavbar/>
+      <FilterNavbar />
       <Sidebar />
       <Switch>
         <Route exact path="/">
