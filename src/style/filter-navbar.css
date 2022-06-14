@@ -7,19 +7,26 @@
   font-family: "Poppins", sans-serif;
 }
 
-nav {
+/* nav {
   background-color: #242526;
   position: fixed;
   width: 100%;
   z-index: 999999999 !important;
   height: 50px;
   line-height: 50px;
+} */
+.nav-bar{
+  background-color: #242526;
+  position: fixed;
+  width: 100%;
+  z-index: 999999999 !important;
+  height: 30px;
+  line-height: 30px;
 }
-
-nav .wrapper {
+.nav-bar .wrapper {
   position: relative;
   max-width: 1250px;
-  padding: 0 30px;
+  padding: 0 10px;
   margin: auto;
   display: flex;
   align-items: center;
@@ -32,9 +39,9 @@ nav .wrapper {
 .wrapper .logo a {
   color: #ff0000;
   text-decoration: none;
-  font-size: 27px;
+  font-size: 18px;
   font-weight: 600;
-  margin-bottom: 12px !important;
+  /* margin-bottom: 12px !important; */
 }
 
 .wrapper .nav-links {
@@ -48,9 +55,9 @@ nav .wrapper {
 .nav-links li a {
   color: #f2f2f2;
   text-decoration: none;
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 300;
-  padding: 9px 15px;
+  padding: 6px 15px;
   border-radius: 5px;
   transition: all 0.3s ease;
 }
@@ -62,8 +69,8 @@ nav .wrapper {
 .nav-links .drop-menu {
   background-color: #242526;
   width: 180px;
-  top: 50px;
-  line-height: 45px;
+  top: 30px;
+  line-height: 30px;
   position: absolute;
   opacity: 0;
   visibility: hidden;
@@ -71,7 +78,7 @@ nav .wrapper {
 
 .nav-links li:hover .drop-menu,
 .nav-links li:hover .mega-box {
-  top: 50px;
+  top: 30px;
   opacity: 1;
   visibility: visible;
   transition: all 0.3s ease;
@@ -105,7 +112,7 @@ nav .wrapper {
 
 .content .row {
   width: calc(25% - 30px);
-  line-height: 45px;
+  /* line-height: 45px; */
 }
 
 .content .row img {
@@ -193,7 +200,7 @@ nav .wrapper {
     /* left: 0; */
     left: -100%;
     overflow-y: auto;
-    line-height: 50px;
+    /* line-height: 50px; */
     padding: 0px 10px;
     box-shadow: 0 15px 15px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
@@ -284,7 +291,7 @@ nav .wrapper {
 
   .mega-box .content .row {
     width: 100%;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
     border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
 

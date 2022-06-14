@@ -25,7 +25,7 @@ import novel from "../images/novel.jpg"
 const FilterNavbar = () => {
   return (
     <>
-      <nav>
+      <nav className="nav-bar">
         <div className="wrapper">
           <div className="logo">
             <Link to="#">Filters</Link>

@@ -7,6 +7,8 @@ import "../style/allshops.css";
 import { Button } from "react-bootstrap";
 // import Modal from "react-bootstrap/Modal";
 import Map from "./Map";
+import LocalPhoneTwoToneIcon from '@mui/icons-material/LocalPhoneTwoTone';
+import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
 // import {
 //   FaFacebookF,
 //   FaTwitter,
@@ -37,20 +39,20 @@ import Map from "./Map";
 //     {/* <Map ></Map> */}
 //   </div>
 
-//     <div class="social-buttons mt-5">
-//             <button class="neo-button">
+//     <div className="social-buttons mt-5">
+//             <button className="neo-button">
 //               <FaFacebookF />
 //             </button>
-//             <button class="neo-button">
+//             <button className="neo-button">
 //               <SiGmail />
 //             </button>
-//             <button class="neo-button">
+//             <button className="neo-button">
 //               <FaYoutube />
 //             </button>
-//             <button class="neo-button">
+//             <button className="neo-button">
 //               <FaLinkedin />
 //             </button>
-//             <button class="neo-button">
+//             <button className="neo-button">
 //               <FaTwitter />
 //             </button>
 //           </div>
@@ -88,10 +90,10 @@ const Allshops = ({ shopData }) => {
 
   return (
     <>
-      <div class="container">
-        <div class="row no-gutters">
+      <div className="container">
+        <div className="row no-gutters">
           {shopData?.map((shop) => (
-            <div class="col-3 col-* ">
+            <div className="col-3 col-* ">
               <div className="card">
                 {/* <a
                   onClick={() => {
@@ -112,32 +114,34 @@ const Allshops = ({ shopData }) => {
                 </Link>
                 {/* </a> */}
                 {console.log("id change" + id)}
-                <div class="card-body">
-                  {/* <div class="grid-container">
-                    <div class="item1"><h6 class="card-title nopadding">{shop.sName}</h6></div>
-                    <div class="item2 .bg-success.bg-gradient"><p class="card-text bg-success">category {shop.category}</p></div>
-                    <div class="item3">Email</div>
-                    <div class="item4">Rating</div>
-                    <div class="item5">Button</div>
+                <div className="card-body">
+                  {/* <div className="grid-container">
+                    <div className="item1"><h6 className="card-title nopadding">{shop.sName}</h6></div>
+                    <div className="item2 .bg-success.bg-gradient"><p className="card-text bg-success">category {shop.category}</p></div>
+                    <div className="item3">Email</div>
+                    <div className="item4">Rating</div>
+                    <div className="item5">Button</div>
                   </div> */}
-                  <h6 class="card-title nopadding">{shop.sName}</h6>
-                  <div class="clearfix mb-3">
-                    <span class="float-start badge rounded  text-success p-0 shop-category">
+                  <h6 className="card-title nopadding">{shop.sName}</h6>
+                  <div className="clearfix mb-3">
+                    <span className="float-start badge rounded  text-success p-0 shop-category">
                       {/* Category */}
                       {shop.category}
                     </span>
                     {/* 
-                    <span class="float-end">
+                    <span className="float-end">
                       <a
                         href="#"
-                        class="small text-muted text-uppercase aff-link"
+                        className="small text-muted text-uppercase aff-link"
                       >
                         rating
                       </a>
                     </span> */}
                   </div>
-                  <p class="card-text fw-bold shop-email">{shop.email}</p>
-                  <div class="phone-number lead">0323-2323454</div>
+                  <p className="card-text fw-bold shop-email">{shop.email}</p>
+
+                  {/* <div className="phone-number lead"><span className="phone-number-icon"><LocalPhoneTwoToneIcon  /></span>0323-2323454</div> */}
+                  <div className="phone-number lead">0323-2323454</div>
                   {/* <Button */}
                   <Link to={`/map/${shop._id}`}>
                     {/* // to={`/`} */}
@@ -164,7 +168,7 @@ const Allshops = ({ shopData }) => {
           ))}
         </div>
 
-        <div class="col col-lg-2 detail" id="hideme">
+        <div className="col col-lg-2 detail" id="hideme">
           {/* {id && <DetailproductPage id={id} setID={setID} />} */}
         </div>
       </div>
@@ -202,10 +206,10 @@ export default Allshops;
             {console.log("id change" + id)};{/* </a> */
 }
 {
-  /* <div class="card-body">
-              <h5 class="card-title">{user.sName}</h5>
-              <p class="card-text ">{user.sDescription}</p>
-              <a href="#" class="btn btn-success btn-sm">
+  /* <div className="card-body">
+              <h5 className="card-title">{user.sName}</h5>
+              <p className="card-text ">{user.sDescription}</p>
+              <a href="#" className="btn btn-success btn-sm">
                 Contact Us
               </a>
             </div>

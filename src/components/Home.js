@@ -192,9 +192,9 @@ function Home() {
   if (toggleValue == "Shops") {
     return (
       <>
-        <div class="container-fluid home-container">
-          <div class="row home-top-margin">
-            <div class="col-2 p-0 checkbox-hide-for-medium">
+        <div className="container-fluid home-container">
+          <div className="row home-top-margin">
+            <div className="col-2 p-0 checkbox-hide-for-medium">
               {/* {isPending && <div> Loading... </div>} */}
               <Checkboxes
                 handleFilters={(filters) => handleFilters(filters, "category")}
@@ -204,12 +204,12 @@ function Home() {
               />
             </div>
 
-            <div class="col-10 p-0 ps-3 ">
+            <div className="col-10 p-0 ps-3 ">
               <div className="container-fluid card-container m-0">
                 {/* <div className="grid-container"> */}
 
                 <div className="container filter-products text-center">
-                  <Link to="/catSide" class="link-dark text-decoration-none">
+                  <Link to="/catSide" className="link-dark text-decoration-none">
                     <FaFilter />
                     <strong className="checkbox-heading ">Filter Shops </strong>
                   </Link>
@@ -258,7 +258,7 @@ function Home() {
                     </label>
                   </div> */}
 
-                  {/* <div class="slideThree">
+                  {/* <div className="slideThree">
                     <input
                       type="checkbox"
                       value="None"
@@ -331,17 +331,17 @@ function Home() {
                       })}
                     </div> */}
                 {/* )} */}
-                {/* <button type="button" class="btn btn-primary" value="Search" name="Search">
+                {/* <button type="button" className="btn btn-primary" value="Search" name="Search">
                       <AiOutlineSearch />
                     </button> */}
                 {/* </div> */}
                 {/* <div className="toogleDiv">
-                  <label class="toggleSwitch nolabel" onclick="">
+                  <label className="toggleSwitch nolabel" onclick="">
                     <input type="checkbox" checked />
                     <a></a>
                     <span>
-                      <span class="left-span">Shops</span>
-                      <span class="right-span">Products</span>
+                      <span className="left-span">Shops</span>
+                      <span className="right-span">Products</span>
                     </span>
                   </label>
                 </div> */}
@@ -421,11 +421,11 @@ function Home() {
   } else {
     return (
       <>
-        <div class="container-fluid home-container">
-          <div class="row home-top-margin">
-            <div class="col-2 p-0 checkbox-hide-for-medium">
+        <div className="container-fluid home-container">
+          <div className="row home-top-margin">
+            <div className="col-2 p-0 checkbox-hide-for-medium">
               <div
-                class="rounded container shadow p-3 mb-5"
+                className="rounded container shadow p-3 mb-5"
                 className="category-checkbox"
               >
                 <h6 className="checkbox-heading price-range-heading">Price</h6>
@@ -448,7 +448,7 @@ function Home() {
                 handleFilters={(filters) => handleFilters(filters, "brand")}
               />
             </div>
-            <div class="col-10 p-0 ps-3 ">
+            <div className="col-10 p-0 ps-3 ">
               <div className="container-fluid card-container m-0">
                 {/* <div className="grid-container"> */}
                 <div className="search-portion">
@@ -466,10 +466,10 @@ function Home() {
                     />
                   </div>
 
-                  {/* <div class="button-cover">
+                  {/* <div className="button-cover">
                     <div className="button b2" id="button-10">
                       <input type="checkbox" className="checkbox" />
-                      <div class="knobs">
+                      <div className="knobs">
                         <span>YES</span>
                       </div>
                       <div className="layer"></div>
@@ -502,16 +502,16 @@ function Home() {
                   </div> */}
                   {/* <spam className="search-shops">Shops</spam>
                   <div className="a2">
-                    <div class="form-check form-switch ms-2 mt-2 ">
+                    <div className="form-check form-switch ms-2 mt-2 ">
                       <label
-                        class="form-check-label"
+                        className="form-check-label"
                         for="flexSwitchCheckDefault"
                       >
                         Products
                       </label>
 
                       <input
-                        class="form-check-input shops-switch "
+                        className="form-check-input shops-switch "
                         type="checkbox"
                         id="flexSwitchCheckDefault"
                         onClick={handleToggle}
@@ -581,17 +581,17 @@ function Home() {
                       })}
                     </div> */}
                 {/* )} */}
-                {/* <button type="button" class="btn btn-primary" value="Search" name="Search">
+                {/* <button type="button" className="btn btn-primary" value="Search" name="Search">
                       <AiOutlineSearch />
                     </button> */}
                 {/* </div> */}
                 {/* <div className="toogleDiv">
-                  <label class="toggleSwitch nolabel" onclick="">
+                  <label className="toggleSwitch nolabel" onclick="">
                     <input type="checkbox" checked />
                     <a></a>
                     <span>
-                      <span class="left-span">Shops</span>
-                      <span class="right-span">Products</span>
+                      <span className="left-span">Shops</span>
+                      <span className="right-span">Products</span>
                     </span>
                   </label>
                 </div> */}
@@ -611,10 +611,10 @@ function Home() {
                     prevPageText="Prev"
                     firstPageText="1st"
                     lastPageText="Last"
-                    itemClass="page-item"
-                    linkClass="page-link"
-                    activeClass="pageItemActive"
-                    activeLinkClass="pageLinkActive"
+                    itemclassName="page-item"
+                    linkclassName="page-link"
+                    activeclassName="pageItemActive"
+                    activeLinkclassName="pageLinkActive"
                   />
                 )}
               </div>
