@@ -209,7 +209,10 @@ function Home() {
                 {/* <div className="grid-container"> */}
 
                 <div className="container filter-products text-center">
-                  <Link to="/catSide" className="link-dark text-decoration-none">
+                  <Link
+                    to="/catSide"
+                    className="link-dark text-decoration-none"
+                  >
                     <FaFilter />
                     <strong className="checkbox-heading ">Filter Shops </strong>
                   </Link>
@@ -424,22 +427,23 @@ function Home() {
         <div className="container-fluid home-container">
           <div className="row home-top-margin">
             <div className="col-2 p-0 checkbox-hide-for-medium">
-              <div
-                className="rounded container shadow p-3 mb-5"
-                className="category-checkbox"
-              >
-                <h6 className="checkbox-heading price-range-heading">Price</h6>
-                <div className="price-range">
-                  <Slider
-                    value={price}
-                    onChange={priceHandler}
-                    valueLabelDisplay="auto"
-                    aria-labelledby="range-slider"
-                    min={0}
-                    max={25000}
-                  />
+                <div className="category-checkbox">
+                  <h6 className="checkbox-heading price-range-heading">
+                    Price
+                  </h6>
+                  <div className="price-range">
+                    <Slider
+                      value={price}
+                      onChange={priceHandler}
+                      valueLabelDisplay="auto"
+                      aria-labelledby="range-slider"
+                      min={0}
+                      max={25000}
+                    />
+                  </div>
                 </div>
-              </div>
+              {/* <div className="rounded container shadow p-3 mb-5">
+              </div> */}
               {/* {isPending && <div> Loading... </div>} */}
               <Checkboxes
                 handleFilters={(filters) => handleFilters(filters, "category")}
