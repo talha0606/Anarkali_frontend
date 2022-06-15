@@ -1,19 +1,18 @@
-.card-category{
-    width: 100px !important;
-    height: 100px;
-
+.card-category {
+  width: 100px !important;
+  height: 100px;
 }
-.MapDiv{
-    width: 200px;
-    height: 200px;
-    background-color: aqua;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
+.MapDiv {
+  width: 200px;
+  height: 200px;
+  background-color: aqua;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
-.shop-email{
+.shop-email {
   margin: 0px !important;
   margin-top: -10px !important;
   padding: 0px !important;
@@ -23,17 +22,24 @@
   /* z-index: 999999  !important; */
 }
 
-.shop-email:hover{
+.shop-email:hover {
   color: rgb(0, 0, 255);
+}
+
+.phone-number {
+  margin-top: 10px;
+  /* padding: 3px; */
+  /* border: 1px solid green; */
+  /* margin: 3px 0 3px 0;
+  border-radius: 3px; */
   
 }
-
-
-
-.phone-number{
-  margin-top: 10px;
-  padding-bottom: 3px;
+.phone-number-icon {
+  color: green;
+  /* font-size: 1px; */
+  padding: 0 5px 5px 0;
 }
+
 /* .item1 { grid-area: name; }
 .item2 { grid-area: category; }
 .item3 { grid-area: email; }

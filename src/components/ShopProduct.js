@@ -5,9 +5,13 @@ import DetailproductPage from "../components/DetailproductPage";
 import product from "../images/product.png";
 import "../style/ShopProduct.css";
 import { Link } from "react-router-dom";
+import "../style/allshops.css";
+import "../style/shopCards.css";
 
-const ShopProduct = ({ id }) => {
+const ShopProduct = ({ id, filteredData }) => {
   console.log("ShopProduct/Sellerid" + id);
+  console.log("ShopProduct/FilteredProducts: " + filteredData);
+  const [filteredProducts, setFilteredProducts] = useState(filteredData);
   const [idd, setID] = useState(null);
   const [modalShow, setModalShow] = useState(false);
   const [myproducts, setMyProducts] = useState();
@@ -71,23 +75,162 @@ const ShopProduct = ({ id }) => {
     }
   };
 
-  return (
-    <>
-      <div class="container-fluid bg-trasparent my-4 p-3 containerProduct">
+  if (filteredProducts === null) {
+    return (
+      <>
+        <div class="container">
+          <div class="row no-gutters">
+            {myproducts?.map((prod) => (
+              <div class="col-3 col-* ">
+                <div className="card">
+                  <div class="imgBx">
+                    <Link to={`/productDetail/${prod._id}`}>
+                      <img
+                        // src={`/uploads/${shop.shopImage}`}
+                        src={prod.prodImage}
+                        alt="Card image cap"
+                        //   onClick={() => {
+                        //     setID(user._id);
+                        //   }}
+                      />
+                    </Link>
+                    <ul class="action">
+                      <li>
+                        <i class="fa fa-heart" aria-hidden="true">
+                          {" "}
+                        </i>
+                        <span>Add to Wishlist</span>
+                      </li>
+                      <li>
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <span>Add to Cart</span>
+                      </li>
+                      <li>
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                        <span>View Details</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="content">
+                    <div class="productName">
+                      <h3>{prod.pName}</h3>
+                    </div>
+                    <div class="price_rating">
+                      <h3>$ {prod.price}</h3>
+                      <div class="rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star grey" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </>
+    );
+  } else {
+    return (
+      <>
+  {console.log("Else/ShopProduct/FilteredProducts: " + filteredProducts)}
+        <div class="container">
+          <div class="row no-gutters">
+            {filteredProducts?.map((prod) => (
+              <div class="col-3 col-* ">
+                <div className="card">
+                  <div class="imgBx">
+                    <Link to={`/productDetail/${prod._id}`}>
+                      <img
+                        // src={`/uploads/${shop.shopImage}`}
+                        src={prod.prodImage}
+                        alt="Card image cap"
+                        //   onClick={() => {
+                        //     setID(user._id);
+                        //   }}
+                      />
+                    </Link>
+                    <ul class="action">
+                      <li>
+                        <i class="fa fa-heart" aria-hidden="true">
+                          {" "}
+                        </i>
+                        <span>Add to Wishlist</span>
+                      </li>
+                      <li>
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <span>Add to Cart</span>
+                      </li>
+                      <li>
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                        <span>View Details</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="content">
+                    <div class="productName">
+                      <h3>{prod.pName}</h3>
+                    </div>
+                    <div class="price_rating">
+                      <h3>$ {prod.price}</h3>
+                      <div class="rating">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star grey" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </>
+    );
+  }
+
+  {
+    /* /////////////////////////////////////////////// */
+  }
+  {
+    /* previous 1 */
+  }
+  {
+    /* /////////////////////////////////////////////// */
+  }
+
+  {
+    /* <div class="container-fluid bg-trasparent my-4 p-3 containerProduct">
         <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
           <ul className="list-group list-group-horizontal unstyled">
             {myproducts?.map((prod) => (
               <li class="list-group-item shopProdd">
                 <div class="col hp">
-                  <div class="card shadow-sm">
-                    {/* <a href="#"> */}
-                    {/* <a
+                  <div class="card shadow-sm"> */
+  }
+
+  {
+    /* <a href="#"> */
+  }
+  {
+    /* <a
                       onClick={() => {
                         setID(prod._id);
                         console.log(prod.prodImage);
                       }}
-                    > */}
-                    <Link to={`/productDetail/${prod._id}`}>
+                    > */
+  }
+
+  {
+    /* previous 2 */
+  }
+  {
+    /* <Link to={`/productDetail/${prod._id}`}>
                       <img
                         // src={`/uploads/${prod.prodImage}`}
                         src={prod.prodImage}
@@ -96,13 +239,23 @@ const ShopProduct = ({ id }) => {
                         width="250px"
                         height="200px"
                       />
-                    </Link>
-                    {/* </a> */}
+                    </Link> */
+  }
+  {
+    /* </a> */
+  }
 
-                    {/* <div class="label-top shadow-sm">
+  {
+    /* <div class="label-top shadow-sm">
                                             <a class="text-white" href="#">{prod.brand}</a>
-                                        </div> */}
-                    <div class="card-body">
+                                        </div> */
+  }
+
+  {
+    /* previous 3 */
+  }
+  {
+    /* <div class="card-body">
                       <div class="clearfix mb-3">
                         <span class="float-start badge rounded-pill bg-light text-dark">
                           Rs. {prod.price}
@@ -150,9 +303,8 @@ const ShopProduct = ({ id }) => {
             {idd && <DetailproductPage id={idd} setID={setID} />}
           </div>
         </div>
-      </div>
-    </>
-  );
+      </div> */
+  }
 };
 
 export default ShopProduct;
