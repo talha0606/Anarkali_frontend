@@ -5,6 +5,8 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import AdminPage from "./components/AdminPage";
 import FileUpload from "./components/FileUpload";
+import ContactUs from "./components/ContactUs";
+
 // import Footer from "./components/Footer";
 import Sidebar from "./components/Sidebar";
 import Error from "./components/Error";
@@ -95,6 +97,9 @@ function App() {
         </Route>
         <Route exact path="/signup">
           <SignUpPage />
+        </Route>
+        <Route exact path="/contactus">
+          <ContactUs />
         </Route>
         <Route exact path="/catSide">
           <CategorySideBar />

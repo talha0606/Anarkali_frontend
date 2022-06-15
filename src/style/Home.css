@@ -511,3 +511,10 @@
   padding:0px !important;
   margin: 0px !important;
 }
+
+.contact-us-footer{
+  position: fixed !important;
+  bottom: 10px;
+  width: 100%;
+  margin: auto;
+}
