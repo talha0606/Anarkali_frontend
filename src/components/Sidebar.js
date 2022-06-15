@@ -33,13 +33,13 @@ const Sidebar = () => {
                 </div> */}
 
         <ul className="nav_list list-unstyled ">
-          <li className="dashboard-style">
+          {/* <li className="dashboard-style">
             <Link to="/" className="link-light">
               <AiOutlineAppstore />
-              {/* <span className="links_name">Dash Board</span> */}
+              <span className="links_name">Dash Board</span>
             </Link>
             <span className="tooltip">Dash Board</span>
-          </li>
+          </li> */}
           {/* for search 
                     <li>
                         <a href="#">
@@ -48,7 +48,7 @@ const Sidebar = () => {
                         </a>
                         <span className="links_name">Search</span>
                     </li> */}
-          <li>
+          <li className="dashboard-style">
             <Link to="/" className="link-light">
               <AiFillHome />
             </Link>
@@ -58,7 +58,7 @@ const Sidebar = () => {
             <Link to="/Seller" className="link-light">
               <AiOutlineUser />
             </Link>
-            <span className="tooltip">Seller</span>
+            <span className="tooltip">Profile</span>
           </li>
           {/* <li>
                         <Link to="./User" className="link-light">
@@ -66,12 +66,12 @@ const Sidebar = () => {
                         </Link>
                         <span className="tooltip">User</span>
                     </li> */}
-          <li>
+          {/* <li>
             <Link to="/" className="link-light">
               <AiFillMessage />
             </Link>
             <span className="tooltip">Messages</span>
-          </li>
+          </li> */}
           <li>
             <Link to="./Cart" className="link-light">
               <BiCartAlt />
@@ -82,9 +82,9 @@ const Sidebar = () => {
             <Link to="/" className="link-light">
               <AiOutlineHeart />
             </Link>
-            <span className="tooltip">Saved</span>
+            <span className="tooltip">Wished</span>
           </li>
-          <li>
+          {/* <li>
             <Link to="/" className="link-light">
               <BiCalculator />
             </Link>
@@ -95,7 +95,7 @@ const Sidebar = () => {
               <AiFillSetting />
             </Link>
             <span className="tooltip">Settings</span>
-          </li>
+          </li> */}
           <li>
             <Link to="/" className="link-light">
               <BiHelpCircle />

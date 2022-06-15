@@ -78,12 +78,12 @@ const ShopProduct = ({ id, filteredData }) => {
   if (filteredProducts === null) {
     return (
       <>
-        <div class="container">
-          <div class="row no-gutters">
+        <div className="container">
+          <div className="row no-gutters">
             {myproducts?.map((prod) => (
-              <div class="col-3 col-* ">
+              <div className="col-3 col-* ">
                 <div className="card">
-                  <div class="imgBx">
+                  <div className="imgBx">
                     <Link to={`/productDetail/${prod._id}`}>
                       <img
                         // src={`/uploads/${shop.shopImage}`}
@@ -94,35 +94,35 @@ const ShopProduct = ({ id, filteredData }) => {
                         //   }}
                       />
                     </Link>
-                    <ul class="action">
+                    <ul className="action">
                       <li>
-                        <i class="fa fa-heart" aria-hidden="true">
+                        <i className="fa fa-heart" aria-hidden="true">
                           {" "}
                         </i>
                         <span>Add to Wishlist</span>
                       </li>
                       <li>
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <i className="fa fa-shopping-cart" aria-hidden="true"></i>
                         <span>Add to Cart</span>
                       </li>
                       <li>
-                        <i class="fa fa-eye" aria-hidden="true"></i>
+                        <i className="fa fa-eye" aria-hidden="true"></i>
                         <span>View Details</span>
                       </li>
                     </ul>
                   </div>
-                  <div class="content">
-                    <div class="productName">
+                  <div className="content">
+                    <div className="productName">
                       <h3>{prod.pName}</h3>
                     </div>
-                    <div class="price_rating">
-                      <h3>$ {prod.price}</h3>
-                      <div class="rating">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star grey" aria-hidden="true"></i>
+                    <div className="price_rating">
+                      <h3>Rs. {prod.price}</h3>
+                      <div className="rating">
+                        <i className="fa fa-star" aria-hidden="true"></i>
+                        <i className="fa fa-star" aria-hidden="true"></i>
+                        <i className="fa fa-star" aria-hidden="true"></i>
+                        <i className="fa fa-star" aria-hidden="true"></i>
+                        <i className="fa fa-star grey" aria-hidden="true"></i>
                       </div>
                     </div>
                   </div>
@@ -137,12 +137,12 @@ const ShopProduct = ({ id, filteredData }) => {
     return (
       <>
         {console.log("Else/ShopProduct/FilteredProducts: " + filteredProducts)}
-        <div class="container">
-          <div class="row no-gutters">
+        <div className="container">
+          <div className="row no-gutters">
             {filteredProducts?.map((prod) => (
-              <div class="col-3 col-* ">
+              <div className="col-3 col-* ">
                 <div className="card">
-                  <div class="imgBx">
+                  <div className="imgBx">
                     <Link to={`/productDetail/${prod._id}`}>
                       <img
                         // src={`/uploads/${shop.shopImage}`}
@@ -153,35 +153,35 @@ const ShopProduct = ({ id, filteredData }) => {
                         //   }}
                       />
                     </Link>
-                    <ul class="action">
+                    <ul className="action">
                       <li>
-                        <i class="fa fa-heart" aria-hidden="true">
+                        <i className="fa fa-heart" aria-hidden="true">
                           {" "}
                         </i>
                         <span>Add to Wishlist</span>
                       </li>
                       <li>
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <i className="fa fa-shopping-cart" aria-hidden="true"></i>
                         <span>Add to Cart</span>
                       </li>
                       <li>
-                        <i class="fa fa-eye" aria-hidden="true"></i>
+                        <i className="fa fa-eye" aria-hidden="true"></i>
                         <span>View Details</span>
                       </li>
                     </ul>
                   </div>
-                  <div class="content">
-                    <div class="productName">
+                  <div className="content">
+                    <div className="productName">
                       <h3>{prod.pName}</h3>
                     </div>
-                    <div class="price_rating">
-                      <h3>$ {prod.price}</h3>
-                      <div class="rating">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star grey" aria-hidden="true"></i>
+                    <div className="price_rating">
+                      <h3>Rs. {prod.price}</h3>
+                      <div className="rating">
+                        <i className="fa fa-star" aria-hidden="true"></i>
+                        <i className="fa fa-star" aria-hidden="true"></i>
+                        <i className="fa fa-star" aria-hidden="true"></i>
+                        <i className="fa fa-star" aria-hidden="true"></i>
+                        <i className="fa fa-star grey" aria-hidden="true"></i>
                       </div>
                     </div>
                   </div>
@@ -205,13 +205,13 @@ const ShopProduct = ({ id, filteredData }) => {
   }
 
   {
-    /* <div class="container-fluid bg-trasparent my-4 p-3 containerProduct">
-        <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+    /* <div className="container-fluid bg-trasparent my-4 p-3 containerProduct">
+        <div className="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
           <ul className="list-group list-group-horizontal unstyled">
             {myproducts?.map((prod) => (
-              <li class="list-group-item shopProdd">
-                <div class="col hp">
-                  <div class="card shadow-sm"> */
+              <li className="list-group-item shopProdd">
+                <div className="col hp">
+                  <div className="card shadow-sm"> */
   }
 
   {
@@ -234,7 +234,7 @@ const ShopProduct = ({ id, filteredData }) => {
                       <img
                         // src={`/uploads/${prod.prodImage}`}
                         src={prod.prodImage}
-                        class="card-img-top"
+                        className="card-img-top"
                         alt="product image"
                         width="250px"
                         height="200px"
@@ -246,8 +246,8 @@ const ShopProduct = ({ id, filteredData }) => {
   }
 
   {
-    /* <div class="label-top shadow-sm">
-                                            <a class="text-white" href="#">{prod.brand}</a>
+    /* <div className="label-top shadow-sm">
+                                            <a className="text-white" href="#">{prod.brand}</a>
                                         </div> */
   }
 
@@ -255,42 +255,42 @@ const ShopProduct = ({ id, filteredData }) => {
     /* previous 3 */
   }
   {
-    /* <div class="card-body">
-                      <div class="clearfix mb-3">
-                        <span class="float-start badge rounded-pill bg-light text-dark">
+    /* <div className="card-body">
+                      <div className="clearfix mb-3">
+                        <span className="float-start badge rounded-pill bg-light text-dark">
                           Rs. {prod.price}
                         </span>
 
-                        <span class="float-end">
+                        <span className="float-end">
                           <a
                             href="#"
-                            class="small text-muted text-uppercase aff-link"
+                            className="small text-muted text-uppercase aff-link"
                           >
                             {prod.brand}
                           </a>
                         </span>
                       </div>
-                      <h5 class="card-title">
+                      <h5 className="card-title">
                         <a target="_blank" href="#">
                           {prod.pName}
                         </a>
                       </h5>
-                      <p class="card-text">{prod.pDescription}</p>
+                      <p className="card-text">{prod.pDescription}</p>
 
-                      <div class="d-grid my-4">
-                        <a href="#" class="btn btn-danger bold-btn">
+                      <div className="d-grid my-4">
+                        <a href="#" className="btn btn-danger bold-btn">
                           Add to cart
                         </a>
                       </div>
-                      <div class="clearfix mb-1">
-                        <span class="float-start">
+                      <div className="clearfix mb-1">
+                        <span className="float-start">
                           <a href="#">
-                            <i class="fas fa-question-circle"></i>
+                            <i className="fas fa-question-circle"></i>
                           </a>
                         </span>
 
-                        <span class="float-end">
-                          <i class="far fa-heart"></i>
+                        <span className="float-end">
+                          <i className="far fa-heart"></i>
                         </span>
                       </div>
                     </div>
@@ -299,7 +299,7 @@ const ShopProduct = ({ id, filteredData }) => {
               </li>
             ))}
           </ul>
-          <div class="col col-lg-2 detail" id="hideme">
+          <div className="col col-lg-2 detail" id="hideme">
             {idd && <DetailproductPage id={idd} setID={setID} />}
           </div>
         </div>

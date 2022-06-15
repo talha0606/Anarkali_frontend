@@ -35,21 +35,21 @@ function Navbar() {
                     Home
                   </Link>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <Link className="nav-link" aria-current="page" to="#">
                     Features
                   </Link>
-                </li>
-                <li className="nav-item">
+                </li> */}
+                {/* <li className="nav-item">
                   <Link className="nav-link" aria-current="page" to="#">
                     Pricing
                   </Link>
-                </li>
-                <li className="nav-item">
+                </li> */}
+                {/* <li className="nav-item">
                   <Link className="nav-link" aria-current="page" to="#">
                     Services
                   </Link>
-                </li>
+                </li> */}
                 <li className="nav-item">
                   <Link className="nav-link" aria-current="page" to="#">
                     About Us
@@ -136,7 +136,7 @@ function Navbar() {
                     Home
                   </Link>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <Link className="nav-link" aria-current="page" to="#">
                     Features
                   </Link>
@@ -150,7 +150,7 @@ function Navbar() {
                   <Link className="nav-link" aria-current="page" to="#">
                     Services
                   </Link>
-                </li>
+                </li> */}
                 <li className="nav-item">
                   <Link className="nav-link" aria-current="page" to="#">
                     About Us
@@ -158,7 +158,7 @@ function Navbar() {
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" aria-current="page" to="#">
-                    Contact
+                    Contact Us
                   </Link>
                 </li>
               </ul>

@@ -506,3 +506,8 @@
 .map-img{
   cursor: pointer !important;
 }
+
+.footer-style{
+  padding:0px !important;
+  margin: 0px !important;
+}

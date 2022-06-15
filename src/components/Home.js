@@ -387,7 +387,7 @@ function Home() {
           </div>
         </div>
 
-        {resultPerPage < filteredProductsCount && (
+        {/* {resultPerPage < filteredProductsCount && (
           <div className="paginationBox">
             <Pagination
               activePage={currentPage}
@@ -404,8 +404,8 @@ function Home() {
               activeLinkClass="pageLinkActive"
             />
           </div>
-        )}
-        <div className="container-fluid"><Footer /></div>
+        )} */}
+        {/* <div className="container-fluid"><Footer /></div> */}
 
         {/* </div> */}
 
@@ -470,6 +470,9 @@ function Home() {
           </div>
         ))
       } */}
+        <div className="container-fluid footer-style">
+          <Footer />
+        </div>
       </>
     );
   } else {
@@ -485,7 +488,9 @@ function Home() {
           <div className="row home-top-margin">
             <div className="col-2 p-0 checkbox-hide-for-medium">
               <div className="category-checkbox">
-                <h6 className="checkbox-heading price-range-heading">Price</h6>
+                <h6 className="checkbox-heading price-range-heading">
+                  Price Filter
+                </h6>
                 <div className="price-range">
                   <Slider
                     value={price}
@@ -501,7 +506,7 @@ function Home() {
               {/* <div className="rounded container shadow p-3 mb-5">
               </div> */}
               {/* {isPending && <div> Loading... </div>} */}
-              <Checkboxes
+              {/* <Checkboxes
                 handleFilters={(filters) =>
                   handleProductFilters(filters, "category")
                 }
@@ -510,7 +515,7 @@ function Home() {
                 handleFilters={(filters) =>
                   handleProductFilters(filters, "brand")
                 }
-              />
+              /> */}
             </div>
             <div className="col-10 p-0 ps-3 ">
               <div className="container-fluid card-container m-0">
@@ -686,8 +691,8 @@ function Home() {
             />
           </div>
         )}
-        <div className="container-fluid"><Footer /></div>
-        
+        {/* <div className="container-fluid"><Footer /></div> */}
+
         {/* <Footer/> */}
         {/* </div> */}
 
@@ -753,6 +758,10 @@ function Home() {
         ))
       } */}
         {/* <Footer/> */}
+        {/* <div className="container-fluid"><Footer /></div> */}
+        <div className="container-fluid footer-style">
+          <Footer />
+        </div>
       </>
     );
   }
