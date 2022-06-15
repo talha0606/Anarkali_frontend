@@ -170,6 +170,9 @@ const AddProduct = () => {
 
     const { data } = await axios.post("/product/product", myForm, config);
     console.log("Add Product Data: " + data);
+    if (data) {
+      history.push(`/seller`);
+    }
     // axios({
     //   method: "post",
     //   url: "/product/product",

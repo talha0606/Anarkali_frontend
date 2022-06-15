@@ -12,6 +12,8 @@ import {
 
 const reducer = combineReducers({
   user: userReducer,
+  profile: profileReducer,
+  forgotPassword: forgotPasswordReducer,
 });
 
 let initialState = {};

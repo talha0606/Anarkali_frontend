@@ -1,3 +1,6 @@
+import React from "react";
+import { useEffect, useState } from "react";
+
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import AdminPage from "./components/AdminPage";
@@ -29,13 +32,30 @@ import CategorySideBar from "./components/CategorySideBar";
 // import Logout from "@mui/icons-material/Logout";
 import EditProduct from "./components/EditProduct";
 import LoginSignUp from "./components/User/LoginSignUp";
+import Profile from "./components/User/Profile";
+import UpdateProfile from "./components/User/UpdateProfile";
+import UpdatePassword from "./components/User/UpdatePassword";
+import ForgotPassword from "./components/User/ForgotPassword";
 
 // we create a contextAPI
 // export const UserContext = createContext();
 
+import store from "./store";
+import { loadUser } from "./actions/userAction";
+
+import UserOptions from "./components/layout/Header/UserOptions";
+import { useSelector } from "react-redux";
+
+import ProtectedRoute from "./components/Route/ProtectedRoute";
+
 function App() {
   //* we use useReducer
   // const [state, dispatch] = useReducer(reducer, initialState);
+  const { isAuthenticated, user } = useSelector((state) => state.user);
+
+  React.useEffect(() => {
+    store.dispatch(loadUser());
+  }, []);
 
   return (
     <>
@@ -43,6 +63,9 @@ function App() {
       <Navbar />
       <FilterNavbar />
       <Sidebar />
+
+      {isAuthenticated && <UserOptions user={user} />}
+
       <Switch>
         <Route exact path="/">
           <Home />
@@ -98,6 +121,19 @@ function App() {
         <Route exact path="/loginsignup">
           <LoginSignUp />
         </Route>
+        <ProtectedRoute exact path="/profile" component={Profile} />
+        <ProtectedRoute exact path="/me/update" component={UpdateProfile} />
+        <ProtectedRoute
+          exact
+          path="/password/update"
+          component={UpdatePassword}
+        />
+        <ProtectedRoute
+          exact
+          path="/password/forgot"
+          component={ForgotPassword}
+        />
+
         <Route>
           <Error />
         </Route>

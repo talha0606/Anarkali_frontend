@@ -179,6 +179,14 @@ function Navbar() {
                     SIGN UP
                   </Link>
                 </li>
+                <li className=" nav-item">
+                  <Link
+                    className="btn btn-sm btn-outline-dark m-1"
+                    to="/loginsignup"
+                  >
+                    Customer
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

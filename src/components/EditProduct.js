@@ -137,8 +137,8 @@ const EditProduct = (/*props*/) => {
         console.log("Updated Product Response: " + res);
         console.log("Updated Product Data: " + res.data);
 
-        // window.alert("Product Updated Successfully");
-        // history.push("/seller");
+        window.alert("Product Updated Successfully");
+        history.push("/seller");
       })
       .catch((err) => {
         console.log("ERror............................");

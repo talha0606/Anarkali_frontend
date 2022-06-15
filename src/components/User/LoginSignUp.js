@@ -1,7 +1,7 @@
 import React, { Fragment, useRef, useState, useEffect } from "react";
 import "./LoginSignUp.css";
 // import Loader from "../layout/Loader/Loader";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import FaceIcon from "@material-ui/icons/Face";
@@ -9,7 +9,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login, register } from "../../actions/userAction";
 // import { useAlert } from "react-alert";
 
-const LoginSignUp = ({ history, location }) => {
+const LoginSignUp = ({ /*history,*/ location }) => {
+  const history = useHistory();
   const dispatch = useDispatch();
   // const alert = useAlert();
 
@@ -38,6 +39,7 @@ const LoginSignUp = ({ history, location }) => {
   const loginSubmit = (e) => {
     e.preventDefault();
     dispatch(login(loginEmail, loginPassword));
+    // history.push(`/home`);
   };
 
   const registerSubmit = (e) => {
@@ -79,9 +81,9 @@ const LoginSignUp = ({ history, location }) => {
       dispatch(clearErrors());
     }
 
-    // if (isAuthenticated) {
-    //   history.push(redirect);
-    // }
+    if (isAuthenticated) {
+      history.push(`/profile`);
+    }
   }, [dispatch, error, alert, history, isAuthenticated /*redirect*/]);
 
   const switchTabs = (e, tab) => {
