@@ -12,6 +12,7 @@ import Slider from "@material-ui/core/Slider";
 import Pagination from "react-js-pagination";
 import FilterNavbar from "./FilterNavbar";
 import { Link } from "react-router-dom";
+import Footer from "./Footer";
 
 function Home() {
   const [isPending, setIsPending] = useState(true);
@@ -247,7 +248,7 @@ function Home() {
                   </Link>
                 </div>
 
-                <div className="search-portion">
+                <div>
                   <div className="a1">
                     <input
                       className="search-box ms-3"
@@ -385,6 +386,27 @@ function Home() {
             </div>
           </div>
         </div>
+
+        {resultPerPage < filteredProductsCount && (
+          <div className="paginationBox">
+            <Pagination
+              activePage={currentPage}
+              itemsCountPerPage={resultPerPage}
+              totalItemsCount={productsCount}
+              onChange={setCurrentPageNo}
+              nextPageText="Next"
+              prevPageText="Prev"
+              firstPageText="1st"
+              lastPageText="Last"
+              itemClass="page-item"
+              linkClass="page-link"
+              activeClass="pageItemActive"
+              activeLinkClass="pageLinkActive"
+            />
+          </div>
+        )}
+        <div className="container-fluid"><Footer /></div>
+
         {/* </div> */}
 
         {/* by ali */}
@@ -475,6 +497,7 @@ function Home() {
                   />
                 </div>
               </div>
+
               {/* <div className="rounded container shadow p-3 mb-5">
               </div> */}
               {/* {isPending && <div> Loading... </div>} */}
@@ -492,7 +515,7 @@ function Home() {
             <div className="col-10 p-0 ps-3 ">
               <div className="container-fluid card-container m-0">
                 {/* <div className="grid-container"> */}
-                <div className="search-portion">
+                <div>
                   <div className="a1">
                     <input
                       className="search-box ms-3"
@@ -641,27 +664,31 @@ function Home() {
               <div className="p-3">
                 <Allproducts filteredProducts={FilteredProducts} />
               </div>
-              <div className="paginationBox">
-                {resultPerPage < filteredProductsCount && (
-                  <Pagination
-                    activePage={currentPage}
-                    itemsCountPerPage={resultPerPage}
-                    totalItemsCount={productsCount}
-                    onChange={setCurrentPageNo}
-                    nextPageText="Next"
-                    prevPageText="Prev"
-                    firstPageText="1st"
-                    lastPageText="Last"
-                    itemclassName="page-item"
-                    linkclassName="page-link"
-                    activeclassName="pageItemActive"
-                    activeLinkclassName="pageLinkActive"
-                  />
-                )}
-              </div>
             </div>
           </div>
         </div>
+
+        {resultPerPage < filteredProductsCount && (
+          <div className="paginationBox">
+            <Pagination
+              activePage={currentPage}
+              itemsCountPerPage={resultPerPage}
+              totalItemsCount={productsCount}
+              onChange={setCurrentPageNo}
+              nextPageText="Next"
+              prevPageText="Prev"
+              firstPageText="1st"
+              lastPageText="Last"
+              itemClass="page-item"
+              linkClass="page-link"
+              activeClass="pageItemActive"
+              activeLinkClass="pageLinkActive"
+            />
+          </div>
+        )}
+        <div className="container-fluid"><Footer /></div>
+        
+        {/* <Footer/> */}
         {/* </div> */}
 
         {/* by ali */}
@@ -725,6 +752,7 @@ function Home() {
           </div>
         ))
       } */}
+        {/* <Footer/> */}
       </>
     );
   }

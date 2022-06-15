@@ -11,9 +11,9 @@
   display: inline !important;
 
 }
-/* div .search-portion{
-  margin-top: 5px !important;
-} */
+div .search-portion{
+  margin-top: 8px !important;
+}
 
 .search-box{
   width: 100%;
@@ -255,7 +255,8 @@ input[type="file"] {
   color: rgb(107, 107, 107);
 }
 .home-container {
-  margin: 10px 10px 50px 10px;
+  margin: 10px 0px 0px 10px;
+  /* padding-right: 0px !important; */
 }
 
 
@@ -653,6 +654,11 @@ input.check {
   text-align: center;
   color: #fff;
   background-color: #828b88;
+  padding-right: 0px !important;
+}
+
+.footer-padding{
+  /* padding:0px !important; */
 }
 /* 
 .footer-list{

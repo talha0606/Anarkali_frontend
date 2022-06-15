@@ -65,8 +65,8 @@
   bottom: 50px;
 }
 
-.dashboard-style{
-  margin-top:30px !important;
+.dashboard-style {
+  margin-top: 30px !important;
   /* position: absolute !important; */
   /* top: 30px !important; */
 }
@@ -471,11 +471,38 @@
   background-color: #fcebeb;
 }
 
-.MuiSlider-root{
+.MuiSlider-root {
   color: #4ec850 !important;
 }
 
-.shop-category{
+.shop-category {
   font-size: 16px !important;
   font-weight: 600 !important;
+}
+
+.sDetails-sName {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 10px 10px 0 !important;
+}
+
+.shop-detail-email {
+  word-wrap: break-word;
+}
+
+.shop-detail-email:hover {
+  color: blue;
+}
+
+.shop-description-shop-details {
+  text-align: center;
+  padding-bottom: 5px;
+  font-weight: bold;
+  font-size: 15px;
+  color: #4ec850;
+}
+
+
+.map-img{
+  cursor: pointer !important;
 }
