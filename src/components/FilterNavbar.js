@@ -20,13 +20,17 @@ import jewelry2 from "../images/jewelry2.jpg";
 import law from "../images/law.jpg";
 import novel from "../images/novel.jpg";
 
-const FilterNavbar = () => {
+const FilterNavbar = (props) => {
+  const handleClick = (e) => {
+    console.log("Filter Navbar category: " + e.target.value);
+    props.handleNavbarFilters(e.target.value);
+  }
   return (
     <>
       <nav className="nav-bar">
         <div className="wrapper">
           <div className="logo">
-            <Link to="#">Filters</Link>
+            <Link to="#" >Filters</Link>
           </div>
           <input type="radio" name="slide" id="menu-btn" />
           <input type="radio" name="slide" id="cancel-btn" />
@@ -53,16 +57,16 @@ const FilterNavbar = () => {
                     <header>Shirts</header>
                     <ul className="mega-links">
                       <li>
-                        <Link to="#">Dress Shirts</Link>
+                        <button onClick={handleClick} value="Dress Shirts" className="nav-btn">Dress Shirts</button>
                       </li>
                       <li>
-                        <Link to="#">Office Shirts</Link>
+                        <button onClick={handleClick} value="Office Shirts" className="nav-btn">Office Shirts</button>
                       </li>
                       <li>
-                        <Link to="#">Chambray Shirts</Link>
+                        <button onClick={handleClick} value="Chambray Shirts" className="nav-btn">Chambray Shirts</button>
                       </li>
                       <li>
-                        <Link to="#">T Shirts</Link>
+                        <button onClick={handleClick} value="T Shirts" className="nav-btn">T Shirts</button>
                       </li>
                     </ul>
                   </div>
@@ -73,16 +77,16 @@ const FilterNavbar = () => {
                     <header>Pants</header>
                     <ul className="mega-links">
                       <li>
-                        <Link to="#">Jeans</Link>
+                        <button onClick={handleClick} value="Jeans" className="nav-btn">Jeans</button>
                       </li>
                       <li>
-                        <Link to="#">Loose Fit</Link>
+                        <button onClick={handleClick} value="Loose Fit" className="nav-btn">Loose Fit</button>
                       </li>
                       <li>
-                        <Link to="#">Regular Fit</Link>
+                        <button onClick={handleClick} value="Regular Fit" className="nav-btn">Regular Fit</button>
                       </li>
                       <li>
-                        <Link to="#">Trousers</Link>
+                        <button onClick={handleClick} value="Trousers" className="nav-btn">Trousers</button>
                       </li>
                     </ul>
                   </div>
@@ -108,16 +112,16 @@ const FilterNavbar = () => {
                     <header>Shirts</header>
                     <ul className="mega-links">
                       <li>
-                        <Link to="#">Dress Shirts</Link>
+                        <button onClick={handleClick} value="Dress Shirts" className="nav-btn">Dress Shirts</button>
                       </li>
                       <li>
-                        <Link to="#">Office Shirts</Link>
+                        <button onClick={handleClick} value="Office Shirts" className="nav-btn">Office Shirts</button>
                       </li>
                       <li>
-                        <Link to="#">Chambray Shirts</Link>
+                        <button onClick={handleClick} value="Chambray Shirts" className="nav-btn">Chambray Shirts</button>
                       </li>
                       <li>
-                        <Link to="#">T Shirts</Link>
+                        <button onClick={handleClick} value="T Shirts" className="nav-btn">T Shirts</button>
                       </li>
                     </ul>
                   </div>
@@ -128,16 +132,16 @@ const FilterNavbar = () => {
                     <header>Pants</header>
                     <ul className="mega-links">
                       <li>
-                        <Link to="#">Jeans</Link>
+                        <button onClick={handleClick} value="Jeans" className="nav-btn">Jeans</button>
                       </li>
                       <li>
-                        <Link to="#">Dress Pants</Link>
+                        <button onClick={handleClick} value="Dress Pants" className="nav-btn">Dress Pants</button>
                       </li>
                       <li>
-                        <Link to="#">Trousers</Link>
+                        <button onClick={handleClick} value="Trousers" className="nav-btn">Trousers</button>
                       </li>
                       <li>
-                        <Link to="#">Slim Fit</Link>
+                        <button onClick={handleClick} value="Slim Fit" className="nav-btn">Slim Fit</button>
                       </li>
                     </ul>
                   </div>
@@ -163,16 +167,16 @@ const FilterNavbar = () => {
                     <header>Men</header>
                     <ul className="mega-links">
                       <li>
-                        <Link to="#">Digital Watch</Link>
+                        <button onClick={handleClick} value="Digital Watch" className="nav-btn">Digital Watch</button>
                       </li>
                       <li>
-                        <Link to="#">Analog Watch</Link>
+                        <button onClick={handleClick} value="Analog Watch" className="nav-btn">Analog Watch</button>
                       </li>
                       <li>
-                        <Link to="#">Smart Watch</Link>
+                        <button onClick={handleClick} value="Smart Watch" className="nav-btn">Smart Watch</button>
                       </li>
                       <li>
-                        <Link to="#">Dress Watch</Link>
+                        <button onClick={handleClick} value="Dress Watch" className="nav-btn">Dress Watch</button>
                       </li>
                     </ul>
                   </div>
@@ -183,16 +187,16 @@ const FilterNavbar = () => {
                     <header>Women</header>
                     <ul className="mega-links">
                       <li>
-                        <Link to="#">Casual Watch</Link>
+                        <button onClick={handleClick} value="Casual Watch" className="nav-btn">Casual Watch</button>
                       </li>
                       <li>
-                        <Link to="#">Sport Watch</Link>
+                        <button onClick={handleClick} value="Sport Watch" className="nav-btn">Sport Watch</button>
                       </li>
                       <li>
-                        <Link to="#">Work Watch</Link>
+                        <button onClick={handleClick} value="Work Watch" className="nav-btn">Work Watch</button>
                       </li>
                       <li>
-                        <Link to="#">Luxury Watch</Link>
+                        <button onClick={handleClick} value="Luxury Watch" className="nav-btn">Luxury Watch</button>
                       </li>
                     </ul>
                   </div>
@@ -218,16 +222,16 @@ const FilterNavbar = () => {
                     <header>Electronic</header>
                     <ul className="mega-links">
                       <li>
-                        <Link to="#">Remote Car</Link>
+                        <button onClick={handleClick} value="Remote Car" className="nav-btn">Remote Car</button>
                       </li>
                       <li>
-                        <Link to="#">Drone</Link>
+                        <button onClick={handleClick} value="Drone" className="nav-btn">Drone</button>
                       </li>
                       <li>
-                        <Link to="#">Plane</Link>
+                        <button onClick={handleClick} value="Plane" className="nav-btn">Plane</button>
                       </li>
                       <li>
-                        <Link to="#">Dancing Doll</Link>
+                        <button onClick={handleClick} value="Dancing Doll" className="nav-btn">Dancing Doll</button>
                       </li>
                     </ul>
                   </div>
@@ -238,16 +242,16 @@ const FilterNavbar = () => {
                     <header>Non-Electric</header>
                     <ul className="mega-links">
                       <li>
-                        <Link to="#">Teddy Bear</Link>
+                        <button onClick={handleClick} value="Teddy Bear" className="nav-btn">Teddy Bear</button>
                       </li>
                       <li>
-                        <Link to="#">Barbie Doll</Link>
+                        <button onClick={handleClick} value="Barbie Doll" className="nav-btn">Barbie Doll</button>
                       </li>
                       <li>
-                        <Link to="#">Rubik Cube</Link>
+                        <button onClick={handleClick} value="Rubik Cube" className="nav-btn">Rubik Cube</button>
                       </li>
                       <li>
-                        <Link to="#">Spinner</Link>
+                        <button onClick={handleClick} value="Spinner" className="nav-btn">Spinner</button>
                       </li>
                     </ul>
                   </div>
@@ -273,16 +277,16 @@ const FilterNavbar = () => {
                     <header>Cricket</header>
                     <ul className="mega-links">
                       <li>
-                        <Link to="#">Bat</Link>
+                        <button onClick={handleClick} value="Bat" className="nav-btn">Bat</button>
                       </li>
                       <li>
-                        <Link to="#">Ball</Link>
+                        <button onClick={handleClick} value="Ball" className="nav-btn">Ball</button>
                       </li>
                       <li>
-                        <Link to="#">Helmet</Link>
+                        <button onClick={handleClick} value="Helmet" className="nav-btn">Helmet</button>
                       </li>
                       <li>
-                        <Link to="#">Gloves</Link>
+                        <button onClick={handleClick} value="Gloves" className="nav-btn">Gloves</button>
                       </li>
                     </ul>
                   </div>
@@ -293,16 +297,16 @@ const FilterNavbar = () => {
                     <header>Hockey</header>
                     <ul className="mega-links">
                       <li>
-                        <Link to="#">Helmet</Link>
+                        <button onClick={handleClick} value="Helmet" className="nav-btn">Helmet</button>
                       </li>
                       <li>
-                        <Link to="#">Skates</Link>
+                        <button onClick={handleClick} value="Skates" className="nav-btn">Skates</button>
                       </li>
                       <li>
-                        <Link to="#">Neck Protector</Link>
+                        <button onClick={handleClick} value="Neck Protector" className="nav-btn">Neck Protector</button>
                       </li>
                       <li>
-                        <Link to="#">Leg Pads</Link>
+                        <button onClick={handleClick} value="Leg Pads" className="nav-btn">Leg Pads</button>
                       </li>
                     </ul>
                   </div>
@@ -328,16 +332,16 @@ const FilterNavbar = () => {
                     <header>Men Shoes</header>
                     <ul className="mega-links">
                       <li>
-                        <Link to="#">Running Shoes</Link>
+                        <button onClick={handleClick} value="Running Shoes" className="nav-btn">Running Shoes</button>
                       </li>
                       <li>
-                        <Link to="#">Formals</Link>
+                        <button onClick={handleClick} value="Formals" className="nav-btn">Formals</button>
                       </li>
                       <li>
-                        <Link to="#">Sneakers</Link>
+                        <button onClick={handleClick} value="Sneakers" className="nav-btn">Sneakers</button>
                       </li>
                       <li>
-                        <Link to="#">Army Boots</Link>
+                        <button onClick={handleClick} value="Army Boots" className="nav-btn">Army Boots</button>
                       </li>
                     </ul>
                   </div>
@@ -348,16 +352,16 @@ const FilterNavbar = () => {
                     <header>Ladies Shoes</header>
                     <ul className="mega-links">
                       <li>
-                        <Link to="#">Running Shoes</Link>
+                        <button onClick={handleClick} value="Running Shoes" className="nav-btn">Running Shoes</button>
                       </li>
                       <li>
-                        <Link to="#">Formals</Link>
+                        <button onClick={handleClick} value="Formals" className="nav-btn">Formals</button>
                       </li>
                       <li>
-                        <Link to="#">Sneakers</Link>
+                        <button onClick={handleClick} value="Sneakers" className="nav-btn">Sneakers</button>
                       </li>
                       <li>
-                        <Link to="#">Cone Heel</Link>
+                        <button onClick={handleClick} value="Cone Heel" className="nav-btn">Cone Heel</button>
                       </li>
                     </ul>
                   </div>
@@ -383,13 +387,13 @@ const FilterNavbar = () => {
                     <header>Male</header>
                     <ul className="mega-links">
                       <li>
-                        <Link to="#">School Bags</Link>
+                        <button onClick={handleClick} value="School Bags" className="nav-btn">School Bags</button>
                       </li>
                       <li>
-                        <Link to="#">Suitcase</Link>
+                        <button onClick={handleClick} value="Suitcase" className="nav-btn">Suitcase</button>
                       </li>
                       <li>
-                        <Link to="#">Bag pack</Link>
+                        <button onClick={handleClick} value="Bag pack" className="nav-btn">Bag pack</button>
                       </li>
                     </ul>
                   </div>
@@ -400,16 +404,16 @@ const FilterNavbar = () => {
                     <header>Female</header>
                     <ul className="mega-links">
                       <li>
-                        <Link to="#">School Bags</Link>
+                        <button onClick={handleClick} value="School Bags" className="nav-btn">School Bags</button>
                       </li>
                       <li>
-                        <Link to="#">Suitcase</Link>
+                        <button onClick={handleClick} value="Suitcase" className="nav-btn">Suitcase</button>
                       </li>
                       <li>
-                        <Link to="#">Bag Pack</Link>
+                        <button onClick={handleClick} value="Bag Pack" className="nav-btn">Bag Pack</button>
                       </li>
                       <li>
-                        <Link to="#">Hand Bags</Link>
+                        <button onClick={handleClick} value="Hand Bags" className="nav-btn">Hand Bags</button>
                       </li>
                     </ul>
                   </div>
@@ -435,13 +439,13 @@ const FilterNavbar = () => {
                     <header>Hand Jewelry</header>
                     <ul className="mega-links">
                       <li>
-                        <Link to="#">Bangles</Link>
+                        <button onClick={handleClick} value="Bangles" className="nav-btn">Bangles</button>
                       </li>
                       <li>
-                        <Link to="#">Rings</Link>
+                        <button onClick={handleClick} value="Rings" className="nav-btn">Rings</button>
                       </li>
                       <li>
-                        <Link to="#">Bracelets</Link>
+                        <button onClick={handleClick} value="Bracelets" className="nav-btn">Bracelets</button>
                       </li>
                     </ul>
                   </div>
@@ -452,13 +456,13 @@ const FilterNavbar = () => {
                     <header>Neck Jewelry</header>
                     <ul className="mega-links">
                       <li>
-                        <Link to="#">Lockets</Link>
+                        <button onClick={handleClick} value="Lockets" className="nav-btn">Lockets</button>
                       </li>
                       <li>
-                        <Link to="#">Necklaces</Link>
+                        <button onClick={handleClick} value="Necklaces" className="nav-btn">Necklaces</button>
                       </li>
                       <li>
-                        <Link to="#">Traditional</Link>
+                        <button onClick={handleClick} value="Traditional" className="nav-btn">Traditional</button>
                       </li>
                     </ul>
                   </div>
@@ -484,16 +488,16 @@ const FilterNavbar = () => {
                     <header>Law</header>
                     <ul className="mega-links">
                       <li>
-                        <Link to="#">Human Rights</Link>
+                        <button onClick={handleClick} value="Human Rights" className="nav-btn">Human Rights</button>
                       </li>
                       <li>
-                        <Link to="#">Labour</Link>
+                        <button onClick={handleClick} value="Labour" className="nav-btn">Labour</button>
                       </li>
                       <li>
-                        <Link to="#">Philosophy</Link>
+                        <button onClick={handleClick} value="Philosophy" className="nav-btn">Philosophy</button>
                       </li>
                       <li>
-                        <Link to="#">Criminal Procedure</Link>
+                        <button onClick={handleClick} value="Criminal Procedure" className="nav-btn">Criminal Procedure</button>
                       </li>
                     </ul>
                   </div>
@@ -504,16 +508,16 @@ const FilterNavbar = () => {
                     <header>Novels</header>
                     <ul className="mega-links">
                       <li>
-                        <Link to="#">Classic</Link>
+                        <button onClick={handleClick} value="Classic" className="nav-btn">Classic</button>
                       </li>
                       <li>
-                        <Link to="#">Horror</Link>
+                        <button onClick={handleClick} value="Horror" className="nav-btn">Horror</button>
                       </li>
                       <li>
-                        <Link to="#">Kidnapping</Link>
+                        <button onClick={handleClick} value="Kidnapping" className="nav-btn">Kidnapping</button>
                       </li>
                       <li>
-                        <Link to="#">Romantic</Link>
+                        <button onClick={handleClick} value="Romantic" className="nav-btn">Romantic</button>
                       </li>
                     </ul>
                   </div>

@@ -61,7 +61,6 @@ function App() {
     <>
       {/* <UserContext.Provider value={{ state, dispatch }}> */}
       <Navbar />
-      <FilterNavbar />
       <Sidebar />
 
       {isAuthenticated && <UserOptions user={user} />}

@@ -62,9 +62,14 @@
 
 .logout-style {
   position: absolute !important ;
-  bottom: 100px;
+  bottom: 50px;
 }
 
+.dashboard-style{
+  margin-top:30px !important;
+  /* position: absolute !important; */
+  /* top: 30px !important; */
+}
 /* .slideThree:focus {
   border: 1.5px solid #339933;
   box-shadow: 0 0 3px rgba(0, 255, 0, 0.3), 0 0 5px rgba(0, 255, 0, 0.2),
