@@ -441,7 +441,7 @@ input.check {
 .sidebar {
   position: fixed;
   left: 0;
-  top: 80px;
+  top: 50px;
   height: 100%;
   width: 50px;
   background: #11101d;

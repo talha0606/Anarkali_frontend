@@ -142,6 +142,7 @@ function Home() {
     if (toggleValue == "Shops") {
       // alert("Products Displayed");
       setCurrentPage(1);
+      setNavbarFilters("");
       setToggleValue("Products");
     } else {
       // alert("Shops Displayed");
@@ -149,10 +150,12 @@ function Home() {
     }
   };
 
+  const [navbarFilters, setNavbarFilters] = useState("");
+
   const getFilteredProducts = async () => {
     try {
       const res = await fetch(
-        `/product/allproducts?keyword=${searchString}&price[gte]=${price[0]}&price[lte]=${price[1]}&page=${currentPage}`,
+        `/product/allproducts?keyword=${searchString}&category=${navbarFilters}&price[gte]=${price[0]}&price[lte]=${price[1]}&page=${currentPage}`,
         {
           method: "GET",
           headers: {
@@ -175,7 +178,7 @@ function Home() {
 
   useEffect(() => {
     getFilteredProducts();
-  }, [price, searchString, currentPage]);
+  }, [price, searchString, currentPage, navbarFilters]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -193,7 +196,7 @@ function Home() {
     return (
       <>
         <div className="container-fluid home-container">
-          <div className="row home-top-margin">
+          <div className="row ">
             <div className="col-2 p-0 checkbox-hide-for-medium">
               {/* {isPending && <div> Loading... </div>} */}
               <Checkboxes
@@ -424,24 +427,28 @@ function Home() {
   } else {
     return (
       <>
+        <FilterNavbar
+          handleNavbarFilters={(navbarFilters) => {
+            console.log("Navbarfilters in home.js" + navbarFilters);
+            setNavbarFilters(navbarFilters);
+          }}
+        />
         <div className="container-fluid home-container">
           <div className="row home-top-margin">
             <div className="col-2 p-0 checkbox-hide-for-medium">
-                <div className="category-checkbox">
-                  <h6 className="checkbox-heading price-range-heading">
-                    Price
-                  </h6>
-                  <div className="price-range">
-                    <Slider
-                      value={price}
-                      onChange={priceHandler}
-                      valueLabelDisplay="auto"
-                      aria-labelledby="range-slider"
-                      min={0}
-                      max={25000}
-                    />
-                  </div>
+              <div className="category-checkbox">
+                <h6 className="checkbox-heading price-range-heading">Price</h6>
+                <div className="price-range">
+                  <Slider
+                    value={price}
+                    onChange={priceHandler}
+                    valueLabelDisplay="auto"
+                    aria-labelledby="range-slider"
+                    min={0}
+                    max={25000}
+                  />
                 </div>
+              </div>
               {/* <div className="rounded container shadow p-3 mb-5">
               </div> */}
               {/* {isPending && <div> Loading... </div>} */}

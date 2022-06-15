@@ -127,7 +127,7 @@ function ShopDetail() {
               </div>
             </div>
           </div>
-          <div className="col-10 p-0 ps-3 ">
+          <div className="col-10 p-0 ps-3 mt-2">
             <div className="container-fluid card-container m-0">
               {/* <div className="grid-container"> */}
               <div className="search-portion">
@@ -158,52 +158,52 @@ function ShopDetail() {
       </div>
       {/* previous 1*/}
       {/* <div className="container-fluid">
-        <div class="container d-flex justify-content-center">
-          <div class="card cardShop p-3 py-4">
-            <div class="text-center">
+        <div className="container d-flex justify-content-center">
+          <div className="card cardShop p-3 py-4">
+            <div className="text-center">
               <img
                 // src={`/uploads/${shopImage}`}
                 src={shopImage}
                 width="250"
-                class="rounded-circle"
+                className="rounded-circle"
               />
-              <h3 class="mt-2">{shopName}</h3>
-              <span class="mt-1 clearfix">{shopaddress}</span> */}
+              <h3 className="mt-2">{shopName}</h3>
+              <span className="mt-1 clearfix">{shopaddress}</span> */}
 
-      {/* <div class="row mt-3 mb-3">
-                            <div class="col-md-4">
-                                <h5>Projects</h5> <span class="num">10</span>
+      {/* <div className="row mt-3 mb-3">
+                            <div className="col-md-4">
+                                <h5>Projects</h5> <span className="num">10</span>
                             </div>
-                            <div class="col-md-4">
-                                <h5>Projects</h5> <span class="num">10</span>
+                            <div className="col-md-4">
+                                <h5>Projects</h5> <span className="num">10</span>
                             </div>
-                            <div class="col-md-4">
-                                <h5>Projects</h5> <span class="num">10</span>
+                            <div className="col-md-4">
+                                <h5>Projects</h5> <span className="num">10</span>
                             </div>
                         </div> */}
 
       {/* previous 2*/}
 
-      {/* <hr class="line" /> <small class="mt-4">{shopDescription}</small>
-              <div class="social-buttons mt-5">
-                <button class="neo-button">
+      {/* <hr className="line" /> <small className="mt-4">{shopDescription}</small>
+              <div className="social-buttons mt-5">
+                <button className="neo-button">
                   <FaFacebookF />
                 </button>
-                <button class="neo-button">
+                <button className="neo-button">
                   <SiGmail />
                 </button>
-                <button class="neo-button">
+                <button className="neo-button">
                   <FaYoutube />
                 </button>
-                <button class="neo-button">
+                <button className="neo-button">
                   <FaLinkedin />
                 </button>
-                <button class="neo-button">
+                <button className="neo-button">
                   <FaTwitter />
                 </button>
               </div> */}
-      {/* <div class="profile mt-5">
-                            <button class="profile_button px-5">View profile</button>
+      {/* <div className="profile mt-5">
+                            <button className="profile_button px-5">View profile</button>
                         </div> */}
 
       {/* previous 3*/}

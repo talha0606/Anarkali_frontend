@@ -136,7 +136,7 @@ const ShopProduct = ({ id, filteredData }) => {
   } else {
     return (
       <>
-  {console.log("Else/ShopProduct/FilteredProducts: " + filteredProducts)}
+        {console.log("Else/ShopProduct/FilteredProducts: " + filteredProducts)}
         <div class="container">
           <div class="row no-gutters">
             {filteredProducts?.map((prod) => (
