@@ -41,9 +41,19 @@
 }
 
 .pageItemActive {
-  background-color: tomato;
+  background-color: #4ec850;
 }
 
 .pageLinkActive {
   color: white;
+}
+
+.filterBox {
+  width: 10vmax;
+  position: absolute;
+  top: 10vmax;
+  left: 4vmax;
+}
+.categoryBox {
+  padding: 0%;
 }

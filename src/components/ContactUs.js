@@ -50,7 +50,7 @@ function ContactUs() {
         (result) => {
           console.log(result.text);
           window.alert("Email sent");
-        //   e.target.reset();
+          //   e.target.reset();
         },
         (error) => {
           window.alert(error.text);

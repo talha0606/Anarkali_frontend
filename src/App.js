@@ -14,6 +14,8 @@ import AddProduct from "./components/AddProduct";
 // import MyProducts from "./components/AddProduct";
 import ModalTesting from "./components/ModalTesting";
 import ShopDetail from "./components/ShopDetail";
+import ContactUs from "./components/ContactUs";
+
 import Map from "./components/Map";
 import FilterNavbar from "./components/FilterNavbar";
 
@@ -71,6 +73,9 @@ function App() {
         </Route>
         <Route exact path="/login">
           <LoginPage />
+        </Route>
+        <Route exact path="/contactus">
+          <ContactUs />
         </Route>
         <Route exact path="/logout">
           <LogoutPage />

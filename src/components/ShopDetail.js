@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import avatar from "../images/avatar.png";
+import map from "../images/map.jpeg";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
   FaFacebookF,
   FaTwitter,
@@ -36,6 +42,7 @@ function ShopDetail() {
   const [shopDescription, setshopDescription] = useState("");
   const [shopImage, setshopImage] = useState(avatar);
   const [searchedData, setsearchedData] = useState(null);
+  const [shopPhoneNo, setShopPhonNo] = useState("");
 
   const [novalue, setnovalue] = useState("");
 
@@ -52,37 +59,38 @@ function ShopDetail() {
     }
   };
 
-  // const callSellerPage = async () => {
-  //   try {
-  //     const res = await fetch(
-  //       // `/shopinfo?sellerid=${localStorage.getItem("id")}`,
-  //       `/shop/shopinfo?sellerid=${shopId}`,
-  //       {
-  //         method: "GET",
-  //         headers: {
-  //           Accept: "application/json",
-  //           "Content-Type": "application/json",
-  //         },
-  //       }
-  //     );
+  const callSellerPage = async () => {
+    try {
+      const res = await fetch(
+        // `/shopinfo?sellerid=${localStorage.getItem("id")}`,
+        `/shop/shopinfo?sellerid=${shopId}`,
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-  //     const data = await res.json();
-  //     console.log(data);
-  //     setshopName(data[0].sName);
-  //     setshopDescription(data[0].sDescription);
-  //     setshopAddress(data[0].address);
-  //     setshopEmail(data[0].email);
-  //     //   setshopImage(data[0].shopImage);
-  //     setshopImage(data[0].imageUrl);
-  //   } catch (err) {
-  //     history.push("/login");
-  //   }
-  // };
+      const data = await res.json();
+      console.log(data);
+      setshopName(data[0].sName);
+      setshopDescription(data[0].sDescription);
+      setshopAddress(data[0].address);
+      setshopEmail(data[0].email);
+      //   setshopImage(data[0].shopImage);
+      setshopImage(data[0].imageUrl);
+      setShopPhonNo(data[0].phoneNo);
+    } catch (err) {
+      history.push("/login");
+    }
+  };
 
-  // useEffect(() => {
-  //   console.log("sellerid " + localStorage.getItem("id"));
-  //   callSellerPage();
-  // }, []);
+  useEffect(() => {
+    console.log("sellerid " + localStorage.getItem("id"));
+    callSellerPage();
+  }, []);
 
   //   const changeid = () => setId(localStorage.getItem("id"));
   // &price[gte]=${price[0]}&price[lte]=${price[1]}
@@ -134,9 +142,9 @@ function ShopDetail() {
   return (
     <>
       <div className="container-fluid home-container">
-        <div className="row home-top-margin">
+        <div className="row">
           <div className="col-2 p-0 checkbox-hide-for-medium">
-            <div className="category-checkbox">
+            <div className="category-checkbox shopDetails-price">
               <h6 className="checkbox-heading price-range-heading">Price</h6>
               <div className="price-range">
                 <Slider
@@ -149,8 +157,94 @@ function ShopDetail() {
                 />
               </div>
             </div>
+
+            {/* shop details  */}
+            <div className="category-checkbox shopDetails-price">
+              <div className="price-range">
+                <div className="shop-description-shop-details">
+                  Shop Details
+                </div>
+                <img
+                  src={shopImage}
+                  className="img-round mx-auto d-block img-thumbnail avatar"
+                  id="myImg"
+                  alt="Shop avatar"
+                />
+                <div className="sDetails-sName">{shopName}</div>
+
+                {/* Accordion */}
+                <div>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel2a-content"
+                      id="panel2a-header"
+                    >
+                      <Typography>Description</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Typography>{shopDescription}</Typography>
+                    </AccordionDetails>
+                  </Accordion>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel2a-content"
+                      id="panel2a-header"
+                    >
+                      <Typography>Email</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Typography className="shop-detail-email">
+                        {shopemail}
+                      </Typography>
+                    </AccordionDetails>
+                  </Accordion>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel2a-content"
+                      id="panel2a-header"
+                    >
+                      <Typography>Phone Number:</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Typography>{shopPhoneNo}</Typography>
+                    </AccordionDetails>
+                  </Accordion>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel2a-content"
+                      id="panel2a-header"
+                    >
+                      <Typography>Address:</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Typography>{shopaddress}</Typography>
+                      <Typography>
+                        <img
+                          src={map}
+                          className=" mx-auto d-block img-thumbnail avatar map-img"
+                          id="myImg"
+                          alt="Shop avatar"
+                        />
+                      </Typography>
+                    </AccordionDetails>
+                  </Accordion>
+                </div>
+                {/* Accordion */}
+
+                {/* <div className="sDetails-sName"></div> */}
+                <div className="shop-Description-Email"></div>
+
+                {/* {shopPhoneNo}
+                {shopaddress} */}
+              </div>
+            </div>
           </div>
-          <div className="col-10 p-0 ps-3 mt-2">
+
+          <div className="col-10 p-0 ps-3">
             <div className="container-fluid card-container m-0">
               {/* <div className="grid-container"> */}
               <div className="search-portion">
