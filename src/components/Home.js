@@ -656,10 +656,10 @@ function Home() {
                     prevPageText="Prev"
                     firstPageText="1st"
                     lastPageText="Last"
-                    itemclassName="page-item"
-                    linkclassName="page-link"
-                    activeclassName="pageItemActive"
-                    activeLinkclassName="pageLinkActive"
+                    itemName="page-item"
+                    linkName="page-link"
+                    activeName="pageItemActive"
+                    activeLinkName="pageLinkActive"
                   />
                 )}
               </div>
