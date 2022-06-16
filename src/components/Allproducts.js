@@ -258,7 +258,7 @@ const Allproducts = ({ filteredProducts }) => {
                       <h3>{prod.pName}</h3>
                     </div>
                     <div class="price_rating">
-                      <h3>Rs. {prod.price}</h3>
+                      <h3>$ {prod.price}</h3>
                       <div class="rating">
                         <i class="fa fa-star" aria-hidden="true"></i>
                         <i class="fa fa-star" aria-hidden="true"></i>
