@@ -3,8 +3,8 @@ import emailjs from "@emailjs/browser";
 import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
 
-import axios from "axios";
-import { BiWindows } from "react-icons/bi";
+// import axios from "axios";
+// import { BiWindows } from "react-icons/bi";
 
 function ContactUs() {
   const [sname, setsname] = useState("");
