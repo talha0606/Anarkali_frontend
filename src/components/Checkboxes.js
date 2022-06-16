@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Collapse, Checkbox } from "antd";
-import "../style/categories-checkbox.css"
+import "../style/categories-checkbox.css";
 import { AiOutlineSearch } from "react-icons/ai";
 
 const { Panel } = Collapse;
@@ -27,23 +27,15 @@ const category = [
   },
   {
     _id: 6,
-    name: "Groceries",
-  },
-  {
-    _id: 7,
     name: "Pents",
   },
   {
-    _id: 8,
+    _id: 7,
     name: "Kurtas",
   },
   {
-    _id: 9,
+    _id: 8,
     name: "Watches",
-  },
-  {
-    _id: 10,
-    name: "Cameras",
   },
 ];
 
@@ -65,10 +57,7 @@ const Checkboxes = (props) => {
   };
 
   return (
-    <div
-      class="rounded container p-3 mb-5"
-      className="category-checkbox"
-    >
+    <div class="rounded container p-3 mb-5" className="category-checkbox">
       {/* <div class="input-group">
         <form>
           <input
@@ -78,8 +67,8 @@ const Checkboxes = (props) => {
               aria-label="Search"
             />
           {/* <button type="button" class="btn btn-primary" value="Search" name="Search"> */}
-            {/* <AiOutlineSearch/> */}
-          {/* </button> 
+      {/* <AiOutlineSearch/> */}
+      {/* </button> 
         </form>
       </div>
       */}

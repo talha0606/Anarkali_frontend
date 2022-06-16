@@ -130,6 +130,10 @@ function ContactUs() {
           }}
         />
       </form>
+      <div className="login-footer contact-us-footer">
+        <hr />
+        <p> @ 2022, Anarkali Bazar, Lhr. </p>
+      </div>
       {/* <form className="login-form">
         <Link to="/">
           <img src={logo} className="login-logo" alt="logo" />

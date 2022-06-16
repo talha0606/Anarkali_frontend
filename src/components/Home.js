@@ -12,6 +12,7 @@ import Slider from "@material-ui/core/Slider";
 import Pagination from "react-js-pagination";
 import FilterNavbar from "./FilterNavbar";
 import { Link } from "react-router-dom";
+import Footer from "./Footer";
 
 function Home() {
   const [isPending, setIsPending] = useState(true);
@@ -251,7 +252,7 @@ function Home() {
                   </Link>
                 </div>
 
-                <div className="search-portion">
+                <div>
                   <div className="a1">
                     <input
                       className="search-box ms-3"
@@ -452,6 +453,9 @@ function Home() {
           </div>
         ))
       } */}
+        <div className="container-fluid footer-style">
+          <Footer />
+        </div>
       </>
     );
   } else {
@@ -467,7 +471,9 @@ function Home() {
           <div className="row home-top-margin">
             <div className="col-2 p-0 checkbox-hide-for-medium">
               <div className="category-checkbox">
-                <h6 className="checkbox-heading price-range-heading">Price</h6>
+                <h6 className="checkbox-heading price-range-heading">
+                  Price Filter
+                </h6>
                 <div className="price-range">
                   <Slider
                     value={price}
@@ -482,21 +488,21 @@ function Home() {
               {/* <div className="rounded container shadow p-3 mb-5">
               </div> */}
               {/* {isPending && <div> Loading... </div>} */}
-              <Checkboxes
+              {/* <Checkboxes
                 handleFilters={(filters) =>
                   handleProductFilters(filters, "category")
                 }
-              />
-              <Checkbox2
+              /> */}
+              {/* <Checkbox2
                 handleFilters={(filters) =>
                   handleProductFilters(filters, "brand")
                 }
-              />
+              /> */}
             </div>
             <div className="col-10 p-0 ps-3 ">
               <div className="container-fluid card-container m-0">
                 {/* <div className="grid-container"> */}
-                <div className="search-portion">
+                <div>
                   <div className="a1">
                     <input
                       className="search-box ms-3"
@@ -645,8 +651,8 @@ function Home() {
               <div className="p-3">
                 <Allproducts filteredProducts={FilteredProducts} />
               </div>
-              <div className="paginationBox">
-                {resultPerPage < filteredProductsCount && (
+              {resultPerPage < filteredProductsCount && (
+                <div className="paginationBox">
                   <Pagination
                     activePage={currentPage}
                     itemsCountPerPage={resultPerPage}
@@ -656,13 +662,13 @@ function Home() {
                     prevPageText="Prev"
                     firstPageText="1st"
                     lastPageText="Last"
-                    itemName="page-item"
-                    linkName="page-link"
-                    activeName="pageItemActive"
-                    activeLinkName="pageLinkActive"
+                    itemClass="page-item"
+                    linkClass="page-link"
+                    activeClass="pageItemActive"
+                    activeLinkClass="pageLinkActive"
                   />
-                )}
-              </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -729,6 +735,9 @@ function Home() {
           </div>
         ))
       } */}
+        <div className="container-fluid footer-style">
+          <Footer />
+        </div>
       </>
     );
   }

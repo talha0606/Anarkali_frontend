@@ -7,8 +7,8 @@ import "../style/allshops.css";
 import { Button } from "react-bootstrap";
 // import Modal from "react-bootstrap/Modal";
 import Map from "./Map";
-import LocalPhoneTwoToneIcon from '@mui/icons-material/LocalPhoneTwoTone';
-import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
+import LocalPhoneTwoToneIcon from "@mui/icons-material/LocalPhoneTwoTone";
+import LocalPhoneRoundedIcon from "@mui/icons-material/LocalPhoneRounded";
 // import {
 //   FaFacebookF,
 //   FaTwitter,
@@ -141,7 +141,7 @@ const Allshops = ({ shopData }) => {
                   <p className="card-text fw-bold shop-email">{shop.email}</p>
 
                   {/* <div className="phone-number lead"><span className="phone-number-icon"><LocalPhoneTwoToneIcon  /></span>0323-2323454</div> */}
-                  <div className="phone-number lead">0323-2323454</div>
+                  <div className="phone-number lead">+92-{shop.phoneNo}</div>
                   {/* <Button */}
                   <Link to={`/map/${shop._id}`}>
                     {/* // to={`/`} */}
