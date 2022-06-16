@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
 import LogoutIcon from "@mui/icons-material/Logout";
-
 // import { UserContext } from "../App";
 
 function Navbar() {
@@ -36,21 +35,21 @@ function Navbar() {
                     Home
                   </Link>
                 </li>
-                {/* <li className="nav-item">
+                <li className="nav-item">
                   <Link className="nav-link" aria-current="page" to="#">
                     Features
                   </Link>
-                </li> */}
-                {/* <li className="nav-item">
+                </li>
+                <li className="nav-item">
                   <Link className="nav-link" aria-current="page" to="#">
                     Pricing
                   </Link>
-                </li> */}
-                {/* <li className="nav-item">
+                </li>
+                <li className="nav-item">
                   <Link className="nav-link" aria-current="page" to="#">
                     Services
                   </Link>
-                </li> */}
+                </li>
                 <li className="nav-item">
                   <Link className="nav-link" aria-current="page" to="#">
                     About Us
@@ -158,7 +157,7 @@ function Navbar() {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" aria-current="page" to="/contactus">
+                  <Link className="nav-link" aria-current="page" to="#">
                     Contact Us
                   </Link>
                 </li>

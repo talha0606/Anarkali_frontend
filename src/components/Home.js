@@ -12,7 +12,6 @@ import Slider from "@material-ui/core/Slider";
 import Pagination from "react-js-pagination";
 import FilterNavbar from "./FilterNavbar";
 import { Link } from "react-router-dom";
-import Footer from "./Footer";
 
 function Home() {
   const [isPending, setIsPending] = useState(true);
@@ -141,7 +140,7 @@ function Home() {
 
   useEffect(() => {
     findShops();
-  }, [searchString && suggestString]);
+  }, [searchString]);
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
@@ -163,11 +162,15 @@ function Home() {
   const handleToggle = () => {
     if (toggleValue == "Shops") {
       // alert("Products Displayed");
+      setToggleValue("Products");
       setCurrentPage(1);
       setsearchString("");
       setPrice([0, 25000000000000]);
       setNavbarFilters("");
-      setToggleValue("Products");
+      setFilters({
+        category: [],
+        brand: [],
+      });
     } else {
       // alert("Shops Displayed");
       setToggleValue("Shops");
@@ -248,7 +251,7 @@ function Home() {
                   </Link>
                 </div>
 
-                <div>
+                <div className="search-portion">
                   <div className="a1">
                     <input
                       className="search-box ms-3"
@@ -386,27 +389,6 @@ function Home() {
             </div>
           </div>
         </div>
-
-        {/* {resultPerPage < filteredProductsCount && (
-          <div className="paginationBox">
-            <Pagination
-              activePage={currentPage}
-              itemsCountPerPage={resultPerPage}
-              totalItemsCount={productsCount}
-              onChange={setCurrentPageNo}
-              nextPageText="Next"
-              prevPageText="Prev"
-              firstPageText="1st"
-              lastPageText="Last"
-              itemClass="page-item"
-              linkClass="page-link"
-              activeClass="pageItemActive"
-              activeLinkClass="pageLinkActive"
-            />
-          </div>
-        )} */}
-        {/* <div className="container-fluid"><Footer /></div> */}
-
         {/* </div> */}
 
         {/* by ali */}
@@ -470,9 +452,6 @@ function Home() {
           </div>
         ))
       } */}
-        <div className="container-fluid footer-style">
-          <Footer />
-        </div>
       </>
     );
   } else {
@@ -488,9 +467,7 @@ function Home() {
           <div className="row home-top-margin">
             <div className="col-2 p-0 checkbox-hide-for-medium">
               <div className="category-checkbox">
-                <h6 className="checkbox-heading price-range-heading">
-                  Price Filter
-                </h6>
+                <h6 className="checkbox-heading price-range-heading">Price</h6>
                 <div className="price-range">
                   <Slider
                     value={price}
@@ -502,11 +479,10 @@ function Home() {
                   />
                 </div>
               </div>
-
               {/* <div className="rounded container shadow p-3 mb-5">
               </div> */}
               {/* {isPending && <div> Loading... </div>} */}
-              {/* <Checkboxes
+              <Checkboxes
                 handleFilters={(filters) =>
                   handleProductFilters(filters, "category")
                 }
@@ -515,12 +491,12 @@ function Home() {
                 handleFilters={(filters) =>
                   handleProductFilters(filters, "brand")
                 }
-              /> */}
+              />
             </div>
             <div className="col-10 p-0 ps-3 ">
               <div className="container-fluid card-container m-0">
                 {/* <div className="grid-container"> */}
-                <div>
+                <div className="search-portion">
                   <div className="a1">
                     <input
                       className="search-box ms-3"
@@ -669,31 +645,27 @@ function Home() {
               <div className="p-3">
                 <Allproducts filteredProducts={FilteredProducts} />
               </div>
+              <div className="paginationBox">
+                {resultPerPage < filteredProductsCount && (
+                  <Pagination
+                    activePage={currentPage}
+                    itemsCountPerPage={resultPerPage}
+                    totalItemsCount={productsCount}
+                    onChange={setCurrentPageNo}
+                    nextPageText="Next"
+                    prevPageText="Prev"
+                    firstPageText="1st"
+                    lastPageText="Last"
+                    itemclassName="page-item"
+                    linkclassName="page-link"
+                    activeclassName="pageItemActive"
+                    activeLinkclassName="pageLinkActive"
+                  />
+                )}
+              </div>
             </div>
           </div>
         </div>
-
-        {resultPerPage < filteredProductsCount && (
-          <div className="paginationBox">
-            <Pagination
-              activePage={currentPage}
-              itemsCountPerPage={resultPerPage}
-              totalItemsCount={productsCount}
-              onChange={setCurrentPageNo}
-              nextPageText="Next"
-              prevPageText="Prev"
-              firstPageText="1st"
-              lastPageText="Last"
-              itemClass="page-item"
-              linkClass="page-link"
-              activeClass="pageItemActive"
-              activeLinkClass="pageLinkActive"
-            />
-          </div>
-        )}
-        {/* <div className="container-fluid"><Footer /></div> */}
-
-        {/* <Footer/> */}
         {/* </div> */}
 
         {/* by ali */}
@@ -757,11 +729,6 @@ function Home() {
           </div>
         ))
       } */}
-        {/* <Footer/> */}
-        {/* <div className="container-fluid"><Footer /></div> */}
-        <div className="container-fluid footer-style">
-          <Footer />
-        </div>
       </>
     );
   }
