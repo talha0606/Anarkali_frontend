@@ -7,6 +7,10 @@ import "../style/ShopProduct.css";
 import { Link } from "react-router-dom";
 import "../style/allshops.css";
 import "../style/shopCards.css";
+import { Rating } from "@material-ui/lab";
+
+// const [prodReviews, setProdReviews] = useState();
+// const [numOfReviews, setNumOfReviews] = useState(0);
 
 const ShopProduct = ({ id, filteredData }) => {
   console.log("ShopProduct/Sellerid" + id);
@@ -118,11 +122,25 @@ const ShopProduct = ({ id, filteredData }) => {
                     <div class="price_rating">
                       <h3>Rs.{prod.price}</h3>
                       <div class="rating">
+                        {/* <i class="fa fa-star" aria-hidden="true"></i>
                         <i class="fa fa-star" aria-hidden="true"></i>
                         <i class="fa fa-star" aria-hidden="true"></i>
                         <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star grey" aria-hidden="true"></i>
+                        <i class="fa fa-star grey" aria-hidden="true"></i> */}
+                        <div>
+                          <Rating
+                            size="medium"
+                            value={prod.ratings}
+                            readOnly={true}
+                            precision={0.5}
+                          />
+                        </div>
+                        <div>
+                          <span className="rating_span">
+                            {" "}
+                            ({prod.numOfReviews} Reviews)
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -177,11 +195,24 @@ const ShopProduct = ({ id, filteredData }) => {
                     <div class="price_rating">
                       <h3>Rs. {prod.price}</h3>
                       <div class="rating">
+                        {/* <i class="fa fa-star" aria-hidden="true"></i>
                         <i class="fa fa-star" aria-hidden="true"></i>
                         <i class="fa fa-star" aria-hidden="true"></i>
                         <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star grey" aria-hidden="true"></i>
+                        <i class="fa fa-star grey" aria-hidden="true"></i> */}
+                        <div>
+                          <Rating
+                            size="medium"
+                            value={prod.ratings}
+                            readOnly={true}
+                            precision={0.5}
+                          />
+                        </div>
+                        <div>
+                          <span className="rating_span">
+                            ({prod.numOfReviews} Reviews)
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>

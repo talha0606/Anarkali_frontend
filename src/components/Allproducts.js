@@ -9,6 +9,8 @@ import "../style/shopCards.css";
 import { Button } from "react-bootstrap";
 // import Modal from "react-bootstrap/Modal";
 import Map from "./Map";
+
+import { Rating } from "@material-ui/lab";
 // import {
 //   FaFacebookF,
 //   FaTwitter,
@@ -172,8 +174,29 @@ const Allproducts = ({ filteredProducts }) => {
                     <h6 class="card-title nopadding">{prod.pName} 12</h6>
                     <div class="clearfix mb-3">
                       <span class="float-start badge rounded  text-success p-0">
-                        Price {prod.price}
+                        Rs.{prod.price}
                       </span>
+                      <div class="rating">
+                        {/* <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star grey" aria-hidden="true"></i> */}
+                        <div>
+                          <Rating
+                            size="medium"
+                            value={prod.ratings}
+                            readOnly={true}
+                            precision={0.5}
+                          />
+                        </div>
+                        <div>
+                          <span className="rating_span">
+                            {" "}
+                            ({prod.numOfReviews} Reviews)
+                          </span>
+                        </div>
+                      </div>
                       {/* 
                     <span class="float-end">
                       <a
@@ -260,11 +283,25 @@ const Allproducts = ({ filteredProducts }) => {
                     <div class="price_rating">
                       <h3>Rs. {prod.price}</h3>
                       <div class="rating">
+                        {/* <i class="fa fa-star" aria-hidden="true"></i>
                         <i class="fa fa-star" aria-hidden="true"></i>
                         <i class="fa fa-star" aria-hidden="true"></i>
                         <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star grey" aria-hidden="true"></i>
+                        <i class="fa fa-star grey" aria-hidden="true"></i> */}
+                        <div>
+                          <Rating
+                            size="medium"
+                            value={prod.ratings}
+                            readOnly={true}
+                            precision={0.5}
+                          />
+                        </div>
+                        <div>
+                          <span className="rating_span">
+                            {" "}
+                            ({prod.numOfReviews} Reviews)
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>

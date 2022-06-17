@@ -186,7 +186,7 @@ function Navbar() {
                 <li className=" nav-item">
                   <Link
                     className="btn btn-sm btn-outline-dark m-1"
-                    to="/loginsignup"
+                    to="/logiinsignup"
                   >
                     Customer
                   </Link>

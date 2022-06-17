@@ -58,7 +58,7 @@ const UserOptions = ({ user }) => {
   }
   function logoutUser() {
     dispatch(logout());
-    history.push(`/loginsignup`);
+    history.push(`/logiinsignup`);
     alert.success("Logout Successfully");
   }
 

@@ -27,6 +27,7 @@ const ForgotPassword = () => {
   };
 
   useEffect(() => {
+    console.log("Erros in forgot Password: " + error);
     if (error) {
       alert.error(error);
       dispatch(clearErrors());

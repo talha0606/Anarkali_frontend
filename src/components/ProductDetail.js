@@ -48,12 +48,14 @@ function ProductDetail() {
       console.log("Error in Product Detail Page");
     }
   };
+
   const options = {
     size: "large",
     value: prodRating,
     readOnly: true,
     precision: 0.5,
   };
+
   useEffect(() => {
     // console.log("sellerid " + localStorage.getItem("id"));
     getShopDetail();
