@@ -11,6 +11,12 @@ import { Button } from "react-bootstrap";
 import Map from "./Map";
 
 import { Rating } from "@material-ui/lab";
+
+import { useAlert } from "react-alert";
+import { addItemsToCart } from "../actions/cartAction";
+import { useSelector, useDispatch } from "react-redux";
+// import { Button } from "@material-ui/core";
+
 // import {
 //   FaFacebookF,
 //   FaTwitter,
@@ -85,6 +91,9 @@ function showLess() {
 }
 
 const Allproducts = ({ filteredProducts }) => {
+  const dispatch = useDispatch();
+  const alert = useAlert();
+
   console.log(`in all products ${filteredProducts}`);
   //   const [id, setID] = useState(null);
   //   const [modalShow, setModalShow] = React.useState(false);
@@ -131,6 +140,11 @@ const Allproducts = ({ filteredProducts }) => {
   useEffect(() => {
     Myprod();
   }, []);
+
+  const addToCartHandler = () => {
+    // dispatch(addItemsToCart(prodId, quantity));
+    // alert.success("Item Added To Cart");
+  };
 
   if (filteredProducts == null) {
     return (
@@ -249,16 +263,16 @@ const Allproducts = ({ filteredProducts }) => {
               <div class="col-3 col-* ">
                 <div className="card">
                   <div class="imgBx">
-                    <Link to={`/productDetail/${prod._id}`}>
-                      <img
-                        // src={`/uploads/${shop.shopImage}`}
-                        src={prod.prodImage}
-                        alt="Card image cap"
-                        //   onClick={() => {
-                        //     setID(user._id);
-                        //   }}
-                      />
-                    </Link>
+                    {/* <Link to={`/productDetail/${prod._id}`}> */}
+                    <img
+                      // src={`/uploads/${shop.shopImage}`}
+                      src={prod.prodImage}
+                      alt="Card image cap"
+                      //   onClick={() => {
+                      //     setID(user._id);
+                      //   }}
+                    />
+                    {/* </Link> */}
                     <ul class="action">
                       <li>
                         <i class="fa fa-heart" aria-hidden="true">
@@ -266,14 +280,24 @@ const Allproducts = ({ filteredProducts }) => {
                         </i>
                         <span>Add to Wishlist</span>
                       </li>
-                      <li>
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                        <span>Add to Cart</span>
-                      </li>
-                      <li>
-                        <i class="fa fa-eye" aria-hidden="true"></i>
-                        <span>View Details</span>
-                      </li>
+                      {/* <Button
+                        // disabled={product.Stock < 1 ? true : false}
+                        onClick={addToCartHandler}
+                      > */}
+                      <Link to={`/cart`}>
+                        <li>
+                          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                          <span>View Cart</span>
+                        </li>
+                      </Link>
+
+                      {/* </Button> */}
+                      <Link to={`/productDetail/${prod._id}`}>
+                        <li>
+                          <i class="fa fa-eye" aria-hidden="true"></i>
+                          <span>View Details</span>
+                        </li>
+                      </Link>
                     </ul>
                   </div>
                   <div class="content">

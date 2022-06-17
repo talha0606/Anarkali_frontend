@@ -73,7 +73,7 @@ const Sidebar = () => {
             <span className="tooltip">Messages</span>
           </li> */}
           <li>
-            <Link to="./Cart" className="link-light">
+            <Link to="/cart" className="link-light">
               <BiCartAlt />
             </Link>
             <span className="tooltip">Cart</span>
