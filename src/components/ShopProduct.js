@@ -9,10 +9,16 @@ import "../style/allshops.css";
 import "../style/shopCards.css";
 import { Rating } from "@material-ui/lab";
 
+import { useAlert } from "react-alert";
+import { addItemsToCart } from "../actions/cartAction";
+import { useSelector, useDispatch } from "react-redux";
 // const [prodReviews, setProdReviews] = useState();
 // const [numOfReviews, setNumOfReviews] = useState(0);
 
 const ShopProduct = ({ id, filteredData }) => {
+  const dispatch = useDispatch();
+  const alert = useAlert();
+
   console.log("ShopProduct/Sellerid" + id);
   console.log("ShopProduct/FilteredProducts: " + filteredData);
   // const [filteredProducts, setFilteredProducts] = useState(filteredData);
@@ -79,6 +85,11 @@ const ShopProduct = ({ id, filteredData }) => {
     }
   };
 
+  const addToCartHandler = (prodId, quantity) => {
+    dispatch(addItemsToCart(prodId, quantity));
+    alert.success("Item Added To Cart");
+  };
+
   if (filteredData == null) {
     return (
       <>
@@ -105,12 +116,12 @@ const ShopProduct = ({ id, filteredData }) => {
                         </i>
                         <span>Add to Wishlist</span>
                       </li>
-                      <Link to={`/cart`}>
-                        <li>
-                          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                          <span>View Cart</span>
-                        </li>
-                      </Link>
+                      {/* <Link to={`/cart`}> */}
+                      <li onClick={() => addToCartHandler(prod._id, 1)}>
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <span>Add to Cart</span>
+                      </li>
+                      {/* </Link> */}
                       <Link to={`/productDetail/${prod._id}`}>
                         <li>
                           <i class="fa fa-eye" aria-hidden="true"></i>
@@ -182,12 +193,12 @@ const ShopProduct = ({ id, filteredData }) => {
                         </i>
                         <span>Add to Wishlist</span>
                       </li>
-                      <Link to={`/cart`}>
-                        <li>
-                          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                          <span>View Cart</span>
-                        </li>
-                      </Link>
+                      {/* <Link to={`/cart`}> */}
+                      <li onClick={() => addToCartHandler(prod._id, 1)}>
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <span>Add to Cart</span>
+                      </li>
+                      {/* </Link> */}
                       <Link to={`/productDetail/${prod._id}`}>
                         <li>
                           <i class="fa fa-eye" aria-hidden="true"></i>

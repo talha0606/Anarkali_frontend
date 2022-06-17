@@ -141,9 +141,9 @@ const Allproducts = ({ filteredProducts }) => {
     Myprod();
   }, []);
 
-  const addToCartHandler = () => {
-    // dispatch(addItemsToCart(prodId, quantity));
-    // alert.success("Item Added To Cart");
+  const addToCartHandler = (prodId, quantity) => {
+    dispatch(addItemsToCart(prodId, quantity));
+    alert.success("Item Added To Cart");
   };
 
   if (filteredProducts == null) {
@@ -284,12 +284,10 @@ const Allproducts = ({ filteredProducts }) => {
                         // disabled={product.Stock < 1 ? true : false}
                         onClick={addToCartHandler}
                       > */}
-                      <Link to={`/cart`}>
-                        <li>
-                          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                          <span>View Cart</span>
-                        </li>
-                      </Link>
+                      <li onClick={() => addToCartHandler(prod._id, 1)}>
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <span>Add To Cart</span>
+                      </li>
 
                       {/* </Button> */}
                       <Link to={`/productDetail/${prod._id}`}>
