@@ -38,6 +38,7 @@ import Profile from "./components/User/Profile";
 import UpdateProfile from "./components/User/UpdateProfile";
 import UpdatePassword from "./components/User/UpdatePassword";
 import ForgotPassword from "./components/User/ForgotPassword";
+import ResetPassword from "./components/User/ResetPassword";
 
 // we create a contextAPI
 // export const UserContext = createContext();
@@ -122,7 +123,7 @@ function App() {
         <Route exact path="/map/:shopId">
           <Map />
         </Route>
-        <Route exact path="/loginsignup">
+        <Route exact path="/logiinsignup">
           <LoginSignUp />
         </Route>
         <ProtectedRoute exact path="/profile" component={Profile} />
@@ -132,11 +133,8 @@ function App() {
           path="/password/update"
           component={UpdatePassword}
         />
-        <ProtectedRoute
-          exact
-          path="/password/forgot"
-          component={ForgotPassword}
-        />
+        <Route exact path="/password/forgot" component={ForgotPassword} />
+        <Route exact path="/password/reset/:token" component={ResetPassword} />
 
         <Route>
           <Error />

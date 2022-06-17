@@ -7,8 +7,18 @@ import "../style/ShopProduct.css";
 import { Link } from "react-router-dom";
 import "../style/allshops.css";
 import "../style/shopCards.css";
+import { Rating } from "@material-ui/lab";
+
+import { useAlert } from "react-alert";
+import { addItemsToCart } from "../actions/cartAction";
+import { useSelector, useDispatch } from "react-redux";
+// const [prodReviews, setProdReviews] = useState();
+// const [numOfReviews, setNumOfReviews] = useState(0);
 
 const ShopProduct = ({ id, filteredData }) => {
+  const dispatch = useDispatch();
+  const alert = useAlert();
+
   console.log("ShopProduct/Sellerid" + id);
   console.log("ShopProduct/FilteredProducts: " + filteredData);
   // const [filteredProducts, setFilteredProducts] = useState(filteredData);
@@ -75,6 +85,11 @@ const ShopProduct = ({ id, filteredData }) => {
     }
   };
 
+  const addToCartHandler = (prodId, quantity) => {
+    dispatch(addItemsToCart(prodId, quantity));
+    alert.success("Item Added To Cart");
+  };
+
   if (filteredData == null) {
     return (
       <>
@@ -84,16 +99,16 @@ const ShopProduct = ({ id, filteredData }) => {
               <div class="col-3 col-* ">
                 <div className="card">
                   <div class="imgBx">
-                    <Link to={`/productDetail/${prod._id}`}>
-                      <img
-                        // src={`/uploads/${shop.shopImage}`}
-                        src={prod.prodImage}
-                        alt="Card image cap"
-                        //   onClick={() => {
-                        //     setID(user._id);
-                        //   }}
-                      />
-                    </Link>
+                    {/* <Link to={`/productDetail/${prod._id}`}> */}
+                    <img
+                      // src={`/uploads/${shop.shopImage}`}
+                      src={prod.prodImage}
+                      alt="Card image cap"
+                      //   onClick={() => {
+                      //     setID(user._id);
+                      //   }}
+                    />
+                    {/* </Link> */}
                     <ul class="action">
                       <li>
                         <i class="fa fa-heart" aria-hidden="true">
@@ -101,14 +116,18 @@ const ShopProduct = ({ id, filteredData }) => {
                         </i>
                         <span>Add to Wishlist</span>
                       </li>
-                      <li>
+                      {/* <Link to={`/cart`}> */}
+                      <li onClick={() => addToCartHandler(prod._id, 1)}>
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                         <span>Add to Cart</span>
                       </li>
-                      <li>
-                        <i class="fa fa-eye" aria-hidden="true"></i>
-                        <span>View Details</span>
-                      </li>
+                      {/* </Link> */}
+                      <Link to={`/productDetail/${prod._id}`}>
+                        <li>
+                          <i class="fa fa-eye" aria-hidden="true"></i>
+                          <span>View Details</span>
+                        </li>
+                      </Link>
                     </ul>
                   </div>
                   <div class="content">
@@ -118,11 +137,25 @@ const ShopProduct = ({ id, filteredData }) => {
                     <div class="price_rating">
                       <h3>Rs.{prod.price}</h3>
                       <div class="rating">
+                        {/* <i class="fa fa-star" aria-hidden="true"></i>
                         <i class="fa fa-star" aria-hidden="true"></i>
                         <i class="fa fa-star" aria-hidden="true"></i>
                         <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star grey" aria-hidden="true"></i>
+                        <i class="fa fa-star grey" aria-hidden="true"></i> */}
+                        <div>
+                          <Rating
+                            size="medium"
+                            value={prod.ratings}
+                            readOnly={true}
+                            precision={0.5}
+                          />
+                        </div>
+                        <div>
+                          <span className="rating_span">
+                            {" "}
+                            ({prod.numOfReviews} Reviews)
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -143,16 +176,16 @@ const ShopProduct = ({ id, filteredData }) => {
               <div class="col-3 col-* ">
                 <div className="card">
                   <div class="imgBx">
-                    <Link to={`/productDetail/${prod._id}`}>
-                      <img
-                        // src={`/uploads/${shop.shopImage}`}
-                        src={prod.prodImage}
-                        alt="Card image cap"
-                        //   onClick={() => {
-                        //     setID(user._id);
-                        //   }}
-                      />
-                    </Link>
+                    {/* <Link to={`/productDetail/${prod._id}`}> */}
+                    <img
+                      // src={`/uploads/${shop.shopImage}`}
+                      src={prod.prodImage}
+                      alt="Card image cap"
+                      //   onClick={() => {
+                      //     setID(user._id);
+                      //   }}
+                    />
+                    {/* </Link> */}
                     <ul class="action">
                       <li>
                         <i class="fa fa-heart" aria-hidden="true">
@@ -160,14 +193,18 @@ const ShopProduct = ({ id, filteredData }) => {
                         </i>
                         <span>Add to Wishlist</span>
                       </li>
-                      <li>
+                      {/* <Link to={`/cart`}> */}
+                      <li onClick={() => addToCartHandler(prod._id, 1)}>
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                         <span>Add to Cart</span>
                       </li>
-                      <li>
-                        <i class="fa fa-eye" aria-hidden="true"></i>
-                        <span>View Details</span>
-                      </li>
+                      {/* </Link> */}
+                      <Link to={`/productDetail/${prod._id}`}>
+                        <li>
+                          <i class="fa fa-eye" aria-hidden="true"></i>
+                          <span>View Details</span>
+                        </li>
+                      </Link>
                     </ul>
                   </div>
                   <div class="content">
@@ -177,11 +214,24 @@ const ShopProduct = ({ id, filteredData }) => {
                     <div class="price_rating">
                       <h3>Rs. {prod.price}</h3>
                       <div class="rating">
+                        {/* <i class="fa fa-star" aria-hidden="true"></i>
                         <i class="fa fa-star" aria-hidden="true"></i>
                         <i class="fa fa-star" aria-hidden="true"></i>
                         <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star grey" aria-hidden="true"></i>
+                        <i class="fa fa-star grey" aria-hidden="true"></i> */}
+                        <div>
+                          <Rating
+                            size="medium"
+                            value={prod.ratings}
+                            readOnly={true}
+                            precision={0.5}
+                          />
+                        </div>
+                        <div>
+                          <span className="rating_span">
+                            ({prod.numOfReviews} Reviews)
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -279,7 +329,7 @@ const ShopProduct = ({ id, filteredData }) => {
 
                       <div class="d-grid my-4">
                         <a href="#" class="btn btn-danger bold-btn">
-                          Add to cart
+                          View cart
                         </a>
                       </div>
                       <div class="clearfix mb-1">

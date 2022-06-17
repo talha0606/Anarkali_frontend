@@ -5,8 +5,17 @@ import avatar from "../images/avatar.png";
 import ReviewCard from "./ReviewCard";
 import "../style/productDetail.css";
 import { Rating } from "@material-ui/lab";
+// import "../style/proddetailincdecbtn.css";
+
+import { useAlert } from "react-alert";
+import { addItemsToCart } from "../actions/cartAction";
+import { useSelector, useDispatch } from "react-redux";
+import { Button } from "@material-ui/core";
 
 function ProductDetail() {
+  const dispatch = useDispatch();
+  const alert = useAlert();
+
   const { prodId } = useParams();
   console.log("Product Id in Product Detail: " + prodId);
   //   const history = useHistory();
@@ -20,6 +29,7 @@ function ProductDetail() {
   const [prodRating, setProdRating] = useState(0);
   const [prodReviews, setProdReviews] = useState();
   const [numOfReviews, setNumOfReviews] = useState(0);
+  const [quantity, setQuantity] = useState(3);
 
   const getShopDetail = async () => {
     try {
@@ -48,12 +58,33 @@ function ProductDetail() {
       console.log("Error in Product Detail Page");
     }
   };
+
+  const increaseQuantity = () => {
+    // if (prodStock <= quantity) return;
+
+    const qty = quantity + 1;
+    setQuantity(qty);
+  };
+
+  const decreaseQuantity = () => {
+    // if (1 >= quantity) return;
+
+    const qty = quantity - 1;
+    setQuantity(qty);
+  };
+
+  const addToCartHandler = () => {
+    dispatch(addItemsToCart(prodId, quantity));
+    alert.success("Item Added To Cart");
+  };
+
   const options = {
     size: "large",
     value: prodRating,
     readOnly: true,
     precision: 0.5,
   };
+
   useEffect(() => {
     // console.log("sellerid " + localStorage.getItem("id"));
     getShopDetail();
@@ -112,21 +143,29 @@ function ProductDetail() {
                   <div class="mb-3">
                     <span class="float-end">
                       <a
-                        href="#"
+                        href="#reviews_card"
                         class="small text-muted text-uppercase aff-link"
                       >
-                        Reviews{" "}
+                        Reviews
                       </a>
                     </span>
                   </div>
                   <br />
                   <p class="card-text float-left">
+                    <b>Brand: </b>
                     <small class="text-muted">{prodBrand}</small>
                   </p>
                   <p class="card-text float-right">
+                    <b>Stock: </b>
                     <small class="text-muted">{prodStock}</small>
                   </p>
-                  <div class="options d-flex flex-fill">
+                  <div>
+                    <input type="button" onClick={decreaseQuantity} value="-" />
+                    <input readOnly type="number" value={quantity} />
+                    <input type="button" onClick={increaseQuantity} value="+" />
+                  </div>
+
+                  {/* <div class="options d-flex flex-fill">
                     <select
                       class="form-select w-25"
                       aria-label="Default select example"
@@ -136,15 +175,20 @@ function ProductDetail() {
                       <option value="2">Two</option>
                       <option value="3">Three</option>
                     </select>
-                  </div>
+                  </div> */}
 
                   <div class="buy d-flex justify-content-between align-items-center">
                     <div class="price text-success">
                       <h3 class="mt-4">Rs. {prodPrice}</h3>
                     </div>
-                    <a href="#" class="btn btn-danger mt-3">
-                      <i class="fas fa-shopping-cart"></i> Add to Cart
-                    </a>
+                    <Button
+                      // disabled={product.Stock < 1 ? true : false}
+                      onClick={addToCartHandler}
+                    >
+                      <a href="#" class="btn btn-danger mt-3">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                      </a>
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -154,7 +198,7 @@ function ProductDetail() {
       </div>
       <h3 className="reviewsHeading">REVIEWS</h3>
       {prodReviews && prodReviews[0] ? (
-        <div className="reviews">
+        <div id="reviews_card" className="reviews">
           {prodReviews &&
             prodReviews.map((review) => (
               <ReviewCard key={review._id} review={review} />
