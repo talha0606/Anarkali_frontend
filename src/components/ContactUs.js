@@ -37,7 +37,7 @@ function ContactUs() {
   //   };
 
   const onChangeClick = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
 
     emailjs
       .sendForm(
@@ -51,6 +51,9 @@ function ContactUs() {
           console.log(result.text);
           window.alert("Email sent");
           //   e.target.reset();
+          setsname("");
+          setsdescription("");
+          setemail("");
         },
         (error) => {
           window.alert(error.text);

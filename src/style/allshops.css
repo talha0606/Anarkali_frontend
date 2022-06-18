@@ -1,3 +1,6 @@
+.card-body{
+padding: 0.5rem !important;
+}
 .card-category {
   width: 100px !important;
   height: 100px;
@@ -18,7 +21,8 @@
   padding: 0px !important;
   height: 19px;
   cursor: pointer;
-  /* display: block !important; */
+  
+  display: block !important;
   /* z-index: 999999  !important; */
 }
 
@@ -26,13 +30,7 @@
   color: rgb(0, 0, 255);
 }
 
-.phone-number {
-  margin-top: 10px;
-  /* padding: 3px; */
-  /* border: 1px solid green; */
-  /* margin: 3px 0 3px 0;
-  border-radius: 3px; */
-}
+
 .phone-number-icon {
   color: green;
   /* font-size: 1px; */
@@ -63,3 +61,14 @@
   padding: 20px 0;
   font-size: 30px;
 } */
+
+.card-shop-name {
+  line-height: 17px;
+  height: 30px !important;
+}
+
+.lead{
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  /* margin-top: 12px; */
+}

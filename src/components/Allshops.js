@@ -93,7 +93,7 @@ const Allshops = ({ shopData }) => {
       <div className="container">
         <div className="row no-gutters">
           {shopData?.map((shop) => (
-            <div className="col-3 col-* ">
+            <div className=" col-sm-6 col-md-4 col-lg-3  ">
               <div className="card">
                 {/* <a
                   onClick={() => {
@@ -122,7 +122,7 @@ const Allshops = ({ shopData }) => {
                     <div className="item4">Rating</div>
                     <div className="item5">Button</div>
                   </div> */}
-                  <h6 className="card-title nopadding">{shop.sName}</h6>
+                  <h6 className="card-title nopadding ">{shop.sName}</h6>
                   <div className="clearfix mb-3">
                     <span className="float-start badge rounded  text-success p-0 shop-category">
                       {/* Category */}
@@ -138,10 +138,10 @@ const Allshops = ({ shopData }) => {
                       </a>
                     </span> */}
                   </div>
-                  <p className="card-text fw-bold shop-email">{shop.email}</p>
+                  <p className="card-text shop-email">{shop.email}</p>
 
                   {/* <div className="phone-number lead"><span className="phone-number-icon"><LocalPhoneTwoToneIcon  /></span>0323-2323454</div> */}
-                  <div className="phone-number lead">+92-{shop.phoneNo}</div>
+                  <div className="lead">+92-{shop.phoneNo}</div>
                   {/* <Button */}
                   <Link to={`/map/${shop._id}`}>
                     {/* // to={`/`} */}
