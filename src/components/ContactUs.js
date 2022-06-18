@@ -51,6 +51,9 @@ function ContactUs() {
           console.log(result.text);
           window.alert("Email sent");
           //   e.target.reset();
+          setsname("");
+          setsdescription("");
+          setemail("");
         },
         (error) => {
           window.alert(error.text);
@@ -97,6 +100,7 @@ function ContactUs() {
           value={sname}
           onChange={(e) => setsname(e.target.value)}
           placeholder="Your Name.."
+          required
         />
 
         <label htmlFor="email">Email</label>
@@ -107,6 +111,7 @@ function ContactUs() {
           value={email}
           onChange={(e) => setemail(e.target.value)}
           placeholder="abc@gmail.com"
+          required
         />
 
         <label htmlFor="message">Message</label>
@@ -114,11 +119,11 @@ function ContactUs() {
           rows="4"
           cols="50"
           name="message"
-          form="usrform"
           id="message"
           value={sdescription}
           onChange={(e) => setsdescription(e.target.value)}
           placeholder="Type Your Message Here.."
+          required
         ></textarea>
 
         <input

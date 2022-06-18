@@ -43,13 +43,12 @@ function SignUpPage() {
     { key: 3, value: "Scarf" },
     { key: 4, value: "Toys" },
     { key: 5, value: "Sports" },
-    { key: 6, value: "Groceries" },
-    { key: 7, value: "Pents" },
-    { key: 8, value: "Kurtas" },
-    { key: 9, value: "Watches" },
-    { key: 10, value: "Cameras" },
+    { key: 6, value: "Pents" },
+    { key: 7, value: "Kurtas" },
+    { key: 8, value: "Watches" },
   ];
 
+  //
   // const {
   //   register,
   //   handleSubmit,

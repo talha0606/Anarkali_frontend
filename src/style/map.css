@@ -1,13 +1,101 @@
-.leaflet-container {
+.map-row {
+  background-color: #f8f8f8;
+  border: 1px solid #cacaca !important;
+  border-radius: 4px;
+}
+/* .border-light{
+  border-color: #8a8a8a !important;
+} */
+.map-main-form {
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid rgb(184, 184, 184); */
+  /* border-radius: 4px; */
+}
+.map-form-border{
+  border: 1px solid rgb(184, 184, 184);
+
+}
+.map-form-data {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  flex-direction: column;
+  padding: 20px;
+  /* margin: 20px; */
+}
+
+.map-phone-no {
+  padding: 10px;
+}
+.map-phone-no-icon {
+  color: green;
+  display: inline-block;
+  padding: 0 5px 0 0;
+}
+.map-phone-no-text {
+  display: inline-block;
+  font-size: 17px;
+  /* font-weight: 600; */
+  color: rgb(77, 77, 77);
+}
+.map-email {
+  padding: 10px;
+  cursor: pointer;
+}
+.map-email-icon {
+  color: red;
+  display: inline-block;
+  padding: 0 5px 0 0;
+}
+.map-email-text {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 600;
+  color: rgb(77, 77, 77);
+}
+.map-email-text:hover {
+  color: blue;
+}
+
+.map-address {
+  padding: 10px;
+  display: flex;
+}
+
+.map-address-icon {
+  color: red;
+  display: inline-block;
+  padding: 0 5px 0 0;
+}
+.map-address-text {
+  display: inline-block;
+  font-size: 16px;
+  /* font-weight: 600; */
+  color: rgb(77, 77, 77);
+}
+/* .leaflet-container {
   width: 80%;
   height: 75vh;
   margin-left: 100px;
   margin-top: 50px;
-}
+} */
 
 .copy-btn {
-  position: fixed;
-  right: 166px;
-  margin-top: 5px;
-  /* text-align: center; */
+  padding: 20px 0 20px 10px;
+}
+
+/* 
+.map-main-style{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: 2px solid;
+  width: 80%;
+  margin: auto;
+} */
+
+.map-map-border{
+  border: 1px solid rgb(184, 184, 184);
 }
