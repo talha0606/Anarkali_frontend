@@ -73,7 +73,9 @@ const LoginSignUp = ({ /*history,*/ location }) => {
     }
   };
 
-  // const redirect = location.search ? location.search.split("=")[1] : "/account";
+  const redirect = window.location.search
+    ? window.location.search.split("=")[1]
+    : "/profile";
 
   useEffect(() => {
     if (error) {
@@ -82,9 +84,9 @@ const LoginSignUp = ({ /*history,*/ location }) => {
     }
 
     if (isAuthenticated) {
-      history.push(`/profile`);
+      history.push(redirect);
     }
-  }, [dispatch, error, alert, history, isAuthenticated /*redirect*/]);
+  }, [dispatch, error, alert, history, isAuthenticated, redirect]);
 
   const switchTabs = (e, tab) => {
     if (tab === "login") {
