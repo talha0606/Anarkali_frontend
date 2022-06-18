@@ -61,7 +61,6 @@ const Payment = ({ history }) => {
         paymentData,
         config
       );
-      console.log("Payment Page: " + data.client_secret);
       const client_secret = data.client_secret;
 
       if (!stripe || !elements) return;
@@ -85,7 +84,6 @@ const Payment = ({ history }) => {
 
       if (result.error) {
         payBtn.current.disabled = false;
-        console.log("Payment Page: " + result.error.message);
         alert.error(result.error.message);
       } else {
         if (result.paymentIntent.status === "succeeded") {

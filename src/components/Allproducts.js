@@ -284,7 +284,10 @@ const Allproducts = ({ filteredProducts }) => {
                         // disabled={product.Stock < 1 ? true : false}
                         onClick={addToCartHandler}
                       > */}
-                      <li onClick={() => addToCartHandler(prod._id, 1)}>
+                      <li
+                        disabled={prod.stock < 1 ? true : false}
+                        onClick={() => addToCartHandler(prod._id, 1)}
+                      >
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                         <span>Add To Cart</span>
                       </li>

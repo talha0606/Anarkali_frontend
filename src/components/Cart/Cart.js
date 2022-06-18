@@ -81,7 +81,7 @@ const Cart = () => {
         <div className="emptyCart">
           <RemoveShoppingCartIcon />
 
-          <Typography>No Product in Your Cart</Typography>
+          <Typography>No Products in Your Cart</Typography>
           <Link to="/">View Products</Link>
         </div>
       ) : (
@@ -184,12 +184,12 @@ const Cart = () => {
               {/*Order Summary*/}
 
               <div className="col order-summary text-center">
-                <h4>Order Summary</h4>
+                <h4>Gross Total</h4>
                 <hr />
                 <ul class="list-group list-group-vertical-md ">
                   <li class="list-group-item border-0">
                     <div class="row">
-                      <div class="col-sm-8 text-left">Gross total:</div>
+                      <div class="col-sm-8 text-left">Gross Total:</div>
                       <div class="col-sm-4 text-right">{`Rs. ${cartItems.reduce(
                         (acc, item) => acc + item.quantity * item.price,
                         0

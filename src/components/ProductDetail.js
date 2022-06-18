@@ -7,14 +7,27 @@ import "../style/productDetail.css";
 import { Rating } from "@material-ui/lab";
 // import "../style/proddetailincdecbtn.css";
 
+import { clearErrors, newReview } from "../actions/productAction";
 import { useAlert } from "react-alert";
 import { addItemsToCart } from "../actions/cartAction";
 import { useSelector, useDispatch } from "react-redux";
-import { Button } from "@material-ui/core";
+import { NEW_REVIEW_RESET } from "../constants/productConstants";
+
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Button,
+} from "@material-ui/core";
 
 function ProductDetail() {
   const dispatch = useDispatch();
   const alert = useAlert();
+
+  const { success, error: reviewError } = useSelector(
+    (state) => state.newReview
+  );
 
   const { prodId } = useParams();
   console.log("Product Id in Product Detail: " + prodId);
@@ -29,7 +42,11 @@ function ProductDetail() {
   const [prodRating, setProdRating] = useState(0);
   const [prodReviews, setProdReviews] = useState();
   const [numOfReviews, setNumOfReviews] = useState(0);
+
   const [quantity, setQuantity] = useState(3);
+  const [open, setOpen] = useState(false);
+  const [rating, setRating] = useState(0);
+  const [comment, setComment] = useState("");
 
   const getShopDetail = async () => {
     try {
@@ -78,6 +95,22 @@ function ProductDetail() {
     alert.success("Item Added To Cart");
   };
 
+  const submitReviewToggle = () => {
+    open ? setOpen(false) : setOpen(true);
+  };
+
+  const reviewSubmitHandler = () => {
+    const myForm = new FormData();
+
+    myForm.set("rating", rating);
+    myForm.set("comment", comment);
+    myForm.set("productId", prodId);
+
+    dispatch(newReview(myForm));
+
+    setOpen(false);
+  };
+
   const options = {
     size: "large",
     value: prodRating,
@@ -87,8 +120,17 @@ function ProductDetail() {
 
   useEffect(() => {
     // console.log("sellerid " + localStorage.getItem("id"));
+    if (reviewError) {
+      alert.error(reviewError);
+      dispatch(clearErrors());
+    }
+
+    if (success) {
+      alert.success("Review Submitted Successfully");
+      dispatch({ type: NEW_REVIEW_RESET });
+    }
     getShopDetail();
-  }, []);
+  }, [reviewError, success]);
 
   return (
     <>
@@ -182,7 +224,7 @@ function ProductDetail() {
                       <h3 class="mt-4">Rs. {prodPrice}</h3>
                     </div>
                     <Button
-                      // disabled={product.Stock < 1 ? true : false}
+                      disabled={prodStock < 1 ? true : false}
                       onClick={addToCartHandler}
                     >
                       <a href="#" class="btn btn-danger mt-3">
@@ -190,6 +232,9 @@ function ProductDetail() {
                       </a>
                     </Button>
                   </div>
+                  <Button onClick={submitReviewToggle} className="submitReview">
+                    Submit Review
+                  </Button>
                 </div>
               </div>
             </div>
@@ -197,6 +242,38 @@ function ProductDetail() {
         </div>
       </div>
       <h3 className="reviewsHeading">REVIEWS</h3>
+
+      <Dialog
+        aria-labelledby="simple-dialog-title"
+        open={open}
+        onClose={submitReviewToggle}
+      >
+        <DialogTitle>Submit Review</DialogTitle>
+        <DialogContent className="submitDialog">
+          <Rating
+            onChange={(e) => setRating(e.target.value)}
+            value={rating}
+            size="large"
+          />
+
+          <textarea
+            className="submitDialogTextArea"
+            cols="30"
+            rows="5"
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+          ></textarea>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={submitReviewToggle} color="secondary">
+            Cancel
+          </Button>
+          <Button onClick={reviewSubmitHandler} color="primary">
+            Submit
+          </Button>
+        </DialogActions>
+      </Dialog>
+
       {prodReviews && prodReviews[0] ? (
         <div id="reviews_card" className="reviews">
           {prodReviews &&

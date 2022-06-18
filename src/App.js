@@ -22,7 +22,7 @@ import FilterNavbar from "./components/FilterNavbar";
 
 import "./App.css";
 
-import { Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoginPage from "./components/LoginPage";
 import LogoutPage from "./components/LogoutPage";
 import SignUpPage from "./components/SignUpPage";
@@ -33,6 +33,7 @@ import CategorySideBar from "./components/CategorySideBar";
 // import { useReducer, createContext } from "react";
 
 // import Logout from "@mui/icons-material/Logout";
+import WebFont from "webfontloader";
 import EditProduct from "./components/EditProduct";
 import LoginSignUp from "./components/User/LoginSignUp";
 import Profile from "./components/User/Profile";
@@ -45,6 +46,9 @@ import ConfirmOrder from "./components/Cart/ConfirmOrder";
 import Payment from "./components/Cart/Payment";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import OrderSuccess from "./components/Cart/OrderSuccess";
+import MyOrders from "./components/Order/MyOrders";
+import OrderDetails from "./components/Order/OrderDetails";
 
 // we create a contextAPI
 // export const UserContext = createContext();
@@ -70,14 +74,21 @@ function App() {
   }
 
   React.useEffect(() => {
+    WebFont.load({
+      google: {
+        families: ["Roboto", "Droid Sans", "Chilanka"],
+      },
+    });
+
     store.dispatch(loadUser());
 
     getStripeApiKey();
   }, []);
 
   return (
-    <>
+    <Router>
       {/* <UserContext.Provider value={{ state, dispatch }}> */}
+
       <Navbar />
       <Sidebar />
 
@@ -157,7 +168,11 @@ function App() {
             <ProtectedRoute exact path="/process/payment" component={Payment} />
           </Elements>
         )}
-        {/* <Route
+        <ProtectedRoute exact path="/success" component={OrderSuccess} />
+        <ProtectedRoute exact path="/orders" component={MyOrders} />
+        <ProtectedRoute exact path="/order/:id" component={OrderDetails} />
+
+        {/* <Route 
           component={
             window.location.pathname === "/process/payment" ? null : NotFound
           }
@@ -168,7 +183,7 @@ function App() {
       </Switch>
       {/* </div> */}
       {/* </UserContext.Provider> */}
-    </>
+    </Router>
   );
 }
 

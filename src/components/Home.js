@@ -35,7 +35,7 @@ function Home() {
   const [toggleValue, setToggleValue] = useState("Shops");
   console.log("adfkakfkjakfk" + toggleValue);
 
-  const [price, setPrice] = useState([0, 25000000000000]);
+  const [price, setPrice] = useState([0, 25000]);
   const priceHandler = (event, newPrice) => {
     setPrice(newPrice);
   };
