@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
@@ -9,7 +10,7 @@ import FileUpload from "./components/FileUpload";
 import Sidebar from "./components/Sidebar";
 import Error from "./components/Error";
 import Seller from "./components/Seller";
-import Cart from "./components/Cart";
+import Cart from "./components/Cart/Cart.js";
 import AddProduct from "./components/AddProduct";
 // import MyProducts from "./components/AddProduct";
 import ModalTesting from "./components/ModalTesting";
@@ -39,6 +40,11 @@ import UpdateProfile from "./components/User/UpdateProfile";
 import UpdatePassword from "./components/User/UpdatePassword";
 import ForgotPassword from "./components/User/ForgotPassword";
 import ResetPassword from "./components/User/ResetPassword";
+import Shipping from "./components/Cart/Shipping";
+import ConfirmOrder from "./components/Cart/ConfirmOrder";
+import Payment from "./components/Cart/Payment";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 
 // we create a contextAPI
 // export const UserContext = createContext();
@@ -55,9 +61,18 @@ function App() {
   //* we use useReducer
   // const [state, dispatch] = useReducer(reducer, initialState);
   const { isAuthenticated, user } = useSelector((state) => state.user);
+  const [stripeApiKey, setStripeApiKey] = useState("");
+
+  async function getStripeApiKey() {
+    const { data } = await axios.get("/payment/stripeapikey");
+
+    setStripeApiKey(data.stripeApiKey);
+  }
 
   React.useEffect(() => {
     store.dispatch(loadUser());
+
+    getStripeApiKey();
   }, []);
 
   return (
@@ -135,7 +150,18 @@ function App() {
         />
         <Route exact path="/password/forgot" component={ForgotPassword} />
         <Route exact path="/password/reset/:token" component={ResetPassword} />
-
+        <ProtectedRoute exact path="/shipping" component={Shipping} />
+        <ProtectedRoute exact path="/order/confirm" component={ConfirmOrder} />
+        {stripeApiKey && (
+          <Elements stripe={loadStripe(stripeApiKey)}>
+            <ProtectedRoute exact path="/process/payment" component={Payment} />
+          </Elements>
+        )}
+        {/* <Route
+          component={
+            window.location.pathname === "/process/payment" ? null : NotFound
+          }
+        /> */}
         <Route>
           <Error />
         </Route>

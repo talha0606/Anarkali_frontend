@@ -1,14 +1,14 @@
 import React, { Fragment } from "react";
-import avatar from "../images/avatar.png";
-import { Link } from "react-router-dom";
-import "../style/cart.css";
-import image from "../images/avatar.png";
+import avatar from "../../images/avatar.png";
+import { Link, useHistory } from "react-router-dom";
+import "./cart.css";
+import image from "../../images/avatar.png";
 
 import { Typography } from "@material-ui/core";
 import RemoveShoppingCartIcon from "@material-ui/icons/RemoveShoppingCart";
 
 import { useSelector, useDispatch } from "react-redux";
-import { addItemsToCart, removeItemsFromCart } from "../actions/cartAction";
+import { addItemsToCart, removeItemsFromCart } from "../../actions/cartAction";
 
 // function incrementValue(e) {
 //         e.preventDefault();
@@ -45,6 +45,7 @@ import { addItemsToCart, removeItemsFromCart } from "../actions/cartAction";
 //     });
 
 const Cart = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
 
@@ -67,6 +68,11 @@ const Cart = () => {
   //Delete Item from Cart
   const deleteCartItems = (id) => {
     dispatch(removeItemsFromCart(id));
+  };
+
+  //login or shipping link
+  const checkoutHandler = () => {
+    history.push("/logiinsignup?redirect=shipping");
   };
 
   return (
@@ -108,7 +114,7 @@ const Cart = () => {
                                 <h4 className="cName">{item.name}</h4>
                                 <p className="cartCost">
                                   <b>Rs. </b>
-                                  {item.price}
+                                  {item.price}/-
                                 </p>
                                 {/* <p className="cartCost">
                             Size: <b>L</b>
@@ -187,7 +193,7 @@ const Cart = () => {
                       <div class="col-sm-4 text-right">{`Rs. ${cartItems.reduce(
                         (acc, item) => acc + item.quantity * item.price,
                         0
-                      )}`}</div>
+                      )}/-`}</div>
                     </div>
                     {/* <div class="row">
                                     <div class="col-sm-8 text-left"></div>
@@ -216,7 +222,7 @@ const Cart = () => {
                       <div class="col-sm-4 text-right">{`Rs. ${cartItems.reduce(
                         (acc, item) => acc + item.quantity * item.price,
                         0
-                      )}`}</div>
+                      )}/-`}</div>
                     </div>
                   </li>
                   <li class="list-group-item border-0">
@@ -224,7 +230,7 @@ const Cart = () => {
                       type="button"
                       value="Continue to Checkout"
                       name="login"
-                      // onClick={}
+                      onClick={checkoutHandler}
                     />
                   </li>
                   <hr />
