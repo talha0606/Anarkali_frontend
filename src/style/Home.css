@@ -517,3 +517,9 @@
   width: 100%;
   margin: auto;
 }
+
+.contact-us-error{
+  display: block;
+  color: red;
+  font-size: 14px;
+}

@@ -29,7 +29,7 @@
   padding: 10px;
 }
 .map-phone-no-icon {
-  color: green;
+  /* color: green; */
   display: inline-block;
   padding: 0 5px 0 0;
 }
@@ -38,13 +38,14 @@
   font-size: 17px;
   /* font-weight: 600; */
   color: rgb(77, 77, 77);
+  word-wrap: break-word;
 }
 .map-email {
   padding: 10px;
   cursor: pointer;
 }
 .map-email-icon {
-  color: red;
+  /* color: red; */
   display: inline-block;
   padding: 0 5px 0 0;
 }
@@ -53,6 +54,7 @@
   font-size: 15px;
   font-weight: 600;
   color: rgb(77, 77, 77);
+  word-wrap: break-word;
 }
 .map-email-text:hover {
   color: blue;
@@ -64,7 +66,7 @@
 }
 
 .map-address-icon {
-  color: red;
+  /* color: red; */
   display: inline-block;
   padding: 0 5px 0 0;
 }
@@ -73,6 +75,7 @@
   font-size: 16px;
   /* font-weight: 600; */
   color: rgb(77, 77, 77);
+  word-wrap: break-word;
 }
 /* .leaflet-container {
   width: 80%;

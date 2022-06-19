@@ -77,17 +77,13 @@ function ProductDetail() {
   };
 
   const increaseQuantity = () => {
-    // if (prodStock <= quantity) return;
-
-    const qty = quantity + 1;
-    setQuantity(qty);
+    if (quantity >= prodStock) return;
+    setQuantity(quantity + 1);
   };
 
   const decreaseQuantity = () => {
-    // if (1 >= quantity) return;
-
-    const qty = quantity - 1;
-    setQuantity(qty);
+    if (quantity <= 1) return;
+    setQuantity(quantity - 1);
   };
 
   const addToCartHandler = () => {
@@ -201,12 +197,38 @@ function ProductDetail() {
                     <b>Stock: </b>
                     <small class="text-muted">{prodStock}</small>
                   </p>
-                  <div>
+                  {/* <div>
                     <input type="button" onClick={decreaseQuantity} value="-" />
                     <input readOnly type="number" value={quantity} />
                     <input type="button" onClick={increaseQuantity} value="+" />
-                  </div>
-
+                  </div> */}
+                  <ul class="list-group list-group-vertical">
+                    <li class="list-group-item border-0 p-0 ">
+                      <input
+                        type="button"
+                        value="-"
+                        className="button-minus border rounded-circle  icon-shape icon-sm mx-1 "
+                        data-field="quantity"
+                        onClick={decreaseQuantity}
+                      />
+                      <div className="order-quantity">
+                        <input
+                          type="number"
+                          name="quantity"
+                          value={quantity}
+                          className="quantity-field border-0 text-center w-25 text-align-center"
+                          readOnly
+                        />
+                      </div>
+                      <input
+                        type="button"
+                        value="+"
+                        className="button-plus border rounded-circle icon-shape icon-sm lh-0"
+                        data-field="quantity"
+                        onClick={increaseQuantity}
+                      />
+                    </li>
+                  </ul>
                   {/* <div class="options d-flex flex-fill">
                     <select
                       class="form-select w-25"

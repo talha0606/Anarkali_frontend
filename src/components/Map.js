@@ -1,45 +1,68 @@
 import React, { useState, useEffect } from "react";
+// import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+// import "leaflet/dist/leaflet.css";
 import "../style/map.css";
-
+// import markerIconPng from "leaflet/dist/images/marker-icon.png";
+import { Icon } from "leaflet";
+import { Link, useParams } from "react-router-dom";
+import axios from "axios";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+import logo from "../images/logo.png";
 import avatar from "../images/avatar.png";
 import PhoneIcon from "@mui/icons-material/Phone";
+import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
 
+import EmailTwoToneIcon from "@mui/icons-material/EmailTwoTone";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 
 const Map = () => {
-  // const { shopId } = useParams();
-  // console.log("In map: " + shopId);
+  const { shopId } = useParams();
+  console.log("In map: " + shopId);
   // //   const [longitude, setlongitude] = useState("");
   // const [location, setlocation] = useState({ longitude: 0.0, latitude: 0.0 });
 
-  const [shopImage, setshopImage] = useState(avatar);
+  const [shopImage, setShopImage] = useState(avatar);
+  const [shopName, setShopName] = useState("");
+  const [shopEmail, setShopEmail] = useState("");
+  const [shopPhoneNo, setShopPhoneNo] = useState("");
+  const [shopAddress, setShopAddress] = useState("");
+
+
 
   const handleCopy = () => {
-    // var text = document.getElementById("copyaddress");
-    // text.select();
-    navigator.clipboard.writeText("123");
+    navigator.clipboard.writeText(shopAddress);
   };
 
-  // const handlelocation = () => {
-  //   try {
-  //     axios.get(`/shop/getlocation?shopId=${shopId}`).then((res) => {
-  //       console.log(
-  //         `locationed Data: ${res.data[0].longitude} ${res.data[0].latitude}`
-  //       );
-  //       setlocation({
-  //         longitude: parseFloat(res.data[0].longitude),
-  //         latitude: parseFloat(res.data[0].latitude),
-  //       });
-  //     });
-  //   } catch (err) {
-  //     console.log("catch: " + err);
-  //   }
-  // };
+  const handlelocation = () => {
+    try {
+      // axios.get(`/shop/shop_by_id?shopId=${shopId}`).then((res) => {
+      //   console.log("Shop Data: " + res.data);
+      axios.get(`/shop/shop_by_id?shopId=${shopId}`).then((res) => {
+        console.log("Shop Data: " + res.data[0].sName);
+        setShopName(res.data[0].sName);
+        setShopAddress(res.data[0].address);
+        setShopEmail(res.data[0].email);
+        setShopPhoneNo(res.data[0].phoneNo);
+        setShopImage(res.data[0].imageUrl);
 
-  // useEffect(() => {
-  //   handlelocation();
-  // }, []);
+        // console.log(
+        //   `locationed Data: ${res.data[0].longitude} ${res.data[0].latitude}`
+        // );
+        // setlocation({
+        //   longitude: parseFloat(res.data[0].longitude),
+        //   latitude: parseFloat(res.data[0].latitude),
+        // });
+      });
+    } catch (err) {
+      console.log("catch: " + err);
+    }
+  };
+
+  useEffect(() => {
+    handlelocation();
+  }, []);
 
   // const displaydata = () => {
   //   console.log("lon: " + typeof location.longitude);
@@ -55,10 +78,10 @@ const Map = () => {
 
   return (
     <>
-      <div className="container mt-4 p-0 border border-light rounded bg-white">
+      <div className="container mt-4 p-0 border border-light rounded bg-white ps-4">
         <div className="row p-2 map-row ">
           {/* form */}
-          <div className="col-4 p-2 map-main-form ">
+          <div className="col-sm-12 col-md-5 col-lg-4  p-2 map-main-form ">
             <div className=" map-form-border rounded bg-white">
               {/* image-start */}
               <div className="shopDetails-price">
@@ -75,19 +98,19 @@ const Map = () => {
               {/* image-end */}
 
               {/* shop name */}
-              <h1>shop name</h1>
+              <h1>{shopName}</h1>
               <div className="map-form-data">
                 <div className="map-phone-no">
                   <div className="map-phone-no-icon">
                     <PhoneIcon />
                   </div>
-                  <div className="map-phone-no-text">+92-3234212356</div>
+                  <div className="map-phone-no-text">+92-{shopPhoneNo}</div>
                 </div>
                 <div className="map-email">
                   <div className="map-email-icon">
                     <EmailOutlinedIcon />
                   </div>
-                  <div className="map-email-text">abc@gmail.com</div>
+                  <div className="map-email-text">{shopEmail}</div>
                 </div>
 
                 <div className="map-address">
@@ -95,7 +118,7 @@ const Map = () => {
                     <LocationOnRoundedIcon />
                   </div>
                   <div className="map-address-text">
-                    a;slkdfj;alskjdf;lkaj asdfasdfa dsafasdfasf asdfasdffdas 
+                    {shopAddress}
                   </div>
                 </div>
               </div>
@@ -111,7 +134,7 @@ const Map = () => {
             </div>
           </div>
           {/* map */}
-          <div className="col-8  p-2 " style={{ height: "80vh" }}>
+          <div className="col-sm-12 col-md-7 col-lg-8  p-2 " style={{ height: "80vh" }}>
             <iframe
               width="100%"
               height="100%"
