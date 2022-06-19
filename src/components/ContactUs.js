@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
@@ -7,9 +7,11 @@ import logo from "../images/logo.png";
 // import { BiWindows } from "react-icons/bi";
 
 function ContactUs() {
-  const [sname, setsname] = useState("");
-  const [sdescription, setsdescription] = useState("");
-  const [email, setemail] = useState("");
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [message, setMessage] = useState("");
+
+  // const [allEntry, setAllEntry] = useState([]);
 
   const form = useRef();
 
@@ -36,31 +38,6 @@ function ContactUs() {
   //       );
   //   };
 
-  const onChangeClick = (e) => {
-    e.preventDefault();
-
-    emailjs
-      .sendForm(
-        "service_pjfm4w9",
-        "template_pk7yjr4",
-        form.current,
-        "BDLp3Kfch_HCwLvBy"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          window.alert("Email sent");
-          //   e.target.reset();
-          setsname("");
-          setsdescription("");
-          setemail("");
-        },
-        (error) => {
-          window.alert(error.text);
-          console.log(error.text);
-        }
-      );
-  };
   //   (e) => {
   //     e.preventDefault();
   //     console.log("onChangeClick");
@@ -83,6 +60,72 @@ function ContactUs() {
   //       window.alert(err.text);
   //     }
   //   };
+  const initialValues = { user_name: "", user_email: "", message: "" };
+  const [formValues, setFormValues] = useState(initialValues);
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
+
+  const onChangeClick = (e) => {
+    e.preventDefault();
+    setFormErrors(validate(formValues));
+
+    if (Object.keys(formErrors).length === 0) {
+      setIsSubmit(true);
+      if (isSubmit) {
+        emailjs
+          .sendForm(
+            "service_pjfm4w9",
+            "template_pk7yjr4",
+            form.current,
+            "BDLp3Kfch_HCwLvBy"
+          )
+          .then(
+            (result) => {
+              console.log(result.text);
+              window.alert("Email sent");
+              //   e.target.reset();
+              // setName("");
+              // setMessage("");
+              // setEmail("");
+              setFormValues(initialValues);
+            },
+            (error) => {
+              window.alert(error.text);
+              console.log(error.text);
+            }
+          );
+      }
+    }
+  };
+
+  useEffect(() => {
+    console.log(formErrors);
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      console.log(formValues);
+    }
+  }, [formErrors]);
+
+  const validate = (values) => {
+    const errors = {};
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    if (!values.user_name) {
+      errors.user_name = "Username is Required!";
+    }
+    if (!values.user_email) {
+      errors.user_email = "Email is Required!";
+    } else if (!regex.test(values.user_email)) {
+      errors.user_email = "This is not a valid email format!";
+    }
+    if (!values.message) {
+      errors.message = "User Message is Required!";
+    }
+    return errors;
+  };
 
   return (
     <>
@@ -97,22 +140,24 @@ function ContactUs() {
           type="text"
           id="user_name"
           name="user_name"
-          value={sname}
-          onChange={(e) => setsname(e.target.value)}
+          value={formValues.user_name}
+          onChange={handleChange}
           placeholder="Your Name.."
-          required
+          // required
         />
+        <div className="contact-us-error">{formErrors.user_name}</div>
 
-        <label htmlFor="email">Email</label>
+        <label htmlFor="user_email">Email</label>
         <input
           type="email"
-          id="email"
+          id="user_email"
           name="user_email"
-          value={email}
-          onChange={(e) => setemail(e.target.value)}
+          value={formValues.user_email}
+          onChange={handleChange}
           placeholder="abc@gmail.com"
-          required
+          // required
         />
+        <div className="contact-us-error">{formErrors.user_email}</div>
 
         <label htmlFor="message">Message</label>
         <textarea
@@ -120,11 +165,12 @@ function ContactUs() {
           cols="50"
           name="message"
           id="message"
-          value={sdescription}
-          onChange={(e) => setsdescription(e.target.value)}
+          value={formValues.message}
+          onChange={handleChange}
           placeholder="Type Your Message Here.."
-          required
+          // required
         ></textarea>
+        <div className="contact-us-error">{formErrors.message}</div>
 
         <input
           type="button"
