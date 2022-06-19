@@ -17,7 +17,10 @@ import LocationOnRoundedIcon from "@mui/icons-material/LocationOnRounded";
 import EmailTwoToneIcon from "@mui/icons-material/EmailTwoTone";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 
+import { useAlert } from "react-alert";
+
 const Map = () => {
+  const alert = useAlert();
   const { shopId } = useParams();
   console.log("In map: " + shopId);
   // //   const [longitude, setlongitude] = useState("");
@@ -29,10 +32,9 @@ const Map = () => {
   const [shopPhoneNo, setShopPhoneNo] = useState("");
   const [shopAddress, setShopAddress] = useState("");
 
-
-
   const handleCopy = () => {
     navigator.clipboard.writeText(shopAddress);
+    alert.success("Address Copied to Clipboard!");
   };
 
   const handlelocation = () => {
@@ -117,9 +119,7 @@ const Map = () => {
                   <div className="map-address-icon">
                     <LocationOnRoundedIcon />
                   </div>
-                  <div className="map-address-text">
-                    {shopAddress}
-                  </div>
+                  <div className="map-address-text">{shopAddress}</div>
                 </div>
               </div>
               {/* copy-btn */}
@@ -134,7 +134,10 @@ const Map = () => {
             </div>
           </div>
           {/* map */}
-          <div className="col-sm-12 col-md-7 col-lg-8  p-2 " style={{ height: "80vh" }}>
+          <div
+            className="col-sm-12 col-md-7 col-lg-8  p-2 "
+            style={{ height: "80vh" }}
+          >
             <iframe
               width="100%"
               height="100%"
