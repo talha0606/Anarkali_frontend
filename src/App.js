@@ -29,6 +29,7 @@ import SignUpPage from "./components/SignUpPage";
 import ProductDetail from "./components/ProductDetail";
 import CategorySideBar from "./components/CategorySideBar";
 
+//For useContext | imports
 // import { initialState, reducer } from "./reducer/UseReducer";
 // import { useReducer, createContext } from "react";
 
@@ -50,7 +51,7 @@ import OrderSuccess from "./components/Cart/OrderSuccess";
 import MyOrders from "./components/Order/MyOrders";
 import OrderDetails from "./components/Order/OrderDetails";
 
-// we create a contextAPI
+// For useContext | we create a contextAPI
 // export const UserContext = createContext();
 
 import store from "./store";
@@ -62,8 +63,9 @@ import { useSelector } from "react-redux";
 import ProtectedRoute from "./components/Route/ProtectedRoute";
 
 function App() {
-  //* we use useReducer
-  // const [state, dispatch] = useReducer(reducer, initialState);
+  // For useContext | we use useReducer
+  // const [state, dispatched] = useReducer(reducer, initialState);
+
   const { isAuthenticated, user } = useSelector((state) => state.user);
   const [stripeApiKey, setStripeApiKey] = useState("");
 
@@ -74,29 +76,32 @@ function App() {
   }
 
   React.useEffect(() => {
-    WebFont.load({
-      google: {
-        families: ["Roboto", "Droid Sans", "Chilanka"],
-      },
-    });
-
     store.dispatch(loadUser());
 
     getStripeApiKey();
   }, []);
 
+  React.useEffect(() => {
+    WebFont.load({
+      google: {
+        families: ["Roboto", "Droid Sans", "Chilanka"],
+      },
+    });
+  }, []);
+
   return (
     <Router>
-      {/* <UserContext.Provider value={{ state, dispatch }}> */}
-
+      {/*For useContext | Wrap whole application*/}
+      {/* <UserContext.Provider value={{ state, dispatched }}> */}
       <Navbar />
       <Sidebar />
-
       {isAuthenticated && <UserOptions user={user} />}
-
       <Switch>
         <Route exact path="/">
           <Home />
+        </Route>
+        <Route exact path="/customerlogin">
+          <LoginSignUp />
         </Route>
         <Route exact path="/login">
           <LoginPage />
@@ -149,9 +154,6 @@ function App() {
         <Route exact path="/map/:shopId">
           <Map />
         </Route>
-        <Route exact path="/logiinsignup">
-          <LoginSignUp />
-        </Route>
         <ProtectedRoute exact path="/profile" component={Profile} />
         <ProtectedRoute exact path="/me/update" component={UpdateProfile} />
         <ProtectedRoute
@@ -182,6 +184,7 @@ function App() {
         </Route>
       </Switch>
       {/* </div> */}
+      {/* For useContext | Provider */}
       {/* </UserContext.Provider> */}
     </Router>
   );

@@ -2,10 +2,15 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
 import LogoutIcon from "@mui/icons-material/Logout";
+
+//For useContext | imports
 // import { UserContext } from "../App";
 
 function Navbar() {
+  //For useContext | ok..
   // const { state, dispatch } = useContext(UserContext);
+  // console.log("State Value: " + state);
+
   if (false) {
     return (
       <>
@@ -168,12 +173,21 @@ function Navbar() {
               </ul>
               <ul className="navbar-nav ml-auto mb-2 mb-lg-0">
                 <li className="nav-item">
+                  {/* {state != null ? (
+                    <Link
+                      className="btn btn-sm btn-outline-success m-1"
+                      to="/logout"
+                    >
+                      <LogoutIcon />
+                    </Link>
+                  ) : ( */}
                   <Link
                     className="btn btn-sm btn-outline-success m-1"
                     to="/login"
                   >
                     LOGIN
                   </Link>
+                  {/* )} */}
                 </li>
                 <li className=" nav-item">
                   <Link
@@ -186,7 +200,7 @@ function Navbar() {
                 <li className=" nav-item">
                   <Link
                     className="btn btn-sm btn-outline-dark m-1"
-                    to="/logiinsignup"
+                    to="/customerlogin"
                   >
                     Customer
                   </Link>

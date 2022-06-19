@@ -7,6 +7,7 @@ import LockOpenIcon from "@material-ui/icons/LockOpen";
 import FaceIcon from "@material-ui/icons/Face";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login, register } from "../../actions/userAction";
+import axios from "axios";
 // import { useAlert } from "react-alert";
 
 const LoginSignUp = ({ /*history,*/ location }) => {
@@ -14,9 +15,11 @@ const LoginSignUp = ({ /*history,*/ location }) => {
   const dispatch = useDispatch();
   // const alert = useAlert();
 
-  const { error, loading, isAuthenticated } = useSelector(
+  const { loading, isAuthenticated, error } = useSelector(
     (state) => state.user
   );
+
+  console.log("Kidr ho Error jani: " + error);
 
   const loginTab = useRef(null);
   const registerTab = useRef(null);
@@ -78,6 +81,7 @@ const LoginSignUp = ({ /*history,*/ location }) => {
     : "/profile";
 
   useEffect(() => {
+    console.log("Use Effect in loginsignup page yr.....");
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
@@ -85,6 +89,17 @@ const LoginSignUp = ({ /*history,*/ location }) => {
 
     if (isAuthenticated) {
       history.push(redirect);
+
+      try {
+        const res = axios.get(`/shop/logout`);
+        if (res.status == 200) {
+          alert.success(
+            "Seller Profile Logout. Because Customer Profile Login"
+          );
+        }
+      } catch (error) {
+        alert.error(error.message);
+      }
     }
   }, [dispatch, error, alert, history, isAuthenticated, redirect]);
 
