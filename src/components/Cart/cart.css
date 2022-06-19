@@ -95,7 +95,7 @@
   border-radius: 8px;
 }
 .order-summary input[type="button"]:hover {
-  background-color: #0f5e0f;
+  background-color: #0d700d;
   border: none;
 }
 
@@ -124,7 +124,7 @@
   font-size: 2vmax;
 }
 .emptyCart > a {
-  background-color: rgb(51, 51, 51);
+  background-color: #179017;
   color: white;
   border: none;
   padding: 1vmax 3vmax;

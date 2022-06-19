@@ -117,7 +117,10 @@ const ShopProduct = ({ id, filteredData }) => {
                         <span>Add to Wishlist</span>
                       </li>
                       {/* <Link to={`/cart`}> */}
-                      <li onClick={() => addToCartHandler(prod._id, 1)}>
+                      <li
+                        disabled={prod.stock < 1 ? true : false}
+                        onClick={() => addToCartHandler(prod._id, 1)}
+                      >
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                         <span>Add to Cart</span>
                       </li>
@@ -194,7 +197,10 @@ const ShopProduct = ({ id, filteredData }) => {
                         <span>Add to Wishlist</span>
                       </li>
                       {/* <Link to={`/cart`}> */}
-                      <li onClick={() => addToCartHandler(prod._id, 1)}>
+                      <li
+                        disabled={prod.stock < 1 ? "true" : "false"}
+                        onClick={() => addToCartHandler(prod._id, 1)}
+                      >
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                         <span>Add to Cart</span>
                       </li>
