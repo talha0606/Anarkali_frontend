@@ -93,7 +93,7 @@ const UpdatePassword = ({ history }) => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
-            <input type="submit" value="Change" className="updatePasswordBtn" />
+            <input type="submit" value="Update" className="updatePasswordBtn" />
           </form>
         </div>
       </div>

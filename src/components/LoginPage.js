@@ -4,7 +4,13 @@ import logo from "../images/logo.png";
 import avatar from "../images/avatar.png";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+
+// For useContext / imports
 // import { UserContext } from "../App";
+
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../actions/userAction";
+import { useAlert } from "react-alert";
 
 //copied from LoginPage.js
 // ******************* - toggle password - ********************
@@ -18,7 +24,15 @@ function showPwd() {
 }
 
 function LoginPage() {
-  // const { state, dispatch } = useContext(UserContext);
+  const { error, loading, isAuthenticated } = useSelector(
+    (state) => state.user
+  );
+  const dispatch = useDispatch();
+  const alert = useAlert();
+
+  //For useContext | ok
+  // const { state, dispatched } = useContext(UserContext);
+
   const history = useHistory();
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -37,8 +51,16 @@ function LoginPage() {
         .post("/shop/signinin", CR)
         .then((res) => {
           localStorage.setItem("id", res.data.id);
-          // dispatch({ type: "USER", payload: true });
+          //For useContext | call useReduce file function
+          // dispatched({ type: "USER", payload: true });
           window.alert("Login Successfully!");
+          if (isAuthenticated === true) {
+            dispatch(logout());
+            alert.success(
+              "Customer Profile Logout Successfully. Because Seller Profile Login"
+            );
+          }
+
           history.push(`/seller`);
         })
         .catch((err) => {

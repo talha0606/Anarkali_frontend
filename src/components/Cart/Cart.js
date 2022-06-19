@@ -72,7 +72,7 @@ const Cart = () => {
 
   //login or shipping link
   const checkoutHandler = () => {
-    history.push("/logiinsignup?redirect=shipping");
+    history.push("/customerlogin?redirect=shipping");
   };
 
   return (

@@ -1,0 +1,8 @@
+export const LOGIN_REQUEST = "SHOP_LOGIN_REQUEST";
+export const LOGIN_SUCCESS = "SHOP_LOGIN_SUCCESS";
+export const LOGIN_FAIL = "SHOP_LOGIN_FAIL";
+
+export const LOGOUT_SUCCESS = "SHOP_LOGOUT_SUCCESS";
+export const LOGOUT_FAIL = "SHOP_LOGOUT_FAIL";
+
+export const CLEAR_ERRORS = "CLEAR_ERRORS";

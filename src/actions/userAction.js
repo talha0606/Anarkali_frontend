@@ -131,7 +131,6 @@ export const updatePassword = (passwords) => async (dispatch) => {
 
     dispatch({ type: UPDATE_PASSWORD_SUCCESS, payload: data.success });
   } catch (error) {
-    // Console.log("Error in UserAction: " + error.response.data.message);
     dispatch({
       type: UPDATE_PASSWORD_FAIL,
       payload: error.response.data.message,
