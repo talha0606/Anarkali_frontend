@@ -1,8 +1,8 @@
 import React from "react";
 import "../style/Error.css";
-function Error() {
+const Error=()=> {
   return (
-    <div className="error">
+    <div className=" container error-style">
       <h1>Oops! Page not Found</h1>
     </div>
   );

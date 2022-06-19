@@ -74,17 +74,19 @@ function App() {
   }
 
   React.useEffect(() => {
-    WebFont.load({
-      google: {
-        families: ["Roboto", "Droid Sans", "Chilanka"],
-      },
-    });
-
     store.dispatch(loadUser());
 
     getStripeApiKey();
   }, []);
 
+  React.useEffect(() => {
+    WebFont.load({
+      google: {
+        families: ["Roboto", "Droid Sans", "Chilanka"],
+      },
+    });
+  },[]);
+  
   return (
     <Router>
       {/* <UserContext.Provider value={{ state, dispatch }}> */}
