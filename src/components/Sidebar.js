@@ -13,9 +13,22 @@ import {
   BiCartAlt,
   BiLogOut,
 } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+
+// import { shoplogout } from "../actions/shopAction";
+// import { useDispatch, useSelector } from "react-redux";
+// import { useAlert } from "react-alert";
 
 const Sidebar = () => {
+  // const history = useHistory();
+  // const dispatch = useDispatch();
+  // const alert = useAlert();
+
+  // const logouttheshop = () => {
+  //   dispatch(shoplogout());
+  //   // history.push(`/login`);
+  //   alert.success("Seller Logout Successfully");
+  // };
   return (
     <>
       <div className="sidebar">
@@ -117,7 +130,7 @@ const Sidebar = () => {
           </li>
 
           <li className="profile logout-style">
-            <Link to="/" className="link-light">
+            <Link to="/login" className="link-light">
               <BiLogOut id="log_out" />
             </Link>
             <span className="tooltip ">Logout</span>

@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../actions/userAction";
 import { useAlert } from "react-alert";
+// import { clearErrors, shoplogin } from "../../actions/shopAction";
 
 //copied from LoginPage.js
 // ******************* - toggle password - ********************
@@ -27,6 +28,13 @@ function LoginPage() {
   const { error, loading, isAuthenticated } = useSelector(
     (state) => state.user
   );
+
+  // const {
+  //   error: shoperror,
+  //   loading: shoploading,
+  //   isAuthenticated: shopisAuthenticated,
+  // } = useSelector((state) => state.shop);
+
   const dispatch = useDispatch();
   const alert = useAlert();
 
@@ -45,7 +53,7 @@ function LoginPage() {
   const loginSeller = async (e) => {
     e.preventDefault();
     console.log("Email: " + email);
-
+    // dispatch(shoplogin(email, password));
     try {
       axios
         .post("/shop/signinin", CR)
@@ -73,6 +81,7 @@ function LoginPage() {
     } catch (err) {
       console.log("catch: " + err);
     }
+
     // history.push({
     //   pathname: "/seller",
     //   search: "?query=abc",
@@ -85,6 +94,18 @@ function LoginPage() {
     // });
     // return false;
   };
+
+  // useEffect(() => {
+  //   console.log("Use Effect in login page yr.....");
+  //   if (shoperror) {
+  //     alert.error(shoperror);
+  //     dispatch(clearErrors());
+  //   }
+
+  //   if (shopisAuthenticated) {
+  //     history.push("/seller");
+  //   }
+  // }, [dispatch, shoperror, alert, history, shopisAuthenticated]);
 
   return (
     <>

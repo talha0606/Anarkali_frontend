@@ -20,8 +20,8 @@ export const shoplogin = (email, password) => async (dispatch) => {
       { email, password },
       config
     );
-
-    dispatch({ type: SHOP_LOGIN_SUCCESS, payload: data.user });
+    dispatch({ type: SHOP_LOGIN_SUCCESS, payload: data.shop });
+    // console.log("In Shop Action: " + data.shop);
   } catch (error) {
     dispatch({ type: SHOP_LOGIN_FAIL, payload: error.response.data.message });
   }

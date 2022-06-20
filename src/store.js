@@ -22,7 +22,10 @@ import {
   orderReducer,
 } from "./reducers/orderReducer";
 
+import { shopReducer } from "./reducers/shopReducer";
+
 const reducer = combineReducers({
+  shop: shopReducer,
   user: userReducer,
   profile: profileReducer,
   forgotPassword: forgotPasswordReducer,
