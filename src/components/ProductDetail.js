@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from "react";
 import product from "../images/product.png";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import avatar from "../images/avatar.png";
 import ReviewCard from "./ReviewCard";
 import "../style/productDetail.css";
@@ -24,9 +24,14 @@ import {
 function ProductDetail() {
   const dispatch = useDispatch();
   const alert = useAlert();
+  const history = useHistory();
 
   const { success, error: reviewError } = useSelector(
     (state) => state.newReview
+  );
+
+  const { error, loading, isAuthenticated } = useSelector(
+    (state) => state.user
   );
 
   const { prodId } = useParams();
@@ -92,7 +97,11 @@ function ProductDetail() {
   };
 
   const submitReviewToggle = () => {
+    if(isAuthenticated === true)
     open ? setOpen(false) : setOpen(true);
+    else
+    history.push("/customerlogin");
+    alert.success("Please login first to give review");
   };
 
   const reviewSubmitHandler = () => {
@@ -264,7 +273,7 @@ function ProductDetail() {
         </div>
       </div>
       <h3 className="reviewsHeading">REVIEWS</h3>
-
+      
       <Dialog
         aria-labelledby="simple-dialog-title"
         open={open}

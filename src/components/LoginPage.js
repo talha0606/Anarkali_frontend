@@ -27,6 +27,7 @@ function LoginPage() {
   const { error, loading, isAuthenticated } = useSelector(
     (state) => state.user
   );
+  
   const dispatch = useDispatch();
   const alert = useAlert();
 
