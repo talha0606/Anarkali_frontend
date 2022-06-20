@@ -170,7 +170,13 @@
 
 .fa-heart:before {
     color:crimson;
+    /* color: darkgray; */
+
 }
+.fa-heart:hover {
+    color:white;
+}
+
 .fa-chevron-circle-right:before {
     color: darkgray;
 }

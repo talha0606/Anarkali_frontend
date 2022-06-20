@@ -57,8 +57,9 @@ const Checkboxes = (props) => {
   };
 
   return (
-    <div class="rounded container p-3 mb-5" className="category-checkbox">
-      {/* <div class="input-group">
+    
+      <div className="category-checkbox rounded mb-4">
+        {/* <div className="input-group">
         <form>
           <input
               className="form-control me-2 home-bg ms-3"
@@ -66,33 +67,33 @@ const Checkboxes = (props) => {
               placeholder="Search"
               aria-label="Search"
             />
-          {/* <button type="button" class="btn btn-primary" value="Search" name="Search"> */}
-      {/* <AiOutlineSearch/> */}
-      {/* </button> 
+          {/* <button type="button" className="btn btn-primary" value="Search" name="Search"> */}
+        {/* <AiOutlineSearch/> */}
+        {/* </button> 
         </form>
       </div>
       */}
-      <div>
-        <h6 className="checkbox-heading">Product Categories</h6>
-        {category.map((value, index) => (
-          <React.Fragment key={index}>
-            <div class="form-check">
-              <Checkbox
-                onChange={() => handleToggle(value.name)}
-                type="checkbox"
-                id="checkedBox"
-                // className="checkedBox"
-                checked={Checked.indexOf(value.name) === -1 ? false : true}
-                className="Check"
-              />
-              <label htmlFor="checkedBox" className="showCheck">
-                {value.name}
-              </label>
-            </div>
-          </React.Fragment>
-        ))}
+        <div>
+          <h6 className="checkbox-heading">Product Categories</h6>
+          {category.map((value, index) => (
+            <React.Fragment key={index}>
+              <div className="form-check">
+                <Checkbox
+                  onChange={() => handleToggle(value.name)}
+                  type="checkbox"
+                  id="checkedBox"
+                  // className="checkedBox"
+                  checked={Checked.indexOf(value.name) === -1 ? false : true}
+                  className="Check"
+                />
+                <label htmlFor="checkedBox" className="showCheck">
+                  {value.name}
+                </label>
+              </div>
+            </React.Fragment>
+          ))}
+        </div>
       </div>
-    </div>
   );
 };
 

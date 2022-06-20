@@ -78,12 +78,12 @@ const Sidebar = () => {
             </Link>
             <span className="tooltip">Cart</span>
           </li>
-          <li>
+          {/* <li>
             <Link to="/" className="link-light">
               <AiOutlineHeart />
             </Link>
             <span className="tooltip">Wished</span>
-          </li>
+          </li> */}
           {/* <li>
             <Link to="/" className="link-light">
               <BiCalculator />
@@ -96,12 +96,12 @@ const Sidebar = () => {
             </Link>
             <span className="tooltip">Settings</span>
           </li> */}
-          <li>
+          {/* <li>
             <Link to="/" className="link-light">
               <BiHelpCircle />
             </Link>
             <span className="tooltip">Help</span>
-          </li>
+          </li> */}
           {/* these two are used just to make a gap/margin for "login" */}
           <li>
             <Link to="/" className="link-light">

@@ -110,12 +110,12 @@ const ShopProduct = ({ id, filteredData }) => {
                     />
                     {/* </Link> */}
                     <ul className="action">
-                      <li>
+                      {/* <li>
                         <i className="fa fa-heart" aria-hidden="true">
                           {" "}
                         </i>
                         <span>Add to Wishlist</span>
-                      </li>
+                      </li> */}
                       {/* <Link to={`/cart`}> */}
                       <li
                         disabled={prod.stock < 1 ? true : false}
@@ -192,12 +192,12 @@ const ShopProduct = ({ id, filteredData }) => {
                     />
                     {/* </Link> */}
                     <ul className="action">
-                      <li>
+                      {/* <li>
                         <i className="fa fa-heart" aria-hidden="true">
                           {" "}
                         </i>
                         <span>Add to Wishlist</span>
-                      </li>
+                      </li> */}
                       {/* <Link to={`/cart`}> */}
                       <li
                         disabled={prod.stock < 1 ? "true" : "false"}
@@ -210,7 +210,10 @@ const ShopProduct = ({ id, filteredData }) => {
                         <span>Add to Cart</span>
                       </li>
                       {/* </Link> */}
-                      <Link to={`/productDetail/${prod._id}`}>
+                      <Link
+                        to={`/productDetail/${prod._id}`}
+                        className="all-shops-view-Details"
+                      >
                         <li>
                           <i className="fa fa-eye" aria-hidden="true"></i>
                           <span>View Details</span>

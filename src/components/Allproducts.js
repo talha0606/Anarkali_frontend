@@ -47,20 +47,20 @@ import { useSelector, useDispatch } from "react-redux";
 //     {/* <Map ></Map> */}
 //   </div>
 
-//     <div class="social-buttons mt-5">
-//             <button class="neo-button">
+//     <div className="social-buttons mt-5">
+//             <button className="neo-button">
 //               <FaFacebookF />
 //             </button>
-//             <button class="neo-button">
+//             <button className="neo-button">
 //               <SiGmail />
 //             </button>
-//             <button class="neo-button">
+//             <button className="neo-button">
 //               <FaYoutube />
 //             </button>
-//             <button class="neo-button">
+//             <button className="neo-button">
 //               <FaLinkedin />
 //             </button>
-//             <button class="neo-button">
+//             <button className="neo-button">
 //               <FaTwitter />
 //             </button>
 //           </div>
@@ -149,10 +149,10 @@ const Allproducts = ({ filteredProducts }) => {
   if (filteredProducts == null) {
     return (
       <>
-        <div class="container">
-          <div class="row no-gutters">
+        <div className="container">
+          <div className="row no-gutters">
             {myproducts?.map((prod) => (
-              <div class="col-sm-6 col-md-4 col-lg-3 ">
+              <div className="col-sm-6 col-md-4 col-lg-3 ">
                 <div className="card">
                   {/* <a
                   onClick={() => {
@@ -173,29 +173,29 @@ const Allproducts = ({ filteredProducts }) => {
                   </Link>
                   {/* </a> */}
                   {/* {console.log("id change" + id)}.... */}
-                  <div class="card-body">
-                    <div class="grid-container">
-                      <div class="item1">
-                        <h6 class="card-title nopadding">sName</h6>
+                  <div className="card-body">
+                    <div className="grid-container">
+                      <div className="item1">
+                        <h6 className="card-title nopadding">sName</h6>
                       </div>
-                      <div class="item2 .bg-success.bg-gradient">
-                        <p class="card-text bg-success">category</p>
+                      <div className="item2 .bg-success.bg-gradient">
+                        <p className="card-text bg-success">category</p>
                       </div>
-                      <div class="item3">Email</div>
-                      <div class="item4">Rating</div>
-                      <div class="item5">Button</div>
+                      <div className="item3">Email</div>
+                      <div className="item4">Rating</div>
+                      <div className="item5">Button</div>
                     </div>
-                    <h6 class="card-title nopadding">{prod.pName} 12</h6>
-                    <div class="clearfix mb-3">
-                      <span class="float-start badge rounded  text-success p-0">
+                    <h6 className="card-title nopadding">{prod.pName} 12</h6>
+                    <div className="clearfix mb-3">
+                      <span className="float-start badge rounded  text-success p-0">
                         Rs.{prod.price}
                       </span>
-                      <div class="rating">
-                        {/* <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star grey" aria-hidden="true"></i> */}
+                      <div className="rating">
+                        {/* <i className="fa fa-star" aria-hidden="true"></i>
+                        <i className="fa fa-star" aria-hidden="true"></i>
+                        <i className="fa fa-star" aria-hidden="true"></i>
+                        <i className="fa fa-star" aria-hidden="true"></i>
+                        <i className="fa fa-star grey" aria-hidden="true"></i> */}
                         <div>
                           <Rating
                             size="medium"
@@ -212,17 +212,17 @@ const Allproducts = ({ filteredProducts }) => {
                         </div>
                       </div>
                       {/* 
-                    <span class="float-end">
+                    <span className="float-end">
                       <a
                         href="#"
-                        class="small text-muted text-uppercase aff-link"
+                        className="small text-muted text-uppercase aff-link"
                       > 
                         rating
                       </a>
                     </span> */}
                     </div>
-                    {/* <p class="card-text shop-email fw-bold">{shop.email}</p> ....*/}
-                    {/* <div class="phone-number lead">0323-2323454</div>...... */}
+                    {/* <p className="card-text shop-email fw-bold">{shop.email}</p> ....*/}
+                    {/* <div className="phone-number lead">0323-2323454</div>...... */}
                     {/* <Button */}
                     {/* <Link to={`/map/${shop._id}`}>...... */}
                     {/* // to={`/`} */}
@@ -248,7 +248,7 @@ const Allproducts = ({ filteredProducts }) => {
             ))}
           </div>
 
-          <div class="col col-lg-2 detail" id="hideme">
+          <div className="col col-lg-2 detail" id="hideme">
             {/* {id && <DetailproductPage id={id} setID={setID} />} */}
           </div>
         </div>
@@ -257,12 +257,12 @@ const Allproducts = ({ filteredProducts }) => {
   } else {
     return (
       <>
-        <div class="container">
-          <div class="row no-gutters">
+        <div className="container">
+          <div className="row no-gutters">
             {filteredProducts?.map((prod) => (
-              <div class="col-3 col-* ">
+              <div className="col-3 col-* ">
                 <div className="card">
-                  <div class="imgBx">
+                  <div className="imgBx">
                     {/* <Link to={`/productDetail/${prod._id}`}> */}
                     <img
                       // src={`/uploads/${shop.shopImage}`}
@@ -273,13 +273,16 @@ const Allproducts = ({ filteredProducts }) => {
                       //   }}
                     />
                     {/* </Link> */}
-                    <ul class="action">
-                      <li>
-                        <i class="fa fa-heart" aria-hidden="true">
-                          {" "}
-                        </i>
-                        <span>Add to Wishlist</span>
-                      </li>
+                    <ul className="action">
+                      {/* <div className="all-shops-wish">
+                        <li>
+                          <i
+                            className="fa fa-heart"
+                            aria-hidden="true"
+                          ></i>
+                          <span>Add to Wishlist</span>
+                        </li>
+                      </div> */}
                       {/* <Button
                         // disabled={product.Stock < 1 ? true : false}
                         onClick={addToCartHandler}
@@ -288,31 +291,37 @@ const Allproducts = ({ filteredProducts }) => {
                         disabled={prod.stock < 1 ? true : false}
                         onClick={() => addToCartHandler(prod._id, 1)}
                       >
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <i
+                          className="fa fa-shopping-cart"
+                          aria-hidden="true"
+                        ></i>
                         <span>Add To Cart</span>
                       </li>
 
                       {/* </Button> */}
-                      <Link to={`/productDetail/${prod._id}`}>
+                      <Link
+                        to={`/productDetail/${prod._id}`}
+                        className="all-shops-view-Details"
+                      >
                         <li>
-                          <i class="fa fa-eye" aria-hidden="true"></i>
+                          <i className="fa fa-eye " aria-hidden="true"></i>
                           <span>View Details</span>
                         </li>
                       </Link>
                     </ul>
                   </div>
-                  <div class="content">
-                    <div class="productName">
+                  <div className="content">
+                    <div className="productName">
                       <h3>{prod.pName}</h3>
                     </div>
-                    <div class="price_rating">
+                    <div className="price_rating">
                       <h3>Rs. {prod.price}</h3>
-                      <div class="rating">
-                        {/* <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star grey" aria-hidden="true"></i> */}
+                      <div className="rating">
+                        {/* <i className="fa fa-star" aria-hidden="true"></i>
+                        <i className="fa fa-star" aria-hidden="true"></i>
+                        <i className="fa fa-star" aria-hidden="true"></i>
+                        <i className="fa fa-star" aria-hidden="true"></i>
+                        <i className="fa fa-star grey" aria-hidden="true"></i> */}
                         <div>
                           <Rating
                             size="medium"

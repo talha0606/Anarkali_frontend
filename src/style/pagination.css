@@ -27,9 +27,12 @@
 }
 .page-link {
   text-decoration: none;
-  font: 300 0.7vmax "Roboto";
+  /* font: 300 0.7vmax "Roboto"; */
+  font-size: 13px;
+  font-weight: 500;
   color: rgb(80, 80, 80);
   transition: all 0.3s;
+  text-decoration: none;
 }
 
 .page-item:hover {
