@@ -223,12 +223,14 @@ function ShopDetail() {
                     <AccordionDetails>
                       <Typography>{shopaddress}</Typography>
                       <Typography>
-                        <img
-                          src={map}
-                          className=" mx-auto d-block img-thumbnail avatar map-img"
-                          id="myImg"
-                          alt="Shop avatar"
-                        />
+                        <Link to={`../map/${shopId}`}>
+                          <img
+                            src={map}
+                            className=" mx-auto d-block img-thumbnail avatar map-img"
+                            id="myImg"
+                            alt="Shop avatar"
+                          />
+                        </Link>
                       </Typography>
                     </AccordionDetails>
                   </Accordion>

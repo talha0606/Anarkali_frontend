@@ -146,6 +146,7 @@ const LoginSignUp = ({ /*history,*/ location }) => {
                 required
                 value={loginEmail}
                 onChange={(e) => setLoginEmail(e.target.value)}
+                autoComplete="off"
               />
             </div>
             <div className="loginPassword">
@@ -156,9 +157,10 @@ const LoginSignUp = ({ /*history,*/ location }) => {
                 required
                 value={loginPassword}
                 onChange={(e) => setLoginPassword(e.target.value)}
+                autoComplete="off"
               />
             </div>
-            <Link to="/password/forgot">Forget Password ?</Link>
+            {/* <Link to="/password/forgot">Forget Password ?</Link> */}
             <input type="submit" value="Login" className="loginBtn" />
           </form>
           <form
@@ -176,6 +178,7 @@ const LoginSignUp = ({ /*history,*/ location }) => {
                 name="name"
                 value={name}
                 onChange={registerDataChange}
+                autoComplete="off"
               />
             </div>
             <div className="signUpEmail">
@@ -187,6 +190,7 @@ const LoginSignUp = ({ /*history,*/ location }) => {
                 name="email"
                 value={email}
                 onChange={registerDataChange}
+                autoComplete="off"
               />
             </div>
             <div className="signUpPassword">
@@ -198,6 +202,7 @@ const LoginSignUp = ({ /*history,*/ location }) => {
                 name="password"
                 value={password}
                 onChange={registerDataChange}
+                autoComplete="off"
               />
             </div>
 
@@ -209,6 +214,7 @@ const LoginSignUp = ({ /*history,*/ location }) => {
                 id="image"
                 accept="image/*"
                 onChange={registerDataChange}
+                autoComplete="off"
               />
             </div>
             <input type="submit" value="Register" className="signUpBtn" />

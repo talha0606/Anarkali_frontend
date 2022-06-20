@@ -110,7 +110,7 @@
 }
 
 .container .card .content {
-  padding: 10px;
+  padding: 10px 10px 5px 10px;
 }
 
 .container .card .content .productName {
@@ -132,7 +132,7 @@
 }
 
 .container .card .content .price_rating h3 {
-  font-size: 17px;
+  font-size: 18px;
   color: #007940;
   font-weight: 500;
 }
@@ -147,6 +147,6 @@
 }
 
 .PrivateValueLabel-circle-19 {
-  width: 35px !important;
-  height: 35px !important;
+  width: 30px !important;
+  height: 30px !important;
 }

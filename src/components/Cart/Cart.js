@@ -125,7 +125,7 @@ const Cart = () => {
                                   <li class="list-group-item border-0">
                                     <b>Quantity:</b>
                                   </li>
-                                  <li class="list-group-item border-0">
+                                  <li class="list-group-item border-0 p-2">
                                     <input
                                       type="button"
                                       value="-"
@@ -143,7 +143,7 @@ const Cart = () => {
                                       type="number"
                                       name="quantity"
                                       value={item.quantity}
-                                      class="quantity-field border-0 text-center w-25"
+                                      class="quantity-field border-0 text-center w-25 P-2"
                                       readOnly
                                     />
                                     <input

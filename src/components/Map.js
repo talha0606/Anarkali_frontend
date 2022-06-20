@@ -100,7 +100,7 @@ const Map = () => {
               {/* image-end */}
 
               {/* shop name */}
-              <h1>{shopName}</h1>
+              <div className="map-shop-name">{shopName}</div>
               <div className="map-form-data">
                 <div className="map-phone-no">
                   <div className="map-phone-no-icon">

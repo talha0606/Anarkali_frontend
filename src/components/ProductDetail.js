@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from "react";
 import product from "../images/product.png";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import avatar from "../images/avatar.png";
 import ReviewCard from "./ReviewCard";
 import "../style/productDetail.css";
@@ -24,9 +24,14 @@ import {
 function ProductDetail() {
   const dispatch = useDispatch();
   const alert = useAlert();
+  const history = useHistory();
 
   const { success, error: reviewError } = useSelector(
     (state) => state.newReview
+  );
+
+  const { error, loading, isAuthenticated } = useSelector(
+    (state) => state.user
   );
 
   const { prodId } = useParams();
@@ -92,7 +97,11 @@ function ProductDetail() {
   };
 
   const submitReviewToggle = () => {
+    if(isAuthenticated === true)
     open ? setOpen(false) : setOpen(true);
+    else
+    history.push("/customerlogin");
+    alert.success("Please login first to give review");
   };
 
   const reviewSubmitHandler = () => {
@@ -132,28 +141,28 @@ function ProductDetail() {
     <>
       <div className="container">
         <div className="row rowProduct h-25 ">
-          <div class="card">
-            <div class="row no-gutters h-25">
-              <div class="col-md-4">
+          <div className="card product-detail-card">
+            <div className="row no-gutters h-25">
+              <div className="col-md-4">
                 <img
                   src={prodImage}
-                  class="card-img prodImg"
+                  className="card-img prodImg"
                   alt="Product Image"
                 />
               </div>
-              <div class="col-md-8 h-25">
-                <div class="card-body">
-                  <div class="card-img-overlay d-flex justify-content-end">
-                    <a href="#" class="card-link text-danger like">
-                      <i class="fas fa-heart"></i>
+              <div className="col-md-8 h-25">
+                <div className="card-body">
+                  {/* <div className="card-img-overlay d-flex justify-content-end">
+                    <a href="#" className="card-link text-danger like">
+                      <i className="fas fa-heart"></i>
                     </a>
-                  </div>
-                  <h3 class="card-title">{prodName}</h3>
-                  <p class="card-text">{prodDescription}</p>
+                  </div> */}
+                  <h3 className="card-title">{prodName}</h3>
+                  <p className="card-text">{prodDescription}</p>
                   {/* <div>
                                     <p>Reviews</p> */}
 
-                  {/* <div class="rate">
+                  {/* <div className="rate">
 
                                     <input type="radio" id="star5" name="rate" value="5" />
                                     <label for="star5" title="text">5 stars</label>
@@ -166,72 +175,69 @@ function ProductDetail() {
                                     <input type="radio" id="star1" name="rate" value="1" />
                                     <label for="star1" title="text">1 star</label>
                                 </div> */}
-                  {/* <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span> */}
+                  {/* <span className="fa fa-star checked"></span>
+                  <span className="fa fa-star checked"></span>
+                  <span className="fa fa-star checked"></span> */}
                   <div>
                     <Rating {...options} />
-                    <span className="rating_span">
-                      {" "}
-                      ({numOfReviews} Reviews)
-                    </span>
+                    <div className="rating_span">({numOfReviews} Reviews)</div>
                   </div>
 
                   {/* </div> */}
-                  <div class="mb-3">
-                    <span class="float-end">
+                  {/* <div className="mb-3">
+                    <span className="float-end">
                       <a
                         href="#reviews_card"
-                        class="small text-muted text-uppercase aff-link"
+                        className="small text-muted text-uppercase aff-link"
                       >
                         Reviews
                       </a>
                     </span>
-                  </div>
-                  <br />
-                  <p class="card-text float-left">
+                  </div> */}
+                  {/* <br /> */}
+                  <p className="card-text brand">
                     <b>Brand: </b>
-                    <small class="text-muted">{prodBrand}</small>
+                    <small className="text-muted">{prodBrand}</small>
                   </p>
-                  <p class="card-text float-right">
+                  <div className="card-text stock">
                     <b>Stock: </b>
-                    <small class="text-muted">{prodStock}</small>
-                  </p>
+                    <small className="text-muted">{prodStock}</small>
+                  </div>
                   {/* <div>
                     <input type="button" onClick={decreaseQuantity} value="-" />
                     <input readOnly type="number" value={quantity} />
                     <input type="button" onClick={increaseQuantity} value="+" />
                   </div> */}
-                  <ul class="list-group list-group-vertical">
-                    <li class="list-group-item border-0 p-0 ">
+                  <ul className="p-0 mt-2">
+                    <li className="list-group-item border-0 p-0 ">
                       <input
                         type="button"
                         value="-"
-                        className="button-minus border rounded-circle  icon-shape icon-sm mx-1 "
+                        className="button-minus border rounded-circle  icon-shape icon-sm mx-1 p-0 m-0"
                         data-field="quantity"
                         onClick={decreaseQuantity}
                       />
-                      <div className="order-quantity">
+                      <div className="order-quantity product-detail-d-quantity">
                         <input
                           type="number"
                           name="quantity"
                           value={quantity}
-                          className="quantity-field border-0 text-center w-25 text-align-center"
+                          className="quantity-field border-0 text-center  product-detail-d-quantity "
                           readOnly
                         />
                       </div>
                       <input
                         type="button"
                         value="+"
-                        className="button-plus border rounded-circle icon-shape icon-sm lh-0"
+                        className="button-plus border rounded-circle icon-shape icon-sm lh-0 product-detail-d-quantity"
                         data-field="quantity"
                         onClick={increaseQuantity}
                       />
                     </li>
                   </ul>
-                  {/* <div class="options d-flex flex-fill">
+                  {/* <div className="options d-flex flex-fill">
                     <select
-                      class="form-select w-25"
+                      className="form-select w-25"
                       aria-label="Default select example"
                     >
                       <option>Size </option>
@@ -241,22 +247,25 @@ function ProductDetail() {
                     </select>
                   </div> */}
 
-                  <div class="buy d-flex justify-content-between align-items-center">
-                    <div class="price text-success">
-                      <h3 class="mt-4">Rs. {prodPrice}</h3>
+                  <div className="buy d-flex justify-content-between align-items-center">
+                    <div className="price text-success">
+                      <h3>Rs. {prodPrice}</h3>
                     </div>
-                    <Button
-                      disabled={prodStock < 1 ? true : false}
-                      onClick={addToCartHandler}
-                    >
-                      <a href="#" class="btn btn-danger mt-3">
-                        <i class="fas fa-shopping-cart"></i> Add to Cart
-                      </a>
-                    </Button>
+                    <div className=" d-flex justify-content-end">
+                      <Button onClick={submitReviewToggle}>
+                        <div className="btn btn-sm btn-success">Submit Review</div>
+                      </Button>
+                      <Button
+                        disabled={prodStock < 1 ? true : false}
+                        onClick={addToCartHandler}
+                        className="p-0"
+                      >
+                        <a href="#" className="btn btn-sm btn-danger m-0">
+                          <i className="fas fa-shopping-cart"></i> Add to Cart
+                        </a>
+                      </Button>
+                    </div>
                   </div>
-                  <Button onClick={submitReviewToggle} className="submitReview">
-                    Submit Review
-                  </Button>
                 </div>
               </div>
             </div>
@@ -264,7 +273,7 @@ function ProductDetail() {
         </div>
       </div>
       <h3 className="reviewsHeading">REVIEWS</h3>
-
+      
       <Dialog
         aria-labelledby="simple-dialog-title"
         open={open}

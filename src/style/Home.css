@@ -497,9 +497,9 @@
 .shop-description-shop-details {
   text-align: center;
   padding-bottom: 5px;
-  font-weight: bold;
-  font-size: 15px;
-  color: #4ec850;
+  font-weight: 500;
+  font-size: 20px;
+  color: #006102;
 }
 
 .map-img {

@@ -72,3 +72,21 @@ padding: 0.5rem !important;
   font-weight: 400 !important;
   /* margin-top: 12px; */
 }
+
+.all-shops-view-Details{
+  text-decoration: none;
+  color:black;
+}
+
+.all-shops-view-Details:hover{
+  color:white !important;
+}
+
+
+.all-shops-wish{
+  color:white !important;
+}
+
+.all-shops-wish:hover{
+  color:white !important;
+}

@@ -21,8 +21,10 @@
 
 .profileContainer > div:first-child > h1 {
   color: rgba(0, 0, 0, 0.555);
-  font: 500 2.2vmax "Roboto";
-  transform: translateX(-10vmax) translateY(-2vmax);
+  font-size: 40px;
+  font-weight: 600;
+  /* font: 500 2.2vmax "Roboto"; */
+  /* transform: translateX(-10vmax) translateY(-2vmax); */
 }
 
 .profileContainer > div:first-child > img {
@@ -37,19 +39,20 @@
 
 .profileContainer > div:first-child > a {
   border: none;
-  background-color: tomato;
+  background-color: #179017;
   font: 400 1vmax "Roboto";
   color: white;
   text-decoration: none;
-  padding: 0.5vmax;
-  width: 30%;
-  margin: 4vmax;
+  padding: 8px 16px;
+  /* width: 20%; */
+  margin: 10px;
   text-align: center;
   transition: all 0.5s;
+  border-radius: 4px;
 }
 
 .profileContainer > div:first-child > a:hover {
-  background-color: rgb(204, 78, 56);
+  background-color: rgb(32, 167, 32);
 }
 
 .profileContainer > div:last-child {
@@ -82,7 +85,7 @@
   font: 400 1vmax "Roboto";
   color: white;
   text-decoration: none;
-  padding: 0.5vmax;
+  padding: 8px 16px;
   text-align: center;
   transition: all 0.5s;
   margin: 1vmax 0;
@@ -91,7 +94,14 @@
 .profileContainer > div:last-child > div:last-child > a:hover {
   background-color: rgb(31, 31, 31);
 }
+/* .edit-profile-btn{
+  padding: 4px 12px;
+  border-radius: 4px;
+  background-color: #179017;
+  color: white;
+  text-decoration: none;
 
+} */
 @media screen and (max-width: 600px) {
   .profileContainer {
     flex-direction: column;

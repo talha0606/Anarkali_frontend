@@ -129,6 +129,12 @@ div .search-portion {
   resize: none;
 }
 
+.login-form textarea:focus {
+  border: 1.5px solid #339933;
+  box-shadow: 0 0 3px rgba(0, 255, 0, 0.3), 0 0 5px rgba(0, 255, 0, 0.2),
+    0 0 7px rgba(0, 255, 0, 0.1), 0 2px 0 white;
+}
+
 .login-form input[type="password"] {
   color: rgb(32, 167, 32);
 }
@@ -960,7 +966,11 @@ input.check {
   color: #abb0b8;
 }
 .carousel .wish-icon .fa-heart {
-  color: #ff6161;
+  color: #ff6161 !important;
+}
+
+.fa-heart:hover {
+  color: white !important;
 }
 .star-rating li {
   padding: 0;

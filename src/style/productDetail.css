@@ -12,7 +12,7 @@
 }
 .submitReview:hover {
   background-color: rgb(197, 68, 45);
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
 }
 
 .submitDialog {
@@ -25,8 +25,14 @@
   outline: none;
   padding: 1rem;
   font: 300 1rem "Roboto";
+  resize:none;
 }
 
+.submitDialogTextArea:focus {
+  border: 1.5px solid #339933;
+  box-shadow: 0 0 3px rgba(0, 255, 0, 0.3), 0 0 5px rgba(0, 255, 0, 0.2),
+    0 0 7px rgba(0, 255, 0, 0.1), 0 2px 0 white;
+}
 .reviewsHeading {
   color: #000000be;
   font: 500 1.4vmax "Roboto";
@@ -35,35 +41,46 @@
   padding: 1vmax;
   width: 20vmax;
   margin: auto;
-  margin-bottom: 4vmax;
+  margin-bottom: 2vmax;
 }
 .reviews {
   display: flex;
   overflow: auto;
+  margin-left: 50px;
+  /* margin-bottom: 40px; */
+  /* overflow: hidden; */
 }
 
 .reviewCard {
   flex: none;
 
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.226);
+  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.226); */
   border: 1px solid rgba(56, 56, 56, 0.116);
   width: 30vmax;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 1vmax;
-  padding: 3vmax;
+  /* padding: 3vmax; */
+  padding: 20px ;
+  box-shadow: 0px 1px 5px 2px rgb(223, 223, 223);
+
+
 }
 .reviewCard > img {
   width: 5vmax;
 }
 .reviewCard > p {
   color: rgba(0, 0, 0, 0.836);
-  font: 600 0.9vmax "Roboto";
+  /* font: 600 0.9vmax "Roboto"; */
+  font-size: 15px;
+  font-weight: 600;
 }
 .reviewCardComment {
-  color: rgba(0, 0, 0, 0.445);
-  font: 300 0.8vmax cursive;
+  color: rgba(0, 0, 0, 0.59);
+  /* font: 300 0.8vmax cursive; */
+  font-size: 13px;
+  padding: 10px;
 }
 
 .noReviews {
@@ -72,6 +89,18 @@
   color: rgba(0, 0, 0, 0.548);
 }
 
+/* .card-text{
+  font-size: 15px;
+} */
+
+.brand{
+  font-size: 16px !important;
+  margin-top: 10px !important;
+}
+
+.stock{
+  font-size: 16px !important;
+}
 @media screen and (max-width: 600px) {
   .ProductDetails {
     flex-direction: column;
@@ -164,4 +193,17 @@
   .reviewCardComment {
     font: 300 5vw cursive;
   }
+}
+.product-detail-d-quantity{
+  display: inline-block !important;
+}
+
+.quantity-field{
+  width: 33px;
+  text-align: center !important;
+  /* padding: 5px; */
+}
+
+.product-detail-card:hover{
+  transform: scale(1) !important;
 }
